@@ -25,6 +25,8 @@ msgstr ""
 msgid "Home"
 msgstr "Startseite"
 
+
+
 #: ../view/layout/layout.phtml:50
 msgid "All rights reserved."
 msgstr "Alle Rechte vorbehalten."
