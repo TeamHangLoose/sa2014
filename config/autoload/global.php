@@ -12,5 +12,7 @@
  */
 
 return array(
-    // ...
+    'doctrine' => array(
+        'connection' => include __DIR__ . '/doctrineconnection.local.php',
+    )
 );
