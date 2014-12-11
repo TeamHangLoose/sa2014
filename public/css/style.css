@@ -1,80 +1,55 @@
 body {
-    padding-top: 60px;
+    padding-top: 80px;
     padding-bottom: 40px;
 }
 
 .navbar-right button{
-    margin-right: 15px;
-}
-//Button Custom for all Buttons which are custom
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active,
-.btn-custom.active,
-.btn-custom.disabled,
-
-
-//Button Register color and more
-.btn-custom-register.active {
-  color: rgba(255, 255, 255, 0.75);
-}
-.btn-custom-register {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #b038e6;
-  background-image: -moz-linear-gradient(top, #a438e6, #c138e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#a438e6), to(#c138e6));
-  background-image: -webkit-linear-gradient(top, #a438e6, #c138e6);
-  background-image: -o-linear-gradient(top, #a438e6, #c138e6);
-  background-image: linear-gradient(to bottom, #a438e6, #c138e6);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa438e6', endColorstr='#ffc138e6', GradientType=0);
-  border-color: #c138e6 #c138e6 #9817ba;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #c138e6;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-}
-.btn-custom-register[disabled] {
-  color: #ffffff;
-  background-color: #c138e6;
-  *background-color: #ba21e3;
-}
-.btn-custom-register:active,
-.btn-custom-register.active {
-  background-color: #aa1ad1 ;
+    margin-left: 15px;
+    margin-right: 5px;
 }
 
+.btn-success {
+  background-color: #04B431;
+  background-image: -moz-linear-gradient(top, #70d900, #04B431);
+  background-image: -ms-linear-gradient(top, #70d900, #04B431);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#04B431));
+  background-image: -webkit-linear-gradient(top, #70d900, #04B431);
+  background-image: -o-linear-gradient(top, #70d900, #04B431);
+  background-image: linear-gradient(top, #70d900, #04B431);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#04B431', GradientType=0);
+}
 
-//Button Login color and more 
-.btn-custom-login.active {
-  color: rgba(255, 255, 255, 0.75);
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #04B431;
 }
-.btn-custom-login {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #11a7e8;
-  background-image: -moz-linear-gradient(top, #11b5e8, #1191e8);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#11b5e8), to(#1191e8));
-  background-image: -webkit-linear-gradient(top, #11b5e8, #1191e8);
-  background-image: -o-linear-gradient(top, #11b5e8, #1191e8);
-  background-image: linear-gradient(to bottom, #11b5e8, #1191e8);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff11b5e8', endColorstr='#ff1191e8', GradientType=0);
-  border-color: #1191e8 #1191e8 #0c65a1;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #1191e8;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+.btn-success:active, .btn-success.active {
+  background-color: #04B431;
 }
-.btn-custom-login[disabled] {
-  color: #ffffff;
-  background-color: #1191e8;
-  *background-color: #0f82d0;
+/**/
+.btn-info {
+  background-color: #2E64FE;
+  background-image: -moz-linear-gradient(top, #2eddfa, #2E64FE);
+  background-image: -ms-linear-gradient(top, #2eddfa, #2E64FE);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2eddfa), to(#2E64FE));
+  background-image: -webkit-linear-gradient(top, #2eddfa, #2E64FE);
+  background-image: -o-linear-gradient(top, #2eddfa, #2E64FE);
+  background-image: linear-gradient(top, #2eddfa, #2E64FE);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2eddfa', endColorstr='#2E64FE', GradientType=0);
 }
-.btn-custom-login:active,
-.btn-custom-spin.active {
-  background-color: #0e73b8 ;
+
+.btn-info:hover,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  background-color: #2E64FE;
+}
+
+.btn-info:active, .btn-info.active {
+  background-color: #2E64FE;
 }
