@@ -4,13 +4,12 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'User\Controller\Blog' => 'User\Controller\BlogController'
-        ), 'factories' => array(
-            
-          'User\Controller\ForgotPassword'=>'User\Factory\Controller\ForgotPasswordControllerFactory',
-            
-            
+        ),
+        'factories' => array(
+            'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
         ),
     ),
+  
     'doctrine' => array(
         'driver' => array(
             // overriding zfc-user-doctrine-orm's config
@@ -83,10 +82,24 @@ return array(
                     'route' => '/user/pw',
                     'defaults' => array(
                         'controller' => 'User\Controller\ForgotPassword',
-                        'action' => 'changeadress',
+                        'action' => 'index',
                     ),
                 ),
             ),
         ),
     ),
+     'soflomo_mail' => array(
+        'message'    => array(
+            'encoding'  => 'UTF-8',
+        ),
+        'transport' => array(
+            'type'    => null,
+        ),
+    ),
+    'controller_plugins' => array(
+        'factories' => array(
+            'email' => 'Soflomo\Mail\Factory\EmailControllerPluginFactory',
+        ),
+    ),
+  
 );

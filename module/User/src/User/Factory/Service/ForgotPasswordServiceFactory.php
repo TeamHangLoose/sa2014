@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Factory\Controller;
+namespace User\Factory\Service;
 
 use User\Service\ForgotPasswordService;
 use Zend\ServiceManager\FactoryInterface;
@@ -16,20 +16,20 @@ class ForgotPasswordServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Form\Forgot\RequestForm $requestForm */
-        $requestForm = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Form\Forgot\RequestForm');
+        /** @var \User\Form\Forgot\RequestForm $requestForm */
+        $requestForm = $serviceLocator->get('User\Form\Forgot\RequestForm');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Form\Forgot\ChangePasswordForm $changePassword */
-        $changePassword = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Form\Forgot\ChangePasswordForm');
+        /** @var \User\Form\Forgot\ChangePasswordForm $changePassword */
+        $changePassword = $serviceLocator->get('User\Form\Forgot\ChangePasswordForm');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Mapper\UserMapperInterface $userMapper */
-        $userMapper = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Mapper\UserMapper');
+        /** @var \User\Mapper\UserMapperInterface $userMapper */
+        $userMapper = $serviceLocator->get('User\Mapper\UserMapper');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Mapper\TokenMapperInterface $tokenMapper */
-        $tokenMapper = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Mapper\TokenMapper');
+        /** @var \User\Mapper\TokenMapperInterface $tokenMapper */
+        $tokenMapper = $serviceLocator->get('User\Mapper\TokenMapper');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Service\MailService $mailService */
-        $mailService = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Service\MailService');
+        /** @var \User\Service\MailService $mailService */
+        $mailService = $serviceLocator->get('User\Service\MailService');
 
         return new ForgotPasswordService($requestForm, $changePassword, $userMapper, $tokenMapper, $mailService);
     }

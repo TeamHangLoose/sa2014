@@ -1,10 +1,10 @@
 <?php
 
-namespace Eye4web\ZfcUser\ForgotPassword\Controller;
+namespace User\Controller;
 
-use Eye4web\ZfcUser\ForgotPassword\Form\Forgot\ChangePasswordForm;
-use Eye4web\ZfcUser\ForgotPassword\Form\Forgot\RequestForm;
-use Eye4web\ZfcUser\ForgotPassword\Service\ ForgotPasswordService;
+use User\Form\Forgot\ChangePasswordForm;
+use User\Form\Forgot\RequestForm;
+use User\Service\ ForgotPasswordService;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Stdlib\ResponseInterface as Response;
@@ -38,7 +38,7 @@ class ForgotPasswordController extends AbstractActionController
 
         $viewModel->setTemplate('zfc-user-forgot-password/request.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('e4w/zfc-user-forgot-password');
+        $redirectUrl = $this->url()->fromRoute('pw');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -73,7 +73,7 @@ class ForgotPasswordController extends AbstractActionController
 
         $viewModel->setTemplate('zfc-user-forgot-password/change-password.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('e4w/zfc-user-forgot-password/change-password', ['token' => $token]);
+        $redirectUrl = $this->url()->fromRoute('User/zfc-user-forgot-password/change-password', ['token' => $token]);
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {

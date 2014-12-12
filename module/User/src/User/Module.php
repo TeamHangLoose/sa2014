@@ -62,4 +62,10 @@ class Module {
 //            /*$user = $e->getParam('user');*/
 //        });
     }
+      public function getServiceConfig()
+    {
+        return include __DIR__ . '../../../config/module.service.php';
+    }
+
+
 }

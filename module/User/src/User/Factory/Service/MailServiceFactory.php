@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Factory\Controller;
+namespace User\Factory\Service;
 
 use User\Service\MailService;
 use Zend\ServiceManager\FactoryInterface;
@@ -16,10 +16,10 @@ class MailServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Options\ModuleOptions $moduleOptions */
-        $moduleOptions = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Options\ModuleOptions');
+        /** @var \User\Options\ModuleOptions $moduleOptions */
+        $moduleOptions = $serviceLocator->get('User\Options\ModuleOptions');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Service\MailTransporterInterface $mailTransporter */
+        /** @var \User\Service\MailTransporterInterface $mailTransporter */
         $mailTransporter = $serviceLocator->get($moduleOptions->getMailTransporter());
 
         return new MailService($mailTransporter);

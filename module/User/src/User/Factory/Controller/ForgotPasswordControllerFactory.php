@@ -19,14 +19,14 @@ class ForgotPasswordControllerFactory implements FactoryInterface
         /** @var ServiceLocatorInterface $serviceLocator */
         $serviceLocator = $controllerManager->getServiceLocator();
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Form\Forgot\RequestForm $requestForm */
-        $requestForm = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Form\Forgot\RequestForm');
+        /** @var \User\Form\Forgot\RequestForm $requestForm */
+        $requestForm = $serviceLocator->get('User\Form\Forgot\RequestForm');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Form\Forgot\ChangePasswordForm $changePassword */
-        $changePassword = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Form\Forgot\ChangePasswordForm');
+        /** @var \User\Form\Forgot\ChangePasswordForm $changePassword */
+        $changePassword = $serviceLocator->get('User\Form\Forgot\ChangePasswordForm');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Service\ForgotPasswordService $forgotPasswordService */
-        $forgotPasswordService = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Service\ForgotPasswordService');
+        /** @var \User\Service\ForgotPasswordService $forgotPasswordService */
+        $forgotPasswordService = $serviceLocator->get('User\Service\ForgotPasswordService');
 
         return new ForgotPasswordController($requestForm, $changePassword, $forgotPasswordService);
     }

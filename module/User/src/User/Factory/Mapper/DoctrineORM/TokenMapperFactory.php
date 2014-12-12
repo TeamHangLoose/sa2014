@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Factory\Controller;
+namespace User\Factory\Mapper\DoctrineORM;
 
 use User\Mapper\DoctrineORM\TokenMapper;
 use Zend\ServiceManager\FactoryInterface;
@@ -19,8 +19,8 @@ class TokenMapperFactory implements FactoryInterface
         /** @var \Doctrine\Common\Persistence\ObjectManager $objectManager */
         $objectManager = $serviceLocator->get('objectManager');
 
-        /** @var \Eye4web\ZfcUser\ForgotPassword\Options\ModuleOptions $moduleOptions */
-        $moduleOptions = $serviceLocator->get('Eye4web\ZfcUser\ForgotPassword\Options\ModuleOptions');
+        /** @var \User\Options\ModuleOptions $moduleOptions */
+        $moduleOptions = $serviceLocator->get('User\Options\ModuleOptions');
 
         return new TokenMapper($objectManager, $moduleOptions);
     }
