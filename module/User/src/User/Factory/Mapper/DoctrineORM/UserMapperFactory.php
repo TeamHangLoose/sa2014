@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Factory\Controller;
+namespace User\Factory\Mapper\DoctrineORM;
 
 use User\Mapper\DoctrineORM\UserMapper;
 use Zend\ServiceManager\FactoryInterface;
