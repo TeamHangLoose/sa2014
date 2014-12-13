@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Factory\Controller;
+namespace User\Factory\Options;
 
 use User\Options\ModuleOptions;
 use Zend\ServiceManager\FactoryInterface;
@@ -20,8 +20,8 @@ class ModuleOptionsFactory implements FactoryInterface
 
         $boardConfig = [];
 
-        if (isset($config['e4w']['forgot-password'])) {
-            $boardConfig = $config['e4w']['forgot-password'];
+        if (isset($config['User']['forgot-password'])) {
+            $boardConfig = $config['User']['forgot-password'];
         }
 
         $options = new ModuleOptions($boardConfig);
