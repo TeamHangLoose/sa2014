@@ -9,7 +9,6 @@ return array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
         ),
     ),
-  
     'doctrine' => array(
         'driver' => array(
             // overriding zfc-user-doctrine-orm's config
@@ -66,7 +65,8 @@ return array(
                 array('route' => 'zfcuser/logout', 'roles' => array('user')),
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
-                array('route' => 'pw', 'roles' => array('guest')),
+                array('route' => 'zfc-user-forgot-password', 'roles' => array('guest')),
+                array('route' => 'change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
@@ -76,24 +76,34 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'pw' => array(
+            'zfc-user-forgot-password' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/user/pw',
+                    'route' => '/user/forgot-password',
                     'defaults' => array(
                         'controller' => 'User\Controller\ForgotPassword',
                         'action' => 'index',
                     ),
                 ),
             ),
+            'change-password' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route' => '/user/change-password/:token',
+                    'defaults' => array(
+                        'controller' => 'User\Controller\ForgotPassword',
+                        'action' => 'changePassword',
+                    ),
+                ),
+            ),
         ),
     ),
-     'soflomo_mail' => array(
-        'message'    => array(
-            'encoding'  => 'UTF-8',
+    'soflomo_mail' => array(
+        'message' => array(
+            'encoding' => 'UTF-8',
         ),
         'transport' => array(
-            'type'    => null,
+            'type' => null,
         ),
     ),
     'controller_plugins' => array(
@@ -101,5 +111,4 @@ return array(
             'email' => 'Soflomo\Mail\Factory\EmailControllerPluginFactory',
         ),
     ),
-  
 );
