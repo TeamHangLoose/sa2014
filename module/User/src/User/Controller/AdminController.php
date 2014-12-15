@@ -29,9 +29,11 @@ class AdminController extends AbstractActionController {
             'form' => $form,
         ]);
 
+        $adminService->listUser();
+        
         $viewModel->setTemplate('admin/list.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('zfcuser/login');
+       /* $redirectUrl = $this->url()->fromRoute('zfcuser/login');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -39,6 +41,8 @@ class AdminController extends AbstractActionController {
         } elseif ($prg === false) {
             return $viewModel;
         }
+        * 
+        */
               
         if ($adminService->listUser()) {
            // $viewModel->setTemplate('admin/list.phtml');

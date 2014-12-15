@@ -11,6 +11,7 @@ return array(
         'BjyAuthorize',
         'Application',
         'User',
+ 
        
     ),
 

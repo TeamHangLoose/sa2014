@@ -1,16 +1,10 @@
 <?php
 
-use Zend\ServiceManager\ServiceLocatorInterface;
-use ZfcUser\Form\RegisterFilter;
-use ZfcUser\Mapper\UserHydrator;
-use ZfcUser\Validator\NoRecordExists;
-use ZfcUserAdmin\Form;
-use ZfcUserAdmin\Options;
-use ZfcUserAdmin\Validator\NoRecordExistsEdit;
 
 return array(
     'controllers' => array(
         'invokables' => array(
+            
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
@@ -134,7 +128,7 @@ return array(
                             'route' => '/list',
                             'defaults' => array(
                                 'controller' => 'User\Controller\Admin',
-                                'action' => 'list',
+                                'action' => 'index',
                             ),
                         ),
                     ),
