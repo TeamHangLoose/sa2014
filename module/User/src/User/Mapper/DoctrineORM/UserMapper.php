@@ -7,6 +7,8 @@ use User\Mapper\UserMapperInterface;
 use ZfcUser\Entity\UserInterface;
 use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Crypt\Password\Bcrypt;
+use Zend\Db\ResultSet\HydratingResultSet;
+use Zend\Paginator;
 
 class UserMapper implements UserMapperInterface
 {
