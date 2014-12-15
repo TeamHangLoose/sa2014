@@ -3,13 +3,11 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-             
+
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
             'User\Controller\Admin' => 'User\Factory\Controller\AdminControllerFactory',
-            
-            
         ),
     ),
     'doctrine' => array(
@@ -68,13 +66,10 @@ return array(
                 array('route' => 'zfcuser/logout', 'roles' => array('user')),
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
-                
                 array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
-                
                 array('route' => 'admin/list', 'roles' => array('guest')),
-              
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
@@ -120,23 +115,24 @@ return array(
             'admin' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/'
+                    'route' => '/admin'
                 ),
                 'may_terminate' => false,
                 'child_routes' => array(
                     'list' => array(
                         'type' => 'Zend\Mvc\Router\Http\Literal',
                         'options' => array(
-                            'route' => 'list',
+                            'route' => '/list',
                             'defaults' => array(
-                                'controller' => 'User\Controller\Admin',
-                                'action' => 'index',
+                                'controller' => 'zfcuserlist',
+                                'action' => 'list',
                             ),
                         ),
                     ),
                 ),
             ),
         ),
+     
     ),
     'soflomo_mail' => array(
         'message' => array(

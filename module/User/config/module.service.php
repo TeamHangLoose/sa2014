@@ -10,7 +10,10 @@ return [
     'invokables' => [
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
         'User\Form\Forgot\ChangePasswordForm' => 'User\Form\Forgot\ChangePasswordForm',
+        
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
+        
+       
     ],
     'initializers' => [
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',
@@ -23,13 +26,15 @@ return [
         'User\Service\ForgotPasswordService' => 'User\Factory\Service\ForgotPasswordServiceFactory',
         'User\Service\MailService' => 'User\Factory\Service\MailServiceFactory',
         'User\Options\ModuleOptions' => 'User\Factory\Options\ModuleOptionsFactory',
-        
         'User\Service\AdminService' => 'User\Factory\Service\AdminServiceFactory',
-        
         'Soflomo\Mail\DefaultTransport' => 'Soflomo\Mail\Factory\DefaultTransportFactory',
         'Soflomo\Mail\DefaultMessage' => 'Soflomo\Mail\Factory\DefaultMessageFactory',
         'Soflomo\Mail\Service\MailService' => 'Soflomo\Mail\Factory\MailServiceFactory',
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
+        
+        
+        
+        
     ]
 ];

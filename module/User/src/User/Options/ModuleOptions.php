@@ -24,6 +24,8 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
      * @param $entityClass
      * @return string
      */
+    
+    
     public function correctEntity($entityClass)
     {
         if (substr($entityClass, 0, 1) !== '\\') {
@@ -80,4 +82,6 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
     {
         return $this->mailTransporter;
     }
+    
+   
 }

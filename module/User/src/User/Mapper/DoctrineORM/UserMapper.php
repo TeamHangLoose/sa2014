@@ -7,8 +7,9 @@ use User\Mapper\UserMapperInterface;
 use ZfcUser\Entity\UserInterface;
 use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Crypt\Password\Bcrypt;
-use Zend\Db\ResultSet\HydratingResultSet;
-use Zend\Paginator;
+
+
+
 
 class UserMapper implements UserMapperInterface
 {
@@ -57,20 +58,7 @@ class UserMapper implements UserMapperInterface
         return $this->save($user);
     }
 
-    
-      public function findAll()
-    {
-        $select = $this->getSelect($this->tableName);
-        $select->order(array('username ASC', 'display_name ASC', 'email ASC'));
-        //$resultSet = $this->select($select);
 
-        $resultSet = new HydratingResultSet($this->getHydrator(), $this->getEntityPrototype());
-        $adapter = new Paginator\Adapter\DbSelect($select, $this->getSlaveSql(), $resultSet);
-        $paginator = new Paginator\Paginator($adapter);
-
-        return $paginator;
-    }
-    
     /**
      * Save user
      *
