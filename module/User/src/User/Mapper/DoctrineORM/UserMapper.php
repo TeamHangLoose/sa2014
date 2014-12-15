@@ -55,13 +55,8 @@ class UserMapper implements UserMapperInterface {
     }
 
     public function findAll() {
-        $select = $this->objectManager->getSelect($this->tableName);
-        $select->order(array('username ASC', 'display_name ASC', 'email ASC'));
-//$resultSet = $this->select($select);
-        $resultSet = new HydratingResultSet($this->getHydrator(), $this->getEntityPrototype());
-        $adapter = new Paginator\Adapter\DbSelect($select, $this->getSlaveSql(), $resultSet);
-        $paginator = new Paginator\Paginator($adapter);
-        return $paginator;
+        echo $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass())->findAll();
+        
     }
 
     /**
