@@ -65,8 +65,12 @@ return array(
                 array('route' => 'zfcuser/logout', 'roles' => array('user')),
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
-                array('route' => 'zfc-user-forgot-password', 'roles' => array('guest')),
-                array('route' => 'change-password', 'roles' => array('guest')),
+                
+                array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
+                array('route' => 'user/change-password', 'roles' => array('guest')),
+                array('route' => 'user/forgot-password', 'roles' => array('guest')),
+                array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
+                
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
@@ -76,23 +80,35 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'zfc-user-forgot-password' => array(
+            'user' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/user/forgot-password',
-                    'defaults' => array(
-                        'controller' => 'User\Controller\ForgotPassword',
-                        'action' => 'index',
-                    ),
+                    'route' => '/'
                 ),
-            ),
-            'change-password' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route' => '/user/change-password/:token',
-                    'defaults' => array(
-                        'controller' => 'User\Controller\ForgotPassword',
-                        'action' => 'changePassword',
+                'may_terminate' => false,
+                'child_routes' => array(
+                    'zfc-user-forgot-password' => array(
+                        'type' => 'Zend\Mvc\Router\Http\Literal',
+                        'options' => array(
+                            'route' => 'forgot-password',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\ForgotPassword',
+                                'action' => 'index',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'change-password' => array(
+                                'type' => 'Zend\Mvc\Router\Http\Segment',
+                                'options' => array(
+                                    'route' => '/change-password/:token',
+                                    'defaults' => array(
+                                        'controller' => 'User\Controller\ForgotPassword',
+                                        'action' => 'changePassword',
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
             ),
