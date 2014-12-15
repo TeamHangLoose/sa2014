@@ -11,19 +11,19 @@ class AdminController extends AbstractActionController {
     protected $listForm;
 
     /** @var ForgotPasswordService */
-    protected $listService;
+    protected $adminService;
 
-    public function __construct(RequestForm $requestForm, ChangePasswordForm $changePasswordForm, ForgotPasswordService $forgotPasswordService)
+    public function __construct(\User\Form\Admin\ListForm $listForm, \User\Service\AdminService $adminService)
     {
-        $this->listForm = $requestForm;
-        $this->listService = $forgotPasswordService;
+        $this->listForm = $listForm;
+        $this->adminService = $adminService;
     }
     
     
     public function indexAction() {
 
          $form = $this->listForm;
-         $forgotPasswordService = $this->listService;
+         $adminService = $this->adminService;
 
         $viewModel = new ViewModel([
             'form' => $form,
@@ -39,7 +39,11 @@ class AdminController extends AbstractActionController {
         } elseif ($prg === false) {
             return $viewModel;
         }
-
+              
+        if ($adminService->listUser()) {
+           // $viewModel->setTemplate('admin/list.phtml');
+            return $viewModel;
+        }
 
         return $viewModel;
     }

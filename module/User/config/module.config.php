@@ -3,11 +3,11 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'User\Controller\Blog' => 'User\Controller\BlogController',
-            'User\Controller\Admin' => 'User\Controller\AdminController',
+             
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
+            'User\Controller\Admin' => 'User\Factory\Controller\AdminControllerFactory',
             
             
         ),
