@@ -1,9 +1,16 @@
 <?php
 
+use Zend\ServiceManager\ServiceLocatorInterface;
+use ZfcUser\Form\RegisterFilter;
+use ZfcUser\Mapper\UserHydrator;
+use ZfcUser\Validator\NoRecordExists;
+use ZfcUserAdmin\Form;
+use ZfcUserAdmin\Options;
+use ZfcUserAdmin\Validator\NoRecordExistsEdit;
+
 return array(
     'controllers' => array(
         'invokables' => array(
-
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
@@ -38,6 +45,7 @@ return array(
         ),
         'template_path_stack' => array(
             'zfcuser' => __DIR__ . '/../view',
+            'zfcuseradmin' => __DIR__ . '/../view',
         ),
     ),
     'zfcuser' => array(
@@ -70,6 +78,7 @@ return array(
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 array('route' => 'admin/list', 'roles' => array('guest')),
+                array('route' => 'admin/create', 'roles' => array('guest')),
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
@@ -124,7 +133,7 @@ return array(
                         'options' => array(
                             'route' => '/list',
                             'defaults' => array(
-                                'controller' => 'zfcuserlist',
+                                'controller' => 'User\Controller\Admin',
                                 'action' => 'list',
                             ),
                         ),
@@ -132,7 +141,6 @@ return array(
                 ),
             ),
         ),
-     
     ),
     'soflomo_mail' => array(
         'message' => array(

@@ -14,6 +14,8 @@ return [
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
         
        
+        
+       
     ],
     'initializers' => [
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',

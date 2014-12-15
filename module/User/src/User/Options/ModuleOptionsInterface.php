@@ -23,5 +23,6 @@ interface ModuleOptionsInterface
      *
      * @return string
      */
+       public function getMailTransporter();
    
 }
