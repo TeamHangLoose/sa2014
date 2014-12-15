@@ -38,7 +38,7 @@ class ForgotPasswordController extends AbstractActionController
 
         $viewModel->setTemplate('zfc-user-forgot-password/request.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('zfc-user-forgot-password');
+        $redirectUrl = $this->url()->fromRoute('pw');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -73,7 +73,7 @@ class ForgotPasswordController extends AbstractActionController
 
         $viewModel->setTemplate('zfc-user-forgot-password/change-password.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('change-password', ['token' => $token]);
+        $redirectUrl = $this->url()->fromRoute('User/zfc-user-forgot-password/change-password', ['token' => $token]);
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
