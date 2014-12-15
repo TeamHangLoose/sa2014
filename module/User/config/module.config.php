@@ -3,10 +3,13 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'User\Controller\Blog' => 'User\Controller\BlogController'
+            'User\Controller\Blog' => 'User\Controller\BlogController',
+            'User\Controller\Admin' => 'User\Controller\AdminController',
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
+            
+            
         ),
     ),
     'doctrine' => array(
@@ -69,8 +72,10 @@ return array(
                 array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
-                array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 
+                array('route' => 'admin/list', 'roles' => array('guest')),
+              
+                array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
@@ -107,6 +112,25 @@ return array(
                                         'action' => 'changePassword',
                                     ),
                                 ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            'admin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route' => '/'
+                ),
+                'may_terminate' => false,
+                'child_routes' => array(
+                    'list' => array(
+                        'type' => 'Zend\Mvc\Router\Http\Literal',
+                        'options' => array(
+                            'route' => 'list',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\Admin',
+                                'action' => 'index',
                             ),
                         ),
                     ),
