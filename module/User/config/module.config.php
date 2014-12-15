@@ -3,13 +3,15 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'User\Controller\Blog' => 'User\Controller\BlogController'
+             
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
+            'User\Controller\Admin' => 'User\Factory\Controller\AdminControllerFactory',
+            
+            
         ),
     ),
-  
     'doctrine' => array(
         'driver' => array(
             // overriding zfc-user-doctrine-orm's config
@@ -66,7 +68,14 @@ return array(
                 array('route' => 'zfcuser/logout', 'roles' => array('user')),
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
-                array('route' => 'pw', 'roles' => array('guest')),
+                
+                array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
+                array('route' => 'user/change-password', 'roles' => array('guest')),
+                array('route' => 'user/forgot-password', 'roles' => array('guest')),
+                
+                array('route' => 'admin/list', 'roles' => array('guest')),
+              
+                array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
@@ -76,24 +85,65 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'pw' => array(
+            'user' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/user/pw',
-                    'defaults' => array(
-                        'controller' => 'User\Controller\ForgotPassword',
-                        'action' => 'index',
+                    'route' => '/'
+                ),
+                'may_terminate' => false,
+                'child_routes' => array(
+                    'zfc-user-forgot-password' => array(
+                        'type' => 'Zend\Mvc\Router\Http\Literal',
+                        'options' => array(
+                            'route' => 'forgot-password',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\ForgotPassword',
+                                'action' => 'index',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'change-password' => array(
+                                'type' => 'Zend\Mvc\Router\Http\Segment',
+                                'options' => array(
+                                    'route' => '/change-password/:token',
+                                    'defaults' => array(
+                                        'controller' => 'User\Controller\ForgotPassword',
+                                        'action' => 'changePassword',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            'admin' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route' => '/'
+                ),
+                'may_terminate' => false,
+                'child_routes' => array(
+                    'list' => array(
+                        'type' => 'Zend\Mvc\Router\Http\Literal',
+                        'options' => array(
+                            'route' => 'list',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\Admin',
+                                'action' => 'index',
+                            ),
+                        ),
                     ),
                 ),
             ),
         ),
     ),
-     'soflomo_mail' => array(
-        'message'    => array(
-            'encoding'  => 'UTF-8',
+    'soflomo_mail' => array(
+        'message' => array(
+            'encoding' => 'UTF-8',
         ),
         'transport' => array(
-            'type'    => null,
+            'type' => null,
         ),
     ),
     'controller_plugins' => array(
@@ -101,5 +151,4 @@ return array(
             'email' => 'Soflomo\Mail\Factory\EmailControllerPluginFactory',
         ),
     ),
-  
 );

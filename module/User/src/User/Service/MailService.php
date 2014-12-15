@@ -5,19 +5,19 @@ namespace User\Service;
 use User\Entity\TokenInterface;
 use ZfcUser\Entity\UserInterface;
 
-class MailService
-{
+class MailService {
+
     /** @var MailTransporterInterface */
     protected $transporter;
 
-    public function __construct($transporter)
-    {
+    public function __construct($transporter) {
         $this->transporter = $transporter;
     }
 
-    public function sendToken(TokenInterface $token, UserInterface $user)
-    {
+    public function sendToken(TokenInterface $token, UserInterface $user) {
         $options = [
+            'from' => 'Badenfahrt2014@gmail.com',
+            'from_name' => 'Badenfahrt',
             'to' => $user->getEmail(),
             'subject' => 'Forgot password test',
             'template' => 'email/request-password'
@@ -29,8 +29,8 @@ class MailService
         ];
 
         $this->transporter->send(
-            $options,
-            $variables
+                $options, $variables
         );
     }
+
 }
