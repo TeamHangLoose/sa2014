@@ -7,10 +7,16 @@ body {
     margin-left: 5px;
     margin-right: 5px;
   }*/
-  
-  .navbar-button{
-      float: right;
-  }
+
+.navbar-button{
+    float: right;
+}
+
+.form-default{
+    margin: 20px auto;
+    max-width:330px;
+    min-width: 110px;
+}
 
 
 /*Custom Button success for "Register"*/
@@ -61,3 +67,7 @@ body {
     background-color: #2E64FE;
 }
 /* --END-- Custom Button success for "Login"*/
+
+.footer{
+    margin: 20px auto;
+       }
