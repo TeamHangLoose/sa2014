@@ -29,8 +29,7 @@ class AdminController extends AbstractActionController {
             'form' => $form,
         ]);
 
-        $adminService->listUser();
-        
+       
         $viewModel->setTemplate('admin/list.phtml');
 
        /* $redirectUrl = $this->url()->fromRoute('zfcuser/login');
