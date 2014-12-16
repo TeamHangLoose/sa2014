@@ -25,6 +25,7 @@ class AdminController extends AbstractActionController {
          $form = $this->listForm;
          $adminService = $this->adminService;
 
+         
         $viewModel = new ViewModel([
             'form' => $form,
         ]);
