@@ -3,10 +3,16 @@ body {
     padding-bottom: 40px;
 }
 
-.navbar-button button{
-    margin-left: 5px;
-    margin-right: 5px;
+  .navbar-right li{
+     margin-right: 15px;
+     margin-left: 15px;
   }
+  
+.form-default{
+    margin: 20px auto;
+    max-width:330px;
+    min-width: 110px;
+}
 
 
 /*Custom Button success for "Register"*/

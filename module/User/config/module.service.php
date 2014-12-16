@@ -1,31 +1,32 @@
 <?php
 
-return [
-    'aliases' => [
+return array(
+    'aliases' => array(
         'objectManager' => 'Doctrine\ORM\EntityManager',
         'Soflomo\Mail\Renderer' => 'ViewRenderer',
         'Soflomo\Mail\Transport' => 'Soflomo\Mail\DefaultTransport',
         'Soflomo\Mail\Message' => 'Soflomo\Mail\DefaultMessage',
-    ],
-    'invokables' => [
+    ),
+    'invokables' => array(
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
         'User\Form\Forgot\ChangePasswordForm' => 'User\Form\Forgot\ChangePasswordForm',
- 
-        
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
         
-       
+        'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
         
-       
-    ],
-    'initializers' => [
+        
+    ),
+    'factories' => array(
+        'admin_createuser_form' => 'User\Factory\Form\CreateUserFormFactory',
+    ),
+    'initializers' => array(
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',
         'mail_message' => 'Soflomo\Mail\Service\MessageAwareInitializer',
-    ],
-    'shared' => [
+    ),
+    'shared' => array(
         'Soflomo\Mail\DefaultMessage' => false,
-    ],
-    'factories' => [
+    ),
+    'factories' => array(
         'User\Service\ForgotPasswordService' => 'User\Factory\Service\ForgotPasswordServiceFactory',
         'User\Service\MailService' => 'User\Factory\Service\MailServiceFactory',
         'User\Options\ModuleOptions' => 'User\Factory\Options\ModuleOptionsFactory',
@@ -35,9 +36,5 @@ return [
         'Soflomo\Mail\Service\MailService' => 'Soflomo\Mail\Factory\MailServiceFactory',
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
-        
-        
-        
-        
-    ]
-];
+    )
+);
