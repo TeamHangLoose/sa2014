@@ -10,6 +10,7 @@ return [
     'invokables' => [
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
         'User\Form\Forgot\ChangePasswordForm' => 'User\Form\Forgot\ChangePasswordForm',
+        'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
         
