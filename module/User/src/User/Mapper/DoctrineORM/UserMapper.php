@@ -8,9 +8,6 @@ use ZfcUser\Entity\UserInterface;
 use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Crypt\Password\Bcrypt;
 
-use Zend\Db\ResultSet\HydratingResultSet;
-use Zend\Paginator;
-
 class UserMapper implements UserMapperInterface {
 
     /** @var ObjectManager */
@@ -55,11 +52,12 @@ class UserMapper implements UserMapperInterface {
     }
 
     public function findAll() {
-       $users = $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass())->findAll();
-        
-       return $users;
-       
-       
+
+        //$er = $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass());
+        //return $er->findAll();
+
+         $users = $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass())->findAll();
+         return $users;
     }
 
     /**
@@ -78,5 +76,6 @@ class UserMapper implements UserMapperInterface {
 
         return $user;
     }
+  
 
 }

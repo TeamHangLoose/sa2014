@@ -1,9 +1,0 @@
-<?php
-/** @var \User\Form\Forgot\ListForm $form */
-$form = $this->form;
-
-echo $this->form()->openTag($form);
-echo $this->formRow($form->get('email')) . '<br />';
-echo $this->formRow($form->get('submit')->setLabel('mmmmmmmmmmmmmmmmmmmmmmmmmmmm'));
-echo $this->formRow($form->get('csrf'));
-echo $this->form()->closeTag($form);
