@@ -39,7 +39,7 @@ return array(
         ),
         'template_path_stack' => array(
             'zfcuser' => __DIR__ . '/../view',
-            'zfcuseradmin' => __DIR__ . '/../view',
+            //'zfcuseradmin' => __DIR__ . '/../view',
         ),
     ),
     'zfcuser' => array(
@@ -71,7 +71,7 @@ return array(
                 array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
-                array('route' => 'admin/list', 'roles' => array('guest')),
+                array('route' => 'admin/index', 'roles' => array('guest')),
                 array('route' => 'admin/create', 'roles' => array('guest')),
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
@@ -83,6 +83,7 @@ return array(
     ),
     'router' => array(
         'routes' => array(
+            
             'user' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -122,10 +123,10 @@ return array(
                 ),
                 'may_terminate' => false,
                 'child_routes' => array(
-                    'list' => array(
+                    'index' => array(
                         'type' => 'Zend\Mvc\Router\Http\Literal',
                         'options' => array(
-                            'route' => '/list',
+                            'route' => '/index',
                             'defaults' => array(
                                 'controller' => 'User\Controller\Admin',
                                 'action' => 'index',

@@ -24,7 +24,52 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
      * @param $entityClass
      * @return string
      */
-    
+         //**********************************************************************************************************S
+    protected $__strictMode__ = false;
+
+    /**
+     * Array of data to show in the user list
+     * Key = Label in the list
+     * Value = entity property(expecting a 'getProperty())
+     */
+    protected $userListElements = array('Id' => 'id', 'Email address' => 'email');
+
+    /**
+     * Array of form elements to show when editing a user
+     * Key = form label
+     * Value = entity property(expecting a 'getProperty()/setProperty()' function)
+     */
+    protected $editFormElements = array();
+
+    /**
+     * Array of form elements to show when creating a user
+     * Key = form label
+     * Value = entity property(expecting a 'getProperty()/setProperty()' function)
+     */
+    protected $createFormElements = array();
+
+    /**
+     * @var bool
+     * true = create password automaticly
+     * false = administrator chooses password
+     */
+    protected $createUserAutoPassword = true;
+
+    /**
+     * @var int
+     * Length of passwords created automatically
+     */
+    protected $autoPasswordLength = 8;
+
+    /**
+     * @var bool
+     * Allow change user password on user edit form.
+     */
+    protected $allowPasswordChange = true;
+
+    protected $userMapper = 'ZfcUserAdmin\Mapper\UserDoctrine';
+
+
     
     public function correctEntity($entityClass)
     {
@@ -83,51 +128,8 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
         return $this->mailTransporter;
     }
 
-        
-    protected $__strictMode__ = false;
-
-    /**
-     * Array of data to show in the user list
-     * Key = Label in the list
-     * Value = entity property(expecting a 'getProperty())
-     */
-    protected $userListElements = array('Id' => 'id', 'Email address' => 'email');
-
-    /**
-     * Array of form elements to show when editing a user
-     * Key = form label
-     * Value = entity property(expecting a 'getProperty()/setProperty()' function)
-     */
-    protected $editFormElements = array();
-
-    /**
-     * Array of form elements to show when creating a user
-     * Key = form label
-     * Value = entity property(expecting a 'getProperty()/setProperty()' function)
-     */
-    protected $createFormElements = array();
-
-    /**
-     * @var bool
-     * true = create password automaticly
-     * false = administrator chooses password
-     */
-    protected $createUserAutoPassword = true;
-
-    /**
-     * @var int
-     * Length of passwords created automatically
-     */
-    protected $autoPasswordLength = 8;
-
-    /**
-     * @var bool
-     * Allow change user password on user edit form.
-     */
-    protected $allowPasswordChange = true;
-
-    protected $userMapper = 'ZfcUserAdmin\Mapper\UserDoctrine';
-
+   
+    
     public function setUserMapper($userMapper)
     {
         $this->userMapper = $userMapper;
