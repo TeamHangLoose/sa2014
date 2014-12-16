@@ -3,9 +3,13 @@ body {
     padding-bottom: 40px;
 }
 
-.navbar-button button{
+/*.navbar-button button{
     margin-left: 5px;
     margin-right: 5px;
+  }*/
+  
+  .navbar-button{
+      float: right;
   }
 
 
