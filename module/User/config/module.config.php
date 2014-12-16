@@ -1,10 +1,8 @@
 <?php
 
-
 return array(
     'controllers' => array(
         'invokables' => array(
-            
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
@@ -39,7 +37,7 @@ return array(
         ),
         'template_path_stack' => array(
             'zfcuser' => __DIR__ . '/../view',
-            //'zfcuseradmin' => __DIR__ . '/../view',
+        //'zfcuseradmin' => __DIR__ . '/../view',
         ),
     ),
     'zfcuser' => array(
@@ -71,8 +69,9 @@ return array(
                 array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
-                array('route' => 'admin/index', 'roles' => array('guest')),
+                array('route' => 'admin/list', 'roles' => array('guest')),
                 array('route' => 'admin/create', 'roles' => array('guest')),
+                array('route' => 'admin/edit', 'roles' => array('guest')),
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
@@ -83,7 +82,6 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            
             'user' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -123,13 +121,34 @@ return array(
                 ),
                 'may_terminate' => false,
                 'child_routes' => array(
-                    'index' => array(
-                        'type' => 'Zend\Mvc\Router\Http\Literal',
+                    'list' => array(
+                        'type' => 'Segment',
                         'options' => array(
-                            'route' => '/index',
+                            'route' => '/list/[:p]',
                             'defaults' => array(
                                 'controller' => 'User\Controller\Admin',
-                                'action' => 'index',
+                                'action' => 'list',
+                            ),
+                        ),
+                    ),
+                    'create' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/create',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\Admin',
+                                'action' => 'create'
+                            ),
+                        ),
+                    ),
+                    'edit' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/edit/:userId',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\Admin',
+                                'action' => 'edit',
+                                'userId' => 0
                             ),
                         ),
                     ),
@@ -137,8 +156,6 @@ return array(
             ),
         ),
     ),
-
-    
     'soflomo_mail' => array(
         'message' => array(
             'encoding' => 'UTF-8',

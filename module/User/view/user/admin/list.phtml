@@ -42,7 +42,7 @@ foreach ($this->userlistElements as $element) {
                 </td>
             <?php endforeach; ?>
             <td class="cell cell-ctrls">
-                <a href="<?php echo $this->url('zfcuser/login', array('userId' => $user->getId())); ?>">
+                <a href="<?php echo $this->url('admin/edit', array('userId' => $user->getId())); ?>">
                     <?php echo $this->translate('Edit') ?>
                 </a>
                 |

@@ -24,7 +24,7 @@ class AdminController extends AbstractActionController {
         $this->moduleOptions = $moduleOptions;
     }
 
-    public function indexAction() {
+    public function listAction() {
 
         // $userMapper = $this->getUserMapper();
         $users = $this->adminService->listUser();
@@ -32,47 +32,48 @@ class AdminController extends AbstractActionController {
         //$paginator = new Paginator\Paginator(new Paginator\Adapter\ArrayAdapter($users));
         $paginator = new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($users));
 
-        $paginator->setItemCountPerPage(100);
+        $paginator->setItemCountPerPage(10);
         $paginator->setCurrentPageNumber($this->getEvent()->getRouteMatch()->getParam('p'));
-   
-        
+
+
         return array(
             'users' => $paginator,
             'userlistElements' => $this->moduleOptions->getUserListElements()
         );
+    }
 
-        /*
-          $form = $this->listForm;
-          $adminService = $this->adminService;
+    public function createAction() {
+   
+    }
 
+    public function editAction() {
+        $userId = $this->getEvent()->getRouteMatch()->getParam('userId');
 
-          $viewModel = new ViewModel([
-          'form' => $form,
-          ]);
+        $user = $this->getUserMapper()->findById($userId);
 
+        /** @var $form \ZfcUserAdmin\Form\EditUser */
+        $form = $this->getServiceLocator()->get('zfcuseradmin_edituser_form');
+        $form->setUser($user);
 
+        /** @var $request \Zend\Http\Request */
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $form->setData($request->getPost());
+            if ($form->isValid()) {
+                $user = $this->getAdminUserService()->edit($form, (array) $request->getPost(), $user);
+                if ($user) {
+                    $this->flashMessenger()->addSuccessMessage('The user was edited');
+                    return $this->redirect()->toRoute('admin/list');
+                }
+            }
+        } else {
+            $form->populateFromUser($user);
+        }
 
-
-          $redirectUrl = $this->url()->fromRoute('zfcuser/login');
-          $prg = $this->prg($redirectUrl, true);
-
-          if ($prg instanceof Response) {
-          return $prg;
-          } elseif ($prg === false) {
-          return $viewModel;
-          }
-
-
-
-          if ($adminService->listUser()) {
-          // $viewModel->setTemplate('admin/list.phtml');
-          return $viewModel;
-          }
-
-          return $viewModel;
-         * 
-         * 
-         */
+        return array(
+            'editUserForm' => $form,
+            'userId' => $userId
+        );
     }
 
 }
