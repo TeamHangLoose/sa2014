@@ -50,24 +50,25 @@
                         <li class=""><a href="<?php echo $this->url('zfcuser/changepassword') ?>"><?php echo $this->translate('Change Password') ?></a></li>
                         <li class=""><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
                         <li class=""><a href="<?php echo $this->url('admin/list') ?>"><?php echo $this->translate('List') ?></a></li>
-                        
-                        
-                        
+
                     </ul>
 
-                    <ul class ="nav navbar-nav">
+
+                    <ul class ="nav navbar-nav navbar-button pull-right">
                         <li>
                             <form action="<?php echo $this->url('zfcuser/register') ?>">
-                                <button class="btn  btn-sm btn-success navbar-btn"><?php echo $this->translate('Register') ?></button>
+                                <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('Register') ?></button>
                             </form>
                         </li>     
                         <li>
                             <form action="<?php echo $this->url('zfcuser/login') ?>">
-                                <button class="btn btn-sm btn-info navbar-btn"><?php echo $this->translate('Login') ?></button>
+                                <button class="btn btn-sm btn-success navbar-btn"><?php echo $this->translate('Login') ?></button>
                             </form>
                         </li>
                     </ul>
+
                 </div>
+
         </nav>
         <div class="container">
             <?php echo $this->content; ?>
