@@ -137,6 +137,23 @@ return array(
             ),
         ),
     ),
+    
+      'navigation' => array(
+        'admin' => array(
+            'zfcuseradmin' => array(
+                'label' => 'Users',
+                'route' => 'zfcadmin/zfcuseradmin/list',
+                'pages' => array(
+                    'create' => array(
+                        'label' => 'New User',
+                        'route' => 'zfcadmin/zfcuseradmin/create',
+                    ),
+                ),
+            ),
+        ),
+    ),
+    
+    
     'soflomo_mail' => array(
         'message' => array(
             'encoding' => 'UTF-8',
