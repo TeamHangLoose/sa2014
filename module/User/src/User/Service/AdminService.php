@@ -31,8 +31,9 @@ class AdminService {
      */
     public function listUser() {
 
-        $this->userMapper->findAll();
-   
+      $users = $this->userMapper->findAll();
+    
+      return $users;
         
     }
 }

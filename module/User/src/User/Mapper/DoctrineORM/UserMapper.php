@@ -57,11 +57,7 @@ class UserMapper implements UserMapperInterface {
     public function findAll() {
        $users = $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass())->findAll();
         
-       foreach ($users as $key => $value){
-           
-           echo $value->getEmail().'<br>';
-           
-       }
+       return $users;
        
        
     }

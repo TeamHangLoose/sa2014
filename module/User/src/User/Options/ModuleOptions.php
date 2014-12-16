@@ -5,9 +5,7 @@ namespace User\Options;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\AbstractOptions;
 
-class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface,UserListOptionsInterface,
-    UserEditOptionsInterface,
-    UserCreateOptionsInterface
+class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
 {
     /** @var string */
     protected $tokenEntity = 'User\Entity\Token';
