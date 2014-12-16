@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-          <a class="navbar-brand" href="<?php echo $this->url('home') ?>"> <?php echo $this->translate('Badenfahrt') ?></a>
+                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"> <?php echo $this->translate('Badenfahrt') ?></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -55,7 +55,7 @@
                         
                     </ul>
 
-                    <ul class ="nav navbar-nav navbar-right">
+                    <ul class ="nav navbar-nav">
                         <li>
                             <form action="<?php echo $this->url('zfcuser/register') ?>">
                                 <button class="btn  btn-sm btn-success navbar-btn"><?php echo $this->translate('Register') ?></button>
@@ -70,12 +70,12 @@
                 </div>
         </nav>
         <div class="container">
-        <?php echo $this->content; ?>
+            <?php echo $this->content; ?>
             <hr>
             <footer>
                 <p>&copy; 2014 - <?php echo date('Y') ?> by TeamHangLoose <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>
         </div> <!-- /container -->
-<?php echo $this->inlineScript() ?>
+        <?php echo $this->inlineScript() ?>
     </body>
 </html>
