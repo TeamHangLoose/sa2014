@@ -1,14 +1,14 @@
 <?php
+
 namespace User;
 
 class Module {
-    public function getConfig()
-    {
+
+    public function getConfig() {
         return include __DIR__ . '/../../config/module.config.php';
     }
 
-    public function getAutoloaderConfig()
-    {
+    public function getAutoloaderConfig() {
         return array(
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
@@ -18,11 +18,10 @@ class Module {
         );
     }
 
-    public function onBootstrap($e)
-    {
+    public function onBootstrap($e) {
         //adding costum fields to register form
         $eventManager = $e->getApplication()->getEventManager();
-        $em   = $eventManager->getSharedManager();
+        $em = $eventManager->getSharedManager();
 
 //        $em->attach(
 //            'ZfcUser\Form\Register',
@@ -40,10 +39,52 @@ class Module {
 //                        ),
 //                    )
 //                );
-
 //            }
 //        );
 
+
+
+
+        $em->attach(
+                'ZfcUser\Form\Register', 'init', function($e) {
+            /* @var $form \ZfcUser\Form\Register */
+            $form = $e->getTarget();
+            $form->add(
+                    array(
+                        'name' => 'street',
+                        'options' => array(
+                            'label' => 'Street',
+                        ),
+                        'attributes' => array(
+                            'type' => 'text',
+                        ),
+                    )
+            );
+            $form = $e->getTarget();
+            $form->add(
+                    array(
+                        'name' => 'plz',
+                        'options' => array(
+                            'label' => 'Plz',
+                        ),
+                        'attributes' => array(
+                            'type' => 'text',
+                        ),
+                    )
+            );
+            $form->add(
+                    array(
+                        'name' => 'village',
+                        'options' => array(
+                            'label' => 'Village',
+                        ),
+                        'attributes' => array(
+                            'type' => 'text',
+                        ),
+                    )
+            );
+        }
+        );
 
         $zfcServiceEvents = $e->getApplication()->getServiceManager()->get('zfcuser_user_service')->getEventManager();
 
@@ -62,12 +103,9 @@ class Module {
 //            /*$user = $e->getParam('user');*/
 //        });
     }
-      public function getServiceConfig()
-    {
+
+    public function getServiceConfig() {
         return include __DIR__ . '../../../config/module.service.php';
     }
-    
-    
-
 
 }

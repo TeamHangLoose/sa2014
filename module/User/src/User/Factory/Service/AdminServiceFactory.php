@@ -1,7 +1,6 @@
 <?php
 
 namespace User\Factory\Service;
-
 use User\Service\AdminService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

@@ -12,9 +12,10 @@ return array(
         'User\Form\Forgot\ChangePasswordForm' => 'User\Form\Forgot\ChangePasswordForm',
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
+        'zfcuser_user_service' => 'User\Service\User'
     ),
     'factories' => array(
-        
+     
     ),
     'initializers' => array(
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',

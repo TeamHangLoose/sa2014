@@ -3,10 +3,13 @@
 return array(
     'controllers' => array(
         'invokables' => array(
+            'User\Controller\User' => 'User\Controller\UserController',
+           
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
             'User\Controller\Admin' => 'User\Factory\Controller\AdminControllerFactory',
+            
         ),
     ),
     'doctrine' => array(
@@ -72,10 +75,12 @@ return array(
                 array('route' => 'admin/list', 'roles' => array('guest')),
                 array('route' => 'admin/create', 'roles' => array('guest')),
                 array('route' => 'admin/remove', 'roles' => array('guest')),
- 
                 array('route' => 'admin/edit', 'roles' => array('guest')),
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
+                array('route' => 'change-adress', 'roles' => array('user')),
+                
+                
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
                 array('route' => 'home', 'roles' => array('guest', 'user')),
@@ -84,6 +89,16 @@ return array(
     ),
     'router' => array(
         'routes' => array(
+            'change-adress' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route' => '/user/change-adress',
+                    'defaults' => array(
+                        'controller' => 'User\Controller\User',
+                        'action' => 'changeadress',
+                    ),
+                ),
+            ),
             'user' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
