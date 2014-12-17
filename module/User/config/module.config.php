@@ -83,6 +83,9 @@ return array(
                 // Below is the default index action used by the ZendSkeletonApplication
                 array('route' => 'home', 'roles' => array('guest', 'user')),
                 array('route' => 'zfcuser/htimageupload', 'roles' => array('user')),
+                array('route' => 'zfcuser/htimagedisplay', 'roles' => array('user')),
+                
+                
                 
                  
             ),
@@ -90,7 +93,6 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-           
              'upload-form' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

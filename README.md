@@ -18,3 +18,6 @@ INSERT INTO `role` (`id`, `parent_id`, `roleId`) VALUES (3, 2, 'admin');
 
 doctrine-module orm:schema-tool:create
 doctrine-module orm:validate-schema
+
+
+enable--> fileinfo,gd in php.ini
