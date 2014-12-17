@@ -19,61 +19,26 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     protected $changeAdressForm;
 
-       public function uploadAction()
-    {
-       // if the user isn't logged in, we can't change Adress
-        if (!$this->zfcUserAuthentication()->hasIdentity()) {
-      // redirect to the login redirect route
-            return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
-        }
+    public function uploadAction() {
+        $form = new UploadForm('upload-form');
 
-        $user = $this->getUser();
-        if (!$user) {
-            return $this->notFoundAction();
-        }
-        
-        $options = $this->getOptions();
-        $form = $this->getServiceLocator()->get('HtProfileImage\ProfileImageForm');
-     
         $request = $this->getRequest();
-        $imageUploaded = false;
         if ($request->isPost()) {
-            $negotiator   = new FormatNegotiator();
-            $format = $negotiator->getBest(
-                $request->getHeader('Accept')->getFieldValue(),
-                ['application/json', 'text/html']
+            // Make certain to merge the files info!
+            $post = array_merge_recursive(
+                    $request->getPost()->toArray(), $request->getFiles()->toArray()
             );
-            if ($this->profileImageService->storeImage($user, $request->getFiles()->toArray())) {
-                if ($format->getValue() === 'application/json') {
-                    return new Model\JsonModel([
-                        'uploaded' => true
-                    ]);
-                } elseif ($options->getPostUploadRoute()) {
-                        return call_user_func_array([$this->redirect(), 'toRoute'], (array) $options->getPostUploadRoute());
-                }
-                $imageUploaded = true;
-            } else {
-                $response = $this->getResponse();
-            
-                $response->setStatusCode(400);
-                if ($format->getValue() === 'application/json') {
-                    return new Model\JsonModel([
-                        'error' => true,
-                        'messages' => $form->getMessages()
-                    ]);
-                }
 
+            $form->setData($post);
+            if ($form->isValid()) {
+                $data = $form->getData();
+                // Form is valid, save the form!
+                return $this->redirect()->toRoute('upload-form/success');
             }
         }
-        
 
-        return new Model\ViewModel([
-            'form' => $form,
-            'imageUploaded' => $imageUploaded,
-            'user' => $user
-        ]);
+        return array('form' => $form);
     }
-
 
     public function changeadressAction() {
 // if the user isn't logged in, we can't change Adress
@@ -128,29 +93,5 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
         return $this->changeAdressForm;
     }
-    
-    
-      protected function getUser()
-    {
-        $authenticationService = $this->getServiceLocator()->get('zfcuser_auth_service');
-        /** @var \ZfcUser\Entity\UserInterface $user */
-        $user = $authenticationService->getIdentity();
-
-        $userId = $this->params()->fromRoute('userId', null);
-        if ($userId !== null) {
-            $currentUser = $user;
-            $user = $this->getUserMapper()->findById($userId);
-            if (!$user) {
-                return null;
-            }
-            if (!$this->getOptions()->getEnableInterUserImageUpload() && ($user->getId() !== $currentUser->getId())) {
-                return null;
-            }
-        }
-
-        return $user;         
-    }
-    
-    
 
 }
