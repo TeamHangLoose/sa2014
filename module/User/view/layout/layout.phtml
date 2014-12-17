@@ -64,14 +64,21 @@
 
                     <ul class ="nav navbar-nav navbar-right">
                         <li>
+
                             <form action="<?php echo $this->url('zfcuser/register') ?>">
                                 <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('Register') ?></button>
                             </form>
                         </li>     
                         <li>
-                            <form action="<?php echo $this->url('zfcuser/login') ?>">
-                                <button class="btn btn-sm btn-success navbar-btn"><?php echo $this->translate('Login') ?></button>
-                            </form>
+                            <?php IF (!$this->zfcUserIdentity()): ?>
+                                <form action="<?php echo $this->url('zfcuser/login') ?>">
+                                    <button class="btn btn-sm btn-success navbar-btn"><?php echo $this->translate('Login') ?></button>
+                                </form>
+                                <?php ELSE: ?>
+                                <form action="<?php echo $this->url('zfcuser/logout') ?>">
+                                    <button class="btn btn-sm btn-success navbar-btn"><?php echo $this->translate('Login') ?></button>
+                                </form>
+                            <?php ENDIF ?>
                         </li>
                     </ul>
                 </div>

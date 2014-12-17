@@ -8,9 +8,9 @@ return array(
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
             'User\Controller\Admin' => 'User\Factory\Controller\AdminControllerFactory',
-            
         ),
     ),
+  
     'doctrine' => array(
         'driver' => array(
             // overriding zfc-user-doctrine-orm's config
@@ -36,15 +36,11 @@ return array(
             'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
             'error/404' => __DIR__ . '/../view/error/404.phtml',
             'error/index' => __DIR__ . '/../view/error/index.phtml',
-            
-            'zfc-user/user/index' =>  __DIR__ . '/../view/zfc-user/user/index.phtml'
+            'zfc-user/user/index' => __DIR__ . '/../view/zfc-user/user/index.phtml'
         ),
-       
         'template_path_stack' => array(
             'zfcuser' => __DIR__ . '/../view',
             'HtProfileImage' => __DIR__ . '/../view',
-  
-            
         ),
     ),
     'zfcuser' => array(
@@ -89,16 +85,12 @@ return array(
                 array('route' => 'home', 'roles' => array('guest', 'user')),
                 array('route' => 'zfcuser/htimageupload', 'roles' => array('user')),
                 array('route' => 'zfcuser/htimagedisplay', 'roles' => array('user')),
-                
-                
-                
-                 
             ),
         ),
     ),
     'router' => array(
         'routes' => array(
-             'upload-form' => array(
+            'upload-form' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route' => '/user/upload-form',
