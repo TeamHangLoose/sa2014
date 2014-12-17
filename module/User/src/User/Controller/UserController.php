@@ -21,9 +21,10 @@ class UserController extends \ZfcUser\Controller\UserController {
 
        public function uploadAction()
     {
-        $authenticationService = $this->getServiceLocator()->get('zfcuser_auth_service');
-        if (!$authenticationService->hasIdentity()) {
-            return $this->redirect()->toRoute('zfcuser');
+       // if the user isn't logged in, we can't change Adress
+        if (!$this->zfcUserAuthentication()->hasIdentity()) {
+      // redirect to the login redirect route
+            return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
 
         $user = $this->getUser();
@@ -127,5 +128,29 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
         return $this->changeAdressForm;
     }
+    
+    
+      protected function getUser()
+    {
+        $authenticationService = $this->getServiceLocator()->get('zfcuser_auth_service');
+        /** @var \ZfcUser\Entity\UserInterface $user */
+        $user = $authenticationService->getIdentity();
+
+        $userId = $this->params()->fromRoute('userId', null);
+        if ($userId !== null) {
+            $currentUser = $user;
+            $user = $this->getUserMapper()->findById($userId);
+            if (!$user) {
+                return null;
+            }
+            if (!$this->getOptions()->getEnableInterUserImageUpload() && ($user->getId() !== $currentUser->getId())) {
+                return null;
+            }
+        }
+
+        return $user;         
+    }
+    
+    
 
 }
