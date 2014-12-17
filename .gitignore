@@ -15,12 +15,10 @@ data/logs/
 data/cache/
 data/sessions/
 data/tmp/
+data/uploads/profile-images/
 
 temp/
 
 # Legacy ZF1
 demos/
 extras/documentation
-*.png
-*.png
-*.png
