@@ -2,11 +2,11 @@
 
 namespace User\Options;
 
-use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\AbstractOptions;
 
-class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
-{
+class ModuleOptions extends AbstractOptions implements
+ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, UserCreateOptionsInterface {
+
     /** @var string */
     protected $tokenEntity = 'User\Entity\Token';
 
@@ -24,7 +24,7 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
      * @param $entityClass
      * @return string
      */
-         //**********************************************************************************************************S
+    //**********************************************************************************************************S
     protected $__strictMode__ = false;
 
     /**
@@ -66,13 +66,9 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
      * Allow change user password on user edit form.
      */
     protected $allowPasswordChange = true;
-
     protected $userMapper = 'ZfcUserAdmin\Mapper\UserDoctrine';
 
-
-    
-    public function correctEntity($entityClass)
-    {
+    public function correctEntity($entityClass) {
         if (substr($entityClass, 0, 1) !== '\\') {
             $entityClass = '\\' . $entityClass;
         }
@@ -83,120 +79,98 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
     /**
      * @param string $tokenEntity
      */
-    public function setTokenEntity($tokenEntity)
-    {
+    public function setTokenEntity($tokenEntity) {
         $this->tokenEntity = $tokenEntity;
     }
 
     /**
      * @return string
      */
-    public function getTokenEntity()
-    {
+    public function getTokenEntity() {
         return $this->correctEntity($this->tokenEntity);
     }
 
     /**
      * @param int $tokenHours
      */
-    public function setTokenHours($tokenHours)
-    {
+    public function setTokenHours($tokenHours) {
         $this->tokenHours = $tokenHours;
     }
 
     /**
      * @return int
      */
-    public function getTokenHours()
-    {
+    public function getTokenHours() {
         return $this->tokenHours;
     }
 
     /**
      * @param string $mailTransporter
      */
-    public function setMailTransporter($mailTransporter)
-    {
+    public function setMailTransporter($mailTransporter) {
         $this->mailTransporter = $mailTransporter;
     }
 
     /**
      * @return string
      */
-    public function getMailTransporter()
-    {
+    public function getMailTransporter() {
         return $this->mailTransporter;
     }
 
-   
-    
-    public function setUserMapper($userMapper)
-    {
+    public function setUserMapper($userMapper) {
         $this->userMapper = $userMapper;
     }
 
-    public function getUserMapper()
-    {
+    public function getUserMapper() {
         return $this->userMapper;
     }
 
-    public function setUserListElements(array $listElements)
-    {
+    public function setUserListElements(array $listElements) {
         $this->userListElements = $listElements;
     }
 
-    public function getUserListElements()
-    {
+    public function getUserListElements() {
         return $this->userListElements;
     }
 
-    public function getEditFormElements()
-    {
+    public function getEditFormElements() {
         return $this->editFormElements;
     }
 
-    public function setEditFormElements(array $elements)
-    {
+    public function setEditFormElements(array $elements) {
         $this->editFormElements = $elements;
     }
 
-    public function setCreateFormElements(array $createFormElements)
-    {
+    public function setCreateFormElements(array $createFormElements) {
         $this->createFormElements = $createFormElements;
     }
 
-    public function getCreateFormElements()
-    {
+    public function getCreateFormElements() {
         return $this->createFormElements;
     }
 
-    public function setCreateUserAutoPassword($createUserAutoPassword)
-    {
+    public function setCreateUserAutoPassword($createUserAutoPassword) {
         $this->createUserAutoPassword = $createUserAutoPassword;
     }
 
-    public function getCreateUserAutoPassword()
-    {
+    public function getCreateUserAutoPassword() {
         return $this->createUserAutoPassword;
     }
 
-    public function getAllowPasswordChange()
-    {
+    public function getAllowPasswordChange() {
         return $this->allowPasswordChange;
     }
 
-    public function setAdminPasswordChange($allowPasswordChange)
-    {
+    public function setAdminPasswordChange($allowPasswordChange) {
         $this->allowPasswordChange = $allowPasswordChange;
     }
 
-    public function setAutoPasswordLength($autoPasswordLength)
-    {
+    public function setAutoPasswordLength($autoPasswordLength) {
         $this->autoPasswordLength = $autoPasswordLength;
     }
 
-    public function getAutoPasswordLength()
-    {
+    public function getAutoPasswordLength() {
         return $this->autoPasswordLength;
     }
 

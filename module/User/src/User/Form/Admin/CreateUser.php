@@ -3,7 +3,7 @@
 namespace User\Form\Admin;
 
 use User\Options\UserCreateOptionsInterface;
-use ZfcUser\Options\RegistrationOptionsInterface;
+use User\Options\RegistrationOptionsInterface;
 use ZfcUser\Form\Register as Register;
 
 class CreateUser extends Register
@@ -19,7 +19,7 @@ class CreateUser extends Register
      */
     protected $createOptions;
 
-    public function __construct($name = null, UserCreateOptionsInterface $createOptions, RegistrationOptionsInterface $registerOptions, $serviceManager)
+    public function __construct($name = null, \User\Options\ModuleOptions $createOptions, \ZfcUser\Options\ModuleOptions $registerOptions, $serviceManager)
     {
         $this->setCreateOptions($createOptions);
         $this->setServiceManager($serviceManager);

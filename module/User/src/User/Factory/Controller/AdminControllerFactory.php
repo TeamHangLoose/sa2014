@@ -22,7 +22,10 @@ class AdminControllerFactory implements FactoryInterface{
         
            /** @var \User\Options\ModuleOptions $moduleOptions */
         $moduleOptions = $serviceLocator->get('User\Options\ModuleOptions');
-
-        return new AdminController($listForm, $adminService,$moduleOptions);
+        
+         $zfcUserOptions = $serviceLocator->get('zfcuser_module_options');
+        
+        
+        return new AdminController($listForm, $adminService,$moduleOptions,$zfcUserOptions);
     }
 }

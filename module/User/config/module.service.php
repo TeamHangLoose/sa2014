@@ -11,13 +11,10 @@ return array(
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
         'User\Form\Forgot\ChangePasswordForm' => 'User\Form\Forgot\ChangePasswordForm',
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
-        
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
-        
-        
     ),
     'factories' => array(
-        'admin_createuser_form' => 'User\Factory\Form\CreateUserFormFactory',
+        
     ),
     'initializers' => array(
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',
