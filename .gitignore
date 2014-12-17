@@ -21,3 +21,4 @@ temp/
 # Legacy ZF1
 demos/
 extras/documentation
+*.png
