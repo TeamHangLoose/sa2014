@@ -19,6 +19,7 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     protected $changeAdressForm;
 
+    /*
     public function uploadFormAction() {
         $form = new \User\Form\User\UploadForm('upload-form');
         $request = $this->getRequest();
@@ -62,6 +63,8 @@ class UserController extends \ZfcUser\Controller\UserController {
         $progress = new \Zend\ProgressBar\Upload\SessionProgress();
         return new \Zend\View\Model\JsonModel($progress->getProgress($id));
     }
+     * /
+     */
 
     public function changeadressAction() {
 // if the user isn't logged in, we can't change Adress

@@ -52,7 +52,12 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Key = form label
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
-    protected $createFormElements = array();
+    protected $createFormElements = array( 'Id' => 'id',
+        'Name' => 'username',
+        'Email address' => 'email',
+        'Street' => 'street',
+        'Zip Code' => 'plz',
+        'Village' => 'village');
 
     /**
      * @var bool

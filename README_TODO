@@ -1,0 +1,21 @@
+TODO'S
+
+
+**MUST**
+    #\\ in User->Administration createUser muss bei der Registrierung eine Rolle vergeben werden.
+    #\\ in User->Administration muss bei allen Formen Bootstrap  und Css angepasst werden.
+    #\\ in User->Administration Bild zeigen bei editUser.
+    #\\ in Navigation alle Einträge in der Navigation müsen nach rechten angezeigt werden.
+    #\\ in User MyAccount bessere Darstellung mehr Infos.
+    #\\ in ALL <!--KOMENTARE DOC--> und Anleitung zur installation
+    #\\ Doubel opt-in
+
+
+
+**NICETOHAVE**
+    #\\ etwas mehr Javascript
+    #\\ Suchfunktion bei User Liste.
+    #\\ bei Userliste Maus hover: bild von user zeigen. oder Bild in der liste klein anzeigen. 
+    #\\ wenn user gelöscht wird nur auf inaktiv setzen.
+    #\\ etwas mehr Bilder und icons
+    #\\ bat installer für doctrineORM und php.ini und Composer.
