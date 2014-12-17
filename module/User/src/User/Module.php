@@ -20,11 +20,6 @@ class Module {
 
     public function onBootstrap($e) {
 
-
-
-
-
-
         //adding costum fields to register form
         $eventManager = $e->getApplication()->getEventManager();
         $em = $eventManager->getSharedManager();
