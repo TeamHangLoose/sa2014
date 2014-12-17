@@ -1,6 +1,6 @@
 <?php
 
-namespace ZfcUserAdmin\Form;
+namespace User\Form\Admin;
 
 use ZfcUser\Entity\UserInterface;
 use ZfcUser\Form\Register;

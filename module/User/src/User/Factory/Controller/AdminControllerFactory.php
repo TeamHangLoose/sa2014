@@ -6,11 +6,9 @@ use User\Controller\AdminController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AdminControllerFactory implements FactoryInterface{
-  
-    
-      public function createService(ServiceLocatorInterface $controllerManager)
-    {
+class AdminControllerFactory implements FactoryInterface {
+
+    public function createService(ServiceLocatorInterface $controllerManager) {
         /** @var ServiceLocatorInterface $serviceLocator */
         $serviceLocator = $controllerManager->getServiceLocator();
 
@@ -19,13 +17,14 @@ class AdminControllerFactory implements FactoryInterface{
 
         /** @var \User\Service\ForgotPasswordService $forgotPasswordService */
         $adminService = $serviceLocator->get('User\Service\AdminService');
-        
-           /** @var \User\Options\ModuleOptions $moduleOptions */
+
+        /** @var \User\Options\ModuleOptions $moduleOptions */
         $moduleOptions = $serviceLocator->get('User\Options\ModuleOptions');
-        
-         $zfcUserOptions = $serviceLocator->get('zfcuser_module_options');
-        
-        
-        return new AdminController($listForm, $adminService,$moduleOptions,$zfcUserOptions);
+
+        $zfcUserOptions = $serviceLocator->get('zfcuser_module_options');
+
+
+        return new AdminController($listForm, $adminService, $moduleOptions, $zfcUserOptions);
     }
+
 }

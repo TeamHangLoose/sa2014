@@ -6,7 +6,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Paginator;
 use Zend\Stdlib\Hydrator\ClassMethods;
 
-
 class AdminController extends AbstractActionController {
 
     /**
@@ -19,7 +18,6 @@ class AdminController extends AbstractActionController {
 
     /** @var ForgotPasswordService */
     protected $adminService;
-    
     protected $zfcUserOptions;
 
     public function __construct(\User\Form\Admin\ListForm $listForm, \User\Service\AdminService $adminService, \User\Options\ModuleOptions $moduleOptions, \ZfcUser\Options\ModuleOptions $zfcUserOptions) {
@@ -66,7 +64,7 @@ class AdminController extends AbstractActionController {
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $user = $this->adminService->create($form, (array) $request->getPost(),$this->zfcUserOptions,$this->moduleOptions);
+                $user = $this->adminService->create($form, (array) $request->getPost(), $this->zfcUserOptions, $this->moduleOptions);
                 if ($user) {
                     $this->flashMessenger()->addSuccessMessage('The user was created');
                     return $this->redirect()->toRoute('admin/list');
@@ -85,15 +83,17 @@ class AdminController extends AbstractActionController {
         $user = $this->adminService->getUserByID($userId);
 
         /** @var $form \ZfcUserAdmin\Form\EditUser */
-        $form = $this->getServiceLocator()->get('admin_edituser_form');
+        $form = new \User\Form\Admin\EditUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());
+
         $form->setUser($user);
 
         /** @var $request \Zend\Http\Request */
         $request = $this->getRequest();
+
         if ($request->isPost()) {
             $form->setData($request->getPost());
             if ($form->isValid()) {
-                $user = $this->getAdminUserService()->edit($form, (array) $request->getPost(), $user);
+                $user = $this->adminService->edit($form, (array) $request->getPost(), $user,$this->moduleOptions,$this->zfcUserOptions);
                 if ($user) {
                     $this->flashMessenger()->addSuccessMessage('The user was edited');
                     return $this->redirect()->toRoute('admin/list');
@@ -109,7 +109,24 @@ class AdminController extends AbstractActionController {
         );
     }
 
-    
-    
-    
+    public function removeAction() {
+        
+        $userId = $this->getEvent()->getRouteMatch()->getParam('userId');
+
+        /** @var $identity \ZfcUser\Entity\UserInterface */
+        $identity = $this->zfcUserAuthentication()->getIdentity();
+        
+        if ($identity && $identity->getId() == $userId) {
+            $this->flashMessenger()->addErrorMessage('You can not delete yourself');
+        } else {
+            $user = $this->adminService->getUserByID($userId);
+            if ($user) {
+                $this->adminService->remove($user);
+                $this->flashMessenger()->addSuccessMessage('The user was deleted');
+            }
+        }
+
+        return $this->redirect()->toRoute('admin/list');
+    }
+
 }

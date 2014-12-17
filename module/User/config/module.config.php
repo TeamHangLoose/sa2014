@@ -71,6 +71,8 @@ return array(
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 array('route' => 'admin/list', 'roles' => array('guest')),
                 array('route' => 'admin/create', 'roles' => array('guest')),
+                array('route' => 'admin/remove', 'roles' => array('guest')),
+ 
                 array('route' => 'admin/edit', 'roles' => array('guest')),
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
@@ -148,6 +150,17 @@ return array(
                             'defaults' => array(
                                 'controller' => 'User\Controller\Admin',
                                 'action' => 'edit',
+                                'userId' => 0
+                            ),
+                        ),
+                    ),
+                    'remove' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/remove/:userId',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\Admin',
+                                'action' => 'remove',
                                 'userId' => 0
                             ),
                         ),

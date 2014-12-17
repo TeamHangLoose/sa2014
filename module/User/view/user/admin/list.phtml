@@ -46,7 +46,7 @@ foreach ($this->userlistElements as $element) {
                     <?php echo $this->translate('Edit') ?>
                 </a>
                 |
-                <a href="<?php echo $this->url('zfcuser/login', array('userId' => $user->getId())); ?>"
+                <a href="<?php echo $this->url('admin/remove', array('userId' => $user->getId())); ?>"
                    onclick="return confirm('<?php echo $this->translate('Really delete user?') ?>')">
                     <?php echo $this->translate('Delete') ?>
                 </a>

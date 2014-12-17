@@ -7,8 +7,14 @@ use User\Mapper\UserMapperInterface;
 use ZfcUser\Entity\UserInterface;
 use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Crypt\Password\Bcrypt;
+use ZfcUserDoctrineORM\Mapper\User as ZfcUserDoctrineMapper;use Zend\EventManager\EventManagerInterface;
+use Zend\EventManager\EventManager;
+use Zend\EventManager\EventManagerAwareInterface;
 
-class UserMapper implements UserMapperInterface {
+
+class UserMapper implements EventManagerAwareInterface {
+
+    protected $events;
 
     /** @var ObjectManager */
     protected $objectManager;
@@ -56,8 +62,8 @@ class UserMapper implements UserMapperInterface {
         //$er = $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass());
         //return $er->findAll();
 
-         $users = $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass())->findAll();
-         return $users;
+        $users = $this->objectManager->getRepository($this->zfcUserModuleOptions->getUserEntityClass())->findAll();
+        return $users;
     }
 
     /**
@@ -76,6 +82,28 @@ class UserMapper implements UserMapperInterface {
 
         return $user;
     }
-  
 
+    public function remove($entity) {
+        $this->getEventManager()->trigger('remove.pre', $this, array('entity' => $entity));
+        $this->objectManager->remove($entity);
+        $this->objectManager->flush();
+        $this->getEventManager()->trigger('remove', $this, array('entity' => $entity));
+    }
+
+    public function getEventManager() {
+        if (null === $this->events) {
+            $this->setEventManager(new EventManager());
+        }
+        return $this->events;
+    }
+
+     public function setEventManager(EventManagerInterface $events)
+    {
+        $events->setIdentifiers(array(
+            __CLASS__,
+            get_called_class(),
+        ));
+        $this->events = $events;
+        return $this;
+    }
 }
