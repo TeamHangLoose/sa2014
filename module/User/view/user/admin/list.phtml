@@ -2,6 +2,7 @@
 
 
 $getters = array();
+
 foreach ($this->userlistElements as $element) {
     $parts = explode('_', $element);
     array_walk($parts, function (&$val) {

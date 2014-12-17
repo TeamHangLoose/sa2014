@@ -36,10 +36,15 @@ return array(
             'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
             'error/404' => __DIR__ . '/../view/error/404.phtml',
             'error/index' => __DIR__ . '/../view/error/index.phtml',
+            
+            'zfc-user/user/index' =>  __DIR__ . '/../view/zfc-user/user/index.phtml'
         ),
+       
         'template_path_stack' => array(
             'zfcuser' => __DIR__ . '/../view',
-        //'zfcuseradmin' => __DIR__ . '/../view',
+            'HtProfileImage' => __DIR__ . '/../view',
+  
+            
         ),
     ),
     'zfcuser' => array(
