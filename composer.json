@@ -23,7 +23,8 @@
         "zf-commons/zfc-admin": ">=0.1.1",
         "bjyoungblood/bjy-authorize": "1.2.*",
         "soflomo/mail": "~0.3",
-        "hrevert/ht-img-module": "0.3.*"
+        "hrevert/ht-img-module": "0.3.*",
+        "hrevert/ht-profile-image": "2.3.2"
         
     
     }

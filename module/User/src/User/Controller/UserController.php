@@ -19,9 +19,8 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     protected $changeAdressForm;
 
-    public function uploadAction() {
-        $form = new UploadForm('upload-form');
-
+    public function uploadFormAction() {
+        $form = new \User\Form\User\UploadForm('upload-form');
         $request = $this->getRequest();
         if ($request->isPost()) {
             // Make certain to merge the files info!
@@ -33,11 +32,35 @@ class UserController extends \ZfcUser\Controller\UserController {
             if ($form->isValid()) {
                 $data = $form->getData();
                 // Form is valid, save the form!
-                return $this->redirect()->toRoute('upload-form/success');
+                if (!empty($post['isAjax'])) {
+                    return new JsonModel(array(
+                        'status' => true,
+                        'redirect' => $this->url()->fromRoute('upload-form/success'),
+                        'formData' => $data,
+                    ));
+                } else {
+                    // Fallback for non-JS clients
+                    return $this->redirect()->toRoute('upload-form/success');
+                }
+            } else {
+                if (!empty($post['isAjax'])) {
+                    // Send back failure information via JSON
+                    return new JsonModel(array(
+                        'status' => false,
+                        'formErrors' => $form->getMessages(),
+                        'formData' => $form->getData(),
+                    ));
+                }
             }
         }
 
         return array('form' => $form);
+    }
+
+    public function uploadProgressAction() {
+        $id = $this->params()->fromQuery('id', null);
+        $progress = new \Zend\ProgressBar\Upload\SessionProgress();
+        return new \Zend\View\Model\JsonModel($progress->getProgress($id));
     }
 
     public function changeadressAction() {

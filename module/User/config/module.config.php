@@ -72,7 +72,7 @@ return array(
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 array('route' => 'admin/list', 'roles' => array('guest')),
-                array('route' => 'upload', 'roles' => array('user')),
+                array('route' => 'upload-form', 'roles' => array('user')),
                 array('route' => 'admin/create', 'roles' => array('guest')),
                 array('route' => 'admin/remove', 'roles' => array('guest')),
                 array('route' => 'admin/edit', 'roles' => array('guest')),
@@ -82,20 +82,22 @@ return array(
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
                 array('route' => 'home', 'roles' => array('guest', 'user')),
+                array('route' => 'zfcuser/htimageupload', 'roles' => array('user')),
+                
+                 
             ),
         ),
     ),
     'router' => array(
         'routes' => array(
-            
-        
-             'upload' => array(
+           
+             'upload-form' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/user/upload',
+                    'route' => '/user/upload-form',
                     'defaults' => array(
                         'controller' => 'User\Controller\User',
-                        'action' => 'upload',
+                        'action' => 'uploadForm',
                     ),
                 ),
             ),

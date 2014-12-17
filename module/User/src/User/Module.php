@@ -7,7 +7,6 @@ class Module {
     public function getConfig() {
         return include __DIR__ . '/../../config/module.config.php';
     }
- 
 
     public function getAutoloaderConfig() {
         return array(
@@ -20,9 +19,23 @@ class Module {
     }
 
     public function onBootstrap($e) {
+
+
+
+
+
+
         //adding costum fields to register form
         $eventManager = $e->getApplication()->getEventManager();
         $em = $eventManager->getSharedManager();
+
+
+        $em->attach('HtProfileImage\Service\ProfileImageService', 'storeImage', function ($event) {
+            $user = $event->getParam('user');
+            // Now, check if the identity has access to this user
+        });
+
+
 
 //        $em->attach(
 //            'ZfcUser\Form\Register',
