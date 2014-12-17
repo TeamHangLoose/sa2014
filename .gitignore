@@ -14,6 +14,7 @@ data/logs/
 data/cache/
 data/sessions/
 data/tmp/
+data/userImages
 temp/
 
 # Legacy ZF1
