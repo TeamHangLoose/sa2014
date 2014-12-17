@@ -1,5 +1,7 @@
 <?php
+
 namespace User\Controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,8 +17,61 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     const ROUTE_CHANGEADRESS = 'change-adress';
 
-
     protected $changeAdressForm;
+
+       public function uploadAction()
+    {
+        $authenticationService = $this->getServiceLocator()->get('zfcuser_auth_service');
+        if (!$authenticationService->hasIdentity()) {
+            return $this->redirect()->toRoute('zfcuser');
+        }
+
+        $user = $this->getUser();
+        if (!$user) {
+            return $this->notFoundAction();
+        }
+        
+        $options = $this->getOptions();
+        $form = $this->getServiceLocator()->get('HtProfileImage\ProfileImageForm');
+     
+        $request = $this->getRequest();
+        $imageUploaded = false;
+        if ($request->isPost()) {
+            $negotiator   = new FormatNegotiator();
+            $format = $negotiator->getBest(
+                $request->getHeader('Accept')->getFieldValue(),
+                ['application/json', 'text/html']
+            );
+            if ($this->profileImageService->storeImage($user, $request->getFiles()->toArray())) {
+                if ($format->getValue() === 'application/json') {
+                    return new Model\JsonModel([
+                        'uploaded' => true
+                    ]);
+                } elseif ($options->getPostUploadRoute()) {
+                        return call_user_func_array([$this->redirect(), 'toRoute'], (array) $options->getPostUploadRoute());
+                }
+                $imageUploaded = true;
+            } else {
+                $response = $this->getResponse();
+            
+                $response->setStatusCode(400);
+                if ($format->getValue() === 'application/json') {
+                    return new Model\JsonModel([
+                        'error' => true,
+                        'messages' => $form->getMessages()
+                    ]);
+                }
+
+            }
+        }
+        
+
+        return new Model\ViewModel([
+            'form' => $form,
+            'imageUploaded' => $imageUploaded,
+            'user' => $user
+        ]);
+    }
 
 
     public function changeadressAction() {
@@ -64,7 +119,7 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     public function getChangeAdressForm() {
         if (!$this->changeAdressForm) {
-               
+
             $options = $this->getServiceLocator()->get('zfcuser_module_options');
             $form = new \User\Form\User\ChangeAdress(null, $this->getServiceLocator()->get('zfcuser_module_options'));
             $form->setInputFilter(new \User\Form\User\ChangeAdressFilter($options));

@@ -4,7 +4,6 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'User\Controller\User' => 'User\Controller\UserController',
-           
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
@@ -73,14 +72,13 @@ return array(
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 array('route' => 'admin/list', 'roles' => array('guest')),
+                array('route' => 'upload', 'roles' => array('user')),
                 array('route' => 'admin/create', 'roles' => array('guest')),
                 array('route' => 'admin/remove', 'roles' => array('guest')),
                 array('route' => 'admin/edit', 'roles' => array('guest')),
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'change-adress', 'roles' => array('user')),
-                
-                
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
                 array('route' => 'home', 'roles' => array('guest', 'user')),
@@ -89,6 +87,18 @@ return array(
     ),
     'router' => array(
         'routes' => array(
+            
+        
+             'upload' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route' => '/user/upload',
+                    'defaults' => array(
+                        'controller' => 'User\Controller\User',
+                        'action' => 'upload',
+                    ),
+                ),
+            ),
             'change-adress' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(

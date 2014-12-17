@@ -9,7 +9,7 @@ return array(
         'ZfcUser',
         'ZfcUserDoctrineORM',
         'BjyAuthorize',
-        'HtImgModule', 
+     
         'Application',
         'User',
  
