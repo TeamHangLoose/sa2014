@@ -1,10 +1,12 @@
-<?php
-$form = $this->createUserForm;
-$form->prepare();
-$form->setAttribute('action', $this->url('admin/create'));
-$form->setAttribute('method', 'post');
-?>
-
-<h1>Create user</h1>
-
-<?php include '_form.phtml'; ?>
+<div class="form-default">
+    <div class="page-header">
+        <h1><?php echo $this->translate('Create User'); ?></h1>
+    </div>
+    <?php
+    $form = $this->createUserForm;
+    $form->prepare();
+    $form->setAttribute('action', $this->url('admin/create'));
+    $form->setAttribute('method', 'post');
+    ?>
+    <?php include '_form.phtml'; ?>
+</div>
