@@ -41,7 +41,8 @@ class CreateUser extends Register
                     'label' => $name,
                 ),
                 'attributes' => array(
-                    'type' => 'text'
+                    'type' => 'text',
+                    
                 ),
             ));
         }

@@ -29,75 +29,9 @@ class Module {
             $user = $event->getParam('user');
             // Now, check if the identity has access to this user
         });
+       include 'Form/Zfcuser/register_ext.php';
+       include 'Form/Zfcuser/changeEmail_ext.php';
 
-
-
-//        $em->attach(
-//            'ZfcUser\Form\Register',
-//            'init',
-//            function($e)
-//            {
-//                /* @var $form \ZfcUser\Form\Register */
-//                $form = $e->getTarget();
-//                $form->add(
-//                    array(
-//                        'name' => 'userrole',
-//                        'type' => 'hidden',
-//                        'options' => array(
-//                            'value' => 'Username',
-//                        ),
-//                    )
-//                );
-//            }
-//        );
-
-        $em->attach(
-                'ZfcUser\Form\Register', 'init', function($e) {
-            $form = $e->getTarget();
-
-            $form->remove('username');
-            $form->add(array('name' => 'username', 'options' => array('label' => 'Vorname Nachname',),
-                'attributes' => array('type' => 'text',),
-                    )
-            );
-            $form->remove('email');
-            $form->add(array('name' => 'email', 'options' => array('label' => 'Email',),
-                'attributes' => array('type' => 'text',),
-                    )
-            );
-            $form->remove('password');
-            $form->add(array(
-                'name' => 'password','options' => array( 'label' => 'Passwort', ),
-                'attributes' => array('type' => 'password' ),
-            ));
-            $form->remove('passwordVerify');
-            $form->add(array('name' => 'passwordVerify','options' => array('label' => 'Password Verify',),'attributes' => array('type' => 'password'
-                ),
-            ));
-
-            $form->remove('display_name');
-            $form->add(array('name' => 'display_name', 'options' => array('label' => 'Nutzername',),
-                'attributes' => array('type' => 'text',),
-                    )
-            );
-
-            $form->add(array('name' => 'street', 'options' => array('label' => 'Strasse',),
-                'attributes' => array('type' => 'text',),
-                    )
-            );
-
-            $form->add(
-                    array('name' => 'plz', 'options' => array('label' => 'Postleitzahlen',),
-                        'attributes' => array('type' => 'text',),
-                    )
-            );
-            $form->add(
-                    array('name' => 'village', 'options' => array('label' => 'Ort',),
-                        'attributes' => array('type' => 'text',),
-                    )
-            );
-        }
-        );
 
         $zfcServiceEvents = $e->getApplication()->getServiceManager()->get('zfcuser_user_service')->getEventManager();
 

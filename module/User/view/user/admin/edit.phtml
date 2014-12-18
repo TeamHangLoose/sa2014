@@ -7,10 +7,10 @@ $form->setAttribute('method', 'post');
 ?>
 
 <h1>Edit user</h1>
-
-<?php include '_form.phtml'; ?>
-
+<div class="form-group form-default"> 
+    <?php include '_form.phtml'; ?>
+</div>
 <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)); ?>"
    onclick="return confirm('<?php echo $this->translate('Really delete user?') ?>')">
-    <?php echo $this->translate('Delete') ?>
+       <?php echo $this->translate('Delete') ?>
 </a>
