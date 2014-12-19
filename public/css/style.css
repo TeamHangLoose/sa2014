@@ -3,11 +3,12 @@ body {
     padding-bottom: 40px;
 }
 
-  .navbar-right li{
-     margin-right: 15px;
-     margin-left: 15px;
-  }
-  
+
+.navbar-right li{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
 .form-default{
     margin: 20px auto;
     max-width:330px;
@@ -67,5 +68,5 @@ body {
 
 .wrap{
     height: 100%;
-    
+
 }

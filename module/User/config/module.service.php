@@ -14,6 +14,7 @@ return array(
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
         'zfcuser_user_service' => 'User\Service\User',
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
+        'User\Form\User\Index' => 'User\Form\User\Index',
     ),
   
     'initializers' => array(
