@@ -37,7 +37,7 @@ class EditUser extends Register
 
             $password = $this->get('password');
             $password->setAttribute('required', false);
-            $password->setOptions(array('label' => 'Password (only if want to change)'));
+            $password->setOptions(array('label' => 'Password (only if you want to change)'));
 
             $this->remove('passwordVerify');
         } else {
