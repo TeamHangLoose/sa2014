@@ -1,3 +1,4 @@
+
 <?php
 $getters = array();
 
@@ -9,13 +10,13 @@ foreach ($this->userlistElements as $element) {
     $getters[$element] = 'get' . implode('', $parts);
 }
 ?>
-<div class="page-header">
+<div class="page-header text-center">
      <h1><?php echo $this->translate('Users') ?></h1>
 </div>
 
 <div class="navbar filter-bar">
     <div class="navbar-inner">
-        <div class="pull-right">
+        <div class="text-center">
             <a href="<?php echo $this->url('admin/create') ?>" class="btn btn-lg btn-info">
 <?php echo $this->translate('Add New User') ?>
             </a>
