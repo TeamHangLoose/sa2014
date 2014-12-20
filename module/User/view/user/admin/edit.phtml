@@ -1,10 +1,11 @@
+
+<?php
+$form = $this->editUserForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('admin/edit', array('userId' => $this->userId)));
+$form->setAttribute('method', 'post');
+?>
 <div class="form-default">
-    <?php
-    $form = $this->editUserForm;
-    $form->prepare();
-    $form->setAttribute('action', $this->url('admin/edit', array('userId' => $this->userId)));
-    $form->setAttribute('method', 'post');
-    ?>
     <div class="page-header">
         <h1>Edit user</h1>
     </div>
