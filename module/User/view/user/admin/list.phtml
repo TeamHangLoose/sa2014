@@ -1,6 +1,4 @@
 <?php
-
-
 $getters = array();
 
 foreach ($this->userlistElements as $element) {
@@ -11,14 +9,15 @@ foreach ($this->userlistElements as $element) {
     $getters[$element] = 'get' . implode('', $parts);
 }
 ?>
-
-<h1><?php echo $this->translate('Users') ?></h1>
+<div class="page-header">
+     <h1><?php echo $this->translate('Users') ?></h1>
+</div>
 
 <div class="navbar filter-bar">
     <div class="navbar-inner">
         <div class="pull-right">
-            <a href="<?php echo $this->url('admin/create') ?>" class="btn btn-lg btn-default">
-                <?php echo $this->translate('Add New User') ?>
+            <a href="<?php echo $this->url('admin/create') ?>" class="btn btn-lg btn-info">
+<?php echo $this->translate('Add New User') ?>
             </a>
         </div>
     </div>
@@ -27,39 +26,39 @@ foreach ($this->userlistElements as $element) {
 <table class="table">
     <thead>
         <tr>
-            <?php foreach ($this->userlistElements as $name => $element): ?>
+<?php foreach ($this->userlistElements as $name => $element): ?>
                 <th><?php echo $this->escapeHtml($name ? : $element); ?></th>
             <?php endforeach; ?>
             <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($this->users as $user): ?>
-        <tr>
+<?php foreach ($this->users as $user): ?>
+            <tr>
             <?php foreach ($this->userlistElements as $element): ?>
-                <td class="cell cell-<?php echo $this->escapeHtml($element) ?>">
+                    <td class="cell cell-<?php echo $this->escapeHtml($element) ?>">
                     <?php $parts = explode('_', $element); ?>
-                    <?php echo call_user_func(array($user, $getters[$element])); ?>
+                        <?php echo call_user_func(array($user, $getters[$element])); ?>
+                    </td>
+                    <?php endforeach; ?>
+                <td class="cell cell-ctrls">
+                    <a href="<?php echo $this->url('admin/edit', array('userId' => $user->getId())); ?>">
+    <?php echo $this->translate('Edit') ?>
+                    </a>
+                    |
+                    <a href="<?php echo $this->url('admin/remove', array('userId' => $user->getId())); ?>"
+                       onclick="return confirm('<?php echo $this->translate('Really delete user?') ?>')">
+    <?php echo $this->translate('Delete') ?>
+                    </a>
                 </td>
-            <?php endforeach; ?>
-            <td class="cell cell-ctrls">
-                <a href="<?php echo $this->url('admin/edit', array('userId' => $user->getId())); ?>">
-                    <?php echo $this->translate('Edit') ?>
-                </a>
-                |
-                <a href="<?php echo $this->url('admin/remove', array('userId' => $user->getId())); ?>"
-                   onclick="return confirm('<?php echo $this->translate('Really delete user?') ?>')">
-                    <?php echo $this->translate('Delete') ?>
-                </a>
-            </td>
-        </tr>
-    <?php endforeach; ?>
+            </tr>
+<?php endforeach; ?>
     </tbody>
     <tfoot>
-    <tr>
-        <td colspan="<?php echo count($this->userlistElements) + 1; ?>">
-            <?php echo $this->paginationControl($this->users, 'Sliding', 'user/admin/pagination_userlist.phtml'); ?>
-        </td>
-    </tr>
+        <tr>
+            <td colspan="<?php echo count($this->userlistElements) + 1; ?>">
+<?php echo $this->paginationControl($this->users, 'Sliding', 'user/admin/pagination_userlist.phtml'); ?>
+            </td>
+        </tr>
     </tfoot>
 </table>

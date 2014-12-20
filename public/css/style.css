@@ -65,6 +65,30 @@ body {
 }
 /* --END-- Custom Button success for "Login"*/
 
+/*Custom Button info for "Delete"*/
+.btn-warning {
+    background-color: #9D0C0C;
+    background-image: -moz-linear-gradient(top, #FDBB13, #9D0C0C);
+    background-image: -ms-linear-gradient(top, #FDBB13, #9D0C0C);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FDBB13), to(#9D0C0C));
+    background-image: -webkit-linear-gradient(top, #FDBB13, #9D0C0C);
+    background-image: -o-linear-gradient(top, #FDBB13, #9D0C0C);
+    background-image: linear-gradient(top, #FDBB13, #9D0C0C);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDBB13', endColorstr='#9D0C0C', GradientType=0);
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+    background-color: #9D0C0C;
+}
+
+.btn-warning:active, .btn-warning.active {
+    background-color: #9D0C0C;
+}
+/* --END-- Custom Button success for "Delete"*/
+
 
 .wrap{
     height: 100%;
