@@ -18,7 +18,7 @@
 
     <?php foreach ($form as $element) : ?>
 
-        <div style="width: 330px;" class="form-group <?php if ($this->formElementErrors($element)) echo "has-error" ?>">
+        <div class="form-group <?php if ($this->formElementErrors($element)) echo "has-error" ?>">
             <?php if ('submit' != $element->getAttribute('type')) { ?>
                 <label class="control-label"><?php echo $element->getLabel() ?></label>
                 <?php

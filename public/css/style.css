@@ -65,7 +65,7 @@ body {
 }
 /* --END-- Custom Button success for "Login"*/
 
-/*Custom Button info for "Delete"*/
+/*Custom Button warning for "Delete"*/
 .btn-warning {
     background-color: #9D0C0C;
     background-image: -moz-linear-gradient(top, #FDBB13, #9D0C0C);
@@ -87,7 +87,7 @@ body {
 .btn-warning:active, .btn-warning.active {
     background-color: #9D0C0C;
 }
-/* --END-- Custom Button success for "Delete"*/
+/* --END-- Custom Button warning for "Delete"*/
 
 
 .wrap{

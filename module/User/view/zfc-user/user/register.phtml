@@ -1,19 +1,20 @@
+
+<?php
+if (!$this->enableRegistration) {
+    print "Registration is disabled";
+    return;
+}
+$form = $this->registerForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/register'));
+$form->setAttribute('method', 'post');
+echo $this->form()->openTag($form);
+?>
+
 <div class="form-default">
     <div class="page-header">
         <h1><?php echo $this->translate('Register'); ?></h1>
     </div>
-
-    <?php
-    if (!$this->enableRegistration) {
-        print "Registration is disabled";
-        return;
-    }
-    $form = $this->registerForm;
-    $form->prepare();
-    $form->setAttribute('action', $this->url('zfcuser/register'));
-    $form->setAttribute('method', 'post');
-    echo $this->form()->openTag($form);
-    ?>
 
     <?php foreach ($form as $element) : ?>
 
