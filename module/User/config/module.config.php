@@ -91,27 +91,6 @@ return array(
     'router' => array(
         'routes' => array(
             
-            'upload-form' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route' => '/user/upload-form',
-                    'defaults' => array(
-                        'controller' => 'User\Controller\User',
-                        'action' => 'uploadForm',
-                    ),
-                ),
-            ),
-            
-            'upload-form' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route' => '/user/upload-form',
-                    'defaults' => array(
-                        'controller' => 'User\Controller\User',
-                        'action' => 'uploadForm',
-                    ),
-                ),
-            ),
             'change-adress' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -136,7 +115,7 @@ return array(
             'user' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/'
+                    'route' => '/', 
                 ),
                 'may_terminate' => false,
                 'child_routes' => array(

@@ -57,5 +57,21 @@ class Module {
 
         return include __DIR__ . '../../../config/module.service.php';
     }
+    
+     public function getViewHelperConfig()
+    {
+        return array(
+            'factories' => array(
+                'AccountDisplay' => function ($sm) {
+                    $locator = $sm->getServiceLocator();
+                    $viewHelper = new \User\View\Helper\AccountDisplay;
+                    $viewHelper->setAuthService($locator->get('zfcuser_auth_service'));
+                    return $viewHelper;
+                },
+            
+            ),
+        );
 
+    }
+    
 }
