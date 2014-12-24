@@ -60,6 +60,20 @@
                                     </ul>
                                 </li>
                                 <?php ENDIF ?>
+                                   <?php IF ($this->zfcUserIdentity()): ?>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Mein Reservierung') ?><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class=""><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Login') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Register') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('zfcuser/changeemail') ?>"><?php echo $this->translate('Change Email') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('zfcuser/changepassword') ?>"><?php echo $this->translate('Forgot Password') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
+                                        <li class="divider"></li>
+                                        <li class=""><a href="<?php echo $this->url('admin/list') ?>"><?php echo $this->translate('User Management') ?></a></li>
+                                    </ul>
+                                </li>
+                                <?php ENDIF ?>
                         </ul>
 
                         <ul class ="nav navbar-nav navbar-right">
