@@ -14,11 +14,11 @@ $form->setAttribute('method', 'post');
     </div>
     
       <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)) ?>" class="btn btn-delete">
-                         <?php echo $this->translate('Delete') ?>
+                         <?php echo $this->translate('Löschen') ?>
                        </a>
     
     <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)); ?>"
-       onclick="return confirm('<?php echo $this->translate('Really delete user?') ?>')">
-           <?php echo $this->translate('Delete') ?>
+       onclick="return confirm('<?php echo $this->translate('Sind Sie sicher ?') ?>')">
+           <?php echo $this->translate('Löschen') ?>
     </a>
 </div>

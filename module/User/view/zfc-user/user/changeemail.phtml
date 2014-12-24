@@ -1,11 +1,11 @@
 <div class="form-default">
     <div class="page-header">
-        <h1><?php echo sprintf($this->translate('Change Email for %s'), $this->zfcUserDisplayName()); ?></h1>
+        <h1><?php echo sprintf($this->translate('Email von %s ändern'), $this->zfcUserDisplayName()); ?></h1>
     </div>
     <?php if ($status === true) : ?>
-        <div class="alert alert-success"><?php echo $this->translate('Email address changed successfully.'); ?></div>
+        <div class="alert alert-success"><?php echo $this->translate('Email wurde erfolgreich geöndert.'); ?></div>
     <?php elseif ($status === false) : ?>
-        <div class="alert alert-danger"><?php echo $this->translate('Unable to update your email address. Please try again.'); ?></div>
+        <div class="alert alert-danger"><?php echo $this->translate('Ihre Email konnte nicht zurückgesetzt werden. Bitte Versuchen Sie es erneut.'); ?></div>
     <?php endif; ?>
     <?php
     $form = $this->changeEmailForm;

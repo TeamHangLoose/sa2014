@@ -11,14 +11,14 @@ foreach ($this->userlistElements as $element) {
 }
 ?>
 <div class="page-header text-center">
-    <h1><?php echo $this->translate('Users') ?></h1>
+    <h1><?php echo $this->translate('Benutzer Verwaltung') ?></h1>
 </div>
 
 <div class="navbar filter-bar">
     <div class="navbar-inner">
         <div class="text-center">
             <a href="<?php echo $this->url('admin/create') ?>" class="btn btn-lg btn-info">
-                <?php echo $this->translate('Add New User') ?>
+                <?php echo $this->translate('Neuen User erstellen') ?>
             </a>
         </div>
     </div>
@@ -44,12 +44,12 @@ foreach ($this->userlistElements as $element) {
                 <?php endforeach; ?>
                 <td class="cell cell-ctrls">
                     <a href="<?php echo $this->url('admin/edit', array('userId' => $user->getId())); ?>">
-                        <?php echo $this->translate('Edit') ?>
+                        <?php echo $this->translate('Editieren') ?>
                     </a>
                     |
                     <a href="<?php echo $this->url('admin/remove', array('userId' => $user->getId())); ?>"
-                       onclick="return confirm('<?php echo $this->translate('Really delete user?') ?>')">
-                           <?php echo $this->translate('Delete') ?>
+                       onclick="return confirm('<?php echo $this->translate('Sind Sie sicher ?') ?>')">
+                           <?php echo $this->translate('Löschen') ?>
                     </a>
                 </td>
             </tr>

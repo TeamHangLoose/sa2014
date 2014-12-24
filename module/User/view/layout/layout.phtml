@@ -53,10 +53,10 @@
                                         <li class=""><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Login') ?></a></li>
                                         <li class=""><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Register') ?></a></li>
                                         <li class=""><a href="<?php echo $this->url('zfcuser/changeemail') ?>"><?php echo $this->translate('Change Email') ?></a></li>
-                                        <li class=""><a href="<?php echo $this->url('zfcuser/changepassword') ?>"><?php echo $this->translate('Forgot Password') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('zfcuser/changepassword') ?>"><?php echo $this->translate('Passwort vergessen') ?></a></li>
                                         <li class=""><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
                                         <li class="divider"></li>
-                                        <li class=""><a href="<?php echo $this->url('admin/list') ?>"><?php echo $this->translate('User Management') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('admin/list') ?>"><?php echo $this->translate('Benutzer Verwaltung') ?></a></li>
                                     </ul>
                                 </li>
                                 <?php ENDIF ?>
@@ -67,10 +67,10 @@
                                         <li class=""><a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Login') ?></a></li>
                                         <li class=""><a href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Register') ?></a></li>
                                         <li class=""><a href="<?php echo $this->url('zfcuser/changeemail') ?>"><?php echo $this->translate('Change Email') ?></a></li>
-                                        <li class=""><a href="<?php echo $this->url('zfcuser/changepassword') ?>"><?php echo $this->translate('Forgot Password') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('zfcuser/changepassword') ?>"><?php echo $this->translate('Passwort vergessen') ?></a></li>
                                         <li class=""><a href="<?php echo $this->url('zfcuser/logout') ?>"><?php echo $this->translate('Logout') ?></a></li>
                                         <li class="divider"></li>
-                                        <li class=""><a href="<?php echo $this->url('admin/list') ?>"><?php echo $this->translate('User Management') ?></a></li>
+                                        <li class=""><a href="<?php echo $this->url('admin/list') ?>"><?php echo $this->translate('Benutzer Verwaltung') ?></a></li>
                                     </ul>
                                 </li>
                                 <?php ENDIF ?>
@@ -80,7 +80,7 @@
                             <?php IF (!$this->zfcUserIdentity()): ?>
                                 <li>
                                     <form action="<?php echo $this->url('zfcuser/register') ?>">
-                                        <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('Register') ?></button>
+                                        <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('Registrieren') ?></button>
                                     </form>
                                 </li>  
                                 <li>
@@ -91,13 +91,13 @@
                                 <?php ELSE: ?>
                                 <li>
                                     <form action="<?php echo $this->url('zfcuser') ?>">
-                                        <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('My Profil') ?></button>
+                                        <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('Mein Profil') ?></button>
                                     </form>
                                 </li>
 
                                 <li>
                                     <form action="<?php echo $this->url('zfcuser/logout') ?>">
-                                        <button class="btn btn-sm btn-success navbar-btn"><?php echo $this->translate('Logout') ?></button>
+                                        <button class="btn btn-sm btn-logout navbar-btn"><?php echo $this->translate('Logout') ?></button>
                                     </form>
                                 </li>
                             <?php ENDIF ?>

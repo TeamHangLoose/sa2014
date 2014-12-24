@@ -43,6 +43,7 @@ body {
 
 /*Custom Button info for "Login"*/
 .btn-info {
+    border-color: #08088A;
     background-color: #2E64FE;
     background-image: -moz-linear-gradient(top, #2eddfa, #2E64FE);
     background-image: -ms-linear-gradient(top, #2eddfa, #2E64FE);
@@ -68,7 +69,8 @@ body {
 /*Custom Button delete for "Delete"*/
 .btn-delete {
     color: white;
-    background-color: #9D0C0C;
+    border-color: #8A0808;
+    background-color: #FDBB13;
     background-image: -moz-linear-gradient(top, #FDBB13, #DF0101);
     background-image: -ms-linear-gradient(top, #FDBB13, #DF0101);
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FDBB13), to(#DF0101));
@@ -83,7 +85,7 @@ body {
 .btn-delete.disabled,
 .btn-delete[disabled] {
     background: #DF0101;
-    border-color: #B40404;
+    border-color: #610B0B;
     color: white;
 }
 
@@ -98,6 +100,7 @@ body {
 /*Custom Button logout for "Delete"*/
 .btn-logout {
     color: white;
+    border-color: darkslategrey;
     background-color: #9D0C0C;
     background-image: -moz-linear-gradient(top, #BDBDBD, #2E2E2E);
     background-image: -ms-linear-gradient(top, #BDBDBD, #2E2E2E);

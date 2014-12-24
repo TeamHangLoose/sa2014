@@ -3,9 +3,9 @@
         <h1><?php echo sprintf($this->translate('Change Adress for %s'), $this->zfcUserDisplayName()); ?></h1>
     </div>
 <?php if ($status === true) : ?>
-    <div class="alert alert-success"><?php echo $this->translate('Adress changed successfully.');?></div>
+    <div class="alert alert-success"><?php echo $this->translate('Ihre Adresse wurde erfolreich geändert.');?></div>
 <?php elseif ($status === false) : ?>
-    <div class="alert alert-danger"><?php echo $this->translate('Unable to update your Adress. Please try again.'); ?></div>
+    <div class="alert alert-danger"><?php echo $this->translate('Ihr Adresse konnte nicht geändert werden. Bitte Versuchen Sie es erneut.'); ?></div>
 <?php endif; ?>
 <?php
 $form = $this->changeAdressForm;
