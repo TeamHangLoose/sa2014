@@ -1,17 +1,18 @@
 <?php
 
-$title = $this->translate('Image Upload - a COOOOOL PIC') . $user->getUserName();
+$title = $this->translate('Profilbild ändern von ') . $user->getUserName();
 $title = $this->escapeHtml($title);
 $this->headTitle($title);
 $form->prepare();
 ?>
-<h2><?php echo $title; ?></h2>
+
+<h2 class="page-header"><?php echo $title; ?></h2>
 <?php if ($imageUploaded): ?>
-    <div class="alert alert-success"><?php echo $this->translate("Image Successfully Uploaded") ?></div>
+    <div class="alert alert-success"><?php echo $this->translate("Bild erfolgreich geändert") ?></div>
 <?php endif; ?>
 <?php if ($user->getId() == $this->zfcUserIdentity()->getId()): ?>
-    <a href="<?php echo $this->url('zfcuser'); ?>" class="btn btn-default">
-        <?php echo $this->translate('Back to my Profile'); ?>
+    <a href="<?php echo $this->url('zfcuser'); ?>" class="btn btn-info">
+        <?php echo $this->translate('Zurück zu meinem Profil'); ?>
     </a>
     <br/><br/>
 <?php endif; ?>

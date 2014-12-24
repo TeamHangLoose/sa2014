@@ -1,25 +1,4 @@
 
-
-<!--
-<div class="form-default">
-    <div class="form-default">
-        <h3>
-<?php echo $this->translate('Hallo'); ?>, <?php echo $this->zfcUserDisplayName() ?>!
-        </h3>
-    </div>
-
-
-    <div class="container-fluid"
-         <div class="row">
-            <div class="col-md-4">
-<?php echo $this->htProfileImage($this->zfcUserIdentity()) ?>
-            </div>
-                          
-        </div>
-    </div>
-
--->
-
 <div style="float:left; padding-right:16px;">
     <?php echo $this->htProfileImage($this->zfcUserIdentity()) ?>
 </div>
@@ -31,10 +10,10 @@
 <a href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
 <a href="<?php echo $this->url('change-adress') ?>">[<?php echo $this->translate('Change Adress'); ?>]</a>
 <a href="<?php echo $this->url('zfcuser/changepassword') ?>">[<?php echo $this->translate('Change Password'); ?>]</a>
-<?php 
-$data = $this->AccountDisplay(); 
-echo ' <br>Name: '.$data['displayname'].'<br>'.$data['username'].'<br>'.$data['email'].'<br>'.$data['street'].'<br>'.$data['plz'].'<br>'.$data['village'];
- ?>
+<?php
+$data = $this->AccountDisplay();
+echo ' <br>Name: ' . $data['displayname'] . '<br>' . $data['username'] . '<br>' . $data['email'] . '<br>' . $data['street'] . '<br>' . $data['plz'] . '<br>' . $data['village'];
+?>
 <hr><br>
 
 <div style="clear:both;"></div>
@@ -45,18 +24,17 @@ echo ' <br>Name: '.$data['displayname'].'<br>'.$data['username'].'<br>'.$data['e
 
 <!-- NEW FORM -->
 
-<div class="container">
-
-    <div class="alert alert-success" role="alert"> Wilkommen <?php echo $this->zfcUserDisplayName() ?>
-    </div>
-
-    <div class="row page-header">
-        <div class="col-md-12 text-center">
-            <?php echo $this->htProfileImage($this->zfcUserIdentity()) ?>
+<div class="container">    <div class="row">
+        <div class ="page-header">
+            <div class="col-md-6 text-center">
+                <?php echo $this->htProfileImage($this->zfcUserIdentity()) ?>
+            </div>
         </div>
     </div>
 
-    <div class="col-md-12">
+
+
+    <div class="col-md-6">
         <h1 class="">
             <?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?> !
         </h1>
