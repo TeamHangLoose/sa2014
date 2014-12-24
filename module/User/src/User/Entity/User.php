@@ -66,12 +66,20 @@ class User implements UserInterface, ProviderInterface {
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     protected $village;
+    
+       /**
+     * @var boolean
+     * @ORM\Column(type="boolean",nullable=true)
+     */
+    protected $active;
+
+    
 
     /**
      * @var int
      */
     protected $state;
-
+  
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ORM\ManyToMany(targetEntity="User\Entity\Role")
@@ -262,5 +270,13 @@ class User implements UserInterface, ProviderInterface {
     function setVillage($village) {
         $this->village = $village;
     }
+    function getActive() {
+        return $this->active;
+    }
+
+    function setActive($active) {
+        $this->active = $active;
+    }
+
 
 }

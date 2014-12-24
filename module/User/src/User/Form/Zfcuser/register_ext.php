@@ -47,5 +47,6 @@ $em->attach(
                 'attributes' => array('type' => 'text',),'required',
             )
     );
+      
 }
 );
