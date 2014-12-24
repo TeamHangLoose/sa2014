@@ -66,26 +66,30 @@ body {
 /* --END-- Custom Button success for "Login"*/
 
 /*Custom Button warning for "Delete"*/
-.btn-warning {
+.btn-delete {
+    color: white;
     background-color: #9D0C0C;
-    background-image: -moz-linear-gradient(top, #FDBB13, #9D0C0C);
-    background-image: -ms-linear-gradient(top, #FDBB13, #9D0C0C);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FDBB13), to(#9D0C0C));
-    background-image: -webkit-linear-gradient(top, #FDBB13, #9D0C0C);
-    background-image: -o-linear-gradient(top, #FDBB13, #9D0C0C);
-    background-image: linear-gradient(top, #FDBB13, #9D0C0C);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDBB13', endColorstr='#9D0C0C', GradientType=0);
+    background-image: -moz-linear-gradient(top, #FDBB13, #FA0713);
+    background-image: -ms-linear-gradient(top, #FDBB13, #FA0713);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FDBB13), to(#FA0713));
+    background-image: -webkit-linear-gradient(top, #FDBB13, #FA0713);
+    background-image: -o-linear-gradient(top, #FDBB13, #FA0713);
+    background-image: linear-gradient(top, #FDBB13, #FA0713);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDBB13', endColorstr='#FA0713', GradientType=0);
 }
-.btn-warning:hover,
-.btn-warning:active,
-.btn-warning.active,
-.btn-warning.disabled,
-.btn-warning[disabled] {
-    background-color: #9D0C0C;
-}
+.btn-delete:hover,
+.btn-delete:active,
+.btn-delete.active,
+.btn-delete.disabled,
+.btn-delete[disabled] {
+      color: #000000;
+  background-color: #FFFFFF;
 
-.btn-warning:active, .btn-warning.active {
-    background-color: #9D0C0C;
+    /*background-color: #FA0713;*/
+    
+
+.btn-delete:active, .btn-delete.active {
+    background-color: #FA0713;
 }
 /* --END-- Custom Button warning for "Delete"*/
 

@@ -29,10 +29,11 @@
 </h3>
 
 <a href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
-
+<a href="<?php echo $this->url('change-adress') ?>">[<?php echo $this->translate('Change Adress'); ?>]</a>
+<a href="<?php echo $this->url('zfcuser/changepassword') ?>">[<?php echo $this->translate('Change Password'); ?>]</a>
 <?php 
 $data = $this->AccountDisplay(); 
-echo ' <br>'.$data['displayname'].'<br>'.$data['username'].'<br>'.$data['email'].'<br>'.$data['street'].'<br>'.$data['plz'].'<br>'.$data['village'];
+echo ' <br>Name: '.$data['displayname'].'<br>'.$data['username'].'<br>'.$data['email'].'<br>'.$data['street'].'<br>'.$data['plz'].'<br>'.$data['village'];
  ?>
 <hr><br>
 

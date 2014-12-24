@@ -73,7 +73,7 @@ return array(
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 array('route' => 'admin/list', 'roles' => array('guest')),
-                array('route' => 'upload-form', 'roles' => array('user')),
+                //array('route' => 'upload-form', 'roles' => array('user')),
                 array('route' => 'admin/create', 'roles' => array('guest')),
                 array('route' => 'admin/remove', 'roles' => array('guest')),
                 array('route' => 'admin/edit', 'roles' => array('guest')),

@@ -13,7 +13,7 @@ $form->setAttribute('method', 'post');
         <?php include '_form.phtml'; ?>
     </div>
     
-      <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)) ?>" class="btn btn-warning">
+      <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)) ?>" class="btn btn-delete">
                          <?php echo $this->translate('Delete') ?>
                        </a>
     
