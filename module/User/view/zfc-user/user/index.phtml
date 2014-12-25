@@ -56,12 +56,13 @@ $data = $this->AccountDisplay();
                 <h3 class="panel-title"><?php echo $this->translate('Persönliche Daten') ?></h3>
             </div>
             <div class="panel-body">
-                
+
                 <?php foreach ($data as $key => $label) : ?>
-                         <?php
-                       //   echo     "$key; $label\n;" ;    
-                         echo $key
-                ?>
+                    <?php
+                    //   echo     "$key; $label\n;" ;    
+                    echo $key;
+                    echo $label;
+                    ?>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -73,8 +74,8 @@ $data = $this->AccountDisplay();
 
 
 </div>
-    <div class="col-md-6">
-        <h1 class="">
-            <?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?> !
-        </h1>
-    </div>
+<div class="col-md-6">
+    <h1 class="">
+        <?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?> !
+    </h1>
+</div>
