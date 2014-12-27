@@ -2,7 +2,7 @@
 
 namespace User\Factory\Service;
 
-use User\Service\ForgotPasswordService;
+use User\Service\DoubleOptInService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -22,14 +22,14 @@ class DoubleOptInServiceFactory implements FactoryInterface {
     public function createService(ServiceLocatorInterface $serviceLocator) {
 
         /** @var \User\Form\Forgot\ChangePasswordForm $changePassword */
-        $confirmed = $serviceLocator->get('User\Form\Forgot\Confirmed');
+        $confirmed = $serviceLocator->get('User\Form\DoubleOptIn\Confirmed');
         /** @var \User\Mapper\UserMapperInterface $userMapper */
         $userMapper = $serviceLocator->get('User\Mapper\UserMapper');
         /** @var \User\Mapper\TokenMapperInterface $tokenMapper */
         $tokenMapper = $serviceLocator->get('User\Mapper\TokenMapper');
         /** @var \User\Service\MailService $mailService */
         $mailService = $serviceLocator->get('User\Service\MailService');
-        return new ForgotPasswordService($confirmed,$userMapper, $tokenMapper, $mailService);
+        return new DoubleOptInService($confirmed,$userMapper, $tokenMapper, $mailService);
     }
 
 }

@@ -6,7 +6,7 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     const ROUTE_CHANGEADRESS = 'change-adress';
     const ROUTE_ACCOUNT = 'index';
-     const ROUTE_OPTIN = 'index';
+     const ROUTE_OPTIN = 'opt-in';
 
     protected $changeAdressForm;
     protected $accountForm;
@@ -73,18 +73,10 @@ class UserController extends \ZfcUser\Controller\UserController {
             $request->setPost(new Parameters($post));
             return $this->forward()->dispatch(static::CONTROLLER_NAME, array('action' => 'authenticate'));
         }
-
-        
-        //generate Token in OPTIN Service..
-        $DoubleOptInService = $this->getServiceLocator()->get('User\Service\DoubleOptInService');
-        
-        
-        
-        
-        
+       
         //R0unt to confirmed Info View...
         // TODO: Add the redirect parameter here...
-        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
+        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_OPTIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
     }
 
     /*

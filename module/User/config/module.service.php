@@ -9,6 +9,8 @@ return array(
     ),
     'invokables' => array(
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
+        'User\Form\DoubleOptIn\RequestForm' => 'User\Form\DoubleOptIn\RequestForm',
+        'User\Form\DoubleOptIn\Confirmed' => 'User\Form\DoubleOptIn\Confirmed',
         'User\Form\Forgot\ChangePasswordForm' => 'User\Form\Forgot\ChangePasswordForm',
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
@@ -16,7 +18,6 @@ return array(
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
         'User\Form\User\Index' => 'User\Form\User\Index',
     ),
-  
     'initializers' => array(
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',
         'mail_message' => 'Soflomo\Mail\Service\MessageAwareInitializer',
@@ -35,6 +36,5 @@ return array(
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
         'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
-        
     )
 );

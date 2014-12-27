@@ -3,8 +3,8 @@
 namespace User\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use User\Form\Forgot\ChangePasswordForm;
-use User\Form\Forgot\RequestForm;
+use User\Form\DoubleOptIn\Confirmed;
+use User\Form\DoubleOptIn\RequestForm;
 use User\Mapper\TokenMapperInterface;
 use User\Mapper\UserMapperInterface;
 use User\Entity\TokenInterface;
@@ -34,8 +34,7 @@ class DoubleOptInService {
     /** @var MailService */
     protected $mailService;
 
-    public function __construct(\User\Form\DoubleOptIn\ConfirmedForm $confirmedForm,UserMapperInterface $userMapper, TokenMapperInterface $tokenMapper, MailService $mailService
-    ) {
+    public function __construct(Confirmed $confirmedForm,UserMapperInterface $userMapper, TokenMapperInterface $tokenMapper, MailService $mailService) {
         $this->confirmedForm = $confirmedForm;
         $this->userMapper = $userMapper;
         $this->tokenMapper = $tokenMapper;
@@ -62,5 +61,11 @@ class DoubleOptInService {
 
         return true;
     }
+    
+    function getConfirmedForm() {
+        return $this->confirmedForm;
+    }
+
+
 
 }

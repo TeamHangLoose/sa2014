@@ -8,9 +8,9 @@ return array(
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
             'User\Controller\Admin' => 'User\Factory\Controller\AdminControllerFactory',
+            'User\Controller\DoubleOptIn' => 'User\Factory\Controller\DoubleOptInControllerFactory',
         ),
     ),
-  
     'doctrine' => array(
         'driver' => array(
             // overriding zfc-user-doctrine-orm's config
@@ -78,6 +78,7 @@ return array(
                 array('route' => 'admin/remove', 'roles' => array('guest')),
                 array('route' => 'admin/edit', 'roles' => array('guest')),
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
+                array('route' => 'double-opt-in', 'roles' => array('guest')),
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'change-adress', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
@@ -90,7 +91,6 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            
             'change-adress' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -101,21 +101,33 @@ return array(
                     ),
                 ),
             ),
-             'account' => array(
+            'double-opt-in' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/user/account',
+                    'route' => '/opt-in',
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
-                        'action' => 'account',
+                        'controller' => 'User\Controller\DoubleOptIn',
+                        'action' => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'change-password' => array(
+                        'type' => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => array(
+                            'route' => '/confirmed/:token',
+                            'defaults' => array(
+                                'controller' => 'User\Controller\DoubleOptIn',
+                                'action' => 'confirmed',
+                            ),
+                        ),
                     ),
                 ),
             ),
-            
             'user' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route' => '/', 
+                    'route' => '/',
                 ),
                 'may_terminate' => false,
                 'child_routes' => array(
