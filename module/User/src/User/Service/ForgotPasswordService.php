@@ -1,4 +1,5 @@
 <?php
+
 namespace User\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
@@ -9,8 +10,8 @@ use User\Mapper\UserMapperInterface;
 use User\Entity\TokenInterface;
 use ZfcUser\Entity\UserInterface;
 
-class ForgotPasswordService
-{
+class ForgotPasswordService {
+
     /** @var RequestForm */
     protected $requestForm;
 
@@ -27,11 +28,7 @@ class ForgotPasswordService
     protected $mailService;
 
     public function __construct(
-        RequestForm $requestForm,
-        ChangePasswordForm $changePasswordForm,
-        UserMapperInterface $userMapper,
-        TokenMapperInterface $tokenMapper,
-        MailService $mailService
+    RequestForm $requestForm, ChangePasswordForm $changePasswordForm, UserMapperInterface $userMapper, TokenMapperInterface $tokenMapper, MailService $mailService
     ) {
         $this->requestForm = $requestForm;
         $this->changePasswordForm = $changePasswordForm;
@@ -46,8 +43,7 @@ class ForgotPasswordService
      * @param array $data
      * @return bool
      */
-    public function request(array $data)
-    {
+    public function request(array $data) {
         $form = $this->requestForm;
         $form->setData($data);
 
@@ -62,8 +58,15 @@ class ForgotPasswordService
         }
 
         $token = $this->tokenMapper->generate($user);
+        $options = [
+            'from' => 'Badenfahrt2014@gmail.com',
+            'from_name' => 'Badenfahrt',
+            'to' => $user->getEmail(),
+            'subject' => 'Forgot password test',
+            'template' => 'email/request-password'
+        ];
 
-        $this->mailService->sendToken($token, $user);
+        $this->mailService->sendToken($token, $user, $options);
 
         return true;
     }
@@ -75,8 +78,7 @@ class ForgotPasswordService
      * @param UserInterface $user
      * @return bool
      */
-    public function changePassword(array $data, UserInterface $user)
-    {
+    public function changePassword(array $data, UserInterface $user) {
         $form = $this->changePasswordForm;
         $form->setData($data);
 
@@ -98,8 +100,7 @@ class ForgotPasswordService
      * @param string $token
      * @return bool|UserInterface
      */
-    public function getUserFromToken($token)
-    {
+    public function getUserFromToken($token) {
         $entity = $this->tokenMapper->findByToken($token);
 
         if (!$entity) {
@@ -108,4 +109,5 @@ class ForgotPasswordService
 
         return $this->userMapper->findById($entity->getUser());
     }
+
 }

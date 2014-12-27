@@ -14,20 +14,11 @@ class MailService {
         $this->transporter = $transporter;
     }
 
-    public function sendToken(TokenInterface $token, UserInterface $user) {
-        $options = [
-            'from' => 'Badenfahrt2014@gmail.com',
-            'from_name' => 'Badenfahrt',
-            'to' => $user->getEmail(),
-            'subject' => 'Forgot password test',
-            'template' => 'email/request-password'
-        ];
-
+    public function sendToken(TokenInterface $token, UserInterface $user,array $options) {
         $variables = [
             'name' => $user->getDisplayName(),
             'token' => $token->getToken(),
         ];
-
         $this->transporter->send(
                 $options, $variables
         );
