@@ -1,7 +1,7 @@
 <?php
 namespace User\Factory\Controller;
 
-use User\Controller\ForgotPasswordController;
+use User\Controller\DoubleOptInController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -27,6 +27,6 @@ class DoubleOptInControllerFactory implements FactoryInterface
         /** @var \User\Service\ForgotPasswordService $forgotPasswordService */
         $forgotPasswordService = $serviceLocator->get('User\Service\DoubleOptInService');
 
-        return new ForgotPasswordController($requestForm, $changePassword, $forgotPasswordService);
+        return new DoubleOptInController($requestForm, $changePassword, $forgotPasswordService);
     }
 }

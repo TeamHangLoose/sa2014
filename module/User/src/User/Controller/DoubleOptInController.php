@@ -1,9 +1,8 @@
 <?php
 namespace User\Controller;
 
-
-use User\Form\Forgot\ChangePasswordForm;
-use User\Form\Forgot\RequestForm;
+use User\Form\DoubleOptIn\Confirmed;
+use User\Form\DoubleOptIn\RequestForm;
 use User\Service\DoubleOptInService;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -17,7 +16,7 @@ class DoubleOptInController extends AbstractActionController{
     /** @var ForgotPasswordService */
     protected $forgotPasswordService;
 
-    public function __construct(User\Form\DoubleOptIn\RequestForm $requestForm,\User\Form\DoubleOptIn\Confirmed $confirmedForm, DoubleOptInService $doubleOptInService)
+    public function __construct(RequestForm $requestForm,Confirmed $confirmedForm, DoubleOptInService $doubleOptInService)
     {
         $this->requestForm = $requestForm;
         $this->confirmedForm = $confirmedForm;
@@ -29,15 +28,15 @@ class DoubleOptInController extends AbstractActionController{
       public function indexAction()
     {
         $form = $this->requestForm;
-        $forgotPasswordService = $this->forgotPasswordService;
+        $doubleOptInService = $this->doubleOptInService;
 
         $viewModel = new ViewModel([
             'form' => $form,
         ]);
 
-        $viewModel->setTemplate('double-opt-in/sent-email.phtml');
+        $viewModel->setTemplate('double-opt-in/request.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('user/double-opt-in');
+        $redirectUrl = $this->url()->fromRoute('double-opt-in');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -46,7 +45,7 @@ class DoubleOptInController extends AbstractActionController{
             return $viewModel;
         }
 
-        if ($forgotPasswordService->request($prg)) {
+        if ($doubleOptInService->request($prg)) {
             $viewModel->setTemplate('double-opt-in/confirmation/sent-email.phtml');
             return $viewModel;
         }
@@ -57,9 +56,9 @@ class DoubleOptInController extends AbstractActionController{
     public function changePasswordAction()
     {
         $form = $this->changePasswordForm;
-        $forgotPasswordService = $this->forgotPasswordService;
+        $doubleOptInService = $this->doubleOptInService;
         $token = $this->params('token');
-        $user = $forgotPasswordService->getUserFromToken($token);
+        $user = $doubleOptInService->getUserFromToken($token);
 
         $viewModel = new ViewModel([
             'form' => $form,
@@ -70,9 +69,9 @@ class DoubleOptInController extends AbstractActionController{
             return $viewModel;
         }
 
-        $viewModel->setTemplate('zfc-user-forgot-password/change-password.phtml');
+        $viewModel->setTemplate('zfc-user-forgot-password/confirmed.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('user/zfc-user-forgot-password/change-password', ['token' => $token]);
+        $redirectUrl = $this->url()->fromRoute('opt-in/confirmed', ['token' => $token]);
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -81,14 +80,14 @@ class DoubleOptInController extends AbstractActionController{
             return $viewModel;
         }
 
-        if ($forgotPasswordService->changePassword($prg, $user)) {
-            $viewModel->setTemplate('zfc-user-forgot-password/confirmation/changed-password.phtml');
+        if ($doubleOptInService->changePassword($prg, $user)) {
+            $viewModel->setTemplate('double-opt-in/confirmation/optin-confirmed.phtml');
             return $viewModel;
         }
 
         $form->setData([
-            'new_password' => null,
-            'confirm_new_password' => null,
+            'confirmed' => null,
+            'confirm_account' => null,
         ]);
 
         return $viewModel;

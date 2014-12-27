@@ -12,7 +12,7 @@ use Zend\EventManager\EventManager;
 use Zend\EventManager\EventManagerAwareInterface;
 
 
-class UserMapper implements EventManagerAwareInterface,  UserMapperInterface {
+class UserMapper implements EventManagerAwareInterface,UserMapperInterface {
 
     protected $events;
 
