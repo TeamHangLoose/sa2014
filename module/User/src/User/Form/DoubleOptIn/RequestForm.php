@@ -20,6 +20,7 @@ class RequestForm extends Form implements InputFilterProviderInterface
             'type'  => 'Zend\Form\Element\Text',
             'attributes' => [
                 'class' => 'form-control',
+                
             ],
             'options' => [
                 'type' => 'text',

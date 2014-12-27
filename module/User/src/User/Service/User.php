@@ -35,5 +35,9 @@ class User extends \ZfcUser\Service\User {
 
         return true;
     }
+    
+    public function register(array $data) {
+        parent::register($data);
+    }
 
 }

@@ -7,52 +7,12 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     const ROUTE_CHANGEADRESS = 'change-adress';
     const ROUTE_ACCOUNT = 'index';
-    const ROUTE_OPTIN = 'opt-in';
+    const ROUTE_OPTIN = 'double-opt-in';
 
     protected $changeAdressForm;
     protected $accountForm;
     
     
-    public function loginAction() {
-        
-         if ($this->zfcUserAuthentication()->hasIdentity()) {
-            return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
-        }
-        
-
-        $request = $this->getRequest();
-        $form    = $this->getLoginForm();
-
-        if ($this->getOptions()->getUseRedirectParameterIfPresent() && $request->getQuery()->get('redirect')) {
-            $redirect = $request->getQuery()->get('redirect');
-        } else {
-            $redirect = false;
-        }
-
-        if (!$request->isPost()) {
-            return array(
-                'loginForm' => $form,
-                'redirect'  => $redirect,
-                'enableRegistration' => $this->getOptions()->getEnableRegistration(),
-            );
-        }
-
-        $form->setData($request->getPost());
-
-        if (!$form->isValid()) {
-            $this->flashMessenger()->setNamespace('zfcuser-login-form')->addMessage($this->failedLoginMessage);
-            return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN).($redirect ? '?redirect='. rawurlencode($redirect) : ''));
-        }
-
-        // clear adapters
-        $this->zfcUserAuthentication()->getAuthAdapter()->resetAdapters();
-        $this->zfcUserAuthentication()->getAuthService()->clearIdentity();
-
-        return $this->forward()->dispatch(static::CONTROLLER_NAME, array('action' => 'authenticate'));
-       
-    }
-    
-
     public function changeadressAction() {
         // if the user isn't logged in, we can't change Adress
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
