@@ -22,8 +22,8 @@ class ChangePasswordForm extends Form implements InputFilterProviderInterface
                 'class' => 'form-control',
             ],
             'options' => [
-                'type' => 'text',
-                'label' => 'New password',
+                'type' => 'password',
+                'label' => 'Neues Passwort',
 
             ],
         ]);
@@ -35,8 +35,8 @@ class ChangePasswordForm extends Form implements InputFilterProviderInterface
                 'class' => 'form-control',
             ],
             'options' => [
-                'type' => 'text',
-                'label' => 'Confirm new password',
+                'type' => 'password',
+                'label' => 'Neues Passwort bestätigen',
 
             ],
         ]);
@@ -69,7 +69,7 @@ class ChangePasswordForm extends Form implements InputFilterProviderInterface
                             'min' => '5',
                         ],
                         'messages' => [
-                            \Zend\Validator\StringLength::TOO_SHORT => 'Your new password must be at least 5 characters long',
+                            \Zend\Validator\StringLength::TOO_SHORT => 'Ihr neues Passwort muss mindestens 5 Zeichen beinhalten',
                         ]
                     ],
                 ],
@@ -84,7 +84,7 @@ class ChangePasswordForm extends Form implements InputFilterProviderInterface
                             'token' => 'new_password',
                         ],
                         'messages' => [
-                            \Zend\Validator\Identical::NOT_SAME => 'The two passswords does not match',
+                            \Zend\Validator\Identical::NOT_SAME => 'Das Passwort stimmt nicht überein',
                         ]
                     ],
                 ],
