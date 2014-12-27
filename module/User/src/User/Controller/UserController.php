@@ -2,31 +2,18 @@
 
 namespace User\Controller;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of UserController
- *
- * @author sommer
- */
 class UserController extends \ZfcUser\Controller\UserController {
 
     const ROUTE_CHANGEADRESS = 'change-adress';
     const ROUTE_ACCOUNT = 'index';
+
     protected $changeAdressForm;
     protected $accountForm;
-    
-    
-    
-        /**
+
+    /**
      * Register new user
      */
-    public function registerAction()
-    {
+    public function registerAction() {
         // if the user is logged in, we don't need to register
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             // redirect to the login redirect route
@@ -48,7 +35,7 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
 
         $redirectUrl = $this->url()->fromRoute(static::ROUTE_REGISTER)
-            . ($redirect ? '?redirect=' . rawurlencode($redirect) : '');
+                . ($redirect ? '?redirect=' . rawurlencode($redirect) : '');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -86,96 +73,61 @@ class UserController extends \ZfcUser\Controller\UserController {
             return $this->forward()->dispatch(static::CONTROLLER_NAME, array('action' => 'authenticate'));
         }
 
+        
+        /*
+         * Send Confirmation Email. 
+         * 
+         */
+        
+        
         // TODO: Add the redirect parameter here...
-        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect='. rawurlencode($redirect) : ''));
+        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
     }
 
-    
-    public function accountAction()
-    {
-       // if the user isn't logged in, we can't change Adress
-        if (!$this->zfcUserAuthentication()->hasIdentity()) {
-// redirect to the login redirect route
-            return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
-        }
-        $form = $this->getAccountForm();
-        $prg = $this->prg(static::ROUTE_INDEX);
-        $fm = $this->flashMessenger()->setNamespace('account')->getMessages();
-        if (isset($fm[0])) {
-            $status = $fm[0];
-        } else {
-            $status = null;
-        }
-        if ($prg instanceof Response) {
-            return $prg;
-        } elseif ($prg === false) {
-            return array(
-                'status' => $status,
-                'accountForm' => $form,
-            );
-        }
-        $form->setData($prg);
-        if (!$form->isValid()) {
-            return array(
-                'status' => false,
-                'accountForm' => $form,
-            );
-        }
-        if (!$this->getUserService()->changeAdress($form->getData())) {
-            return array(
-                'status' => false,
-                'accountForm' => $form,
-            );
-        }
-        $this->flashMessenger()->setNamespace('account')->addMessage(true);
-        return $this->redirect()->toRoute(static::ROUTE_INDEX);
-    }
-    
-    
     /*
-    public function uploadFormAction() {
-        $form = new \User\Form\User\UploadForm('upload-form');
-        $request = $this->getRequest();
-        if ($request->isPost()) {
-            // Make certain to merge the files info!
-            $post = array_merge_recursive(
-                    $request->getPost()->toArray(), $request->getFiles()->toArray()
-            );
+      public function uploadFormAction() {
+      $form = new \User\Form\User\UploadForm('upload-form');
+      $request = $this->getRequest();
+      if ($request->isPost()) {
+      // Make certain to merge the files info!
+      $post = array_merge_recursive(
+      $request->getPost()->toArray(), $request->getFiles()->toArray()
+      );
 
-            $form->setData($post);
-            if ($form->isValid()) {
-                $data = $form->getData();
-                // Form is valid, save the form!
-                if (!empty($post['isAjax'])) {
-                    return new JsonModel(array(
-                        'status' => true,
-                        'redirect' => $this->url()->fromRoute('upload-form/success'),
-                        'formData' => $data,
-                    ));
-                } else {
-                    // Fallback for non-JS clients
-                    return $this->redirect()->toRoute('upload-form/success');
-                }
-            } else {
-                if (!empty($post['isAjax'])) {
-                    // Send back failure information via JSON
-                    return new JsonModel(array(
-                        'status' => false,
-                        'formErrors' => $form->getMessages(),
-                        'formData' => $form->getData(),
-                    ));
-                }
-            }
-        }
+      $form->setData($post);
+      if ($form->isValid()) {
+      $data = $form->getData();
+      // Form is valid, save the form!
+      if (!empty($post['isAjax'])) {
+      return new JsonModel(array(
+      'status' => true,
+      'redirect' => $this->url()->fromRoute('upload-form/success'),
+      'formData' => $data,
+      ));
+      } else {
+      // Fallback for non-JS clients
+      return $this->redirect()->toRoute('upload-form/success');
+      }
+      } else {
+      if (!empty($post['isAjax'])) {
+      // Send back failure information via JSON
+      return new JsonModel(array(
+      'status' => false,
+      'formErrors' => $form->getMessages(),
+      'formData' => $form->getData(),
+      ));
+      }
+      }
+      }
 
-        return array('form' => $form);
-    }
+      return array('form' => $form);
+      }
 
-    public function uploadProgressAction() {
-        $id = $this->params()->fromQuery('id', null);
-        $progress = new \Zend\ProgressBar\Upload\SessionProgress();
-        return new \Zend\View\Model\JsonModel($progress->getProgress($id));
-    }
+      public function uploadProgressAction() {
+      $id = $this->params()->fromQuery('id', null);
+      $progress = new \Zend\ProgressBar\Upload\SessionProgress();
+      return new \Zend\View\Model\JsonModel($progress->getProgress($id));
+      }
      * /
      */
 
@@ -232,7 +184,8 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
         return $this->changeAdressForm;
     }
-     function setAccountForm($AccountForm) {
+
+    function setAccountForm($AccountForm) {
         $this->accountForm = $AccountForm;
     }
 

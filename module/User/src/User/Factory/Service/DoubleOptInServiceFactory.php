@@ -1,4 +1,9 @@
 <?php
+namespace User\Factory\Service;
+
+use User\Service\ForgotPasswordService;
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,6 +16,14 @@
  *
  * @author win7
  */
-class DoubleOptInServiceFactory {
-    //put your code here
+class DoubleOptInServiceFactory implements FactoryInterface{
+        public function createService(ServiceLocatorInterface $serviceLocator){
+        /** @var \User\Mapper\UserMapperInterface $userMapper */
+        $userMapper = $serviceLocator->get('User\Mapper\UserMapper');
+        /** @var \User\Mapper\TokenMapperInterface $tokenMapper */
+        $tokenMapper = $serviceLocator->get('User\Mapper\TokenMapper');
+        /** @var \User\Service\MailService $mailService */
+        $mailService = $serviceLocator->get('User\Service\MailService');
+        return new ForgotPasswordService($userMapper, $tokenMapper, $mailService);
+    }
 }

@@ -34,5 +34,7 @@ return array(
         'Soflomo\Mail\Service\MailService' => 'Soflomo\Mail\Factory\MailServiceFactory',
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
+        'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
+        
     )
 );

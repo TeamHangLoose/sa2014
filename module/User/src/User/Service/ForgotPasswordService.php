@@ -1,5 +1,4 @@
 <?php
-
 namespace User\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
