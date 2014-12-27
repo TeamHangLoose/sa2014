@@ -16,6 +16,7 @@ class ChangeAdress extends ProvidesEventsForm {
         $this->setAuthenticationOptions($options);
         parent::__construct($name);
 
+
         $this->add(array(
             'name' => 'identity',
             'options' => array(
@@ -27,19 +28,31 @@ class ChangeAdress extends ProvidesEventsForm {
         ));
 
         $this->add(array(
-            'name' => 'credential',
+            'name' => 'newUsername',
             'options' => array(
-                'label' => 'Current Password',
+                'label' => 'Neuer Vor- und Nachname',
             ),
             'attributes' => array(
-                'type' => 'password',
+                'type' => 'text',
             ),
         ));
 
         $this->add(array(
+            'name' => 'newDisplayname',
+            'options' => array(
+                'label' => 'Neuer Benutzername',
+            ),
+            'attributes' => array(
+                'type' => 'text',
+            ),
+        ));
+
+
+
+        $this->add(array(
             'name' => 'newStreet',
             'options' => array(
-                'label' => 'New Street',
+                'label' => 'Neue Strasse',
             ),
             'attributes' => array(
                 'type' => 'text',
@@ -49,7 +62,7 @@ class ChangeAdress extends ProvidesEventsForm {
         $this->add(array(
             'name' => 'newPlz',
             'options' => array(
-                'label' => 'New Plz',
+                'label' => 'Neue PLZ',
             ),
             'attributes' => array(
                 'type' => 'text',
@@ -59,12 +72,24 @@ class ChangeAdress extends ProvidesEventsForm {
         $this->add(array(
             'name' => 'newVillage',
             'options' => array(
-                'label' => 'New Village',
+                'label' => 'Neuer Ort',
             ),
             'attributes' => array(
                 'type' => 'text',
             ),
         ));
+
+
+        $this->add(array(
+            'name' => 'credential',
+            'options' => array(
+                'label' => 'Aktuelles Passwort',
+            ),
+            'attributes' => array(
+                'type' => 'password',
+            ),
+        ));
+
 
         $this->add(array(
             'name' => 'submit',
