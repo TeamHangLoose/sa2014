@@ -4,28 +4,20 @@ $title = $this->escapeHtml($title);
 $this->headTitle($title);
 $form->prepare();
 ?>
-<div class="">
+<div class="container form-default">
     <div class="page-header">
         <h2><?php echo $title; ?></h2>
     </div>
-
-    <<!-- <?php if ($imageUploaded): ?>
-             <div class="alert alert-success"><?php echo $this->translate("Bild erfolgreich geändert") ?></div>
-    <?php endif; ?> -->
-
-
     <?php if ($user->getId() == $this->zfcUserIdentity()->getId()): ?>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <?php echo $this->htProfileImage($this->zfcUserIdentity()) ?>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <?php echo $this->form()->openTag($form); ?>
                 <?php echo $this->formElement($form->get('image')) . $this->formElementErrors($form->get('image')); ?>
             </div>
-
-
         </div>
 
 
@@ -33,28 +25,6 @@ $form->prepare();
             <?php echo $this->translate('Zurück zu meinem Profil'); ?>
         </a>
 
-        <br/>
-        <?php echo $this->htProfileImage($this->zfcUserIdentity()) ?>
-        <br/>
-
-
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><?php echo $this->translate('Profilbild') ?></h3>
-                </div>
-                <div class="panel-body">
-                       <?php echo $this->htProfileImage($this->zfcUserIdentity()) ?>
-                    <p><a class="btn btn-success pull-right" href="http://framework.zend.com/zf2" target="_blank"><?php echo $this->translate('ZF2 Development Portal') ?> &raquo;</a></p>
-                </div>
-            </div>
-        </div>
-
-
-
-        
-        
-        ________________________________________________
     <?php endif; ?>
     <?php echo $this->form()->openTag($form); ?>
     <?php echo $this->formElement($form->get('image')) . $this->formElementErrors($form->get('image')); ?>

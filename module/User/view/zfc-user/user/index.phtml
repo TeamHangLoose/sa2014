@@ -7,21 +7,15 @@ $data = $this->AccountDisplay();
     <div class="row">
         <div class="page-header text-center">
             <h1>
-                <?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?> !
+                <?php echo $this->translate('Hallo'); ?>, <?php echo $this->zfcUserDisplayName() ?> !
             </h1>
         </div>
-
         <div class="col-sm-4">
-            <div class="">
-                <div class="panel-body text-center">
-                    <p><?php echo $this->htProfileImage($this->zfcUserIdentity()) ?></p>
-                    <p><a class="btn btn-default" href="<?php echo $this->url('zfcuser/htimageupload') ?>"><?php echo $this->translate('Bild ändern'); ?></a></p>
-                </div>
+            <div class="panel-body text-center">
+                <P><?php echo $this->htProfileImage($this->zfcUserIdentity(), array('class' => 'img-responsiv')) ?></p>
+                <p><a class="btn btn-default" href="<?php echo $this->url('zfcuser/htimageupload') ?>"><?php echo $this->translate('Bild ändern'); ?></a></p>
             </div>
         </div>
-
-
-
 
         <div class="col-sm-8 ">
             <div class="panel panel-default">
@@ -31,45 +25,44 @@ $data = $this->AccountDisplay();
                 <div class="panel-body">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-xs-4" >Vorname Nachname</label>
+                            <label class="control-label col-xs-4" ><?php echo $this->translate('Vorname Nachname') ?></label>
                             <div class="col-xs-6">
-                                <input disabled="true" type="text" class="form-control" placeholder="<?php echo $data['displayname'] ?>">
+                                <input disabled="true" type="text" class="form-control" placeholder="<?php echo $data['username'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-4">Email</label>
+                            <label class="control-label col-xs-4"><?php echo $this->translate('Email') ?></label>
                             <div class="col-xs-6">
                                 <input disabled="true" type="email" class="form-control" id="inputPassword" placeholder="<?php echo $data['email'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-4">Nutzername</label>
+                            <label class="control-label col-xs-4"><?php echo $this->translate('Benutzername') ?></label>
                             <div class="col-xs-6">
-                                <input disabled="true" type="password" class="form-control" id="inputPassword" placeholder="<?php echo $data['username'] ?>">
+                                <input disabled="true" type="text" class="form-control" id="inputPassword" placeholder="<?php echo $data['displayname'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-4">Strasse</label>
+                            <label class="control-label col-xs-4"><?php echo $this->translate('Strasse') ?></label>
                             <div class="col-xs-6">
-                                <input disabled="true" type="password" class="form-control" id="inputPassword" placeholder="<?php echo $data['street'] ?>">
+                                <input disabled="true" type="text" class="form-control" id="inputPassword" placeholder="<?php echo $data['street'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-4">Postleitzahl</label>
+                            <label class="control-label col-xs-4"><?php echo $this->translate('Postleitzahl') ?></label>
                             <div class="col-xs-6">
-                                <input disabled="true" type="password" class="form-control" id="inputPassword" placeholder="<?php echo $data['plz'] ?>">
+                                <input disabled="true" type="text" class="form-control" id="inputPassword" placeholder="<?php echo $data['plz'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-xs-4">Ort</label>
+                            <label class="control-label col-xs-4"><?php echo $this->translate('Ort') ?></label>
                             <div class="col-xs-6">
-                                <input disabled="true" type="password" class="form-control" id="inputPassword" placeholder="<?php echo $data['village'] ?>">
+                                <input disabled="true" type="text" class="form-control" id="inputPassword" placeholder="<?php echo $data['village'] ?>">
                             </div>
                         </div>
-                    </form>
-                  
-                        <a class="btn btn-default text-center" href="<?php echo $this->url('change-adress') ?>"><?php echo $this->translate('Meine Daten ändern'); ?></a>                     
-
+                        <div class="form-group text-center">
+                            <a class="btn btn-default" href="<?php echo $this->url('change-adress') ?>"><?php echo $this->translate('Daten Ändern'); ?></a> 
+                        </div>
                 </div>
             </div>
         </div>
