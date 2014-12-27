@@ -27,7 +27,7 @@ $em->attach(
     ));
 
     $form->remove('display_name');
-    $form->add(array('name' => 'display_name', 'options' => array('label' => 'Nutzername',),
+    $form->add(array('name' => 'display_name', 'options' => array('label' => 'Benutzername',),
         'attributes' => array('type' => 'text',),'required',
             )
     );

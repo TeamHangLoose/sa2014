@@ -23,13 +23,14 @@ class ChangeAdressFilter extends InputFilter {
         $this->add($identityParams);
 
         $this->add(array(
-            'name' => 'credential',
-            'required' => true,
+            'name' => 'newUsername',
+            'required' => false,
             'validators' => array(
                 array(
                     'name' => 'StringLength',
                     'options' => array(
-                        'min' => 6,
+                        'min' => 3,
+                        'max' => 255,
                     ),
                 ),
             ),
@@ -40,7 +41,7 @@ class ChangeAdressFilter extends InputFilter {
 
         $this->add(array(
             'name' => 'newStreet',
-            'required' => true,
+            'required' => false,
             'validators' => array(
                 array(
                     'name' => 'StringLength',
@@ -57,7 +58,7 @@ class ChangeAdressFilter extends InputFilter {
 
         $this->add(array(
             'name' => 'newPlz',
-            'required' => true,
+            'required' => false,
             'validators' => array(
                 array(
                     'name' => 'StringLength',
@@ -72,7 +73,7 @@ class ChangeAdressFilter extends InputFilter {
 
         $this->add(array(
             'name' => 'newVillage',
-            'required' => true,
+            'required' => false,
             'validators' => array(
                 array(
                     'name' => 'StringLength',
@@ -80,6 +81,22 @@ class ChangeAdressFilter extends InputFilter {
                         'max' => 50,
                     ),
                 ),
+            ),
+        ));
+
+        $this->add(array(
+            'name' => 'credential',
+            'required' => true,
+            'validators' => array(
+                array(
+                    'name' => 'StringLength',
+                    'options' => array(
+                        'min' => 6,
+                    ),
+                ),
+            ),
+            'filters' => array(
+                array('name' => 'StringTrim'),
             ),
         ));
     }
