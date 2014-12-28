@@ -24,7 +24,7 @@ foreach ($this->userlistElements as $element) {
     </div>
 </div>
 
-<table class="table">
+<table class="table panel-body">
     <thead>
         <tr>
             <?php foreach ($this->userlistElements as $name => $element): ?>
@@ -56,7 +56,7 @@ foreach ($this->userlistElements as $element) {
         <?php endforeach; ?>
     </tbody>
     <tfoot>
-        <tr>
+        <tr class="text-center">
             <td colspan="<?php echo count($this->userlistElements) + 1; ?>">
                 <?php echo $this->paginationControl($this->users, 'Sliding', 'user/admin/pagination_userlist.phtml'); ?>
             </td>
