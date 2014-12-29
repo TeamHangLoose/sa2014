@@ -54,7 +54,7 @@ class DoubleOptInController extends AbstractActionController{
         return $viewModel;
     }
 
-    public function changePasswordAction()
+    public function confirmedAction()
     {
         $form = $this->changePasswordForm;
         $doubleOptInService = $this->doubleOptInService;
@@ -81,7 +81,7 @@ class DoubleOptInController extends AbstractActionController{
             return $viewModel;
         }
 
-        if ($doubleOptInService->changePassword($prg, $user)) {
+        if ($doubleOptInService->cksd__________confirmed($prg, $user)) {
             $viewModel->setTemplate('double-opt-in/confirmation/optin-confirmed.phtml');
             return $viewModel;
         }
