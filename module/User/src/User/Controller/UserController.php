@@ -7,7 +7,7 @@ class UserController extends \ZfcUser\Controller\UserController {
 
     const ROUTE_CHANGEADRESS = 'change-adress';
     const ROUTE_ACCOUNT = 'index';
-    const ROUTE_OPTIN = 'double-opt-in';
+  
 
     protected $changeAdressForm;
     protected $accountForm;
