@@ -51,8 +51,6 @@ class UserController extends \ZfcUser\Controller\UserController {
         $post = (array)$prg;
         $user = $service->register($post);
 
-
-        
         $redirect = isset($post['redirect']) ? $post['redirect'] : null;
 
         if (!$user) {
