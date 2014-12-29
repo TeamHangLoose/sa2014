@@ -25,6 +25,8 @@ use ZfcUser\Options\UserServiceOptionsInterface;
  */
 class User extends \ZfcUser\Service\User {
 
+        protected $doubleOptInService;
+    
     public function changeAdress(array $data) {
 
         $currentUser = $this->getAuthService()->getIdentity();
@@ -57,7 +59,6 @@ class User extends \ZfcUser\Service\User {
         if (!$form->isValid()) {
             return false;
         }
-
         $user = $form->getData();
         /* @var $user \ZfcUser\Entity\UserInterface */
 
@@ -82,9 +83,20 @@ class User extends \ZfcUser\Service\User {
         $this->getUserMapper()->insert($user);
         $this->getEventManager()->trigger(__FUNCTION__.'.post', $this, array('user' => $user, 'form' => $form));
         
+        $OptInService->request($user->getEmail());
         
         return  true;
     }
 
+         public function getDoubleOptInService()
+    {
+        if (!$this->doubleOptInService) {
+            $this->doubleOptInService = $this->getServiceLocator()->get('User\Service\DoubleOptInService');
+        }
+        return $this->doubleOptInService;
+    }
+    
+   
+    
 
 }

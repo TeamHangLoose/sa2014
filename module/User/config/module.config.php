@@ -116,7 +116,7 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
-                    'change-password' => array(
+                    'confirmed' => array(
                         'type' => 'Zend\Mvc\Router\Http\Segment',
                         'options' => array(
                             'route' => '/confirmed/:token',

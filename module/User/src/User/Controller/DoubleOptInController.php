@@ -35,6 +35,7 @@ class DoubleOptInController extends AbstractActionController{
         ]);
 
         $viewModel->setTemplate('double-opt-in/request.phtml');
+        
 
         $redirectUrl = $this->url()->fromRoute('double-opt-in');
         $prg = $this->prg($redirectUrl, true);

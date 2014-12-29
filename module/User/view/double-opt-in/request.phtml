@@ -1,9 +1,11 @@
 <?php
 /** @var \User\Form\Forgot\RequestForm $form */
 $form = $this->form;
-
 echo $this->form()->openTag($form);
-echo $this->formRow($form->get('email')) . '<br />';
-echo $this->formRow($form->get('submit')->setLabel('Um die Anmeldung abzuschliessen müssen sie Ihre Email Adresse bestätigen.'));
+?>
+
+<?php
 echo $this->formRow($form->get('csrf'));
 echo $this->form()->closeTag($form);
+
+?>

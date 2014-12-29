@@ -2,13 +2,18 @@
 
 namespace User\Controller;
 
+use User\Entity\User;
+
+
 class UserController extends \ZfcUser\Controller\UserController {
 
     const ROUTE_CHANGEADRESS = 'change-adress';
     const ROUTE_ACCOUNT = 'index';
+    const ROUTE_OPTIN = 'double-opt-in';
 
     protected $changeAdressForm;
     protected $accountForm;
+
 
     /**
      * Register new user
@@ -48,7 +53,9 @@ class UserController extends \ZfcUser\Controller\UserController {
             );
         }
 
-        $post = (array)$prg;
+        $post = (array) $prg;
+        
+      
         $user = $service->register($post);
 
         $redirect = isset($post['redirect']) ? $post['redirect'] : null;
@@ -74,7 +81,8 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
 
         // TODO: Add the redirect parameter here...
-        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
+         return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_OPTIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''),array('email'=>'hansi@pimpel.com'));
+        
     }
 
     public function changeadressAction() {
@@ -145,4 +153,8 @@ class UserController extends \ZfcUser\Controller\UserController {
         return $this->accountForm;
     }
 
+ 
+   
+    
+    
 }
