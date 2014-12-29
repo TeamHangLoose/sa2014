@@ -45,8 +45,12 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Key = form label
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
-    protected $editFormElements = array();
-
+    protected $editFormElements = array( 'Id' => 'id',
+        'Name' => 'username',
+        'Email address' => 'email',
+        'Street' => 'street',
+        'Zip Code' => 'plz',
+        'Village' => 'village');
     /**
      * Array of form elements to show when creating a user
      * Key = form label
