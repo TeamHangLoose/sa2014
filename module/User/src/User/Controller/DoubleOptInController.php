@@ -81,7 +81,7 @@ class DoubleOptInController extends AbstractActionController{
             return $viewModel;
         }
 
-        if ($doubleOptInService->cksd__________confirmed($prg, $user)) {
+        if ($doubleOptInService->confirmed($prg, $user)) {
             $viewModel->setTemplate('double-opt-in/confirmation/optin-confirmed.phtml');
             return $viewModel;
         }

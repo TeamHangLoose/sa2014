@@ -66,6 +66,43 @@ class DoubleOptInService {
         return $this->confirmedForm;
     }
 
+  /**
+     * Change password for user
+     *
+     * @param array $data
+     * @param UserInterface $user
+     * @return bool
+     */
+    public function confirmed(array $data, UserInterface $user) {
+        $form = $this->changePasswordForm;
+        $form->setData($data);
 
+        if (!$form->isValid()) {
+            return false;
+        }
+
+        $token = $this->tokenMapper->findByUser($user);
+
+        $this->userMapper->changePassword($form->get('new_password')->getValue(), $user);
+        $this->tokenMapper->remove($token);
+
+        return true;
+    }
+
+    /**
+     * Get identity from token
+     *
+     * @param string $token
+     * @return bool|UserInterface
+     */
+    public function getUserFromToken($token) {
+        $entity = $this->tokenMapper->findByToken($token);
+
+        if (!$entity) {
+            return false;
+        }
+
+        return $this->userMapper->findById($entity->getUser());
+    }
 
 }
