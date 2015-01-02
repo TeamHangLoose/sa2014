@@ -2,8 +2,8 @@
 
 namespace User\Entity;
 
-interface UserInterface extends \ZfcUser\Entity\UserInterface
-{
+interface UserInterface extends \ZfcUser\Entity\UserInterface {
+
     /**
      * Get id.
      *
@@ -79,8 +79,7 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface
      */
     public function setPassword($password);
 
-    
-      /**
+    /**
      * Get state.
      *
      * @return String
@@ -94,8 +93,8 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface
      * @return UserInterface
      */
     public function setStreet($street);
-    
-         /**
+
+    /**
      * Get plz.
      *
      * @return String
@@ -109,7 +108,7 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface
      * @return UserInterface
      */
     public function setPlz($plz);
-  
+
     /**
      * Get village.
      *
@@ -124,7 +123,7 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface
      * @return UserInterface
      */
     public function setVillage($village);
-    
+
     /**
      * Get state.
      *
@@ -139,10 +138,8 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface
      * @return UserInterface
      */
     public function setState($state);
-    
-    
-    
-    
-    
-    
+
+    function getActive();
+
+    function setActive($active);
 }

@@ -4,8 +4,8 @@ namespace User\Mapper;
 
 use ZfcUser\Entity\UserInterface;
 
-interface UserMapperInterface
-{
+interface UserMapperInterface {
+
     /**
      * Find user by email
      *
@@ -30,4 +30,14 @@ interface UserMapperInterface
      * @return bool
      */
     public function changePassword($password, UserInterface $user);
+
+    
+        /**
+     * Change password
+     *
+     * @param string $password
+     * @param UserInterface $user
+     * @return bool
+     */
+    public function setActive(UserInterface $user);
 }

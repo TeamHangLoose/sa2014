@@ -106,4 +106,14 @@ class UserMapper implements EventManagerAwareInterface,UserMapperInterface {
         $this->events = $events;
         return $this;
     }
+    
+     /**
+     * {@inheritDoc}
+     */
+    public function setActive(UserInterface $user) {
+        $user->setActive(true);
+        return $this->save($user);
+    }
+    
+    
 }
