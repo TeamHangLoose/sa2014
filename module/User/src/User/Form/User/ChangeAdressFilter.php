@@ -61,10 +61,12 @@ class ChangeAdressFilter extends InputFilter {
             'required' => false,
             'validators' => array(
                 array(
-                    'name' => 'StringLength',
+                    'name' => 'regex',
                     'options' => array(
-                        'min' => 4,
-                        'max' => 6,
+                        'pattern' => '/^[1-9][0-9][0-9][0-9]$/',
+                        'messages' => array(
+                            'regexNotMatch' => 'Ungültiges Format der PLZ',
+                        ),
                     ),
                 ),
             ),
@@ -93,7 +95,7 @@ class ChangeAdressFilter extends InputFilter {
                     'options' => array(
                         'pattern' => '/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/',
                         'messages' => array(
-                            'regexNotMatch' =>'ungültiges Format der Telefonnummer',
+                            'regexNotMatch' =>'Ungültiges Format der Telefonnummer',
                         ),
                     ),
                 ),
