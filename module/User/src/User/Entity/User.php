@@ -67,6 +67,12 @@ class User implements UserInterface, ProviderInterface {
      */
     protected $village;
     
+     /**
+     * @var string
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    protected $phone;
+    
        /**
      * @var boolean
      * @ORM\Column(type="boolean",nullable=true)
@@ -277,6 +283,18 @@ class User implements UserInterface, ProviderInterface {
     function setActive($active) {
         $this->active = $active;
     }
+    function getPhone() {
+        return $this->phone;
+    }
 
+    function setPhone($phone) {
+        $this->phone = $phone;
+    }
+
+    /*   
+  public function __toString() {
+  return __CLASS__ . '@' . spl_object_hash($this);
+}
+*/
 
 }

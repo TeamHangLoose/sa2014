@@ -14,6 +14,12 @@ $em->attach(
         'attributes' => array('type' => 'email','required'),
             )
     );
+    
+    $form->add(array('name' => 'phone', 'options' => array('label' => 'Telefon',),
+        'attributes' => array('type' => 'tel','required'),
+            )
+    );
+    
     $form->remove('password');
     $form->add(array(
         'name' => 'password', 'options' => array('label' => 'Passwort',),

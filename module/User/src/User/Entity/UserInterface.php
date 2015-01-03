@@ -142,4 +142,9 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface {
     function getActive();
 
     function setActive($active);
+    
+     function getPhone() ;
+
+    function setPhone($phone) ;
+    
 }
