@@ -40,6 +40,7 @@ class User extends \ZfcUser\Service\User {
         $currentUser->setStreet($data['newStreet']);
         $currentUser->setPlz($data['newPlz']);
         $currentUser->setVillage($data['newVillage']);
+        $currentUser->setPhone($data['newPhone']);
 
         $this->getEventManager()->trigger(__FUNCTION__, $this, array('user' => $currentUser));
         $this->getUserMapper()->update($currentUser);

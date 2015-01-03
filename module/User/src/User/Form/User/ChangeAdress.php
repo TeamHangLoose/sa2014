@@ -79,6 +79,16 @@ class ChangeAdress extends ProvidesEventsForm {
             ),
         ));
 
+        $this->add(array(
+            'name' => 'newPhone',
+            'options' => array(
+                'label' => 'Neue Telefonnummer',
+            ),
+            'attributes' => array(
+                'type' => 'tel',
+            ),
+        ));
+
 
         $this->add(array(
             'name' => 'credential',

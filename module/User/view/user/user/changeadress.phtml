@@ -41,6 +41,8 @@
                     $element->setAttribute('value', $data['displayname']);
                 } elseif ($element->getName() == 'newUsername') {
                     $element->setAttribute('value', $data['username']);
+                }elseif ($element->getName() == 'newPhone') {
+                    $element->setAttribute('value', $data['phone']);
                 }
             } else {
                 $element->setAttribute('class', 'btn btn-success');

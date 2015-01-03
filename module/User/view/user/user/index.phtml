@@ -54,6 +54,12 @@ $data = $this->AccountDisplay();
                                 <input disabled="true" type="text" class="form-control" placeholder="<?php echo $data['village'] ?>">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-4"><?php echo $this->translate('Telefon') ?></label>
+                            <div class="col-xs-6">
+                                <input disabled="true" type="text" class="form-control" placeholder="<?php echo $data['phone'] ?>">
+                            </div>
+                        </div>
                         <div class="form-group text-center">
                             <a class="btn btn-default" href="<?php echo $this->url('change-adress') ?>"><?php echo $this->translate('Daten Ändern'); ?></a> 
                         </div>

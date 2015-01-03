@@ -46,13 +46,15 @@ class AccountDisplay extends AbstractHelper{
         $street = $user->getStreet();
         $plz = $user->getPlz();
         $village = $user->getVillage();
+        $phone = $user->getPhone();
         
         $data= array('displayname'=>$displayName,
             'username'=>$userName,
             'email'=>$email,
             'street'=>$street,
             'plz'=>$plz,
-            'village'=>$village);
+            'village'=>$village,
+            'phone'=>$phone);
  
         if (null === $displayName) {
             $displayName = $user->getUsername();

@@ -6,20 +6,15 @@ $em->attach(
 
     $form->remove('username');
     $form->add(array('name' => 'username', 'options' => array('label' => 'Vorname Nachname',),
-        'attributes' => array('type' => 'text','class'=>'','required'),
+        'attributes' => array('type' => 'text', 'class' => '', 'required'),
             )
     );
     $form->remove('email');
     $form->add(array('name' => 'email', 'options' => array('label' => 'Email',),
-        'attributes' => array('type' => 'email','required'),
+        'attributes' => array('type' => 'email', 'required'),
             )
     );
-    
-    $form->add(array('name' => 'phone', 'options' => array('label' => 'Telefon',),
-        'attributes' => array('type' => 'tel','required'),
-            )
-    );
-    
+
     $form->remove('password');
     $form->add(array(
         'name' => 'password', 'options' => array('label' => 'Passwort',),
@@ -34,25 +29,29 @@ $em->attach(
 
     $form->remove('display_name');
     $form->add(array('name' => 'display_name', 'options' => array('label' => 'Benutzername',),
-        'attributes' => array('type' => 'text',),'required',
+        'attributes' => array('type' => 'text',), 'required',
             )
     );
 
     $form->add(array('name' => 'street', 'options' => array('label' => 'Strasse',),
-        'attributes' => array('type' => 'text',),'required',
+        'attributes' => array('type' => 'text',), 'required',
             )
     );
 
     $form->add(
             array('name' => 'plz', 'options' => array('label' => 'Postleitzahl',),
-                'attributes' => array('type' => 'text',),'required',
+                'attributes' => array('type' => 'text',), 'required',
             )
     );
     $form->add(
             array('name' => 'village', 'options' => array('label' => 'Ort',),
-                'attributes' => array('type' => 'text',),'required',
+                'attributes' => array('type' => 'text',), 'required',
             )
     );
-      
+    
+        $form->add(array('name' => 'phone', 'options' => array('label' => 'Telefon',),
+        'attributes' => array('type' => 'tel', 'required'),
+            )
+    );
 }
 );
