@@ -1,10 +1,4 @@
 <?php
-use Zend\ModuleManager\ModuleManager;
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\ModuleManager\Feature\ServiceProviderInterface;
-use Zend\Stdlib\Hydrator\ClassMethods;
-
 return array(
     'aliases' => array(
         'objectManager' => 'Doctrine\ORM\EntityManager',
