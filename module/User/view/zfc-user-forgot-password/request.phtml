@@ -1,9 +1,13 @@
-<?php
-/** @var \User\Form\Forgot\RequestForm $form */
-$form = $this->form;
+<div class="form-default">
+    <?php
+    /** @var \User\Form\Forgot\RequestForm $form */
+    $form = $this->form;
 
-echo $this->form()->openTag($form);
-echo $this->formRow($form->get('email')) . '<br />';
-echo $this->formRow($form->get('submit')->setLabel('Request new password'));
-echo $this->formRow($form->get('csrf'));
-echo $this->form()->closeTag($form);
+    echo $this->form()->openTag($form);
+    echo $this->formRow($form->get('email')->setLabel('Email Adresse eingeben'));
+    echo $this->formRow($form->get('submit')->setLabel('Neues Passwort anfordern'));
+    echo $this->formRow($form->get('csrf'));
+    echo $this->form()->closeTag($form);
+    ?>
+</div>
+

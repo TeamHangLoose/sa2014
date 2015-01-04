@@ -26,8 +26,6 @@
         <div class="form-group <?php if ($this->formElementErrors($element)) echo "has-error" ?>">
             <?php if ('submit' != $element->getAttribute('type')) { ?>
                 <label class="control-label"><?php echo $element->getLabel() ?></label>
-
-
                 <?php
                 $element->setAttribute('class', 'form-control');
 
@@ -41,7 +39,7 @@
                     $element->setAttribute('value', $data['displayname']);
                 } elseif ($element->getName() == 'newUsername') {
                     $element->setAttribute('value', $data['username']);
-                }elseif ($element->getName() == 'newPhone') {
+                } elseif ($element->getName() == 'newPhone') {
                     $element->setAttribute('value', $data['phone']);
                 }
             } else {
@@ -63,10 +61,12 @@
                 ?>
             <?php endif; ?>
         </div>
+    <?php endforeach; ?>
+    <br>
+    <a href="<?php echo $this->url('zfcuser') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-home"></span><?php echo $this->translate(' Mein Profil'); ?></a>
 
-        <?php endforeach; ?>
-        <?php if ($this->redirect): ?>
+    <?php if ($this->redirect): ?>
         <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
     <?php endif ?>
 </div>
-    <?php echo $this->form()->closeTag() ?>
+<?php echo $this->form()->closeTag() ?>
