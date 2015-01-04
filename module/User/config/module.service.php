@@ -1,4 +1,9 @@
 <?php
+use Zend\ModuleManager\ModuleManager;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\Stdlib\Hydrator\ClassMethods;
 
 return array(
     'aliases' => array(
@@ -15,9 +20,8 @@ return array(
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
         'zfcuser_user_service' => 'User\Service\User',
-         'HtProfileImage\ProfileImageForm' => 'User\Form\htProfileImage\ProfileImageForm',
-                
-        
+        'HtProfileImage\ProfileImageForm' => 'User\Form\htProfileImage\ProfileImageForm',
+        'ZfcUser\Form\Register' => 'User\Form\Admin\EditUser',
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
         'User\Form\User\Index' => 'User\Form\User\Index',
     ),
@@ -39,6 +43,23 @@ return array(
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
         'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
+        'zfcuser_register_form' => function ($sm) {
+            
+             $options = $sm->get('zfcuser_module_options');
+            
+             $form = new User\Form\Zfcuser\Register(null, $options);
+            //$form->setCaptchaElement($sm->get('zfcuser_captcha_element'));
+            $form->setInputFilter(new User\Form\Zfcuser\RegisterFilter(
+                    new ZfcUser\Validator\NoRecordExists(array(
+                'mapper' => $sm->get('zfcuser_user_mapper'),
+                'key' => 'email'
+                    )), new ZfcUser\Validator\NoRecordExists(array(
+                'mapper' => $sm->get('zfcuser_user_mapper'),
+                'key' => 'username'
+                    )), $options
+            ));
+            return $form;
+        },
+            )
+        );
         
-        )
-);
