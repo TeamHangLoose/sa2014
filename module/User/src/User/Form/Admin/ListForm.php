@@ -23,7 +23,7 @@ class ListForm extends Form implements InputFilterProviderInterface
             ],
             'options' => [
                 'type' => 'email',
-                'label' => 'E-mail',
+                'label' => 'Email',
 
             ],
         ]);

@@ -12,13 +12,8 @@ $form->setAttribute('method', 'post');
     <div class="form-group"> 
         <?php include '_form.phtml'; ?>
     </div>
-    
-      <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)) ?>" class="btn btn-delete">
-                         <?php echo $this->translate('Löschen') ?>
-                       </a>
-    
-    <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)); ?>"
-       onclick="return confirm('<?php echo $this->translate('Sind Sie sicher ?') ?>')">
-           <?php echo $this->translate('Löschen') ?>
+
+    <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)) ?>" class="btn btn-delete" onclick="return confirm('<?php echo $this->translate('Sind Sie sicher ?') ?>')">
+        <?php echo $this->translate('Löschen') ?>
     </a>
 </div>

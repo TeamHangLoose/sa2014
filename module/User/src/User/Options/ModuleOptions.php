@@ -38,30 +38,34 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
         'Email address' => 'email',
         'Street' => 'street',
         'Zip Code' => 'plz',
-        'Village' => 'village');
+        'Village' => 'village',
+        'Phone' => 'phone');
 
     /**
      * Array of form elements to show when editing a user
      * Key = form label
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
-    protected $editFormElements = array( 'Id' => 'id',
-        'Name' => 'username',
-        'Email address' => 'email',
-        'Street' => 'street',
-        'Zip Code' => 'plz',
-        'Village' => 'village');
+    protected $editFormElements = array('Id' => 'id',
+        'Vorname Nachname' => 'username',
+        'Email' => 'email',
+        'Strasse' => 'street',
+        'PLZ' => 'plz',
+        'Ort' => 'village',
+        'Telefon' => 'phone');
+
     /**
      * Array of form elements to show when creating a user
      * Key = form label
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
-    protected $createFormElements = array( 'Id' => 'id',
+    protected $createFormElements = array(
         'Name' => 'username',
-        'Email address' => 'email',
-        'Street' => 'street',
-        'Zip Code' => 'plz',
-        'Village' => 'village');
+        'Email' => 'email',
+        'Strasse' => 'street',
+        'PLZ' => 'plz',
+        'Ort' => 'village',
+        'Telefon' => 'phone');
 
     /**
      * @var bool
