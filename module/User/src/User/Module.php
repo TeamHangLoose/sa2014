@@ -29,7 +29,7 @@ class Module {
             $user = $event->getParam('user');
             // Now, check if the identity has access to this user
         });
-       include 'Form/Zfcuser/register_ext.php';
+       //include 'Form/Zfcuser/register_ext.php';
        include 'Form/Zfcuser/changeEmail_ext.php';
 
 
