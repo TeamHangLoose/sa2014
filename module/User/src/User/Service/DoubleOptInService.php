@@ -53,7 +53,7 @@ class DoubleOptInService {
             'from' => 'Badenfahrt2014@gmail.com',
             'from_name' => 'Badenfahrt',
             'to' => $user->getEmail(),
-            'subject' => 'Forgot password test',
+            'subject' => 'Confirm your email',
             'template' => 'email/optin-confirmation'
         ];
 
