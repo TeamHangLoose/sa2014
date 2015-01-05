@@ -9,10 +9,10 @@ $form->prepare();
         <h1><?php echo $title; ?></h1>
     </div>
     <?php if ($user->getId() == $this->zfcUserIdentity()->getId()): ?>
-
+        <?php echo $this->form()->openTag($form); ?>
         <div class="text-center">
-            <p><?php echo $this->htProfileImage($this->zfcUserIdentity(), array('class'=> 'img-circle')) ?></p>
-              <br>
+            <p><?php echo $this->htProfileImage($this->zfcUserIdentity(), array('class' => 'img-circle')) ?></p>
+            <br>
             <p><?php echo $this->formElement($form->get('image')) . $this->formElementErrors($form->get('image')); ?></p>
         </div>
 
@@ -21,6 +21,7 @@ $form->prepare();
     <?php echo $this->formElement($form->get('submit')); ?>
     <br>
     <br>
-        <a href="<?php echo $this->url('zfcuser') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-home"></span><?php echo $this->translate(' Mein Profil'); ?></a>
-    <?php echo $this->form()->closeTag($form); ?>
+    <a href="<?php echo $this->url('zfcuser') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-home"></span><?php echo $this->translate(' Mein Profil'); ?></a>
+        <?php echo $this->form()->closeTag($form); ?>
 </div>
+
