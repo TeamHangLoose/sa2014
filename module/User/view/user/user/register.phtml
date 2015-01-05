@@ -19,8 +19,7 @@ echo $this->form()->openTag($form);
     <?php foreach ($form as $element) : ?>
 
         <div class="form-group<?php if ($this->formElementErrors($element)) echo "has-error" ?>">
-            <?php if ('submit' != $element->getAttribute('type')) { ?>
-                <label class="control-label"><?php echo $this->translate($element->getLabel()) ?></label>
+            <?php if ('submit' != $element->getAttribute('type')) { ?>                <label class="control-label"><?php echo $this->translate($element->getLabel()) ?></label>
                 <?php
                 $element->setAttribute('class', 'form-control')
                         ->setAttribute('placeholder', $element->getLabel());
