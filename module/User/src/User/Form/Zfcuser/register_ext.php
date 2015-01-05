@@ -48,8 +48,8 @@ $em->attach(
                 'attributes' => array('type' => 'text',), 'required',
             )
     );
-
-    $form->add(array('name' => 'phone', 'options' => array('label' => 'Telefon',),
+    
+        $form->add(array('name' => 'phone', 'options' => array('label' => 'Telefon',),
         'attributes' => array('type' => 'tel', 'required'),
             )
     );
