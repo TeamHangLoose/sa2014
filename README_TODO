@@ -9,4 +9,5 @@ TODO'S
 - Allgemein Formen anpassen
 - * avbar: Logo, Label, KontaktForm, Links  (nth)
 - Login Form auf Deutsch
-- Upload Image File zu gross Fehler abfangen
+- Upload Image File zu gross Fehler abfangen index.php abfangen mit zfcuseridenteny()
+- 
