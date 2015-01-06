@@ -1,13 +1,29 @@
 TODO'S
 
-
+__CODE__
 - Layout unterscheiden "ADMIN" "USER"
 - Double Opt In
 - * Administrator-> User Edit Form nue gestalten (nth)
 - Administration: automatische ID Vergabe
 - Administration: Rollen editieren
+- User deaktivieren/ aktivieren Administration Edit
 - Allgemein Formen anpassen
-- * avbar: Logo, Label, KontaktForm, Links  (nth)
+- * Navbar: Logo, Label, KontaktForm, Links  (nth)
+- * Kontakt Site (nth)
 - Login Form auf Deutsch
-- Upload Image File zu gross Fehler abfangen index.php abfangen mit zfcuseridenteny()
+- Upload Image File zu gross Fehler abfangen 
+- image anzeige user/index.php abfangen /löschen im pulic und im Controller zugriff ordner png
+- Password Form auf Deutsch
+- * Login HTTPS und rest (nth)
+- Layout anpassen Navbar
+- Projekt aufräumen Kommentare
+
+________________________________________________________________________________
+
+__DOKU__
+- DB Tabbellen Beschriebe
+- Erfahrungen Stolpersteine
+- SourceCode
+- * Diagramme (nth)
+- * Stundenraport Journal (nth)
 - 

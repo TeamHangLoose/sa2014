@@ -31,6 +31,8 @@ class Module {
         });
        //include 'Form/Zfcuser/register_ext.php';
        include 'Form/Zfcuser/changeEmail_ext.php';
+       
+        include 'Form/Zfcuser/changepassword_ext.php';
 
 
         $zfcServiceEvents = $e->getApplication()->getServiceManager()->get('zfcuser_user_service')->getEventManager();
