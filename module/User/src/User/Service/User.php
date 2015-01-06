@@ -3,15 +3,9 @@
 namespace User\Service;
 
 
-use Zend\Authentication\AuthenticationService;
-use Zend\Form\Form;
-use Zend\ServiceManager\ServiceManagerAwareInterface;
-use Zend\ServiceManager\ServiceManager;
+
 use Zend\Crypt\Password\Bcrypt;
-use Zend\Stdlib\Hydrator;
-use ZfcBase\EventManager\EventProvider;
-use ZfcUser\Mapper\UserInterface as UserMapperInterface;
-use ZfcUser\Options\UserServiceOptionsInterface;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -51,7 +45,7 @@ class User extends \ZfcUser\Service\User {
     
      public function register(array $data)
     {
-         $this->doubleOptInService = $this->getDoubleOptInService();
+        $this->doubleOptInService = $this->getDoubleOptInService();
         $class = $this->getOptions()->getUserEntityClass();
         $user  = new $class;
         $form  = $this->getRegisterForm();
@@ -88,7 +82,7 @@ class User extends \ZfcUser\Service\User {
         //$this->OptInService->request($user->getEmail());
         //$this->OptInService->request("chregi.sommer@gmail.com");
         
-        return  true;
+        return  $user;
     }
 
          public function getDoubleOptInService()

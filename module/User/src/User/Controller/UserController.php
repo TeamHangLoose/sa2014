@@ -3,7 +3,7 @@
 namespace User\Controller;
 
 use User\Entity\User;
-
+use Zend\Stdlib\Parameters;
 
 class UserController extends \ZfcUser\Controller\UserController {
 
@@ -14,11 +14,10 @@ class UserController extends \ZfcUser\Controller\UserController {
     protected $changeAdressForm;
     protected $accountForm;
 
- /**
+    /**
      * Register new user
      */
-    public function registerAction()
-    {
+    public function registerAction() {
         // if the user is logged in, we don't need to register
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             // redirect to the login redirect route
@@ -40,7 +39,7 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
 
         $redirectUrl = $this->url()->fromRoute(static::ROUTE_REGISTER)
-            . ($redirect ? '?redirect=' . rawurlencode($redirect) : '');
+                . ($redirect ? '?redirect=' . rawurlencode($redirect) : '');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -54,13 +53,15 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
 
         $post = (array) $prg;
-        
-         
-        
+
         $user = $service->register($post);
-        if($user&&!$service->getOptions()->getLoginAfterRegistration()){
-             return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_OPTIN) . ($redirect ? '?redirect='. rawurlencode($redirect) : ''));
-            
+        if ($user && !$service->getOptions()->getLoginAfterRegistration()) {
+
+            $post['email'] = $user->getEmail();
+            $request->setPost(new Parameters($post));
+            return $this->forward()->dispatch('User\Controller\DoubleOptIn', array('action' => 'index'));
+
+            //   return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_OPTIN) . ($redirect ? '?redirect='. rawurlencode($redirect) : ''));
         }
 
         $redirect = isset($post['redirect']) ? $post['redirect'] : null;
@@ -86,7 +87,7 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
 
         // TODO: Add the redirect parameter here...
-        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect='. rawurlencode($redirect) : ''));
+        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
     }
 
     public function changeadressAction() {
@@ -157,8 +158,4 @@ class UserController extends \ZfcUser\Controller\UserController {
         return $this->accountForm;
     }
 
- 
-   
-    
-    
 }

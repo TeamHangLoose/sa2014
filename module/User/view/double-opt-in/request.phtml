@@ -3,8 +3,9 @@
 $form = $this->form;
 echo $this->form()->openTag($form);
 ?>
-
+du musst deine email bestätigen <?php echo $this->translate('Nach dem bestätigen kannst du einloggen'); ?> <a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Login !'); ?></a>
 <?php
+echo $this->formRow($form->get('email'));
 echo $this->formRow($form->get('csrf'));
 echo $this->form()->closeTag($form);
 

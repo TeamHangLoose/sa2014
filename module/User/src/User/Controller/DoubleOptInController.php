@@ -1,4 +1,5 @@
 <?php
+
 namespace User\Controller;
 
 use User\Form\DoubleOptIn\Confirmed;
@@ -8,7 +9,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Stdlib\ResponseInterface as Response;
 
-class DoubleOptInController extends AbstractActionController{
+class DoubleOptInController extends AbstractActionController {
 
     /** @var ChangePasswordForm */
     protected $confirmedForm;
@@ -16,17 +17,13 @@ class DoubleOptInController extends AbstractActionController{
     /** @var ForgotPasswordService */
     protected $forgotPasswordService;
 
-    public function __construct(RequestForm $requestForm,Confirmed $confirmedForm, DoubleOptInService $doubleOptInService)
-    {
+    public function __construct(RequestForm $requestForm, Confirmed $confirmedForm, DoubleOptInService $doubleOptInService) {
         $this->requestForm = $requestForm;
         $this->confirmedForm = $confirmedForm;
         $this->doubleOptInService = $doubleOptInService;
     }
-    
-    
-    
-      public function indexAction()
-    {
+
+    public function indexAction() {
         $form = $this->requestForm;
         $doubleOptInService = $this->doubleOptInService;
 
@@ -34,8 +31,24 @@ class DoubleOptInController extends AbstractActionController{
             'form' => $form,
         ]);
 
-        $viewModel->setTemplate('double-opt-in/request.phtml');
+        $request = $this->getRequest();
+        $form->setData($request->getPost());
         
+        $x='';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        foreach ($_POST as $key=>$value) {
+            $x = $x .' '.$key.' '.$value.'<br>';
+        }
+        echo $x;
+
+
+        $viewModel->setTemplate('double-opt-in/request.phtml');
+
 
         $redirectUrl = $this->url()->fromRoute('double-opt-in');
         $prg = $this->prg($redirectUrl, true);
@@ -54,8 +67,7 @@ class DoubleOptInController extends AbstractActionController{
         return $viewModel;
     }
 
-    public function confirmedAction()
-    {
+    public function confirmedAction() {
         $form = $this->changePasswordForm;
         $doubleOptInService = $this->doubleOptInService;
         $token = $this->params('token');
@@ -93,8 +105,5 @@ class DoubleOptInController extends AbstractActionController{
 
         return $viewModel;
     }
-    
-    
-    
 
 }
