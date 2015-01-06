@@ -69,9 +69,7 @@ return array(
                 array('route' => 'zfcuser', 'roles' => array('user')),
                 array('route' => 'zfcuser/logout', 'roles' => array('user')),
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
-                
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
-                
                 array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),

@@ -49,11 +49,8 @@ class UserMapper implements EventManagerAwareInterface,UserMapperInterface {
     public function changePassword($password, UserInterface $user) {
         $bCrypt = new Bcrypt;
         $bCrypt->setCost($this->zfcUserModuleOptions->getPasswordCost());
-
         $password = $bCrypt->create($password);
-
         $user->setPassword($password);
-
         return $this->save($user);
     }
 
