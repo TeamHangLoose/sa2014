@@ -224,4 +224,27 @@ return array(
             'email' => 'Soflomo\Mail\Factory\EmailControllerPluginFactory',
         ),
     ),
+    
+    
+        'htimg' => array(
+        'filters' => array(
+            'htprofileimage_store' => array(
+                'type' => 'thumbnail',
+                'options' => array(
+                    'width' => 220,
+                    'height' => 220,
+                    'mode' => 'outbound '
+                ),
+            ),
+            'htprofileimage_display' => array(
+                'type' => 'thumbnail',
+                'options' => array(
+                    'width' => 200,
+                    'height' => 200,
+                    'mode' => 'outbound ',
+                ),
+            ),
+        ),
+        ),
+    
 );
