@@ -123,15 +123,10 @@ body {
     background-color: #BDBDBD;
 }
 /* --END-- Custom Button warning for "Delete"*/
-
-
-
-
-
-
-
-
-.wrap{
-    height: 100%;
-
-};
+.circular {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+}

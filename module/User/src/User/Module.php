@@ -27,11 +27,12 @@ class Module {
 
         $em->attach('HtProfileImage\Service\ProfileImageService', 'storeImage', function ($event) {
             $user = $event->getParam('user');
+            
             // Now, check if the identity has access to this user
         });
-       //include 'Form/Zfcuser/register_ext.php';
-       include 'Form/Zfcuser/changeEmail_ext.php';
-       
+        //include 'Form/Zfcuser/register_ext.php';
+        include 'Form/Zfcuser/changeEmail_ext.php';
+
         include 'Form/Zfcuser/changepassword_ext.php';
 
 
@@ -59,9 +60,8 @@ class Module {
 
         return include __DIR__ . '../../../config/module.service.php';
     }
-    
-     public function getViewHelperConfig()
-    {
+
+    public function getViewHelperConfig() {
         return array(
             'factories' => array(
                 'AccountDisplay' => function ($sm) {
@@ -70,10 +70,8 @@ class Module {
                     $viewHelper->setAuthService($locator->get('zfcuser_auth_service'));
                     return $viewHelper;
                 },
-            
             ),
         );
-
     }
-    
+
 }
