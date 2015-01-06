@@ -4,7 +4,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'User\Controller\User' => 'User\Controller\UserController',
-            'zfcuser'=> 'User\Controller\UserController',
+            'zfcuser' => 'User\Controller\UserController',
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
@@ -61,6 +61,24 @@ return array(
                 'role_entity_class' => 'User\Entity\Role',
             ),
         ),
+        'resource_providers' => array(
+            'BjyAuthorize\Provider\Resource\Config' => array(
+                'menu' => array(),
+            ),
+        ),
+        'rule_providers' => array(
+            'BjyAuthorize\Provider\Rule\Config' => array(
+                'allow' => array(
+                    /*
+                      [0] -> role
+                      [1] -> resource
+                      [2] -> rule
+                     */
+                    array(array('admin'), 'menu', array('menu_admin')),
+                    array(array('user'), 'menu', array('menu_user')),
+                ),
+            ),
+        ),
         'guards' => array(
             /* If this guard is specified here (i.e. it is enabled), it will block
              * access to all routes unless they are specified here.
@@ -102,7 +120,6 @@ return array(
                     ),
                 ),
             ),
-       
             'double-opt-in' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -208,7 +225,7 @@ return array(
                         ),
                     ),
                 ),
-            ), 
+            ),
         ),
     ),
     'soflomo_mail' => array(
@@ -224,9 +241,7 @@ return array(
             'email' => 'Soflomo\Mail\Factory\EmailControllerPluginFactory',
         ),
     ),
-    
-    
-        'htimg' => array(
+    'htimg' => array(
         'filters' => array(
             'htprofileimage_store' => array(
                 'type' => 'thumbnail',
@@ -245,6 +260,5 @@ return array(
                 ),
             ),
         ),
-        ),
-    
+    ),
 );

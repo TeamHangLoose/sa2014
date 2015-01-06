@@ -27,7 +27,7 @@ class Module {
 
         $em->attach('HtProfileImage\Service\ProfileImageService', 'storeImage', function ($event) {
             $user = $event->getParam('user');
-            
+
             // Now, check if the identity has access to this user
         });
         //include 'Form/Zfcuser/register_ext.php';
