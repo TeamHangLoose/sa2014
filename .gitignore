@@ -19,8 +19,10 @@ data/uploads/
 data/uploads/profile-images/
 
 temp/
+public/htimg/
 
 # Legacy ZF1
 demos/
 extras/documentation
 ##README_TODO##
+
