@@ -14,6 +14,7 @@ class ProfileImageForm extends ProvidesEventsForm {
         $this->add([
             'name' => 'image',
             'type' => 'File',
+            'class'=>'img-circle',
         ]);
 
         $this->add([
