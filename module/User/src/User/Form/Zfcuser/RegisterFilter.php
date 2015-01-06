@@ -101,7 +101,23 @@ class RegisterFilter extends ProvidesEventsInputFilter {
         ));
 
         $this->add(array(
-            'name' => 'newStreet',
+            'name' => 'displayname',
+            'required' => true,
+            'filters' => array(array('name' => 'StringTrim')),
+            'validators' => array(
+                array(
+                    'name' => 'StringLength',
+                    'options' => array(
+                        'min' => 3,
+                        'max' => 128,
+                    ),
+                ),
+            ),
+        ));
+
+
+        $this->add(array(
+            'name' => 'Street',
             'required' => false,
             'validators' => array(
                 array(
