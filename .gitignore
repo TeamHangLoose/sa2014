@@ -2,7 +2,7 @@
 composer.phar
 vendor/
 nbproject/
-data/userImages/
+
 
 # Local configs
 config/autoload/*.local.php
@@ -15,6 +15,7 @@ data/logs/
 data/cache/
 data/sessions/
 data/tmp/
+data/uploads/
 data/uploads/profile-images/
 
 temp/
