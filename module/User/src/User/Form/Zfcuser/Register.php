@@ -28,6 +28,10 @@ class Register extends \ZfcUser\Form\Base {
         if (!$this->getRegistrationOptions()->getEnableUsername()) {
             $this->remove('username');
         }
+        
+        if (!$this->getRegistrationOptions()->getEnableDisplayName()) {
+            $this->remove('display_name');
+        }
 
         if ($this->getRegistrationOptions()->getUseRegistrationFormCaptcha() && $this->captchaElement) {
             $this->add($this->captchaElement, array('name' => 'captcha'));
