@@ -14,11 +14,11 @@ class UserController extends \ZfcUser\Controller\UserController {
     protected $changeAdressForm;
     protected $accountForm;
 
-
-    /**
+ /**
      * Register new user
      */
-    public function registerAction() {
+    public function registerAction()
+    {
         // if the user is logged in, we don't need to register
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             // redirect to the login redirect route
@@ -40,7 +40,7 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
 
         $redirectUrl = $this->url()->fromRoute(static::ROUTE_REGISTER)
-                . ($redirect ? '?redirect=' . rawurlencode($redirect) : '');
+            . ($redirect ? '?redirect=' . rawurlencode($redirect) : '');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -55,8 +55,13 @@ class UserController extends \ZfcUser\Controller\UserController {
 
         $post = (array) $prg;
         
-      
+         
+        
         $user = $service->register($post);
+        if($user&&!$service->getOptions()->getLoginAfterRegistration()){
+             return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_OPTIN) . ($redirect ? '?redirect='. rawurlencode($redirect) : ''));
+            
+        }
 
         $redirect = isset($post['redirect']) ? $post['redirect'] : null;
 
@@ -81,8 +86,7 @@ class UserController extends \ZfcUser\Controller\UserController {
         }
 
         // TODO: Add the redirect parameter here...
-         return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_OPTIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''),array('email'=>'hansi@pimpel.com'));
-        
+        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect='. rawurlencode($redirect) : ''));
     }
 
     public function changeadressAction() {

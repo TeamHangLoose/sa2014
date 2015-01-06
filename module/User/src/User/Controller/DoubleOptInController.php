@@ -46,7 +46,7 @@ class DoubleOptInController extends AbstractActionController{
             return $viewModel;
         }
 
-        if ($doubleOptInService->request($prg)) {
+        if ($this->doubleOptInService->request("chregi.sommer@gmail.com")) {
             $viewModel->setTemplate('double-opt-in/confirmation/sent-email.phtml');
             return $viewModel;
         }

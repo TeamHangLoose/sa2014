@@ -51,6 +51,7 @@ class User extends \ZfcUser\Service\User {
     
      public function register(array $data)
     {
+         $this->doubleOptInService = $this->getDoubleOptInService();
         $class = $this->getOptions()->getUserEntityClass();
         $user  = new $class;
         $form  = $this->getRegisterForm();
@@ -84,7 +85,8 @@ class User extends \ZfcUser\Service\User {
         $this->getUserMapper()->insert($user);
         $this->getEventManager()->trigger(__FUNCTION__.'.post', $this, array('user' => $user, 'form' => $form));
         
-        $OptInService->request($user->getEmail());
+        //$this->OptInService->request($user->getEmail());
+        //$this->OptInService->request("chregi.sommer@gmail.com");
         
         return  true;
     }
@@ -92,7 +94,7 @@ class User extends \ZfcUser\Service\User {
          public function getDoubleOptInService()
     {
         if (!$this->doubleOptInService) {
-            $this->doubleOptInService = $this->getServiceLocator()->get('User\Service\DoubleOptInService');
+            $this->doubleOptInService = $this->getServiceManager()->get('User\Service\DoubleOptInService');
         }
         return $this->doubleOptInService;
     }
