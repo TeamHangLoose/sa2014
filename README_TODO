@@ -1,28 +1,12 @@
 TODO'S
 
 
-**MUST**
-    #\\ in User->Administration createUser muss bei der Registrierung eine Rolle vergeben werden.
-    #\\ in User->Administration muss bei allen Formen Bootstrap  und Css angepasst werden.
-    #\\ in User->Administration Bild zeigen bei editUser.
-    #\\ in Navigation alle Einträge in der Navigation müssen nach rechten angezeigt werden.
-    #\\ in User MyAccount bessere Darstellung mehr Infos.
-    #\\ in ALL <!--KOMENTARE DOC--> und Anleitung zur installation
-    #\\ Doubel opt-in
-    #\\ in application Kontackt Seite mit bestätigungsMail usw. 
-    #\\ in application About Seite
-    #\\ in User->Administration mengen der liste oben links anzeigen (10 20 50 100 Alle
-    #\\ HTTPS
-    #\\ http://framework.zend.com/manual/1.12/de/learning.quickstart.create-form.html
-    #\\ Nur email muss eindeutig sein kein Benutzername nur Name Vorname    
-
-
-
-**NICETOHAVE**
-    #\\ etwas mehr Javascript
-    #\\ Suchfunktion bei User Liste.
-    #\\ bei Userliste Maus hover: bild von user zeigen. oder Bild in der liste klein anzeigen. 
-    #\\ wenn user gelöscht wird nur auf inaktiv setzen.
-    #\\ etwas mehr Bilder und icons
-    #\\ bat installer für doctrineORM und php.ini und Composer.
-    #\\ TRANSLATION ENGLISCH--> DEUTSCH
+- Layout unterscheiden "ADMIN" "USER"
+- Double Opt In
+- * Administrator-> User Edit Form nue gestalten (nth)
+- Administration: automatische ID Vergabe
+- Administration: Rollen editieren
+- Allgemein Formen anpassen
+- * avbar: Logo, Label, KontaktForm, Links  (nth)
+- Login Form auf Deutsch
+- Upload Image File zu gross Fehler abfangen
