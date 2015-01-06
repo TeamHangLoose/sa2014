@@ -28,7 +28,7 @@ class Register extends \ZfcUser\Form\Base {
         if (!$this->getRegistrationOptions()->getEnableUsername()) {
             $this->remove('username');
         }
-        
+
         if (!$this->getRegistrationOptions()->getEnableDisplayName()) {
             $this->remove('display_name');
         }
@@ -37,7 +37,12 @@ class Register extends \ZfcUser\Form\Base {
             $this->add($this->captchaElement, array('name' => 'captcha'));
         }
 
-        $this->add(array('name' => 'street', 'options' => array('label' => 'Strasse',),
+        $this->add(array('name' => 'displayname', 'options' => array('label' => 'Vor- und Nachname',),
+            'attributes' => array('type' => 'text',), 'required',
+                )
+        );
+
+        $this->add(array('name' => 'street', 'options' => array('label' => 'Strasse und Hausnummer',),
             'attributes' => array('type' => 'text',), 'required',
                 )
         );

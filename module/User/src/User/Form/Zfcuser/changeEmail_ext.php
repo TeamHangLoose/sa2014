@@ -1,4 +1,5 @@
 <?php
+
 $em->attach(
         'ZfcUser\Form\ChangeEmail', 'init', function($e) {
     $form = $e->getTarget();
@@ -18,6 +19,5 @@ $em->attach(
         'name' => 'credential', 'options' => array('label' => 'Passwort',),
         'attributes' => array('type' => 'password'),
     ));
-   
 }
 );

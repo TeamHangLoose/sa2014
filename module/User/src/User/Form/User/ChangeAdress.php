@@ -47,8 +47,6 @@ class ChangeAdress extends ProvidesEventsForm {
             ),
         ));
 
-
-
         $this->add(array(
             'name' => 'newStreet',
             'options' => array(
@@ -89,7 +87,6 @@ class ChangeAdress extends ProvidesEventsForm {
             ),
         ));
 
-
         $this->add(array(
             'name' => 'credential',
             'options' => array(
@@ -99,7 +96,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'password',
             ),
         ));
-
 
         $this->add(array(
             'name' => 'submit',

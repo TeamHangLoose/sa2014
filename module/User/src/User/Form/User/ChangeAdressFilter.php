@@ -65,13 +65,12 @@ class ChangeAdressFilter extends InputFilter {
                     'options' => array(
                         'pattern' => '/^[1-9][0-9][0-9][0-9]$/',
                         'messages' => array(
-                            'regexNotMatch' => 'Ungültiges Format der PLZ',
+                            'regexNotMatch' => 'Ungültige Postleitzahl',
                         ),
                     ),
                 ),
             ),
         ));
-
 
         $this->add(array(
             'name' => 'newVillage',
