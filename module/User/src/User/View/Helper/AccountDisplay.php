@@ -47,6 +47,7 @@ class AccountDisplay extends AbstractHelper {
         $plz = $user->getPlz();
         $village = $user->getVillage();
         $phone = $user->getPhone();
+        $role = $user->getRoles();
 
         $data = array('displayname' => $displayName,
             'username' => $userName,
@@ -54,7 +55,8 @@ class AccountDisplay extends AbstractHelper {
             'street' => $street,
             'plz' => $plz,
             'village' => $village,
-            'phone' => $phone);
+            'phone' => $phone,
+            'role'=> $role);
 
         if (null === $displayName) {
             $displayName = $user->getUsername();
