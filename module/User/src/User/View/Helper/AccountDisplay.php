@@ -55,8 +55,7 @@ class AccountDisplay extends AbstractHelper {
             'street' => $street,
             'plz' => $plz,
             'village' => $village,
-            'phone' => $phone,
-            'role'=> $role);
+            'phone' => $phone);
 
         if (null === $displayName) {
             $displayName = $user->getUsername();
