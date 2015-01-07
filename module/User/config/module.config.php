@@ -12,7 +12,7 @@ return array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
             'User\Controller\Admin' => 'User\Factory\Controller\AdminControllerFactory',
             'User\Controller\DoubleOptIn' => 'User\Factory\Controller\DoubleOptInControllerFactory',
-            'HtProfileImage\ProfileImage'=> 'HtProfileImage\Controller\Factory\ProfileImageControllerFactory',
+           
         ),
     ),
     'doctrine' => array(

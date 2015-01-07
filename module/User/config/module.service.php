@@ -38,9 +38,7 @@ return array(
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
         'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
-        
-        
-        
+
         'zfcuser_register_form' => function ($sm) {
             
              $options = $sm->get('zfcuser_module_options');

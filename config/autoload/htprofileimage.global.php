@@ -101,7 +101,7 @@ $settings = [
      * Default: value
      * Accepted Values: bool
      */
-    // 'enable_cache' => true,
+     //'enable_cache' => false,
 
     /**
      * Maximum file size of uploaded image
