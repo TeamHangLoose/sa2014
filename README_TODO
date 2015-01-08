@@ -18,6 +18,12 @@ __CODE__
 - Layout anpassen Navbar
 - Projekt aufräumen Kommentare
 
+idea
+
+base64 uri convertor
+//bus
+Fatal error: Call to a member function getEmail() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 66
+
 ________________________________________________________________________________
 
 __DOKU__

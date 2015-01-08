@@ -61,8 +61,23 @@ class DoubleOptInController extends AbstractActionController {
         $form = $this->confirmedForm;
         $doubleOptInService = $this->doubleOptInService;
         $token = $this->params('token');
-        $user = $doubleOptInService->getUserFromToken($token);
 
+        $user = $doubleOptInService->getUserFromToken($token);
+        $email = $user->getEmail();
+          
+        $form->add([
+            'name' => 'email',
+            'type'  => 'Zend\Form\Element\Text',
+            'attributes' => [
+                'class' => 'form-control',
+                'value'=> $email,
+            ],
+            'options' => [
+                'type' => 'email',
+                'label' => 'Email',
+
+            ],
+        ]);
         $viewModel = new ViewModel([
             'form' => $form,
         ]);
@@ -71,7 +86,7 @@ class DoubleOptInController extends AbstractActionController {
             $viewModel->setTemplate('double-opt-in/expired.phtml');
             return $viewModel;
         }
-
+        
         $viewModel->setTemplate('double-opt-in/confirmed.phtml');
 
         $redirectUrl = $this->url()->fromRoute('double-opt-in/confirmed', ['token' => $token]);
@@ -82,7 +97,7 @@ class DoubleOptInController extends AbstractActionController {
         } elseif ($prg === false) {
             return $viewModel;
         }
-
+        
         if ($doubleOptInService->confirmed($prg, $user)) {
             $viewModel->setTemplate('double-opt-in/confirmation/optin-confirmed.phtml');
             return $viewModel;

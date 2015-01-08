@@ -3,8 +3,8 @@
 $form = $this->form;
 
 echo $this->form()->openTag($form);
-echo $this->formRow($form->get('new_password')) . '<br />';
-echo $this->formRow($form->get('confirm_new_password')) . '<br />';
-echo $this->formRow($form->get('submit')->setLabel('Save'));
+echo $this->formRow($form->get('email')) . '<br />';
+echo $this->formRow($form->get('cred')) . '<br />';
+echo $this->formRow($form->get('submit')->setLabel($this->translate('Account aktivieren')));
 echo $this->formRow($form->get('csrf'));
 echo $this->form()->closeTag($form);

@@ -9,6 +9,7 @@ use User\Mapper\TokenMapperInterface;
 use User\Mapper\UserMapperInterface;
 use User\Entity\TokenInterface;
 use ZfcUser\Entity\UserInterface;
+use Zend\Crypt\Password\Bcrypt;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +23,8 @@ use ZfcUser\Entity\UserInterface;
  * @author win7
  */
 class DoubleOptInService {
-        /** @var ChangePasswordForm */
+
+    /** @var ChangePasswordForm */
     protected $confirmedForm;
 
     /** @var UserMapperInterface */
@@ -33,12 +35,14 @@ class DoubleOptInService {
 
     /** @var MailService */
     protected $mailService;
+    protected $options;
 
-    public function __construct(Confirmed $confirmedForm,UserMapperInterface $userMapper, TokenMapperInterface $tokenMapper, MailService $mailService) {
+    public function __construct(Confirmed $confirmedForm, UserMapperInterface $userMapper, TokenMapperInterface $tokenMapper, MailService $mailService, \ZfcUser\Options\ModuleOptions $zfcUserOptions) {
         $this->confirmedForm = $confirmedForm;
         $this->userMapper = $userMapper;
         $this->tokenMapper = $tokenMapper;
         $this->mailService = $mailService;
+        $this->options = $zfcUserOptions;
     }
 
     public function request($email) {
@@ -61,12 +65,12 @@ class DoubleOptInService {
 
         return true;
     }
-    
+
     function getConfirmedForm() {
         return $this->confirmedForm;
     }
 
-  /**
+    /**
      * Change password for user
      *
      * @param array $data
@@ -74,19 +78,38 @@ class DoubleOptInService {
      * @return bool
      */
     public function confirmed(array $data, UserInterface $user) {
-        $form = $this->confirmedForm;
-        $form->setData($data);
 
-        if (!$form->isValid()) {
-            return false;
+        /*
+          $x = '';
+
+          foreach ($data as $key => $value) {
+          $x = $x . ' ' . $key . ' ' . $value . '  <br>';
+          }
+          echo $x . '<br> CreD: ' . $cred;
+
+
+          $form = $this->confirmedForm;
+          $form->setData($data);
+
+          if (!$form->isValid()) {
+          return false;
+          }
+         * 
+         */
+    
+        $token = $this->tokenMapper->findByUser($user);
+        $bcrypt = new Bcrypt;
+        $bcrypt->setCost($this->options->getPasswordCost());
+
+        if ($bcrypt->verify($data['cred'], $user->getPassword())) {
+
+            $this->userMapper->setActive($user);
+            $this->tokenMapper->remove($token);
+
+            return true;
         }
 
-        $token = $this->tokenMapper->findByUser($user);
-
-        $this->userMapper->changePassword($form->get('new_password')->getValue(), $user);
-        $this->tokenMapper->remove($token);
-
-        return true;
+        return false;
     }
 
     /**

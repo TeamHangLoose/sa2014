@@ -29,7 +29,8 @@ class DoubleOptInServiceFactory implements FactoryInterface {
         $tokenMapper = $serviceLocator->get('User\Mapper\TokenMapper');
         /** @var \User\Service\MailService $mailService */
         $mailService = $serviceLocator->get('User\Service\MailService');
-        return new DoubleOptInService($confirmed,$userMapper, $tokenMapper, $mailService);
+        $zfcUserOptions = $serviceLocator->get('zfcuser_module_options');
+        return new DoubleOptInService($confirmed,$userMapper, $tokenMapper, $mailService,$zfcUserOptions);
     }
 
 }

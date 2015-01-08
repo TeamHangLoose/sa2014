@@ -79,9 +79,6 @@ class User extends \ZfcUser\Service\User {
         $this->getUserMapper()->insert($user);
         $this->getEventManager()->trigger(__FUNCTION__.'.post', $this, array('user' => $user, 'form' => $form));
         
-        //$this->OptInService->request($user->getEmail());
-        //$this->OptInService->request("chregi.sommer@gmail.com");
-        
         return  $user;
     }
 

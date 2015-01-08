@@ -11,32 +11,21 @@ class Confirmed extends Form implements InputFilterProviderInterface
 
     public function __construct()
     {
-        parent::__construct('change-password');
+        parent::__construct('confirmed');
 
         $this->setAttribute('method', 'post');
 
+      
+
         $this->add([
-            'name' => 'new_password',
+            'name' => 'cred',
             'type'  => 'Zend\Form\Element\Password',
             'attributes' => [
                 'class' => 'form-control',
             ],
             'options' => [
                 'type' => 'text',
-                'label' => 'New password',
-
-            ],
-        ]);
-
-        $this->add([
-            'name' => 'confirm_new_password',
-            'type'  => 'Zend\Form\Element\Password',
-            'attributes' => [
-                'class' => 'form-control',
-            ],
-            'options' => [
-                'type' => 'text',
-                'label' => 'Confirm new password',
+                'label' => 'Passwort',
 
             ],
         ]);
