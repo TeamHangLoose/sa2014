@@ -2,10 +2,15 @@
 /** @var \User\Form\Forgot\RequestForm $form */
 $form = $this->form;
 echo $this->form()->openTag($form);
-?>
-du musst deine email bestätigen <?php echo $this->translate('Nach dem bestätigen kannst du einloggen'); ?> <a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Login !'); ?></a>
+echo $this->translate('Du musst deine email ( '); 
+$element = $form->get('email');
+echo $element->getValue();
+echo $this->translate(' ) bestätigen ! Klicke auf den Ling den du per email bekommen hast !!  Nach dem bestätigen kannst du einloggen'); 
+?> 
+<a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Login !'); ?></a>
+<a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Registrieren !'); ?></a>
 <?php
-echo $this->formRow($form->get('email'));
+//echo $this->formRow($form->get('email'));
 echo $this->formRow($form->get('csrf'));
 echo $this->form()->closeTag($form);
 ?>

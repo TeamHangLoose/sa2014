@@ -34,7 +34,7 @@ class DoubleOptInController extends AbstractActionController {
         $request = $this->getRequest();
         $form->setData($request->getPost());
         
-        echo $request->getPost('email');
+       // echo $request->getPost('email');
         
         $viewModel->setTemplate('double-opt-in/request.phtml');
 
