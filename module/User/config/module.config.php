@@ -4,13 +4,11 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'User\Controller\User' => 'User\Controller\UserController',
-<<<<<<< HEAD
-            'zfcuser'=> 'User\Controller\UserController',
-         
             
-=======
+            'zfcuser'=> 'User\Controller\UserController',
+        
             'zfcuser' => 'User\Controller\UserController',
->>>>>>> origin/add_zendnavigation
+
         ),
         'factories' => array(
             'User\Controller\ForgotPassword' => 'User\Factory\Controller\ForgotPasswordControllerFactory',
