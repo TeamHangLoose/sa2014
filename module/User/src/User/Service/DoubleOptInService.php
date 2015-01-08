@@ -74,7 +74,7 @@ class DoubleOptInService {
      * @return bool
      */
     public function confirmed(array $data, UserInterface $user) {
-        $form = $this->changePasswordForm;
+        $form = $this->confirmedForm;
         $form->setData($data);
 
         if (!$form->isValid()) {

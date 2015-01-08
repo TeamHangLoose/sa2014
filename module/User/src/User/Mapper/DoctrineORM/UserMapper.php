@@ -112,5 +112,12 @@ class UserMapper implements EventManagerAwareInterface,UserMapperInterface {
         return $this->save($user);
     }
     
+       public function setDisactive(UserInterface $user) {
+        $user->setActive(false);
+        return $this->save($user);
+    }
+    
+    
+
     
 }

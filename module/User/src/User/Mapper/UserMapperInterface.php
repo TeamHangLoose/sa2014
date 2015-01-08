@@ -40,4 +40,7 @@ interface UserMapperInterface {
      * @return bool
      */
     public function setActive(UserInterface $user);
+    
+    
+    public function setDisactive(UserInterface $user) ;
 }
