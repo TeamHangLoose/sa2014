@@ -3,11 +3,10 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'User\Controller\User' => 'User\Controller\UserController',
-            
+            'User\Controller\User' => 'User\Controller\UserController',            
             'zfcuser'=> 'User\Controller\UserController',
-        
-            'zfcuser' => 'User\Controller\UserController',
+   
+
 
         ),
         'factories' => array(

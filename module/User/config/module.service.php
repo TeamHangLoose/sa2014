@@ -18,6 +18,7 @@ return array(
         'ZfcUser\Form\Register' => 'User\Form\Admin\EditUser',
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
         'User\Form\User\Index' => 'User\Form\User\Index',
+        'HtProfileImage\ProfileImage' =>'User\Controller\ProfileImageController',
         
     ),
     'initializers' => array(

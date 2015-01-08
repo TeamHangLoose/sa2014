@@ -22,7 +22,28 @@ idea
 
 base64 uri convertor
 //bus
-Fatal error: Call to a member function getEmail() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 66
+1*Fatal error: Call to a member function getEmail() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 66
+2*Beim mailenden
+
+Zend\Mail\Protocol\Exception\RuntimeException
+
+File:
+
+    C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Protocol\AbstractProtocol.php:225
+
+Message:
+
+    Could not open socket
+
+Stack trace:
+
+    #0 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Protocol\Smtp.php(156): Zend\Mail\Protocol\AbstractProtocol->_connect('tcp://smtp.gmai...')
+    #1 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(339): Zend\Mail\Protocol\Smtp->connect()
+    #2 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(325): Zend\Mail\Transport\Smtp->connect()
+    #3 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(336): Zend\Mail\Transport\Smtp->lazyLoadConnection()
+    #4 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\lib
+
+
 
 ________________________________________________________________________________
 
