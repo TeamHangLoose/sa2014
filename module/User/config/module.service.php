@@ -13,6 +13,7 @@ return array(
         'User\Form\Forgot\ChangePasswordForm' => 'User\Form\Forgot\ChangePasswordForm',
         'User\Form\Admin\ListForm' => 'User\Form\Admin\ListForm',
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
+        'User\Form\Admin\CreateUser' => 'User\Form\Admin\CreateUser',
         'zfcuser_user_service' => 'User\Service\User',
         'HtProfileImage\ProfileImageForm' => 'User\Form\htProfileImage\ProfileImageForm',
         'ZfcUser\Form\Register' => 'User\Form\Admin\EditUser',

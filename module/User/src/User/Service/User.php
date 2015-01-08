@@ -2,8 +2,6 @@
 
 namespace User\Service;
 
-
-
 use Zend\Crypt\Password\Bcrypt;
 
 /*
@@ -19,8 +17,17 @@ use Zend\Crypt\Password\Bcrypt;
  */
 class User extends \ZfcUser\Service\User {
 
-        protected $doubleOptInService;
-    
+    protected $doubleOptInService;
+
+    public function isActive(array $data) {
+        $currentUser = $this->getAuthService()->getIdentity();
+        $user = $this->getUserMapper()->findByEmail($data['identity']);
+        if ($user->getActive()) {
+            return true;
+        }
+        return false;
+    }
+
     public function changeAdress(array $data) {
 
         $currentUser = $this->getAuthService()->getIdentity();
@@ -42,13 +49,12 @@ class User extends \ZfcUser\Service\User {
 
         return true;
     }
-    
-     public function register(array $data)
-    {
+
+    public function register(array $data) {
         $this->doubleOptInService = $this->getDoubleOptInService();
         $class = $this->getOptions()->getUserEntityClass();
-        $user  = new $class;
-        $form  = $this->getRegisterForm();
+        $user = new $class;
+        $form = $this->getRegisterForm();
         $form->setHydrator($this->getFormHydrator());
         $form->bind($user);
         $form->setData($data);
@@ -77,20 +83,16 @@ class User extends \ZfcUser\Service\User {
         }
         $this->getEventManager()->trigger(__FUNCTION__, $this, array('user' => $user, 'form' => $form));
         $this->getUserMapper()->insert($user);
-        $this->getEventManager()->trigger(__FUNCTION__.'.post', $this, array('user' => $user, 'form' => $form));
-        
-        return  $user;
+        $this->getEventManager()->trigger(__FUNCTION__ . '.post', $this, array('user' => $user, 'form' => $form));
+
+        return $user;
     }
 
-         public function getDoubleOptInService()
-    {
+    public function getDoubleOptInService() {
         if (!$this->doubleOptInService) {
             $this->doubleOptInService = $this->getServiceManager()->get('User\Service\DoubleOptInService');
         }
         return $this->doubleOptInService;
     }
-    
-   
-    
 
 }

@@ -127,5 +127,12 @@ class DoubleOptInService {
 
         return $this->userMapper->findById($entity->getUser());
     }
+    
+    
+     public function userIsActice(){
+
+        return true;
+    } 
+    
 
 }

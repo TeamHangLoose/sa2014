@@ -47,7 +47,6 @@ class AdminController extends AbstractActionController {
 
     public function createAction() {
 
-
         //$form = $this->getServiceLocator()->get('admin_createuser_form');
 
         $form = new \User\Form\Admin\CreateUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());

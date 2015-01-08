@@ -46,13 +46,17 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Key = form label
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
-    protected $editFormElements = array('Id' => 'id',
+    protected $editFormElements = array(
+        'Id' => 'id',
         'Vorname Nachname' => 'username',
+        /*
         'Email' => 'email',
         'Strasse' => 'street',
         'PLZ' => 'plz',
         'Ort' => 'village',
-        'Telefon' => 'phone');
+        'Telefon' => 'phone'
+        */
+        );
 
     /**
      * Array of form elements to show when creating a user
@@ -60,8 +64,8 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
     protected $createFormElements = array(
-        'Name' => 'username',
-        'Email' => 'email',
+        //ID hidden
+        'Vorname Nachname' => 'username',
         'Strasse' => 'street',
         'PLZ' => 'plz',
         'Ort' => 'village',
