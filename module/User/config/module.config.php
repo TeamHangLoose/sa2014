@@ -39,6 +39,7 @@ return array(
         'exception_template' => 'error/index',
         'template_map' => array(
             'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/expired' => __DIR__ . '/../view/layout/expired.phtml',
             'error/404' => __DIR__ . '/../view/error/404.phtml',
             'error/index' => __DIR__ . '/../view/error/index.phtml',
             'zfc-user/user/index' => __DIR__ . '/../view/zfc-user/user/index.phtml'
@@ -93,7 +94,7 @@ return array(
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
                
-                array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
+                array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
@@ -104,7 +105,7 @@ return array(
                 array('route' => 'admin/remove', 'roles' => array('admin')),
                 array('route' => 'admin/edit', 'roles' => array('admin')),
                 
-                array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
+                array('route' => 'user/forgot-password/change-password', 'roles' => array('guest')),
                 
                 array('route' => 'double-opt-in/confirmed', 'roles' => array('guest')),
                 array('route' => 'double-opt-in', 'roles' => array('guest')),
@@ -163,7 +164,7 @@ return array(
                 ),
                 'may_terminate' => false,
                 'child_routes' => array(
-                    'zfc-user-forgot-password' => array(
+                    'forgot-password' => array(
                         'type' => 'Zend\Mvc\Router\Http\Literal',
                         'options' => array(
                             'route' => 'forgot-password',

@@ -1,0 +1,116 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle($this->translate('Badenfahrt'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?> 
+
+
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath() . '/css/style.css')
+                ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+        ?>
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                ->prependFile($this->basePath() . '/js/jquery.min.js')
+                ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/js/html5shiv.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+        ;
+        ?>
+        <style>
+            html { 
+                background: url(/img/say_what.gif) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            body{
+                background-color : transparent;
+            }
+        </style>
+
+    </head>
+    <body >
+        <div class="wrap">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="<?php echo $this->url('home') ?>"> <?php echo $this->translate('Badenfahrt') ?></a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                            <li class=""><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('INFO') ?></a></li>
+<?php IF ($this->isAllowed('menu', 'menu_admin')): ?>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Verwaltung') ?><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class=""><a href="<?php echo $this->url('admin/list') ?>"><?php echo $this->translate('Benutzer Verwaltung') ?></a></li>
+                                    </ul>
+                                </li>
+    <?php ENDIF ?>
+                            <?php IF ($this->zfcUserIdentity()): ?>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Meine Anfragen') ?><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class=""><a href="<?php echo $this->url('zfcuser') ?>"><?php echo $this->translate('Mein Profil') ?></a></li>
+                                    </ul>
+                                </li>
+    <?php ENDIF ?>
+                        </ul>
+
+                        <ul class ="nav navbar-nav navbar-right">
+<?php IF (!$this->zfcUserIdentity()): ?>
+                                <li>
+                                    <form action="<?php echo $this->url('zfcuser/register') ?>">
+                                        <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('Registrieren') ?></button>
+                                    </form>
+                                </li>  
+                                <li>
+                                    <form action="<?php echo $this->url('zfcuser/login') ?>">
+                                        <button class="btn btn-sm btn-success navbar-btn"><?php echo $this->translate('Login') ?></button>
+                                    </form>
+                                </li>
+    <?php ELSE: ?>
+                                <li>
+                                    <form action="<?php echo $this->url('zfcuser') ?>">
+                                        <button class="btn  btn-sm btn-info navbar-btn"><?php echo $this->translate('Mein Profil') ?></button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form action="<?php echo $this->url('zfcuser/logout') ?>">
+                                        <button class="btn btn-sm btn-logout navbar-btn"><?php echo $this->translate('Logout') ?></button>
+                                    </form>
+                                </li>
+<?php ENDIF ?>
+                        </ul>
+                    </div>
+            </nav>
+            <div class="container">
+<?php echo $this->content; ?>
+                <hr>
+                <footer class="text-center footer">
+                    <p>&copy; 2014 - <?php echo date('Y') ?> by TeamHangLoose <?php echo $this->translate('All rights reserved.') ?></p>
+                </footer>
+            </div> <!-- /container -->
+<?php echo $this->inlineScript() ?>
+        </div>
+    </body>
+</html>

@@ -36,9 +36,9 @@ class ForgotPasswordController extends AbstractActionController
             'form' => $form,
         ]);
 
-        $viewModel->setTemplate('zfc-user-forgot-password/request.phtml');
+        $viewModel->setTemplate('forgot-password/request.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('user/zfc-user-forgot-password');
+        $redirectUrl = $this->url()->fromRoute('user/forgot-password');
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -48,7 +48,7 @@ class ForgotPasswordController extends AbstractActionController
         }
 
         if ($forgotPasswordService->request($prg)) {
-            $viewModel->setTemplate('zfc-user-forgot-password/confirmation/sent-email.phtml');
+            $viewModel->setTemplate('forgot-password/confirmation/sent-email.phtml');
             return $viewModel;
         }
 
@@ -57,6 +57,7 @@ class ForgotPasswordController extends AbstractActionController
 
     public function changePasswordAction()
     {
+        $this->layout('layout/layout');
         $form = $this->changePasswordForm;
         $forgotPasswordService = $this->forgotPasswordService;
         $token = $this->params('token');
@@ -67,13 +68,16 @@ class ForgotPasswordController extends AbstractActionController
         ]);
 
         if (!$user) {
-            $viewModel->setTemplate('zfc-user-forgot-password/expired.phtml');
+            
+            $this->layout('layout/expired');
+            $viewModel->setTemplate('forgot-password/expired.phtml');
+            
             return $viewModel;
         }
 
-        $viewModel->setTemplate('zfc-user-forgot-password/change-password.phtml');
+        $viewModel->setTemplate('forgot-password/change-password.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('user/zfc-user-forgot-password/change-password', ['token' => $token]);
+        $redirectUrl = $this->url()->fromRoute('user/forgot-password/change-password', ['token' => $token]);
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
@@ -83,7 +87,7 @@ class ForgotPasswordController extends AbstractActionController
         }
 
         if ($forgotPasswordService->changePassword($prg, $user)) {
-            $viewModel->setTemplate('zfc-user-forgot-password/confirmation/changed-password.phtml');
+            $viewModel->setTemplate('forgot-password/confirmation/changed-password.phtml');
             return $viewModel;
         }
 

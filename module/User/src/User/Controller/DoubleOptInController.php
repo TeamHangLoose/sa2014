@@ -57,7 +57,9 @@ class DoubleOptInController extends AbstractActionController {
         return $viewModel;
     }
 
-    public function confirmedAction() {
+    public function confirmedAction()
+            {
+        $this->layout('layout/layout');
         $form = $this->confirmedForm;
         $doubleOptInService = $this->doubleOptInService;
         $token = $this->params('token');
@@ -83,6 +85,7 @@ class DoubleOptInController extends AbstractActionController {
         ]);
 
         if (!$user) {
+             $this->layout('layout/expired');
             $viewModel->setTemplate('double-opt-in/expired.phtml');
             return $viewModel;
         }
