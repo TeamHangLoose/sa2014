@@ -34,10 +34,10 @@ class DoubleOptInController extends AbstractActionController {
         $request = $this->getRequest();
         $form->setData($request->getPost());
         
-       // echo $request->getPost('email');
+        //$this->doubleOptInService->request($request->getPost('email'));
+        $this->doubleOptInService->request("chregi.sommer@gmail.com");
         
         $viewModel->setTemplate('double-opt-in/request.phtml');
-
 
         $redirectUrl = $this->url()->fromRoute('double-opt-in');
         $prg = $this->prg($redirectUrl, true);
@@ -47,12 +47,12 @@ class DoubleOptInController extends AbstractActionController {
         } elseif ($prg === false) {
             return $viewModel;
         }
-
+/*
         if ($this->doubleOptInService->request("chregi.sommer@gmail.com")) {
             $viewModel->setTemplate('double-opt-in/confirmation/sent-email.phtml');
             return $viewModel;
         }
-
+*/
         return $viewModel;
     }
 

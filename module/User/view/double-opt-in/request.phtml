@@ -2,12 +2,18 @@
 /** @var \User\Form\Forgot\RequestForm $form */
 $form = $this->form;
 echo $this->form()->openTag($form);
-echo $this->translate('Du musst deine email ( '); 
+echo $this->translate('Du musst deine email (<blink> '); 
 $element = $form->get('email');
 echo $element->getValue();
-echo $this->translate(' ) bestätigen ! Klicke auf den Ling den du per email bekommen hast !!  Nach dem bestätigen kannst du einloggen'); 
+echo $this->translate('</blink> ) bestätigen ! Klicke auf den Ling den du per email bekommen hast !!  Nach dem bestätigen kannst du einloggen'); 
 ?> 
 <a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Login !'); ?></a>
+<?php
+echo $this->translate('<br><br>Falls diese Email(<blink>  '); 
+$element = $form->get('email');
+echo $element->getValue();
+echo $this->translate('</blink> ) nicht deine email ist registriere dich noch einmal! ');
+?> 
 <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Registrieren !'); ?></a>
 <?php
 //echo $this->formRow($form->get('email'));
