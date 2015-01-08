@@ -1,4 +1,5 @@
 <?php
+
 return array(
     'aliases' => array(
         'objectManager' => 'Doctrine\ORM\EntityManager',
@@ -19,8 +20,7 @@ return array(
         'ZfcUser\Form\Register' => 'User\Form\Admin\EditUser',
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
         'User\Form\User\Index' => 'User\Form\User\Index',
-        'HtProfileImage\ProfileImage' =>'User\Controller\ProfileImageController',
-        
+        'HtProfileImage\ProfileImage' => 'User\Controller\ProfileImageController',
     ),
     'initializers' => array(
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',
@@ -40,12 +40,11 @@ return array(
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
         'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
-
         'zfcuser_register_form' => function ($sm) {
-            
-             $options = $sm->get('zfcuser_module_options');
-            
-             $form = new User\Form\Zfcuser\Register(null, $options);
+
+            $options = $sm->get('zfcuser_module_options');
+
+            $form = new User\Form\Zfcuser\Register(null, $options);
             //$form->setCaptchaElement($sm->get('zfcuser_captcha_element'));
             $form->setInputFilter(new User\Form\Zfcuser\RegisterFilter(
                     new ZfcUser\Validator\NoRecordExists(array(
@@ -58,6 +57,23 @@ return array(
             ));
             return $form;
         },
-            )
+                'zfcuser_admin_register_form' => function ($sm) {
+
+            $options = $sm->get('zfcuser_module_options');
+
+            $form = new User\Form\Admin\CreateUser(null, $options);
+            //$form->setCaptchaElement($sm->get('zfcuser_captcha_element'));
+            $form->setInputFilter(new User\Form\Admin\C(
+                    new ZfcUser\Validator\NoRecordExists(array(
+                'mapper' => $sm->get('zfcuser_user_mapper'),
+                'key' => 'email'
+                    )), new ZfcUser\Validator\NoRecordExists(array(
+                'mapper' => $sm->get('zfcuser_user_mapper'),
+                'key' => 'username'
+                    )), $options
+            ));
+            return $form;
+        },
+            ),
         );
         
