@@ -14,20 +14,19 @@ class RequestForm extends Form implements InputFilterProviderInterface
         parent::__construct('request');
 
         $this->setAttribute('method', 'post');
-
+  
         $this->add([
             'name' => 'email',
             'type'  => 'Zend\Form\Element\Text',
             'attributes' => [
                 'class' => 'form-control',
+                'type' => 'hidden',
             ],
             'options' => [
-                'type' => 'text',
-                'label' => 'E-mail',
-
+                'type' => 'hidden',
             ],
         ]);
-
+  
         $this->add([
             'type' => 'Zend\Form\Element\Csrf',
             'name' => 'csrf',

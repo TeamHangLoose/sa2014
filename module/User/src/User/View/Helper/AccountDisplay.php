@@ -48,7 +48,6 @@ class AccountDisplay extends AbstractHelper {
         $village = $user->getVillage();
         $phone = $user->getPhone();
         
-
         $data = array('displayname' => $displayName,
             'username' => $userName,
             'email' => $email,

@@ -1,10 +1,10 @@
 TODO'S
 
 __CODE__
-- Layout unterscheiden "ADMIN" "USER"
+- Layout unterscheiden "ADMIN" "USER"  (ev mit navigation)
 - Double Opt In
 - * Administrator-> User Edit Form nue gestalten (nth)
-- Administration: automatische ID Vergabe
+- Administration: automatische ID Vergabe beim neuerfassen von Usern
 - Administration: Rollen editieren
 - User deaktivieren/ aktivieren Administration Edit
 - Allgemein Formen anpassen
