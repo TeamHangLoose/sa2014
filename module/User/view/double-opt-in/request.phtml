@@ -8,7 +8,7 @@ $element = $form->get('email');
 echo $element->getValue();
 echo $this->translate('</blink> ) bestätigen ! Klicken Sie auf den Link den Sie per Email erhalten haben. Nach dem bestätigen können Sie sich einloggen'); 
 ?> 
-<a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-home"></span><?php echo $this->translate(' Login !'); ?></a>
+<a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate(' Login !'); ?></a>
 <?php
 echo $this->translate('<br><br>Falls diese Email(<blink>  '); 
 $element = $form->get('email');
