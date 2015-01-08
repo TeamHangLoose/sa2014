@@ -93,7 +93,9 @@ return array(
                 array('route' => 'zfcuser/logout', 'roles' => array('user')),
                 array('route' => 'zfcuser/login', 'roles' => array('guest')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest')),
+               
                 array('route' => 'user/zfc-user-forgot-password', 'roles' => array('guest')),
+                
                 array('route' => 'user/change-password', 'roles' => array('guest')),
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 
@@ -104,12 +106,17 @@ return array(
                 array('route' => 'admin/edit', 'roles' => array('admin')),
                 
                 array('route' => 'user/zfc-user-forgot-password/change-password', 'roles' => array('guest')),
+                
+                array('route' => 'double-opt-in/confirmed', 'roles' => array('guest')),
                 array('route' => 'double-opt-in', 'roles' => array('guest')),
+               
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'change-adress', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 // Below is the default index action used by the ZendSkeletonApplication
                 array('route' => 'home', 'roles' => array('guest', 'user')),
+                
+                
                 array('route' => 'zfcuser/htimageupload', 'roles' => array('user')),
                 array('route' => 'zfcuser/htimagedisplay', 'roles' => array('user')),
             ),

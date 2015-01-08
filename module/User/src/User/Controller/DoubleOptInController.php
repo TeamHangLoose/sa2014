@@ -58,7 +58,7 @@ class DoubleOptInController extends AbstractActionController {
     }
 
     public function confirmedAction() {
-        $form = $this->changePasswordForm;
+        $form = $this->confirmedForm;
         $doubleOptInService = $this->doubleOptInService;
         $token = $this->params('token');
         $user = $doubleOptInService->getUserFromToken($token);
@@ -68,13 +68,13 @@ class DoubleOptInController extends AbstractActionController {
         ]);
 
         if (!$user) {
-            $viewModel->setTemplate('zfc-user-forgot-password/expired.phtml');
+            $viewModel->setTemplate('double-opt-in/expired.phtml');
             return $viewModel;
         }
 
-        $viewModel->setTemplate('zfc-user-forgot-password/confirmed.phtml');
+        $viewModel->setTemplate('double-opt-in/confirmed.phtml');
 
-        $redirectUrl = $this->url()->fromRoute('opt-in/confirmed', ['token' => $token]);
+        $redirectUrl = $this->url()->fromRoute('double-opt-in/confirmed', ['token' => $token]);
         $prg = $this->prg($redirectUrl, true);
 
         if ($prg instanceof Response) {
