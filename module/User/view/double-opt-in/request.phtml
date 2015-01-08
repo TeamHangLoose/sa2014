@@ -1,18 +1,19 @@
+<div class="text-center">
 <?php
 /** @var \User\Form\Forgot\RequestForm $form */
 $form = $this->form;
 echo $this->form()->openTag($form);
-echo $this->translate('Du musst deine email (<blink> '); 
+echo $this->translate('Sie müssen Ihre Email Adresse (<blink> '); 
 $element = $form->get('email');
 echo $element->getValue();
-echo $this->translate('</blink> ) bestätigen ! Klicke auf den Ling den du per email bekommen hast !!  Nach dem bestätigen kannst du einloggen'); 
+echo $this->translate('</blink> ) bestätigen ! Klicken Sie auf den Link den Sie per Email erhalten haben. Nach dem bestätigen können Sie sich einloggen'); 
 ?> 
-<a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Login !'); ?></a>
+<a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-home"></span><?php echo $this->translate(' Login !'); ?></a>
 <?php
 echo $this->translate('<br><br>Falls diese Email(<blink>  '); 
 $element = $form->get('email');
 echo $element->getValue();
-echo $this->translate('</blink> ) nicht deine email ist registriere dich noch einmal! ');
+echo $this->translate('</blink> ) nicht Ihre Email Adresse ist, registrieren Sie sich noch einmal! ');
 ?> 
 <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Registrieren !'); ?></a>
 <?php
@@ -20,3 +21,4 @@ echo $this->translate('</blink> ) nicht deine email ist registriere dich noch ei
 echo $this->formRow($form->get('csrf'));
 echo $this->form()->closeTag($form);
 ?>
+</div>
