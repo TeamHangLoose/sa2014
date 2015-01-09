@@ -21,8 +21,10 @@ __CODE__
 idea
 
 base64 uri convertor
-//bus
+//bugs________________________________________________________________________________
+#######################################################
 1*Fatal error: Call to a member function getEmail() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 66
+#######################################################
 2*Beim mailenden
 
 Zend\Mail\Protocol\Exception\RuntimeException
@@ -43,6 +45,11 @@ Stack trace:
     #3 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Transport\Smtp.php(336): Zend\Mail\Transport\Smtp->lazyLoadConnection()
     #4 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\lib
 
+#######################################################
+4*  Anmelden opt in wen key falsch
+http://localhost/opt-in/confirmed/56501934254afc92c3f99c3.38265281
+Fatal error: Call to a member function getEmail() on boolean in C:\Album\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 68
+#######################################################
 
 
 ________________________________________________________________________________

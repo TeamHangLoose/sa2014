@@ -91,9 +91,24 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
     public function create(Form $form, array $data, $zfcUserOptions, $modulOptions) {
 
         //$zfcUserOptions = $this->getZfcUserOptions();
+       
         $user = $form->getData();
-
+        $formdata =$form->getData();
         $argv = array();
+      
+        $x='';
+        foreach ($data as $key => $value){
+            
+            $x=$x.' '.$key.' '.$value.'<br>';
+        }
+        echo $x;
+       
+        $role = new \User\Entity\Role();
+        $role->setId($user->getId());
+        $role->setRoleId($data['role']);
+        $user->addRole($role); 
+        
+         sada;
         if ($modulOptions->getCreateUserAutoPassword()) {
             $argv['password'] = $this->generatePassword($modulOptions);
         } else {

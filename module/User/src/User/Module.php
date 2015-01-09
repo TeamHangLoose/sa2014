@@ -48,6 +48,8 @@ class Module {
             $user->getRoles()->add($userRole);
         });
 
+      
+
         // you can even do stuff after it stores
 //        $zfcServiceEvents->attach('register.post', function($e) {
 //            /*$user = $e->getParam('user');*/
@@ -64,11 +66,10 @@ class Module {
     public function getViewHelperConfig() {
         return array(
             'aliases' => array(
-               // 'htProfileImage' => 'User\View\Helper\ProfileImage'
+            // 'htProfileImage' => 'User\View\Helper\ProfileImage'
             ),
-      
             'factories' => array(
-               // 'User\View\Helper\ProfileImage' => 'HtProfileImage\View\Helper\Factory\ProfileImageFactory',
+                // 'User\View\Helper\ProfileImage' => 'HtProfileImage\View\Helper\Factory\ProfileImageFactory',
                 'AccountDisplay' => function ($sm) {
                     $locator = $sm->getServiceLocator();
                     $viewHelper = new \User\View\Helper\AccountDisplay;
