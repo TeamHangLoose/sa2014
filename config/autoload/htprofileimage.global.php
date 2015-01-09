@@ -101,7 +101,7 @@ $settings = [
      * Default: value
      * Accepted Values: bool
      */
-     'enable_cache' => false,
+    // 'enable_cache' => true,
 
     /**
      * Maximum file size of uploaded image
@@ -127,7 +127,7 @@ $settings = [
      *
      * Default: false
      */
-      'enable_image_delete' => true,
+     // 'enable_image_delete' => true,
 
     /**
      * Post Image Delete Route

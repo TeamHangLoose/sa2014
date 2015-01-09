@@ -54,7 +54,7 @@ $settings = array(
      *
      * Accepted values: boolean true or false
      */
-    'enable_display_name' => false,
+    'enable_display_name' => true,
 
     /**
      * Modes for authentication identity match
