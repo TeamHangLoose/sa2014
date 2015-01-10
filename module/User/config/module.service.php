@@ -63,7 +63,7 @@ return array(
 
             $form = new User\Form\Admin\CreateUser(null, $options);
             //$form->setCaptchaElement($sm->get('zfcuser_captcha_element'));
-            $form->setInputFilter(new User\Form\Admin\C(
+            $form->setInputFilter(new User\Form\Admin\CreateUserFilter(
                     new ZfcUser\Validator\NoRecordExists(array(
                 'mapper' => $sm->get('zfcuser_user_mapper'),
                 'key' => 'email'
