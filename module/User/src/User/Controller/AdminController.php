@@ -18,6 +18,8 @@ class AdminController extends AbstractActionController {
 
     /** @var ForgotPasswordService */
     protected $adminService;
+    
+    protected $creatUserForm;
     protected $zfcUserOptions;
 
     public function __construct(\User\Form\Admin\ListForm $listForm, \User\Service\AdminService $adminService, \User\Options\ModuleOptions $moduleOptions, \ZfcUser\Options\ModuleOptions $zfcUserOptions) {
@@ -48,9 +50,10 @@ class AdminController extends AbstractActionController {
     public function createAction() {
 
 
-        //$form = $this->getServiceLocator()->get('admin_createuser_form');
+        $form = $this->getCreatUserForm();
 
-        $form = new \User\Form\Admin\CreateUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());
+       // $form = new \User\Form\Admin\CreateUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());
+        
 
         $request = $this->getRequest();
 
@@ -129,4 +132,26 @@ class AdminController extends AbstractActionController {
         return $this->redirect()->toRoute('admin/list');
     }
 
+    function getCreatUserForm() {
+        if (!$this->creatUserForm) {
+            $this->setCreatUserForm($this->getServiceLocator()->get('zfcuser_admin_register_form'));
+        }
+        return $this->creatUserForm;
+    }
+
+    function setCreatUserForm($creatUserForm) {
+        $this->creatUserForm = $creatUserForm;
+    }
+    
+    
+  
+
+    public function setRegisterForm(Form $registerForm)
+    {
+        $this->registerForm = $registerForm;
+    }
+
+
+    
+    
 }

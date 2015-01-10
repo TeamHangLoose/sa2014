@@ -1,22 +1,25 @@
 TODO'S
 
 __CODE__
-- Layout unterscheiden "ADMIN" "USER"  (ev mit navigation)
-- Double Opt In Aktiv inaktiv
-- * Administrator-> User Edit Form nue gestalten (nth)
-- Administration: automatische ID Vergabe beim neuerfassen von Usern
-- Administration: Rollen editieren
+- CHECK Layout unterscheiden "ADMIN" "USER"  (ev mit navigation)
+- CHECK Double Opt In Aktiv inaktiv
+- Administrator-> User Edit Form nue gestalten (nth)
+- CHECK Administration: automatische ID Vergabe beim neuerfassen von Usern
+-  Administration: automatische Rolle Vergabe beim neuerfassen von Usern .-------------------____>1
 - User deaktivieren/ aktivieren Administration Edit
-- Allgemein Formen anpassen
+- Allgemein Formen anpassen ~^
 - * Navbar: Logo, Label, KontaktForm, Links  (nth)
 - * Kontakt Site (nth)
-- Login Form auf Deutsch
+
+- CHECK * Login Form auf Deutsch
 - Upload Image File zu gross Fehler abfangen 
-- image anzeige user/index.php abfangen /löschen im pulic und im Controller zugriff ordner png
-- Password Form auf Deutsch
-- * Login HTTPS und rest (nth)
+
+- CHECK Password Form auf Deutsch
+- * Login HTTPS und rest (nth)--
 - Layout anpassen Navbar
-- Projekt aufräumen Kommentare
+
+
+---> Projekt aufräumen Kommentare<-----
 
 idea
 
@@ -28,7 +31,9 @@ base64 uri convertor
 2*Beim mailenden
 
 Zend\Mail\Protocol\Exception\RuntimeException
-
+****######################################################################################################33
+33*- image anzeige user/index.php abfangen /löschen im pulic und im Controller zugriff ordner png
+#############################################################################################################
 File:
 
     C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Protocol\AbstractProtocol.php:225

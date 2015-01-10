@@ -47,7 +47,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
     protected $editFormElements = array(
-        'Id' => 'id',
+        
         'Vorname Nachname' => 'username',
         /*
         'Email' => 'email',

@@ -3,7 +3,7 @@
 namespace User\Form\Admin;
 
 use User\Options\UserCreateOptionsInterface;
-use User\Options\RegistrationOptionsInterface;
+use ZfcUser\Options\RegistrationOptionsInterface;
 use ZfcUser\Form\Register as Register;
 use Zend\Form\Element;
 
@@ -20,16 +20,12 @@ class CreateUser extends Register {
      */
     protected $createOptions;
 
-    public function __construct($name = null, \User\Options\ModuleOptions $createOptions, \ZfcUser\Options\ModuleOptions $registerOptions, $serviceManager) {
-        $this->setCreateOptions($createOptions);
-        $this->setServiceManager($serviceManager);
+    public function __construct($name, RegistrationOptionsInterface $registerOptions) {
+
+
+        $this->setRegistrationOptions($registerOptions);
 
         parent::__construct($name, $registerOptions);
-
-        if ($createOptions->getCreateUserAutoPassword()) {
-            $this->remove('password');
-            $this->remove('passwordVerify');
-        }
 
         //$this->remove('userId');
 
@@ -120,7 +116,6 @@ class CreateUser extends Register {
 
         $this->get('submit')->setLabel('Register');
         $this->getEventManager()->trigger('init', $this);
-       
     }
 
     public function setCreateOptions(UserCreateOptionsInterface $createOptionsOptions) {

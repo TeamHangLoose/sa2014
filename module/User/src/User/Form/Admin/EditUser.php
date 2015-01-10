@@ -24,7 +24,7 @@ class EditUser extends Register {
         parent::__construct($name, $registerOptions);
 
         $this->remove('captcha');
-
+      
 
         foreach ($this->getUserEditOptions()->getEditFormElements() as $name => $element) {
             // avoid adding fields twice (e.g. email)
