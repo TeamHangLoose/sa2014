@@ -24,7 +24,6 @@ class Module {
         $eventManager = $e->getApplication()->getEventManager();
         $em = $eventManager->getSharedManager();
 
-
         $em->attach('HtProfileImage\Service\ProfileImageService', 'storeImage', function ($event) {
             $user = $event->getParam('user');
 
@@ -48,7 +47,7 @@ class Module {
             $user->getRoles()->add($userRole);
         });
 
-      
+
 
         // you can even do stuff after it stores
 //        $zfcServiceEvents->attach('register.post', function($e) {
