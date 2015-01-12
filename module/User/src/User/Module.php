@@ -65,10 +65,11 @@ class Module {
     public function getViewHelperConfig() {
         return array(
             'aliases' => array(
-            // 'htProfileImage' => 'User\View\Helper\ProfileImage'
+             'htProfileImage' => 'User\View\Helper\ProfileImage'
             ),
             'factories' => array(
-                // 'User\View\Helper\ProfileImage' => 'HtProfileImage\View\Helper\Factory\ProfileImageFactory',
+                 'User\View\Helper\ProfileImage' => 'User\Factory\View\Helper\ProfileImageFactory',
+               
                 'AccountDisplay' => function ($sm) {
                     $locator = $sm->getServiceLocator();
                     $viewHelper = new \User\View\Helper\AccountDisplay;

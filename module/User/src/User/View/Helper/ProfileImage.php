@@ -1,6 +1,6 @@
 <?php
 
-namespace HtProfileImage\View\Helper;
+namespace User\View\Helper;
 
 use Zend\View\Helper\AbstractHtmlElement;
 use ZfcUser\Mapper\UserInterface as UserMapperInterface;
@@ -14,9 +14,8 @@ use HtProfileImage\Service\CacheManagerInterface;
  * This class gets image of a user
  * It is a view helper and called from view tempates
  */
+class ProfileImage extends AbstractHtmlElement {
 
-class ProfileImage extends AbstractHtmlElement
-{
     /**
      * @var DisplayOptionsInterface
      */
@@ -62,11 +61,8 @@ class ProfileImage extends AbstractHtmlElement
      * @var UserMapperInterface $userMapper
      */
     public function __construct(
-        DisplayOptionsInterface $displayOptions,
-        StorageModelInterface $storageModel,
-        UserMapperInterface $userMapper
-    )
-    {
+    DisplayOptionsInterface $displayOptions, StorageModelInterface $storageModel, UserMapperInterface $userMapper
+    ) {
         $this->displayOptions = $displayOptions;
         $this->storageModel = $storageModel;
         $this->userMapper = $userMapper;
@@ -78,8 +74,7 @@ class ProfileImage extends AbstractHtmlElement
      * @param string filterAlias
      * @return void
      */
-    public function setFilterAlias($filterAlias)
-    {
+    public function setFilterAlias($filterAlias) {
         $this->filterAlias = $filterAlias;
     }
 
@@ -88,8 +83,7 @@ class ProfileImage extends AbstractHtmlElement
      *
      * @return filterAlias
      */
-    public function getFilterAlias()
-    {
+    public function getFilterAlias() {
         if (!$this->filterAlias) {
             $this->filterAlias = $this->displayOptions->getDisplayFilter();
         }
@@ -101,8 +95,7 @@ class ProfileImage extends AbstractHtmlElement
      * gets StorageModelInterface
      * @return StorageModelInterface
      */
-    protected function getStorageModel()
-    {
+    protected function getStorageModel() {
         return $this->storageModel;
     }
 
@@ -110,8 +103,7 @@ class ProfileImage extends AbstractHtmlElement
      * gets DisplayOptionsInterface
      * @return DisplayOptionsInterface
      */
-    protected function getDisplayOptions()
-    {
+    protected function getDisplayOptions() {
         return $this->displayOptions;
     }
 
@@ -122,8 +114,7 @@ class ProfileImage extends AbstractHtmlElement
      *
      * @return UserMapperInterface
      */
-    protected function getUser($id)
-    {
+    protected function getUser($id) {
         if (!isset($this->retrievedUsers[$id])) {
             $user = $this->userMapper->findById($id);
             $this->retrievedUsers[$id] = $user;
@@ -139,13 +130,11 @@ class ProfileImage extends AbstractHtmlElement
      * @param  User $user
      * @return void
      */
-    protected function setUser(UserInterface $user)
-    {
+    protected function setUser(UserInterface $user) {
         $this->retrievedUsers[$user->getId()] = $user;
     }
 
-    public function setCacheManager(CacheManagerInterface $cacheManager)
-    {
+    public function setCacheManager(CacheManagerInterface $cacheManager) {
         $this->cacheManager = $cacheManager;
     }
 
@@ -155,8 +144,7 @@ class ProfileImage extends AbstractHtmlElement
      * @param  array $options
      * @return self
      */
-    public function setOptions(array $options)
-    {
+    public function setOptions(array $options) {
         foreach ($options as $key => $value) {
             $method = 'set' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
             if (method_exists($this, $method)) {
@@ -175,8 +163,7 @@ class ProfileImage extends AbstractHtmlElement
      * @param  array                           $attribs
      * @return self|\Zend\View\Helper\Gravatar
      */
-    public function __invoke($user, $attribs = null, $options = [])
-    {
+    public function __invoke($user, $attribs = null, $options = []) {
         $this->setOptions($options);
         if ($attribs !== null) {
             $this->setAttribs($attribs);
@@ -189,16 +176,14 @@ class ProfileImage extends AbstractHtmlElement
             $this->setUser($user);
         } else {
             throw new Exception\InvalidArgumentException(
-                sprintf(
-                    '%s expects an instance of ZfcUser\Entity\UserInterface or integer(user_id) as 1st argument, %s provided instead',
-                    __METHOD__,
-                    is_object($user) ? get_class($user) : gettype($user)
-                )
+            sprintf(
+                    '%s expects an instance of ZfcUser\Entity\UserInterface or integer(user_id) as 1st argument, %s provided instead', __METHOD__, is_object($user) ? get_class($user) : gettype($user)
+            )
             );
         }
 
         if (!$this->getStorageModel()->userImageExists($user) &&
-            $this->displayOptions->getEnableGravatarAlternative()
+                $this->displayOptions->getEnableGravatarAlternative()
         ) {
             $this->getView()->gravatar()->setEmail($user->getEmail());
             $this->getView()->gravatar()->setAttribs($this->getAttribs());
@@ -207,19 +192,31 @@ class ProfileImage extends AbstractHtmlElement
         }
         $filterAlias = $this->getFilterAlias();
         if (
-            $this->cacheManager instanceof CacheManagerInterface &&
-            $this->cacheManager->cacheExists($user, $filterAlias)
+                $this->cacheManager instanceof CacheManagerInterface &&
+                $this->cacheManager->cacheExists($user, $filterAlias)
         ) {
             $url = $this->getView()->basePath() . '/' . $this->cacheManager->getCacheUrl($user, $filterAlias);
         } else {
             $url = $this->getView()->url('zfcuser/htimagedisplay', ['id' => $user->getId()]);
         }
-
+       
+         
+    
+                
         $this->setAttribs([
-            'src' => $url
+            //'src' =>$url
+           'src' => $this->base64_encode_image ("http://localhost".$url,'png')
         ]);
 
         return $this;
+    }
+
+    function base64_encode_image ($filename=string,$filetype=string) {
+    if ($filename) {
+            echo __DIR__;
+            $imgbinary = fread(fopen($filename, "r"), filesize($filename));
+            return 'data:image/' . $filetype . ';base64,' . base64_encode($imgbinary);
+        }
     }
 
     /**
@@ -227,8 +224,7 @@ class ProfileImage extends AbstractHtmlElement
      *
      * @return string
      */
-    public function __toString()
-    {
+    public function __toString() {
         return $this->getImgTag();
     }
 
@@ -237,11 +233,10 @@ class ProfileImage extends AbstractHtmlElement
      *
      * @return string
      */
-    public function getImgTag()
-    {
+    public function getImgTag() {
         return '<img'
-            . $this->htmlAttribs($this->getAttribs())
-            . $this->getClosingBracket();
+                . $this->htmlAttribs($this->getAttribs())
+                . $this->getClosingBracket();
     }
 
     /**
@@ -250,8 +245,7 @@ class ProfileImage extends AbstractHtmlElement
      * @param  array $attribs
      * @return self
      */
-    public function setAttribs(array $attribs)
-    {
+    public function setAttribs(array $attribs) {
         $this->attribs = $attribs;
 
         return $this;
@@ -262,8 +256,8 @@ class ProfileImage extends AbstractHtmlElement
      *
      * @return array
      */
-    public function getAttribs()
-    {
+    public function getAttribs() {
         return $this->attribs;
     }
+
 }
