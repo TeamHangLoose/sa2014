@@ -6,6 +6,7 @@ return array(
         'Soflomo\Mail\Renderer' => 'ViewRenderer',
         'Soflomo\Mail\Transport' => 'Soflomo\Mail\DefaultTransport',
         'Soflomo\Mail\Message' => 'Soflomo\Mail\DefaultMessage',
+        
     ),
     'invokables' => array(
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
@@ -21,6 +22,7 @@ return array(
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
         'User\Form\User\Index' => 'User\Form\User\Index',
         'HtProfileImage\ProfileImage' => 'User\Controller\ProfileImageController',
+        
     ),
     'initializers' => array(
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',
@@ -40,6 +42,11 @@ return array(
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
         'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
+        
+        'HtProfileImage\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
+        
+        //'User\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
+        'HtProfileImage\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
         'zfcuser_register_form' => function ($sm) {
 
             $options = $sm->get('zfcuser_module_options');

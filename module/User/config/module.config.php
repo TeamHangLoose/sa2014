@@ -101,7 +101,7 @@ return array(
                 array('route' => 'user/forgot-password', 'roles' => array('guest')),
                 
                 array('route' => 'admin/list', 'roles' => array('admin')),
-                //array('route' => 'upload-form', 'roles' => array('user')),
+                
                 array('route' => 'admin/create', 'roles' => array('admin')),
                 array('route' => 'admin/remove', 'roles' => array('admin')),
                 array('route' => 'admin/edit', 'roles' => array('admin')),
