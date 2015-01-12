@@ -11,6 +11,7 @@ __CODE__
 - * Navbar: Logo, Label, KontaktForm, Links  (nth)
 - * Kontakt Site (nth)
 
+-AutoPassword selector Create form
 - CHECK * Login Form auf Deutsch
 - Upload Image File zu gross Fehler abfangen 
 
@@ -33,7 +34,7 @@ base64 uri convertor
 Zend\Mail\Protocol\Exception\RuntimeException
 ****######################################################################################################33
 33*- image anzeige user/index.php abfangen /löschen im pulic und im Controller zugriff ordner png
-
+<img src="data:image/png;base64,<?php echo base64_encode(file_get_contents("IMAGE URL HERE")) ?>">
 lösung: ev. extend controller und servis factory
 #############################################################################################################
 File:

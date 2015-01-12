@@ -76,7 +76,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * true = create password automaticly
      * false = administrator chooses password
      */
-    protected $createUserAutoPassword = true;
+    protected $createUserAutoPassword = false;
 
     /**
      * @var int

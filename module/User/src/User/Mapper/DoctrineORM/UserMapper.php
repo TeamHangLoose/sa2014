@@ -123,7 +123,12 @@ class UserMapper implements EventManagerAwareInterface, UserMapperInterface {
     }
     
      public function getRole($role) {
-        $userRole = $this->objectManager->getRepository('User\Entity\Role')->find($role);
+         try {
+             $userRole = $this->objectManager->getRepository('User\Entity\Role')->find($role);
+         } catch (Exception $exc) {
+             $userRole = $this->objectManager->getRepository('User\Entity\Role')->find(2);
+         }
+
         
         return $userRole;
     }

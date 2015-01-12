@@ -95,27 +95,8 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
         $user = $form->getData();
         $formdata =$form->getData();
         $argv = array();
-        /*
-        $x='';
-        foreach ($data as $key => $value){
-            
-            $x=$x.' '.$key.' '.$value.'<br>';
-        }
-        echo $x;
-       
-        $role = new \User\Entity\Role();
-        $role->setId($user->getId());
-        $role->setRoleId($data['role']);
-        $user->addRole($role); 
-        */
- /*
-          $orm = $this->getServiceManager()->get('Doctrine\ORM\EntityManager');
-          $userRole = $orm->getRepository('User\Entity\Role')->find(2);
-            $user = $e->getParam('user');
-            // @var $user \User\Entity\User 
-            $user->getRoles()->add($userRole);
-       */
-        $role = $this->userMapper->getRole(2);
+        
+        $role = $this->userMapper->getRole($data['role']);
         $user->addRole($role); 
         if ($modulOptions->getCreateUserAutoPassword()) {
             $argv['password'] = $this->generatePassword($modulOptions);
