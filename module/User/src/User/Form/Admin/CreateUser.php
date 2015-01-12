@@ -95,7 +95,7 @@ class CreateUser extends Register {
             'type' => 'Zend\Form\Element\Checkbox',
             'name' => 'active',
             'options' => array(
-                'label' => 'User acktivieren',
+                'label' => 'User aktivieren',
                 'use_hidden_element' => true,
                 'checked_value' => '1',
                 'unchecked_value' => '0'

@@ -60,7 +60,7 @@ class ChangeAdress extends ProvidesEventsForm {
         $this->add(array(
             'name' => 'newPlz',
             'options' => array(
-                'label' => 'Neue PLZ',
+                'label' => 'Neue Postleitzahl',
             ),
             'attributes' => array(
                 'type' => 'text',

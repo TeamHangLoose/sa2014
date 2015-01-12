@@ -46,13 +46,13 @@ class EditUser extends Register {
                 'name' => 'reset_password',
                 'type' => 'Zend\Form\Element\Checkbox',
                 'options' => array(
-                    'label' => 'Reset password to random',
+                    'label' => 'Zufälliges Passwort generieren',
                 ),
             ));
 
             $password = $this->get('password');
             $password->setAttribute('required', false);
-            $password->setOptions(array('label' => 'Password (only if you want to change)'));
+            $password->setOptions(array('label' => 'Passwort (Nur wenn Sie es ändern wollen)'));
 
             $this->remove('passwordVerify');
         } else {
@@ -61,7 +61,7 @@ class EditUser extends Register {
 
 
 
-        $this->get('submit')->setLabel('Save')->setValue('Save');
+        $this->get('submit')->setLabel('Speichern')->setValue('Speichern');
 
         $this->add(array(
             'name' => 'userId',
