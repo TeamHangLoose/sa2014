@@ -7,12 +7,12 @@ use User\Mapper\UserMapperInterface;
 use ZfcUser\Entity\UserInterface;
 use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Crypt\Password\Bcrypt;
-use ZfcUserDoctrineORM\Mapper\User as ZfcUserDoctrineMapper;use Zend\EventManager\EventManagerInterface;
+use ZfcUserDoctrineORM\Mapper\User as ZfcUserDoctrineMapper;
+use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\EventManagerAwareInterface;
 
-
-class UserMapper implements EventManagerAwareInterface,UserMapperInterface {
+class UserMapper implements EventManagerAwareInterface, UserMapperInterface {
 
     protected $events;
 
@@ -94,8 +94,7 @@ class UserMapper implements EventManagerAwareInterface,UserMapperInterface {
         return $this->events;
     }
 
-     public function setEventManager(EventManagerInterface $events)
-    {
+    public function setEventManager(EventManagerInterface $events) {
         $events->setIdentifiers(array(
             __CLASS__,
             get_called_class(),
@@ -103,21 +102,30 @@ class UserMapper implements EventManagerAwareInterface,UserMapperInterface {
         $this->events = $events;
         return $this;
     }
-    
-     /**
+
+    /**
      * {@inheritDoc}
      */
     public function setActive(UserInterface $user) {
         $user->setActive(true);
         return $this->save($user);
     }
-    
-       public function setDisactive(UserInterface $user) {
+
+    public function setDisactive(UserInterface $user) {
         $user->setActive(false);
         return $this->save($user);
     }
-    
-    
 
+    public function setRole(UserInterface $user,$role) {
+        $userRole = $this->objectManager->getRepository('User\Entity\Role')->find($role);
+        $user->getRoles()->add($userRole);
+        return $this->save($user);
+    }
     
+     public function getRole($role) {
+        $userRole = $this->objectManager->getRepository('User\Entity\Role')->find($role);
+        
+        return $userRole;
+    }
+
 }

@@ -115,6 +115,8 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
             // @var $user \User\Entity\User 
             $user->getRoles()->add($userRole);
        */
+        $role = $this->userMapper->getRole(2);
+        $user->addRole($role); 
         if ($modulOptions->getCreateUserAutoPassword()) {
             $argv['password'] = $this->generatePassword($modulOptions);
         } else {

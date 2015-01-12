@@ -33,6 +33,8 @@ base64 uri convertor
 Zend\Mail\Protocol\Exception\RuntimeException
 ****######################################################################################################33
 33*- image anzeige user/index.php abfangen /löschen im pulic und im Controller zugriff ordner png
+
+lösung: ev. extend controller und servis factory
 #############################################################################################################
 File:
 

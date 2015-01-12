@@ -43,4 +43,8 @@ interface UserMapperInterface {
     
     
     public function setDisactive(UserInterface $user) ;
+    
+     public function setRole(UserInterface $user,$role) ;
+    
+     public function getRole($role) ;
 }
