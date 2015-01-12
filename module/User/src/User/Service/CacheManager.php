@@ -18,7 +18,7 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
      */
     protected $storageModel;
     
-    protected  $salt = 'abc123'; 
+    protected  $salt = 'F3st3rB3st3rT3st3r'; 
 
 
 
