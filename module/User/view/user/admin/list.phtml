@@ -1,7 +1,5 @@
-
 <?php
 $getters = array();
-
 foreach ($this->userlistElements as $element) {
     $parts = explode('_', $element);
     array_walk($parts, function (&$val) {
@@ -11,7 +9,8 @@ foreach ($this->userlistElements as $element) {
 }
 ?>
 <div class="page-header text-center">
-    <h1><?php echo $this->translate('Benutzer Verwaltung') ?></h1>
+    <h1><?php echo $this->translate('Benutzer Verwaltung'); ?>
+    </h1>
 </div>
 
 <div class="navbar filter-bar">

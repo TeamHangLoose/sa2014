@@ -38,7 +38,8 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
         'Street' => 'street',
         'Zip Code' => 'plz',
         'Village' => 'village',
-        'Phone' => 'phone');
+        'Phone' => 'phone',
+        'Aktive'=>'active');
 
     /**
      * Array of form elements to show when editing a user

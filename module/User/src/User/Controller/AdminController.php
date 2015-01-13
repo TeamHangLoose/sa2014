@@ -37,7 +37,7 @@ class AdminController extends AbstractActionController {
         //$paginator = new Paginator\Paginator(new Paginator\Adapter\ArrayAdapter($users));
         $paginator = new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($users));
 
-        $paginator->setItemCountPerPage(10);
+        $paginator->setItemCountPerPage(15);
         $paginator->setCurrentPageNumber($this->getEvent()->getRouteMatch()->getParam('p'));
 
 

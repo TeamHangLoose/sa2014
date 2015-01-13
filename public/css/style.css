@@ -131,8 +131,11 @@ body {
     -moz-border-radius: 150px;
 }
 
-  .profileimg {
-        -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
-        box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
-    }
-    
+.profileimg {
+    -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+}
+
+.img-list-hide{
+    //display:none
+}
