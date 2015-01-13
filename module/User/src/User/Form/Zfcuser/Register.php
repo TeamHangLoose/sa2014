@@ -64,6 +64,7 @@ class Register extends \ZfcUser\Form\Base {
         );
 
 
+
         $this->get('submit')->setLabel('Register');
         $this->getEventManager()->trigger('init', $this);
     }
