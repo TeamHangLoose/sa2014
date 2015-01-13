@@ -79,23 +79,6 @@ class DoubleOptInService {
      */
     public function confirmed(array $data, UserInterface $user) {
 
-        /*
-          $x = '';
-
-          foreach ($data as $key => $value) {
-          $x = $x . ' ' . $key . ' ' . $value . '  <br>';
-          }
-          echo $x . '<br> CreD: ' . $cred;
-
-
-          $form = $this->confirmedForm;
-          $form->setData($data);
-
-          if (!$form->isValid()) {
-          return false;
-          }
-         * 
-         */
     
         $token = $this->tokenMapper->findByUser($user);
         $bcrypt = new Bcrypt;

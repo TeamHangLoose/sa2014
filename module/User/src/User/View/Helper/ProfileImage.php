@@ -227,7 +227,7 @@ class ProfileImage extends AbstractHtmlElement {
      * @return string
      */
     public function getImgTag() {
-        return '<img class="profileimg img-circle"'
+        return '<img class="profileimg img-circle" '
                 . $this->htmlAttribs($this->getAttribs())
                 . $this->getClosingBracket();
     }

@@ -67,11 +67,11 @@ class Module {
         return array(
             'aliases' => array(
              'htProfileImage' => 'User\View\Helper\ProfileImage',
-             'htProfileImageList' => 'User\View\Helper\ProfileImageList'
+             //'htProfileImageList' => 'User\View\Helper\ProfileImageList'
             ),
             'factories' => array(
                  'User\View\Helper\ProfileImage' => 'User\Factory\View\Helper\ProfileImageFactory',
-                'User\View\Helper\ProfileImageList' => 'User\Factory\View\Helper\ProfileImageListFactory',
+                //'User\View\Helper\ProfileImageList' => 'User\Factory\View\Helper\ProfileImageListFactory',
                
                 'AccountDisplay' => function ($sm) {
                     $locator = $sm->getServiceLocator();

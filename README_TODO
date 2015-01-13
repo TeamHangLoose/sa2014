@@ -30,16 +30,14 @@ base64 uri convertor
 - Upload Image File zu gross Fehler abfangen 
 
 #######################################################
-1*Fatal error: Call to a member function getEmail() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 66
-#######################################################
+
 2*Beim mailenden
 
 Zend\Mail\Protocol\Exception\RuntimeException
+
 ****######################################################################################################33
-33*- image anzeige user/index.php abfangen /löschen im pulic und im Controller zugriff ordner png
-<img src="data:image/png;base64,<?php echo base64_encode(file_get_contents("IMAGE URL HERE")) ?>">
-lösung: ev. extend controller und servis factory
-#############################################################################################################
+
+
 File:
 
     C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Protocol\AbstractProtocol.php:225
@@ -57,10 +55,7 @@ Stack trace:
     #4 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\lib
 
 #######################################################
-4*  Anmelden opt in wen key falsch
-http://localhost/opt-in/confirmed/56501934254afc92c3f99c3.38265281
-Fatal error: Call to a member function getEmail() on boolean in C:\Album\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 68
-#######################################################
+
 
 
 ________________________________________________________________________________

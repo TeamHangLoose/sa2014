@@ -33,11 +33,11 @@ class DoubleOptInController extends AbstractActionController {
 
         $request = $this->getRequest();
         $form->setData($request->getPost());
-        
+
         $this->doubleOptInService->request($request->getPost('email'));
 
         //$this->doubleOptInService->request("chregi.sommer@gmail.com");
-        
+
         $viewModel->setTemplate('double-opt-in/request.phtml');
 
         $redirectUrl = $this->url()->fromRoute('double-opt-in');
@@ -48,36 +48,42 @@ class DoubleOptInController extends AbstractActionController {
         } elseif ($prg === false) {
             return $viewModel;
         }
-/*
-        if ($this->doubleOptInService->request("chregi.sommer@gmail.com")) {
-            $viewModel->setTemplate('double-opt-in/confirmation/sent-email.phtml');
-            return $viewModel;
-        }
-*/
+        /*
+          if ($this->doubleOptInService->request("chregi.sommer@gmail.com")) {
+          $viewModel->setTemplate('double-opt-in/confirmation/sent-email.phtml');
+          return $viewModel;
+          }
+         */
         return $viewModel;
     }
 
-    public function confirmedAction()
-            {
+    public function confirmedAction() {
         $this->layout('layout/layout');
         $form = $this->confirmedForm;
         $doubleOptInService = $this->doubleOptInService;
-        $token = $this->params('token');
 
+        $token = $this->params('token');
         $user = $doubleOptInService->getUserFromToken($token);
+        if (!$user) {
+            $viewModel = new ViewModel([
+                'form' => $form,
+            ]);
+            $this->layout('layout/expired');
+            $viewModel->setTemplate('double-opt-in/expired.phtml');
+            return $viewModel;
+        }
         $email = $user->getEmail();
-          
+
         $form->add([
             'name' => 'email',
-            'type'  => 'Zend\Form\Element\Text',
+            'type' => 'Zend\Form\Element\Text',
             'attributes' => [
                 'class' => 'form-control',
-                'value'=> $email,
+                'value' => $email,
             ],
             'options' => [
                 'type' => 'email',
                 'label' => 'Email',
-
             ],
         ]);
         $viewModel = new ViewModel([
@@ -85,11 +91,11 @@ class DoubleOptInController extends AbstractActionController {
         ]);
 
         if (!$user) {
-             $this->layout('layout/expired');
+            $this->layout('layout/expired');
             $viewModel->setTemplate('double-opt-in/expired.phtml');
             return $viewModel;
         }
-        
+
         $viewModel->setTemplate('double-opt-in/confirmed.phtml');
 
         $redirectUrl = $this->url()->fromRoute('double-opt-in/confirmed', ['token' => $token]);
@@ -100,7 +106,7 @@ class DoubleOptInController extends AbstractActionController {
         } elseif ($prg === false) {
             return $viewModel;
         }
-        
+
         if ($doubleOptInService->confirmed($prg, $user)) {
             $viewModel->setTemplate('double-opt-in/confirmation/optin-confirmed.phtml');
             return $viewModel;

@@ -8,6 +8,7 @@ foreach ($this->userlistElements as $element) {
     $getters[$element] = 'get' . implode('', $parts);
 }
 ?>
+
 <div class="page-header text-center">
     <h1><?php echo $this->translate('Benutzer Verwaltung'); ?>
     </h1>
@@ -33,6 +34,7 @@ foreach ($this->userlistElements as $element) {
         </tr>
     </thead>
     <tbody>
+
         <?php foreach ($this->users as $user): ?>
             <tr>
                 <?php foreach ($this->userlistElements as $element): ?>

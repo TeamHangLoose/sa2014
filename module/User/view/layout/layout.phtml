@@ -1,6 +1,7 @@
 <?php echo $this->doctype(); ?>
 <html lang="en">
     <head>
+        <script type="text/javascript" src="js/follow.js"></script> 
         <meta charset="utf-8">
         <?php echo $this->headTitle($this->translate('Badenfahrt'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
@@ -26,11 +27,7 @@
                 ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
                 ->prependFile($this->basePath() . '/js/html5shiv.js', 'text/javascript', array('conditional' => 'lt IE 9',))
         ;
-        
-        
         ?>
-
-
     </head>
     <body >
         <div class="wrap">
