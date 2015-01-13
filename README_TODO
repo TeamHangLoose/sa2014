@@ -5,15 +5,15 @@ __CODE__
 - CHECK Double Opt In Aktiv inaktiv
 - Administrator-> User Edit Form nue gestalten (nth)
 - CHECK Administration: automatische ID Vergabe beim neuerfassen von Usern
--  Administration: automatische Rolle Vergabe beim neuerfassen von Usern .-------------------____>1
-- User deaktivieren/ aktivieren Administration Edit
-- Allgemein Formen anpassen ~^
+- CHECK Administration: automatische Rolle Vergabe beim neuerfassen von Usern .-------------------____>1
+- CHECK User deaktivieren/ aktivieren Administration Edit
+- CHECK Allgemein Formen anpassen ~^
 - * Navbar: Logo, Label, KontaktForm, Links  (nth)
 - * Kontakt Site (nth)
 
 -AutoPassword selector Create form
 - CHECK * Login Form auf Deutsch
-- Upload Image File zu gross Fehler abfangen 
+
 
 - CHECK Password Form auf Deutsch
 - * Login HTTPS und rest (nth)--
@@ -27,10 +27,7 @@ idea
 base64 uri convertor
 //bugs________________________________________________________________________________
 
-0****************************
-getactive()abfangen;
-Fatal error: Call to a member function getActive() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Service\User.php on line 25
-****************************
+- Upload Image File zu gross Fehler abfangen 
 
 #######################################################
 1*Fatal error: Call to a member function getEmail() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 66
