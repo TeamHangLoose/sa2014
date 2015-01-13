@@ -25,7 +25,7 @@ class CreateUser extends Register {
         //$this->remove('userId');
         /*
          * foreach for the modulOption SampelCode edit arra do you want...   
-        foreach ($this->getCreateOptions()->getCreateFormElements() as $name => $element) {
+          foreach ($this->getCreateOptions()->getCreateFormElements() as $name => $element) {
           // avoid adding fields twice (e.g. email)
           // if ($this->get($element)) continue;
           $this->add(array(
@@ -43,9 +43,9 @@ class CreateUser extends Register {
         if ($this->getRegistrationOptions()->getUseRegistrationFormCaptcha() && $this->captchaElement) {
             $this->add($this->captchaElement, array('name' => 'captcha'));
         }
-        
-        
-         $this->remove('display_name');
+
+
+        $this->remove('display_name');
         $this->add(array(
             'name' => 'display_name',
             'options' => array(
@@ -95,6 +95,7 @@ class CreateUser extends Register {
             ),
                 )
         );
+        
         $this->add(array(
             'type' => 'Zend\Form\Element\Checkbox',
             'name' => 'active',
@@ -103,9 +104,9 @@ class CreateUser extends Register {
                 'use_hidden_element' => true,
                 'checked_value' => '1',
                 'unchecked_value' => '0'
-                
             )
         ));
+        
         $this->add(array(
             'type' => 'Zend\Form\Element\Select',
             'name' => 'role',
@@ -122,7 +123,5 @@ class CreateUser extends Register {
         $this->get('submit')->setLabel('Register');
         $this->getEventManager()->trigger('init', $this);
     }
-
-
 
 }

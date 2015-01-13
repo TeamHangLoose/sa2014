@@ -13,7 +13,13 @@
         if ($element instanceof Zend\Form\Element\Captcha) {
             echo $this->formCaptcha($element);
         } else {
-            echo $this->formElement($element);
+
+            if ($element instanceof Zend\Form\Element\Checkbox) {
+                $element->setAttribute('class', ' ');
+                echo $this->formElement($element);
+            } else {
+                echo $this->formElement($element);
+            }
         }
         if ($this->formElementErrors($element)) :
             ?>
