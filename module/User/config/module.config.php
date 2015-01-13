@@ -110,6 +110,7 @@ return array(
                 
                 array('route' => 'double-opt-in/confirmed', 'roles' => array('guest')),
                 array('route' => 'double-opt-in', 'roles' => array('guest')),
+                array('route' => 'about', 'roles' => array('guest')),
                
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'change-adress', 'roles' => array('user')),

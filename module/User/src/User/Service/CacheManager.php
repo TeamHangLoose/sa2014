@@ -19,7 +19,7 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
     protected $storageModel;
     
     protected  $salt = '())(U)W(HNIUBSXIZUw3uhiw3uhr9pHè=)!E=)U=)eudowu8eh9w89d8'; 
-
+    protected  $salt1 = '())(U)W(HNIUBSXIZUwdudowudsfe   !`düüdüdddddddd8eh9w89d8';
 
 
     /**
@@ -41,7 +41,7 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
     {
         
         return $this->cacheManager->cacheExists(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt)),
+            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
             $filter,
             $this->storageModel->getUserImageExtension()
         );
@@ -53,7 +53,7 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
     public function getCacheUrl(UserInterface $user, $filter)
     {
         return $this->cacheManager->getCacheUrl(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt)),
+            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
             $filter,
             $this->storageModel->getUserImageExtension()
         );
@@ -65,7 +65,7 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
     public function getCachePath(UserInterface $user, $filter)
     {
         return $this->cacheManager->getCachePath(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt)),
+            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
             $filter,
             $this->storageModel->getUserImageExtension()
         );
@@ -77,7 +77,7 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
     public function createCache(UserInterface $user, $filter, ImageInterface $image)
     {
         $this->cacheManager->createCache(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt)),
+            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
             $filter,
             $image,
             $this->storageModel->getUserImageExtension()

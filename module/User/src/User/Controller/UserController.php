@@ -27,9 +27,11 @@ class UserController extends \ZfcUser\Controller\UserController {
 
             return $this->redirect()->toRoute(static::ROUTE_LOGIN);
         }
-
+        
         $imageService = $this->getServiceLocator()->get('HtProfileImage\Service\ProfileImageService');
+        if ($imageService->userImageExists($this->getUser())){
         $imageService->getUserImage($this->getUser(), $filterAlias = null);
+        }
         return new ViewModel();
     }
 

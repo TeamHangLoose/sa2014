@@ -89,7 +89,15 @@ class ProfileImageService extends EventProvider implements \HtProfileImage\Servi
         return false;
     }
 
-    /**
+    
+    public function userImageExists($user){
+        if($this->getStorageModel()->userImageExists($user)){
+            return true;
+        }
+        return false;
+    }
+
+        /**
      * {@inheritDoc}
      */
     public function getUserImage(UserInterface $user, $filterAlias = null)
@@ -99,8 +107,11 @@ class ProfileImageService extends EventProvider implements \HtProfileImage\Servi
             $this,
             ['user' => $user, 'filterAlias' => $filterAlias]
         );
+        
+        
+        
         if ($this->getStorageModel()->userImageExists($user)) {
-            $fileName = $this->getStorageModel()->getUserImage($user);
+                $fileName = $this->getStorageModel()->getUserImage($user);
         } else {
             if ($this->getOptions()->getEnableGender()) {
                 if (!$user instanceof UserGenderInterface) {
@@ -118,6 +129,7 @@ class ProfileImageService extends EventProvider implements \HtProfileImage\Servi
                 $fileName = $this->getOptions()->getDefaultImage();
             }
         }
+        
 
         $image = $this->getImagine()->open($fileName);
         if (!$filterAlias) {

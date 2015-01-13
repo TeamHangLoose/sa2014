@@ -15,11 +15,6 @@ class CreateUser extends Register {
     protected $createOptionsOptions;
     protected $serviceManager;
 
-    /**
-     * @var UserCreateOptionsInterface
-     */
-    protected $createOptions;
-
     public function __construct($name, RegistrationOptionsInterface $registerOptions) {
 
 
@@ -28,20 +23,31 @@ class CreateUser extends Register {
         parent::__construct($name, $registerOptions);
 
         //$this->remove('userId');
-
-            $this->remove('username');
-        
-
-        if (!$this->getRegistrationOptions()->getEnableDisplayName()) {
-            $this->remove('display_name');
-        }
+        /*
+         * foreach for the modulOption SampelCode edit arra do you want...   
+        foreach ($this->getCreateOptions()->getCreateFormElements() as $name => $element) {
+          // avoid adding fields twice (e.g. email)
+          // if ($this->get($element)) continue;
+          $this->add(array(
+          'name' => $element,
+          'options' => array(
+          'label' => $name,
+          ),
+          'attributes' => array(
+          'type' => 'text',
+          ),
+          ));
+          }
+         */
 
         if ($this->getRegistrationOptions()->getUseRegistrationFormCaptcha() && $this->captchaElement) {
             $this->add($this->captchaElement, array('name' => 'captcha'));
         }
-
+        
+        
+         $this->remove('display_name');
         $this->add(array(
-            'name' => 'displayname',
+            'name' => 'display_name',
             'options' => array(
                 'label' => 'Vor- und Nachname',),
             'attributes' => array(
@@ -97,6 +103,7 @@ class CreateUser extends Register {
                 'use_hidden_element' => true,
                 'checked_value' => '1',
                 'unchecked_value' => '0'
+                
             )
         ));
         $this->add(array(
@@ -116,21 +123,6 @@ class CreateUser extends Register {
         $this->getEventManager()->trigger('init', $this);
     }
 
-    public function setCreateOptions(UserCreateOptionsInterface $createOptionsOptions) {
-        $this->createOptions = $createOptionsOptions;
-        return $this;
-    }
 
-    public function getCreateOptions() {
-        return $this->createOptions;
-    }
-
-    public function setServiceManager($serviceManager) {
-        $this->serviceManager = $serviceManager;
-    }
-
-    public function getServiceManager() {
-        return $this->serviceManager;
-    }
 
 }

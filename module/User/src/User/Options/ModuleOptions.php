@@ -12,7 +12,6 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
 
     /** @var int */
     protected $tokenHours = 24;
-
     /**
      * @var string
      */
@@ -47,9 +46,8 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
     protected $editFormElements = array(
-        
+         /*
         'Vorname Nachname' => 'username',
-        /*
         'Email' => 'email',
         'Strasse' => 'street',
         'PLZ' => 'plz',
@@ -64,12 +62,15 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
     protected $createFormElements = array(
+        /*
         //ID hidden
         'Vorname Nachname' => 'username',
         'Strasse' => 'street',
         'PLZ' => 'plz',
         'Ort' => 'village',
-        'Telefon' => 'phone');
+        'Telefon' => 'phone'
+        */
+        );
 
     /**
      * @var bool
