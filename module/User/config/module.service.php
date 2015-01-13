@@ -7,6 +7,7 @@ return array(
         'Soflomo\Mail\Transport' => 'Soflomo\Mail\DefaultTransport',
         'Soflomo\Mail\Message' => 'Soflomo\Mail\DefaultMessage',
         
+        
     ),
     'invokables' => array(
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
@@ -17,11 +18,12 @@ return array(
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
         'User\Form\Admin\CreateUser' => 'User\Form\Admin\CreateUser',
         'zfcuser_user_service' => 'User\Service\User',
-        'HtProfileImage\ProfileImageForm' => 'User\Form\htProfileImage\ProfileImageForm',
+        
         'ZfcUser\Form\Register' => 'User\Form\Admin\EditUser',
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
         'User\Form\User\Index' => 'User\Form\User\Index',
-        'HtProfileImage\ProfileImage' => 'User\Controller\ProfileImageController',
+        
+   
         
     ),
     'initializers' => array(
@@ -42,10 +44,11 @@ return array(
         'User\Mapper\UserMapper' => 'User\Factory\Mapper\DoctrineORM\UserMapperFactory',
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
         'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
-        
         'HtProfileImage\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
         
-        //'User\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
+        'HtProfileImage\Service\ProfileImageService' => 'User\Factory\Service\ProfileImageServiceFactory',
+      
+        
         'HtProfileImage\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
         'zfcuser_register_form' => function ($sm) {
 

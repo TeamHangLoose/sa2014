@@ -1,6 +1,5 @@
 <?php
 $data = $this->AccountDisplay();
-
 ?>
 <div class="container"> 
     <div class="text-center page-header">
@@ -11,9 +10,7 @@ $data = $this->AccountDisplay();
     <div class="row">
         <div class="col-sm-4">
             <div class="panel-body text-center">
-                <p><?php 
-              
-                echo $this->htProfileImage($this->zfcUserIdentity(), array('class' => 'img-circle')) ?></p>
+                <p><?php echo $this->htProfileImage($this->zfcUserIdentity(), array('class' => 'img-circle')) ?></p>
                 <p><a class="btn btn-default" href="<?php echo $this->url('zfcuser/htimageupload') ?>"><?php echo $this->translate('Bild ändern'); ?></a></p>
             </div>
         </div>

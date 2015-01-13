@@ -26,6 +26,12 @@ idea
 
 base64 uri convertor
 //bugs________________________________________________________________________________
+
+0****************************
+getactive()abfangen;
+Fatal error: Call to a member function getActive() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Service\User.php on line 25
+****************************
+
 #######################################################
 1*Fatal error: Call to a member function getEmail() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Controller\DoubleOptInController.php on line 66
 #######################################################

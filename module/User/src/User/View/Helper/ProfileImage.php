@@ -195,29 +195,22 @@ class ProfileImage extends AbstractHtmlElement {
                 $this->cacheManager instanceof CacheManagerInterface &&
                 $this->cacheManager->cacheExists($user, $filterAlias)
         ) {
+
             $url = $this->getView()->basePath() . '/' . $this->cacheManager->getCacheUrl($user, $filterAlias);
         } else {
             $url = $this->getView()->url('zfcuser/htimagedisplay', ['id' => $user->getId()]);
         }
-       
-         
-    
-                
+
+
+
         $this->setAttribs([
-            //'src' =>$url
-           'src' => $this->base64_encode_image ("http://localhost".$url,'png')
+            'src' => $url
         ]);
 
         return $this;
     }
 
-    function base64_encode_image ($filename=string,$filetype=string) {
-    if ($filename) {
-            echo __DIR__;
-            $imgbinary = fread(fopen($filename, "r"), filesize($filename));
-            return 'data:image/' . $filetype . ';base64,' . base64_encode($imgbinary);
-        }
-    }
+
 
     /**
      * Return valid image tag
