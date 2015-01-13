@@ -29,10 +29,8 @@ class CreateUser extends Register {
 
         //$this->remove('userId');
 
-
-        if (!$this->getRegistrationOptions()->getEnableUsername()) {
             $this->remove('username');
-        }
+        
 
         if (!$this->getRegistrationOptions()->getEnableDisplayName()) {
             $this->remove('display_name');

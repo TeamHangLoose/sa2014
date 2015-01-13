@@ -29,7 +29,7 @@ class CreateUser extends Register {
             $this->remove('passwordVerify');
         }
 
-        /*
+        
           foreach ($this->getCreateOptions()->getCreateFormElements() as $name => $element) {
           // avoid adding fields twice (e.g. email)
           // if ($this->get($element)) continue;
@@ -43,7 +43,7 @@ class CreateUser extends Register {
           ),
           ));
           }
-         */
+         
 
         $this->get('submit')->setLabel('Register');
         $this->getEventManager()->trigger('init', $this);

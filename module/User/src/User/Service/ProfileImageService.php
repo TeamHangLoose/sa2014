@@ -153,6 +153,17 @@ class ProfileImageService extends EventProvider implements \HtProfileImage\Servi
             }
         }
     }
+    
+      public function logoutDeleteCache(UserInterface $user)
+    {
+        if ($this->getOptions()->getEnableCache()) {
+            foreach ($this->getOptions()->getDisplayFilterList() as $displayFilter) {
+                if ($this->getCacheManager()->cacheExists($user, $displayFilter)) {
+                    $this->getCacheManager()->deleteCache($user, $displayFilter);
+                }
+            }
+        }
+    }
 
     /**
      * {@inheritDoc}

@@ -2,6 +2,7 @@
 
 namespace User\Controller;
 
+use Zend\View\Model\ViewModel;
 use User\Entity\User;
 use Zend\Stdlib\Parameters;
 
@@ -17,6 +18,21 @@ class UserController extends \ZfcUser\Controller\UserController {
     /**
      * Login form
      */
+
+    /**
+     * User page
+     */
+    public function indexAction() {
+        if (!$this->zfcUserAuthentication()->hasIdentity()) {
+
+            return $this->redirect()->toRoute(static::ROUTE_LOGIN);
+        }
+
+        $imageService = $this->getServiceLocator()->get('HtProfileImage\Service\ProfileImageService');
+        $imageService->getUserImage($this->getUser(), $filterAlias = null);
+        return new ViewModel();
+    }
+
     public function loginAction() {
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
@@ -67,6 +83,10 @@ class UserController extends \ZfcUser\Controller\UserController {
      * Logout and clear the identity
      */
     public function logoutAction() {
+
+        $imageService = $this->getServiceLocator()->get('HtProfileImage\Service\ProfileImageService');
+        $imageService->logoutDeleteCache($this->getUser());
+
         $this->zfcUserAuthentication()->getAuthAdapter()->resetAdapters();
         $this->zfcUserAuthentication()->getAuthAdapter()->logoutAdapters();
         $this->zfcUserAuthentication()->getAuthService()->clearIdentity();
@@ -223,6 +243,26 @@ class UserController extends \ZfcUser\Controller\UserController {
             $this->setChangeAdressForm($form);
         }
         return $this->accountForm;
+    }
+
+    protected function getUser() {
+        $authenticationService = $this->getServiceLocator()->get('zfcuser_auth_service');
+        /** @var \ZfcUser\Entity\UserInterface $user */
+        $user = $authenticationService->getIdentity();
+
+        $userId = $this->params()->fromRoute('userId', null);
+        if ($userId !== null) {
+            $currentUser = $user;
+            $user = $this->getUserMapper()->findById($userId);
+            if (!$user) {
+                return null;
+            }
+            if (!$this->getOptions()->getEnableInterUserImageUpload() && ($user->getId() !== $currentUser->getId())) {
+                return null;
+            }
+        }
+
+        return $user;
     }
 
 }

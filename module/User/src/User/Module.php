@@ -46,7 +46,8 @@ class Module {
             /* @var $user \User\Entity\User */
             $user->getRoles()->add($userRole);
         });
-
+        
+        
 
 
         // you can even do stuff after it stores

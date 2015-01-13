@@ -78,6 +78,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      */
     protected $createUserAutoPassword = false;
 
+    
     /**
      * @var int
      * Length of passwords created automatically

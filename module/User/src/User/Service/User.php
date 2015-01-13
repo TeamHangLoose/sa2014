@@ -22,6 +22,10 @@ class User extends \ZfcUser\Service\User {
     public function isActive(array $data) {
         $currentUser = $this->getAuthService()->getIdentity();
         $user = $this->getUserMapper()->findByEmail($data['identity']);
+
+        if (!$user) {
+            return false;
+        }
         if ($user->getActive()) {
             return true;
         }
