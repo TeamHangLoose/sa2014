@@ -1,5 +1,8 @@
 <?php
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(

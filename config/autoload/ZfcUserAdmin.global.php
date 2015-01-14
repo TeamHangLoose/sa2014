@@ -6,20 +6,7 @@
  * drop this config file in it and change the values as you wish.
  */
 $settings = array(
-    
-
-    /**
-     * Mapper for ZfcUser
-     *
-     * Set the mapper to be used here
-     * Currently Available mappers
-     * 
-     * ZfcUserAdmin\Mapper\UserDoctrine
-     *
-     * By default this is using
-     * ZfcUserAdmin\Mapper\UserZendDb
-     */
-    'user_mapper' => 'ZfcUserAdmin\Mapper\UserDoctrine',
+    //'user_mapper' => 'ZfcUserAdmin\Mapper\UserDoctrine',
 );
 
 /**

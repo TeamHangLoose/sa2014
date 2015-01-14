@@ -16,7 +16,7 @@ data/cache/
 data/sessions/
 data/tmp/
 data/uploads/
-data/uploads/profile-images/
+data *png
 
 temp/
 public/htimg/
