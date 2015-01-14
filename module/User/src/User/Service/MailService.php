@@ -19,9 +19,14 @@ class MailService {
             'name' => $user->getDisplayName(),
             'token' => $token->getToken(),
         ];
-        $this->transporter->send(
+        try {
+             $this->transporter->send(
                 $options, $variables
         );
+        } catch (Exception $ex) {
+            return false;
+        }
+       
     }
 
 }
