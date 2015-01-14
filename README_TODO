@@ -2,13 +2,9 @@ TODO'S
 
 __CODE__
 - Administrator-> User Edit Form change role
-
 -AutoPassword selector Create form
 - * Login HTTPS und rest (nth)--
-
 ---> Projekt aufräumen Kommentare<-----
-
-
 //bugs________________________________________________________________________________
 
 - Upload Image File zu gross Fehler abfangen 
@@ -20,8 +16,6 @@ __CODE__
 Zend\Mail\Protocol\Exception\RuntimeException
 
 ****######################################################################################################33
-
-
 File:
 
     C:\DATA\master2\sa2014\vendor\zendframework\zendframework\library\Zend\Mail\Protocol\AbstractProtocol.php:225
@@ -39,10 +33,7 @@ Stack trace:
     #4 C:\DATA\master2\sa2014\vendor\zendframework\zendframework\lib
 
 #######################################################
-
-
-
-________________________________________________________________________________
+______________________________________________________________________________
 
 __DOKU__
 - DB Tabbellen Beschriebe
