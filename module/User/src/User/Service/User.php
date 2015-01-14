@@ -1,20 +1,12 @@
 <?php
-
 namespace User\Service;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use Zend\Crypt\Password\Bcrypt;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of User
- *
- * @author win7
- */
 class User extends \ZfcUser\Service\User {
 
     protected $doubleOptInService;

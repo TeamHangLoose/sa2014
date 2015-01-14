@@ -1,6 +1,10 @@
 <?php
-
 namespace User;
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
+use Zend\Mvc\MvcEvent;
 
 class Module {
 
@@ -46,14 +50,21 @@ class Module {
             /* @var $user \User\Entity\User */
             $user->getRoles()->add($userRole);
         });
-        
-        
+
+        $app = $e->getApplication();
+        $evt = $app->getEventManager();
+        $evt->attach(MvcEvent::EVENT_DISPATCH_ERROR, array($this, 'onDispatchError'), 100);
 
 
         // you can even do stuff after it stores
 //        $zfcServiceEvents->attach('register.post', function($e) {
 //            /*$user = $e->getParam('user');*/
 //        });
+    }
+
+    public function onDispatchError(MvcEvent $e) {
+        $vm = $e->getViewModel();
+        $vm->setTemplate('layout/expired');
     }
 
     public function getServiceConfig() {
@@ -66,13 +77,12 @@ class Module {
     public function getViewHelperConfig() {
         return array(
             'aliases' => array(
-             'htProfileImage' => 'User\View\Helper\ProfileImage',
-             //'htProfileImageList' => 'User\View\Helper\ProfileImageList'
+                'htProfileImage' => 'User\View\Helper\ProfileImage',
+            //'htProfileImageList' => 'User\View\Helper\ProfileImageList'
             ),
             'factories' => array(
-                 'User\View\Helper\ProfileImage' => 'User\Factory\View\Helper\ProfileImageFactory',
+                'User\View\Helper\ProfileImage' => 'User\Factory\View\Helper\ProfileImageFactory',
                 //'User\View\Helper\ProfileImageList' => 'User\Factory\View\Helper\ProfileImageListFactory',
-               
                 'AccountDisplay' => function ($sm) {
                     $locator = $sm->getServiceLocator();
                     $viewHelper = new \User\View\Helper\AccountDisplay;

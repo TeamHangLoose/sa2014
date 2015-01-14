@@ -1,13 +1,14 @@
 <?php
-
 namespace User\Mapper\DoctrineORM;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use Doctrine\Common\Persistence\ObjectManager;
 use User\Mapper\UserMapperInterface;
 use ZfcUser\Entity\UserInterface;
 use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 use Zend\Crypt\Password\Bcrypt;
-use ZfcUserDoctrineORM\Mapper\User as ZfcUserDoctrineMapper;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\EventManagerAwareInterface;

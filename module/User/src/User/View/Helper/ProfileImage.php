@@ -1,7 +1,9 @@
 <?php
-
 namespace User\View\Helper;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use Zend\View\Helper\AbstractHtmlElement;
 use ZfcUser\Mapper\UserInterface as UserMapperInterface;
 use ZfcUser\Entity\UserInterface;
@@ -227,7 +229,7 @@ class ProfileImage extends AbstractHtmlElement {
      * @return string
      */
     public function getImgTag() {
-        return '<img class="profileimg img-circle" '
+        return '<img class="profileimg " '
                 . $this->htmlAttribs($this->getAttribs())
                 . $this->getClosingBracket();
     }

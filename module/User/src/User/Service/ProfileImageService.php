@@ -1,8 +1,10 @@
 <?php
 namespace User\Service;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use ZfcUser\Entity\UserInterface;
-use HtProfileImage\Form\ProfileImageForm;
 use HtProfileImage\Form\ProfileImageInputFilter;
 use ZfcBase\EventManager\EventProvider;
 use HtProfileImage\Entity\UserGenderInterface;

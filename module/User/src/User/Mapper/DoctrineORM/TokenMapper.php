@@ -1,13 +1,14 @@
 <?php
-
 namespace User\Mapper\DoctrineORM;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use Doctrine\Common\Persistence\ObjectManager;
 use User\Entity\TokenInterface;
 use User\Mapper\TokenMapperInterface;
 use User\Options\ModuleOptions;
 use ZfcUser\Entity\UserInterface;
-use ZfcUser\Options\ModuleOptions as ZfcUserModuleOptions;
 
 class TokenMapper implements TokenMapperInterface
 {

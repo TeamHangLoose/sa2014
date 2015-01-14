@@ -1,13 +1,12 @@
 <?php
-
 namespace User\Service;
-
-use Doctrine\Common\Persistence\ObjectManager;
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use User\Form\DoubleOptIn\Confirmed;
-use User\Form\DoubleOptIn\RequestForm;
 use User\Mapper\TokenMapperInterface;
 use User\Mapper\UserMapperInterface;
-use User\Entity\TokenInterface;
 use ZfcUser\Entity\UserInterface;
 use Zend\Crypt\Password\Bcrypt;
 

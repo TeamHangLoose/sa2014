@@ -1,9 +1,10 @@
 <?php
-
 namespace User\Form\Admin;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use ZfcBase\InputFilter\ProvidesEventsInputFilter;
-use ZfcUser\Module as ZfcUser;
 use ZfcUser\Options\RegistrationOptionsInterface;
 
 class CreateUserFilter extends ProvidesEventsInputFilter {

@@ -1,13 +1,13 @@
 <?php
-
 namespace User\Form\Admin;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use ZfcUser\Entity\UserInterface;
 use ZfcUser\Form\Register;
 use ZfcUser\Options\RegistrationOptionsInterface;
 use User\Options\UserEditOptionsInterface;
-use Zend\Form\Form;
-use Zend\Form\Element;
 
 class EditUser extends Register {
 

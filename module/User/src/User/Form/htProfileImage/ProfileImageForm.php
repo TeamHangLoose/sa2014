@@ -1,8 +1,9 @@
 <?php
-
 namespace User\Form\htProfileImage;
-
-use Zend\Form\Form;
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use ZfcBase\Form\ProvidesEventsForm;
 
 class ProfileImageForm extends ProvidesEventsForm {

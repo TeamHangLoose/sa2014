@@ -1,11 +1,11 @@
 <?php
-
 namespace User\Form\Admin;
-
-use User\Options\UserCreateOptionsInterface;
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use ZfcUser\Options\RegistrationOptionsInterface;
 use ZfcUser\Form\Register as Register;
-use Zend\Form\Element;
 
 class CreateUser extends Register {
 

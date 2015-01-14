@@ -1,7 +1,9 @@
 <?php
-
 namespace User\Controller;
-
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 use User\Form\Forgot\ChangePasswordForm;
 use User\Form\Forgot\RequestForm;
 use User\Service\ ForgotPasswordService;
