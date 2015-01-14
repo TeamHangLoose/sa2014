@@ -1,15 +1,7 @@
 TODO'S
 
 __CODE__
-- CHECK Layout unterscheiden "ADMIN" "USER"  (ev mit navigation)
-- CHECK Double Opt In Aktiv inaktiv
-- Administrator-> User Edit Form nue gestalten (nth)
-- CHECK Administration: automatische ID Vergabe beim neuerfassen von Usern
-- CHECK Administration: automatische Rolle Vergabe beim neuerfassen von Usern .-------------------____>1
-- CHECK User deaktivieren/ aktivieren Administration Edit
-- CHECK Allgemein Formen anpassen ~^
-- * Navbar: Logo, Label, KontaktForm, Links  (nth)
-- * Kontakt Site (nth)
+- Administrator-> User Edit Form change role
 
 -AutoPassword selector Create form
 - CHECK * Login Form auf Deutsch

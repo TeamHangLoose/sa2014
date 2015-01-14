@@ -18,7 +18,6 @@ class AdminController extends AbstractActionController {
 
     /** @var ForgotPasswordService */
     protected $adminService;
-    
     protected $creatUserForm;
     protected $zfcUserOptions;
 
@@ -52,8 +51,8 @@ class AdminController extends AbstractActionController {
 
         $form = $this->getCreatUserForm();
 
-       // $form = new \User\Form\Admin\CreateUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());
-        
+        // $form = new \User\Form\Admin\CreateUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());
+
 
         $request = $this->getRequest();
 
@@ -89,14 +88,23 @@ class AdminController extends AbstractActionController {
         $form = new \User\Form\Admin\EditUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());
 
         $form->setUser($user);
+        $roles = $user->getRoles();
+        foreach ($roles as $key => $value) {
+            $roleId= $value->getRoleId() ;
+            $role = $value->getId();
+        }
 
+        $form->get('role')->setValue($role);
+        
+        
+        
         /** @var $request \Zend\Http\Request */
         $request = $this->getRequest();
 
         if ($request->isPost()) {
             $form->setData($request->getPost());
             if ($form->isValid()) {
-                $user = $this->adminService->edit($form, (array) $request->getPost(), $user,$this->moduleOptions,$this->zfcUserOptions);
+                $user = $this->adminService->edit($form, (array) $request->getPost(), $user, $this->moduleOptions, $this->zfcUserOptions);
                 if ($user) {
                     $this->flashMessenger()->addSuccessMessage('The user was edited');
                     return $this->redirect()->toRoute('admin/list');
@@ -113,12 +121,12 @@ class AdminController extends AbstractActionController {
     }
 
     public function removeAction() {
-        
+
         $userId = $this->getEvent()->getRouteMatch()->getParam('userId');
 
         /** @var $identity \ZfcUser\Entity\UserInterface */
         $identity = $this->zfcUserAuthentication()->getIdentity();
-        
+
         if ($identity && $identity->getId() == $userId) {
             $this->flashMessenger()->addErrorMessage('You can not delete yourself');
         } else {
@@ -142,16 +150,9 @@ class AdminController extends AbstractActionController {
     function setCreatUserForm($creatUserForm) {
         $this->creatUserForm = $creatUserForm;
     }
-    
-    
-  
 
-    public function setRegisterForm(Form $registerForm)
-    {
+    public function setRegisterForm(Form $registerForm) {
         $this->registerForm = $registerForm;
     }
 
-
-    
-    
 }

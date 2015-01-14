@@ -80,6 +80,8 @@ class UserMapper implements EventManagerAwareInterface, UserMapperInterface {
         return $user;
     }
 
+
+
     public function remove($entity) {
         $this->getEventManager()->trigger('remove.pre', $this, array('entity' => $entity));
         $this->objectManager->remove($entity);
@@ -116,20 +118,20 @@ class UserMapper implements EventManagerAwareInterface, UserMapperInterface {
         return $this->save($user);
     }
 
-    public function setRole(UserInterface $user,$role) {
+    public function setRole(UserInterface $user, $role) {
         $userRole = $this->objectManager->getRepository('User\Entity\Role')->find($role);
         $user->getRoles()->add($userRole);
         return $this->save($user);
     }
-    
-     public function getRole($role) {
-         try {
-             $userRole = $this->objectManager->getRepository('User\Entity\Role')->find($role);
-         } catch (Exception $exc) {
-             $userRole = $this->objectManager->getRepository('User\Entity\Role')->find(2);
-         }
 
-        
+    public function getRole($role) {
+        try {
+            $userRole = $this->objectManager->getRepository('User\Entity\Role')->find($role);
+        } catch (Exception $exc) {
+            $userRole = $this->objectManager->getRepository('User\Entity\Role')->find(2);
+        }
+
+
         return $userRole;
     }
 

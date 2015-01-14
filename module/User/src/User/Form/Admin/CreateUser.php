@@ -24,7 +24,7 @@ class CreateUser extends Register {
 
         //$this->remove('userId');
         /*
-         * foreach for the modulOption SampelCode edit arra do you want...   
+         * foreach for the modulOption SampelCode, edit array values..   
           foreach ($this->getCreateOptions()->getCreateFormElements() as $name => $element) {
           // avoid adding fields twice (e.g. email)
           // if ($this->get($element)) continue;

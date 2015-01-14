@@ -36,8 +36,8 @@ class Register extends \ZfcUser\Form\Base {
         if ($this->getRegistrationOptions()->getUseRegistrationFormCaptcha() && $this->captchaElement) {
             $this->add($this->captchaElement, array('name' => 'captcha'));
         }
-
-        $this->add(array('name' => 'displayname', 'options' => array('label' => 'Vor- und Nachname',),
+       $this->remove('display_name');
+        $this->add(array('name' => 'display_name', 'options' => array('label' => 'Vor- und Nachname',),
             'attributes' => array('type' => 'text',), 'required',
                 )
         );
