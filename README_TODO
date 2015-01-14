@@ -4,19 +4,11 @@ __CODE__
 - Administrator-> User Edit Form change role
 
 -AutoPassword selector Create form
-- CHECK * Login Form auf Deutsch
-
-
-- CHECK Password Form auf Deutsch
 - * Login HTTPS und rest (nth)--
-- Layout anpassen Navbar
-
 
 ---> Projekt aufräumen Kommentare<-----
 
-idea
 
-base64 uri convertor
 //bugs________________________________________________________________________________
 
 - Upload Image File zu gross Fehler abfangen 
