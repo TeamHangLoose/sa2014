@@ -28,6 +28,9 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
     //**********************************************************************************************************S
     protected $__strictMode__ = false;
 
+    protected $numberOfListLines = 15;
+
+
     /**
      * Array of data to show in the user list
      * Key = Label in the list
@@ -95,7 +98,23 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      */
     protected $allowPasswordChange = true;
     protected $userMapper = 'ZfcUserAdmin\Mapper\UserDoctrine';
+    
+    function get__strictMode__() {
+        return $this->__strictMode__;
+    }
 
+    function getNumberOfListLines() {
+        return $this->numberOfListLines;
+    }
+
+    function set__strictMode__($__strictMode__) {
+        $this->__strictMode__ = $__strictMode__;
+    }
+
+    function setNumberOfListLines($numberOfListLines) {
+        $this->numberOfListLines = $numberOfListLines;
+    }
+    
     public function correctEntity($entityClass) {
         if (substr($entityClass, 0, 1) !== '\\') {
             $entityClass = '\\' . $entityClass;
