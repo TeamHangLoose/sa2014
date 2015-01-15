@@ -53,8 +53,11 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
     public function edit(Form $form, array $data, \User\Entity\User $user, $modulOptions, $zfcUserOptions) {
         // first, process all form fields
 
+       
+        
         $role = $this->userMapper->getRole($data['role']);
         $user->addRole($role);
+        
         
         
 

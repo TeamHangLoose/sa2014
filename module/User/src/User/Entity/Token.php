@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="forgot_password_tokens")
+ * @ORM\Table(name="tokens")
  */
 class Token implements TokenInterface
 {
