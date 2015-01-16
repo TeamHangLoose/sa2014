@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Mapper;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use ZfcUser\Entity\UserInterface;
 
 interface UserMapperInterface {
@@ -33,8 +36,7 @@ interface UserMapperInterface {
      */
     public function changePassword($password, UserInterface $user);
 
-    
-        /**
+    /**
      * Change password
      *
      * @param string $password
@@ -42,11 +44,13 @@ interface UserMapperInterface {
      * @return bool
      */
     public function setActive(UserInterface $user);
+
+    public function setDisactive(UserInterface $user);
+
+    public function setRole(UserInterface $user, $role);
+
+    public function getRole($role);
     
-    
-    public function setDisactive(UserInterface $user) ;
-    
-     public function setRole(UserInterface $user,$role) ;
-    
-     public function getRole($role) ;
+    public function removeRole(UserInterface $user) ;
+
 }

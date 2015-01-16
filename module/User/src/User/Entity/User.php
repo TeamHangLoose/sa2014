@@ -251,6 +251,7 @@ class User implements UserInterface, ProviderInterface {
      *
      * @return void
      */
+    
     public function addRole($role) {
         $this->roles[] = $role;
     }

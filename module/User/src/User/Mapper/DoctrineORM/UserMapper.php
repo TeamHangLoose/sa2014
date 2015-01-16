@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Mapper\DoctrineORM;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Doctrine\Common\Persistence\ObjectManager;
 use User\Mapper\UserMapperInterface;
 use ZfcUser\Entity\UserInterface;
@@ -73,15 +76,17 @@ class UserMapper implements EventManagerAwareInterface, UserMapperInterface {
      */
     public function save(UserInterface $user, $flush = true) {
         $this->objectManager->persist($user);
-
         if ($flush) {
             $this->objectManager->flush();
         }
-
         return $user;
     }
 
-
+    public function removeRole(UserInterface $user) {
+        $roles=$user->getRoles();
+        $roles->remove(0);
+        $this->save($user);
+    }
 
     public function remove($entity) {
         $this->getEventManager()->trigger('remove.pre', $this, array('entity' => $entity));

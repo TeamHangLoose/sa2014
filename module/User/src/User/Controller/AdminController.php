@@ -20,7 +20,6 @@ use User\Form\Admin\EditUser;
  * 
  * @author abbts2015 B14.if4.1 G.3
  */
-
 class AdminController extends AbstractActionController {
     /*     * @var \User\Options\ModuleOptions */
 
@@ -85,12 +84,15 @@ class AdminController extends AbstractActionController {
         $form = new EditUser(null, $this->moduleOptions, $this->zfcUserOptions, $this->getServiceLocator());
         $form->setUser($user);
         $roles = $user->getRoles();
+
         foreach ($roles as $key => $value) {
             $roleId = $value->getRoleId();
             $role = $value->getId();
         }
+        /* @var $role def user role */
+        if (!$role) {$role = 1;}  
         $form->get('role')->setValue($role);
-
+        /*
         /** @var $request \Zend\Http\Request */
         $request = $this->getRequest();
         if ($request->isPost()) {

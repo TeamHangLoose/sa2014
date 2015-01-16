@@ -149,6 +149,6 @@ interface UserInterface extends \ZfcUser\Entity\UserInterface {
 
     function setPhone($phone) ;
     
-    
+    public function getRoles() ;
     
 }
