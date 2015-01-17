@@ -2,10 +2,10 @@
 Dear <?=$name?><br />
 <br />
 <?php } ?>
-Bitte bestätigen Sie Ihre Email Adresse.<br />
+Bitte bestaetigen Sie Ihre Email Adresse.<br />
 <br />
-Please visit this url.<br />
+Klicken Sie auf folgenden Link um diese zu bestaetigen:<br />
 <br />
 <a href="<?=$this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?>"><?=$this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?></a><br />
 <br />
-If you received this email in error, you can safely ignore this email.
+Wenn Sie diese Email Irrtümlicherweise bekommen haben, können Sie diese ignorieren.
