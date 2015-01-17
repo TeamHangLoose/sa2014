@@ -1,9 +1,17 @@
 TODO'S
 
 __CODE__
-- Administrator-> User Edit Form change role
+
 -AutoPassword selector Create form
+
 - * Login HTTPS und rest (nth)--
+
+- rewrite .htaccsses index.php /
+
+- ip mail confirm
+
+- 
+
 ---> Projekt aufräumen Kommentare<-----
 //bugs________________________________________________________________________________
 - Upload Image File zu gross Fehler abfangen 
