@@ -6,7 +6,7 @@
         <?php $isButton = $element instanceof Zend\Form\Element\Button; ?>
         <?php $isCheckbox = $element instanceof Zend\Form\Element\Checkbox || $element->getAttribute('type') == 'checkbox'; ?>
         <?php if ($element->getLabel() != null && !$isButton): ?>
-            <?php $element->setAttribute('class', 'form-control')
+            <?php $element->setAttribute('class', 'form-control form-group')
                     ->setAttribute('placeholder', $element->getLabel());
             ?>
             <dt><?php echo $this->formLabel($element) ?></dt>
@@ -15,7 +15,7 @@
             <?php $element->setAttribute('class', 'btn btn-success') ?>
             <dd><?php echo $this->formButton($element) ?></dd>
         <?php elseif ($element instanceof Zend\Form\Element\Select): ?>
-        <?php $element->setAttribute('class', 'form-control') ?>
+        <?php $element->setAttribute('class', 'form-control form-group') ?>
 
             <dd><?php echo $this->formSelect($element) . $this->formElementErrors($element) ?></dd>
     <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
