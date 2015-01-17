@@ -16,4 +16,7 @@ $form->setAttribute('method', 'post');
     <a href="<?php echo $this->url('admin/remove', array('userId' => $this->userId)) ?>" class="btn btn-delete" onclick="return confirm('<?php echo $this->translate('Sind Sie sicher ?') ?>')">
         <?php echo $this->translate('Löschen') ?>
     </a>
+    <br>
+    <br>
+    <a href="<?php echo $this->url('admin/list') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-cog"></span><?php echo $this->translate(' Verwaltung'); ?></a>
 </div>
