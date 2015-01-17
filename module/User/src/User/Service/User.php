@@ -34,6 +34,9 @@ class User extends \ZfcUser\Service\User {
         if (!$bcrypt->verify($data['credential'], $currentUser->getPassword())) {
             return false;
         }
+        
+        $currentUser->setDisplayName($data['newDisplayname']);
+        $currentUser->setUsername($data['newUsername']);
         $currentUser->setStreet($data['newStreet']);
         $currentUser->setPlz($data['newPlz']);
         $currentUser->setVillage($data['newVillage']);

@@ -20,6 +20,7 @@
 
     echo $this->form()->openTag($form);
     ?>
+ <a href="<?php echo $this->url('zfcuser') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-home"></span><?php echo $this->translate(' Mein Profil'); ?></a>
 
     <?php foreach ($form as $element) : ?>
 
@@ -63,8 +64,7 @@
         </div>
     <?php endforeach; ?>
     <br>
-    <a href="<?php echo $this->url('zfcuser') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><span class="glyphicon glyphicon-home"></span><?php echo $this->translate(' Mein Profil'); ?></a>
-
+ 
     <?php if ($this->redirect): ?>
         <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
     <?php endif ?>
