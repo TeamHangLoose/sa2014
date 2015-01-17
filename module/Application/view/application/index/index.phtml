@@ -1,45 +1,47 @@
 <div class="jumbotron text-center">
-    <h1><?php echo sprintf($this->translate('Willkommen')).' !' ?></h1>
+    <h1><?php echo sprintf($this->translate('Willkommen')) . ' !' ?></h1>
     <p><?php echo sprintf($this->translate('Hier ensteht das neue Teilnehmerportal der Badenfahrt 2016. Es bietet die Verwaltung sowie die Organisation des gesamten Festbetriebes')) ?> </p>
-    <p><a class="btn btn-lg btn-info" href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Registrieren'); ?></a>
-        <a class="btn btn-lg btn-success" href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Login'); ?></a>
-    </p>
+    <?php IF (!$this->zfcUserIdentity()): ?>
+        <p><a class="btn btn-lg btn-info" href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Registrieren'); ?></a>
+            <a class="btn btn-lg btn-success" href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Login'); ?></a>
+        </p>
+    <?php endif; ?>
 </div>
 
 <div class="row">
 
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><?php echo $this->translate('Festwirtschaft') ?></h3>
             </div>
             <div class="panel-body">
-                <p><?php echo sprintf($this->translate('Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues. It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles, quam un skeptic Cambridge amico dit me que Occidental es.Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.')) ?></p>
-                <p><a class="btn btn-info pull-right" href="http://framework.zend.com/zf2" target="_blank"><?php echo $this->translate('Mehr über Festwirtschaft') ?> &raquo;</a></p>
+                <p><?php echo sprintf($this->translate('Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. ues coalesce, ilie. Lor separat existentie es un myth. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.')) ?></p>
+                <p><a class="btn btn-info pull-right" href="/about"><?php echo $this->translate('Mehr über Festwirtschaft') ?> &raquo;</a></p>
             </div>
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><?php echo $this->translate('Feststand') ?></h3>
             </div>
             <div class="panel-body">
-                <p><?php echo sprintf($this->translate('Überall dieselbe alte Leier. Das Layout ist fertig, der Text lässt auf sich warten. Damit das Layout nun nicht nackt im Raume steht und sich klein und leer vorkommt, springe ich ein: der Blindtext. Genau zu diesem Zwecke erschaffen, immer im Schatten meines großen Bruders »Lorem Ipsum«, freue ich mich jedes Mal, wenn Sie ein paar Zeilen lesen. Denn esse est percipi - Sein ist wahrgenommen werden. Und weil Sie nun schon die Güte haben, mich ein paar weitere Sätze lang zu begleiten, möchte ich diese Gelegenheit nutzen, Ihnen nicht nur als Lückenfüller zu dienen, sondern auf etwas hinzuweisen, das es ebenso verdient wahrgenommen zu werden: Webstandards nämlich. Sehen Sie, Webstandards sind das Regelwerk, auf dem Webseiten aufbauen. So gibt es Regeln für HTML, CSS, JavaScript oder auch XML; Worte, die Sie vielleicht schon einmal von Ihrem Entwickler gehört haben. Diese Standards sorgen dafür, dass alle Beteiligten aus einer Webseite den größten Nutzen ziehen. Im Gegensatz zu früheren Webseiten müssen wir zum Beispiel nicht mehr zwei verschiedene Webseiten für den Internet Explorer und einen anderen Browser programmieren. Es reicht eine Seite, die - richtig angelegt - sowohl auf verschiedenen Browsern im Netz funktioniert, aber ebenso gut für den Ausdruck oder ')) ?></p>
-                <p><a class="btn btn-info pull-right" href="http://modules.zendframework.com/" target="_blank"><?php echo $this->translate('Mehr über Feststand') ?> &raquo;</a></p>
+                <p><?php echo sprintf($this->translate('Überall dieselbe alte Leier. Das Layout ist fertig, der Text lässt auf sich warten. Damit das Layout nun nicht nackt im Raume steht und sich klein und leer vorkommt.')) ?></p>
+                <p><a class="btn btn-info pull-right" href="/about"><?php echo $this->translate('Mehr über Feststand') ?> &raquo;</a></p>
             </div>
         </div>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><?php echo $this->translate('Gastrobetrieb') ?></h3>
             </div>
             <div class="panel-body">
-                <p><?php echo sprintf($this->translate('If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We\'d love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s.'), '<a href="irc://irc.freenode.net/zftalk">', '</a>', '<a href="http://framework.zend.com/wiki/display/ZFDEV/Mailing+Lists">', '</a>') ?></p>
-                <p><a class="btn btn-info pull-right" href="http://webchat.freenode.net?channels=zftalk" target="_blank"><?php echo $this->translate('Mehr Festbetrieb') ?> &raquo;</a></p>
+                <p><?php echo sprintf($this->translate('Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. ues coalesce, ilie. Lor separat existentie es un myth. Omnicos dire udeeretuices.')) ?></p>
+                <p><a class="btn btn-info pull-right" href="/about"><?php echo $this->translate('Mehr über Gastrobetrieb') ?> &raquo;</a></p>
             </div>
         </div>
     </div>
