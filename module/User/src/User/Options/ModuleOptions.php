@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Options;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Zend\Stdlib\AbstractOptions;
 
 class ModuleOptions extends AbstractOptions implements
@@ -14,6 +17,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
 
     /** @var int */
     protected $tokenHours = 24;
+
     /**
      * @var string
      */
@@ -25,11 +29,10 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * @param $entityClass
      * @return string
      */
-    //**********************************************************************************************************S
     protected $__strictMode__ = false;
-
+    
+    /* @var $numberOfListLines List of disp. Admin */
     protected $numberOfListLines = 15;
-
 
     /**
      * Array of data to show in the user list
@@ -44,7 +47,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
         'Zip Code' => 'plz',
         'Village' => 'village',
         'Phone' => 'phone',
-        'Aktive'=>'active');
+        'Aktive' => 'active');
 
     /**
      * Array of form elements to show when editing a user
@@ -52,15 +55,15 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
     protected $editFormElements = array(
-         /*
-        'Vorname Nachname' => 'username',
-        'Email' => 'email',
-        'Strasse' => 'street',
-        'PLZ' => 'plz',
-        'Ort' => 'village',
-        'Telefon' => 'phone'
-        */
-        );
+            /*
+              'Vorname Nachname' => 'username',
+              'Email' => 'email',
+              'Strasse' => 'street',
+              'PLZ' => 'plz',
+              'Ort' => 'village',
+              'Telefon' => 'phone'
+             */
+    );
 
     /**
      * Array of form elements to show when creating a user
@@ -68,15 +71,15 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Value = entity property(expecting a 'getProperty()/setProperty()' function)
      */
     protected $createFormElements = array(
-        /*
-        //ID hidden
-        'Vorname Nachname' => 'username',
-        'Strasse' => 'street',
-        'PLZ' => 'plz',
-        'Ort' => 'village',
-        'Telefon' => 'phone'
-        */
-        );
+            /*
+              //ID hidden
+              'Vorname Nachname' => 'username',
+              'Strasse' => 'street',
+              'PLZ' => 'plz',
+              'Ort' => 'village',
+              'Telefon' => 'phone'
+             */
+    );
 
     /**
      * @var bool
@@ -85,7 +88,6 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      */
     protected $createUserAutoPassword = false;
 
-    
     /**
      * @var int
      * Length of passwords created automatically
@@ -98,7 +100,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      */
     protected $allowPasswordChange = true;
     protected $userMapper = 'ZfcUserAdmin\Mapper\UserDoctrine';
-    
+
     function get__strictMode__() {
         return $this->__strictMode__;
     }
@@ -114,7 +116,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
     function setNumberOfListLines($numberOfListLines) {
         $this->numberOfListLines = $numberOfListLines;
     }
-    
+
     public function correctEntity($entityClass) {
         if (substr($entityClass, 0, 1) !== '\\') {
             $entityClass = '\\' . $entityClass;
