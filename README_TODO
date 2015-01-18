@@ -23,10 +23,15 @@ __CODE__
 2*Beim mailenden
 Zend\Mail\Protocol\Exception\RuntimeException
 ****######################################################################################################33
-
 Warning: POST Content-Length of 15113934 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
-
 ############################################################################################################
+
+-- Creat auto PW ADMIN/EDIT
+Warning: Missing argument 1 for User\Service\AdminService::generatePassword(), called in C:\DATA\master2\sa2014\module\User\src\User\Service\AdminService.php on line 76 and defined in C:\DATA\master2\sa2014\module\User\src\User\Service\AdminService.php on line 138
+
+Notice: Undefined variable: modulOptions in C:\DATA\master2\sa2014\module\User\src\User\Service\AdminService.php on line 139
+
+Fatal error: Call to a member function getAutoPasswordLength() on a non-object in C:\DATA\master2\sa2014\module\User\src\User\Service\AdminService.php on line 139
 ______________________________________________________________________________
 
 __DOKU__

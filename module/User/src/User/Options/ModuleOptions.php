@@ -99,6 +99,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Allow change user password on user edit form.
      */
     protected $allowPasswordChange = true;
+    
     protected $userMapper = 'ZfcUserAdmin\Mapper\UserDoctrine';
 
     function get__strictMode__() {
