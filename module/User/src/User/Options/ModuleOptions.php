@@ -18,6 +18,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
     /** @var int */
     protected $tokenHours = 24;
 
+
     /**
      * @var string
      */
