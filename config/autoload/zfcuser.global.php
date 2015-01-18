@@ -112,16 +112,17 @@ $settings = array(
      * this to configure which Zend\Captcha adapter to use, and the options to
      * pass to it. The default uses the Figlet captcha.
      */
-    /*
+ 
+    
     'form_captcha_options' => array(
-        'class'   => 'recaptcha',
+        'class'   => 'figlet',
         'options' => array(
-            'wordLen'    => 5,
+            'wordLen'    => 3,
             'expiration' => 300,
             'timeout'    => 300,
         ),
     ),
-    */
+    
     /**
      * Use Redirect Parameter If Present
      *
