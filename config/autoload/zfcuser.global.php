@@ -103,7 +103,7 @@ $settings = array(
      * Determines if a captcha should be utilized on the user registration form.
      * Default value is false.
      */
-//    'use_registration_form_captcha' => true,
+    'use_registration_form_captcha' => true,
 
     /**
      * Form Captcha Options

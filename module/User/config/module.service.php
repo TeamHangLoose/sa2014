@@ -1,5 +1,6 @@
 <?php
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
@@ -9,8 +10,6 @@ return array(
         'Soflomo\Mail\Renderer' => 'ViewRenderer',
         'Soflomo\Mail\Transport' => 'Soflomo\Mail\DefaultTransport',
         'Soflomo\Mail\Message' => 'Soflomo\Mail\DefaultMessage',
-        
-        
     ),
     'invokables' => array(
         'User\Form\Forgot\RequestForm' => 'User\Form\Forgot\RequestForm',
@@ -21,13 +20,9 @@ return array(
         'User\Form\Admin\EditUser' => 'User\Form\Admin\EditUser',
         'User\Form\Admin\CreateUser' => 'User\Form\Admin\CreateUser',
         'zfcuser_user_service' => 'User\Service\User',
-        
         'ZfcUser\Form\Register' => 'User\Form\Admin\EditUser',
         'User\Form\ZfcUser\Register' => 'User\Form\ZfcUser\Register',
         'User\Form\User\Index' => 'User\Form\User\Index',
-        
-   
-        
     ),
     'initializers' => array(
         'mail_transport' => 'Soflomo\Mail\Service\TransportAwareInitializer',
@@ -48,17 +43,11 @@ return array(
         'User\Mapper\TokenMapper' => 'User\Factory\Mapper\DoctrineORM\TokenMapperFactory',
         'User\Service\DoubleOptInService' => 'User\Factory\Service\DoubleOptInServiceFactory',
         'HtProfileImage\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
-        
         'HtProfileImage\Service\ProfileImageService' => 'User\Factory\Service\ProfileImageServiceFactory',
-      
-        
         'HtProfileImage\Service\CacheManager' => 'User\Factory\Service\CacheManagerFactory',
         'zfcuser_register_form' => function ($sm) {
-
             $options = $sm->get('zfcuser_module_options');
-
             $form = new User\Form\Zfcuser\Register(null, $options);
-            //$form->setCaptchaElement($sm->get('zfcuser_captcha_element'));
             $form->setInputFilter(new User\Form\Zfcuser\RegisterFilter(
                     new ZfcUser\Validator\NoRecordExists(array(
                 'mapper' => $sm->get('zfcuser_user_mapper'),
@@ -71,9 +60,7 @@ return array(
             return $form;
         },
                 'zfcuser_admin_register_form' => function ($sm) {
-
             $options = $sm->get('zfcuser_module_options');
-
             $form = new User\Form\Admin\CreateUser(null, $options);
             //$form->setCaptchaElement($sm->get('zfcuser_captcha_element'));
             $form->setInputFilter(new User\Form\Admin\CreateUserFilter(
