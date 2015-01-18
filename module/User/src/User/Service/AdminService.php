@@ -73,7 +73,7 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
         // then check if admin wants to change user password
         if ($modulOptions->getAllowPasswordChange()) {
             if (!empty($data['reset_password'])) {
-                $argv['password'] = $this->generatePassword();
+                $argv['password'] = $this->generatePassword($modulOptions);
             } elseif (!empty($data['password'])) {
                 $argv['password'] = $data['password'];
             }

@@ -143,5 +143,22 @@ class AdminController extends AbstractActionController {
     public function setRegisterForm(Form $registerForm) {
         $this->registerForm = $registerForm;
     }
+    function getModuleOptions() {
+        return $this->moduleOptions;
+    }
+
+    function getZfcUserOptions() {
+        return $this->zfcUserOptions;
+    }
+
+    function setModuleOptions($moduleOptions) {
+        $this->moduleOptions = $moduleOptions;
+    }
+
+    function setZfcUserOptions($zfcUserOptions) {
+        $this->zfcUserOptions = $zfcUserOptions;
+    }
+
+
 
 }
