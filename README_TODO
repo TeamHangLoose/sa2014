@@ -6,9 +6,9 @@ __CODE__
 
 - * Login HTTPS und rest (nth)--
 
-- rewrite .htaccsses index.php /
+- rewrite .htaccsses index.php /home
 
-- ip mail confirm
+- ip mail confirmmail Hostname
 
 - github readme.md anpassen und besser Dokumentieren
 
