@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Service;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use User\Mapper\UserMapperInterface;
 use Zend\Form\Form;
 use Zend\Math\Rand;
@@ -29,12 +32,6 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
         $this->userMapper = $userMapper;
     }
 
-    /**
-     * Request new password
-     *
-     * @param array $data
-     * @return bool
-     */
     public function listUser() {
         $users = $this->userMapper->findAll();
         return $users;
@@ -51,26 +48,25 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
     }
 
     public function edit(Form $form, array $data, \User\Entity\User $user, $modulOptions, $zfcUserOptions) {
-        // first, process all form fields
-       
+
         /* @var $role currently only one role per user, change if you need more */
         $role = $this->userMapper->getRole($data['role']);
-        /* remove currently role of the user*/
+        /* remove currently role of the user */
         $this->userMapper->removeRole($user);
-        /* add new Role*/
+        /* add new Role */
         $user->addRole($role);
-
+        // process all form fields
         foreach ($data as $key => $value) {
             if ($key == 'password')
                 continue;
 
             $setter = $this->getAccessorName($key);
             if (method_exists($user, $setter))
-                call_user_func(array($user, $setter), $value);
+                call_user_fudnc(array($user, $setter), $value);
         }
 
         $argv = array();
-        // then check if admin wants to change user password
+        // check if wants to change user password
         if ($modulOptions->getAllowPasswordChange()) {
             if (!empty($data['reset_password'])) {
                 $argv['password'] = $this->generatePassword($modulOptions);
@@ -98,8 +94,6 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
     }
 
     public function create(Form $form, array $data, $zfcUserOptions, $modulOptions) {
-
-        //$zfcUserOptions = $this->getZfcUserOptions();
 
         $user = $form->getData();
         $formdata = $form->getData();
@@ -133,7 +127,7 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
     }
 
     /**
-     * @return string
+     * @return string User Password
      */
     public function generatePassword($modulOptions) {
         return Rand::getString($modulOptions->getAutoPasswordLength());
