@@ -14,10 +14,20 @@ __CODE__
 
 - confinm opt-in forgot-passwortd  change-password classen bootstrap.
 
+Index of /htimg/htprofileimage_display/user
+
+    Parent Directory
+    -763789443641936295.png
+    1014439505641936295.png
+
+http://theothersite.ch/htimg/htprofileimage_display/user/
+
+
+
 ---> Projekt aufräumen Kommentare<-----
 //bugs________________________________________________________________________________
 
-
+Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 16000 bytes) in C:\data\sa2014\vendor\imagine\imagine\lib\Imagine\Gd\Image.php on line 602
 #######################################################
 2*Beim mailenden
 Zend\Mail\Protocol\Exception\RuntimeException
