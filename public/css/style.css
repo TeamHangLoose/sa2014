@@ -11,8 +11,13 @@ body {
 
 .form-default{
     margin: 20px auto;
-    max-width:330px;
+    max-width:300px;
     min-width: 110px;
+}
+
+.form-default input:focus{
+	width: 330px;
+        font-style: italic;
 }
 
 /*Custom Button success for "Register"*/
