@@ -14,15 +14,6 @@ __CODE__
 
 - confinm opt-in forgot-passwortd  change-password classen bootstrap.
 
-Index of /htimg/htprofileimage_display/user
-
-    Parent Directory
-    -763789443641936295.png
-    1014439505641936295.png
-
-http://theothersite.ch/htimg/htprofileimage_display/user/
-
-
 
 ---> Projekt aufräumen Kommentare<-----
 //bugs________________________________________________________________________________
@@ -34,8 +25,16 @@ Zend\Mail\Protocol\Exception\RuntimeException
 ****######################################################################################################
 - Upload Image File zu gross Fehler abfangen 
 Warning: POST Content-Length of 15113934 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
-
 ############################################################################################################
+
+Index of /htimg/htprofileimage_display/user
+
+    Parent Directory
+    -763789443641936295.png
+    1014439505641936295.png
+
+http://theothersite.ch/htimg/htprofileimage_display/user/
+
 ______________________________________________________________________________
 
 __DOKU__
