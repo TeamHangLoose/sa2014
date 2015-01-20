@@ -13,18 +13,18 @@ body {
     margin: 20px auto;
     max-width:300px;
     min-width: 110px;
-    
+
 }
 
 .form-default input:focus{
-	width: 330px;
-        height: 40px;
-        font-style: italic;
-        -webkit-transition: width 2s ease;
-	-moz-transition: width 2s ease;
-	-o-transition: width 2s ease;
-	-ms-transition: width 2s ease;
-	transition: width 2s ease;
+    width: 330px;
+    height: 40px;
+    font-style: italic;
+    -webkit-transition: width 2s ease;
+    -moz-transition: width 2s ease;
+    -o-transition: width 2s ease;
+    -ms-transition: width 2s ease;
+    transition: width 2s ease;
 }
 
 /*Custom Button success for "Register"*/
