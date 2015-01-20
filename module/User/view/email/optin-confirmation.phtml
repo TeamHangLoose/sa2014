@@ -1,5 +1,5 @@
 <?php if (isset($name)) { ?>
-Dear <?=$name?><br />
+Wilkommen <?=$name?><br />
 <br />
 <?php } ?>
 Bitte bestaetigen Sie Ihre Email Adresse.<br />
@@ -7,5 +7,7 @@ Bitte bestaetigen Sie Ihre Email Adresse.<br />
 Klicken Sie auf folgenden Link um diese zu bestaetigen:<br />
 <br />
 <a href="<?=$this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?>"><?=$this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?></a><br />
+<?php echo $this->url ?>
 <br />
+
 Wenn Sie diese Email Irrtuemlicherweise bekommen haben, koennen Sie diese ignorieren.
