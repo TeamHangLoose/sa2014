@@ -70,7 +70,6 @@ class Module {
     public function getServiceConfig() {
 
 
-
         return include __DIR__ . '../../../config/module.service.php';
     }
 
