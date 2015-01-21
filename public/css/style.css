@@ -145,6 +145,7 @@ body {
 }
 
 @-webkit-keyframes pulse_animation {
+        /* SAFARI */
 	0% { -webkit-transform: scale(1); }
 	30% { -webkit-transform: scale(1); }
 	40% { -webkit-transform: scale(1.08); }
@@ -153,6 +154,7 @@ body {
 	70% { -webkit-transform: scale(1.05); }
 	80% { -webkit-transform: scale(1); }
 	100% { -webkit-transform: scale(1); }
+       
 }
 
 .pulse {
@@ -161,4 +163,12 @@ body {
 	-webkit-transform-origin:70% 70%;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
+        
+        -animation-name: 'pulse_animation';
+	-animation-duration: 5000ms;
+	-transform-origin:70% 70%;
+	-animation-iteration-count: infinite;
+	-animation-timing-function: linear;
+        
+        
 }
