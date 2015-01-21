@@ -1,9 +1,11 @@
-<div class="jumbotron text-center shake">
+<div class="jumbotron text-center">
     <h1><?php echo sprintf($this->translate('Willkommen')) . ' !' ?></h1>
     <p><?php echo sprintf($this->translate('Hier ensteht das neue Teilnehmerportal der Badenfahrt 2016. Es bietet die Verwaltung sowie die Organisation des gesamten Festbetriebes')) ?> </p>
     <?php IF (!$this->zfcUserIdentity()): ?>
-        <p><a class="btn btn-lg btn-info test" href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Registrieren'); ?></a>
+        <p><a class="btn btn-lg btn-info" href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Registrieren'); ?></a>
+            <div class="animted wobble">
             <a class="btn btn-lg btn-success" href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Login'); ?></a>
+            </div>
         </p>
     <?php endif; ?>
 </div>
