@@ -175,8 +175,8 @@ body {
 
 /* Animation wiggle for all button on hover*/
 .btn:hover { 
-    -webkit-animation-duration: 2s; 
-    animation-duration: 2s; 
+    -webkit-animation-duration: 1s; 
+    animation-duration: 1s; 
     -webkit-animation-fill-mode: both; 
     animation-fill-mode: both; 
     -webkit-animation-timing-function: ease-in; 
@@ -213,10 +213,5 @@ body {
     90% { transform: skewX(0deg); } 
     100% { transform: skewX(0deg); } 
 } 
- 
-/*.animated.btn { 
-    -webkit-animation-duration: 0.75s; 
-    animation-duration: 0.75s; 
-}*/
 
 /* --END-- Animation wiggle for all button on hover*/
