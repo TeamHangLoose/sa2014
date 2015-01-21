@@ -10,7 +10,7 @@ body {
     margin-left: 15px;
 }
 
-.navbar:active{
+.navbar ul .active{
     color:aqua;    
 }
 /*--END-- Navbar Customize*/
