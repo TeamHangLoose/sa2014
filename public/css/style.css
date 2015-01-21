@@ -23,16 +23,25 @@ body {
     min-width: 110px;
 }
 
+input.form-default:first-of-type{
+    background-color: blue; 
+    color:green;
+}
+
 .form-default input:hover:not([type="checkbox"]){
     width: 330px;
-    /* height: 40px; */
-    color: #3875D7;
+    /* height: 35px;*/
+    color: #444444;
     font-weight: bold;
     -webkit-transition: width 2s ease;
     -moz-transition: width 2s ease;
     -o-transition: width 2s ease;
     -ms-transition: width 2s ease;
     transition: width 2s ease;
+}
+
+.checkbox{
+     padding-left: 50px;
 }
 
 /*--END-- Custom standard form */
