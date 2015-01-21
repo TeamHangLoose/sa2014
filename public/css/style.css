@@ -144,41 +144,18 @@ body {
     //display:none
 }
 
-@-webkit-keyframes pulse_animation {
-    /* SAFARI */
-    0% { -webkit-transform: scale(1); }
-    30% { -webkit-transform: scale(1); }
-    40% { -webkit-transform: scale(1.08); }
-    50% { -webkit-transform: scale(1); }
-    60% { -webkit-transform: scale(1); }
-    70% { -webkit-transform: scale(1.05); }
-    80% { -webkit-transform: scale(1); }
-    100% { -webkit-transform: scale(1); }
+
+@-webkit-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
 }
-
-@keyframes pulse_animation {
-    0% { -webkit-transform: scale(1); }
-    30% { -webkit-transform: scale(1); }
-    40% { -webkit-transform: scale(1.08); }
-    50% { -webkit-transform: scale(1); }
-    60% { -webkit-transform: scale(1); }
-    70% { -webkit-transform: scale(1.05); }
-    80% { -webkit-transform: scale(1); }
-    100% { -webkit-transform: scale(1); }
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {transform: translateX(10px);}
 }
-
-.pulse {
-    -webkit-animation-name: 'pulse_animation';
-    -webkit-animation-duration: 5000ms;
-    -webkit-transform-origin:70% 70%;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-
-    -animation-name: 'pulse_animation';
-    -animation-duration: 5000ms;
-    -transform-origin:70% 70%;
-    -animation-iteration-count: infinite;
-    -animation-timing-function: linear;
-
-
+.shake {
+    -webkit-animation-name: shake;
+    animation-name: shake;
 }
