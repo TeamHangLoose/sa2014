@@ -15,7 +15,7 @@ body {
 
 }
 
-.form-default input:focus{
+.form-group:focus{
     width: 330px;
     height: 40px;
     color: #3875D7;
