@@ -135,6 +135,7 @@ body {
 }
 /* --END-- Custom Button warning for "Delete"*/
 
+/*Custom Image styles*/
 .profileimg {
     -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
@@ -143,8 +144,9 @@ body {
 .img-list-hide{
     //display:none
 }
+/*--END-- Custom image styles*/
 
-/* Animation for Register Button*/
+/* Animation btn-pulse*/
 .btn-pulse { 
     -webkit-animation-duration: 1s; 
     animation-duration: 1s; 
@@ -168,4 +170,53 @@ body {
     50% { transform: scale(1.05); } 
     100% { transform: scale(1); } 
 } 
-/* Animation for Register Button*/
+/*--END--Animation btn-pulse*/
+
+
+/* Animation wiggle for all button on hover*/
+.btn:hover { 
+    -webkit-animation-duration: 2s; 
+    animation-duration: 2s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    -webkit-animation-timing-function: ease-in; 
+    animation-timing-function: ease-in; 
+    -webkit-animation-name: wiggle; 
+    animation-name: wiggle; 
+    -webkit-animation-timing-function: ease-in; 
+    animation-timing-function: ease-in; 
+} 
+
+@-webkit-keyframes wiggle { 
+    0% { -webkit-transform: skewX(9deg); } 
+    10% { -webkit-transform: skewX(-8deg); } 
+    20% { -webkit-transform: skewX(7deg); } 
+    30% { -webkit-transform: skewX(-6deg); } 
+    40% { -webkit-transform: skewX(5deg); } 
+    50% { -webkit-transform: skewX(-4deg); } 
+    60% { -webkit-transform: skewX(3deg); } 
+    70% { -webkit-transform: skewX(-2deg); } 
+    80% { -webkit-transform: skewX(1deg); } 
+    90% { -webkit-transform: skewX(0deg); } 
+    100% { -webkit-transform: skewX(0deg); } 
+} 
+@keyframes wiggle { 
+    0% { transform: skewX(9deg); } 
+    10% { transform: skewX(-8deg); } 
+    20% { transform: skewX(7deg); } 
+    30% { transform: skewX(-6deg); } 
+    40% { transform: skewX(5deg); } 
+    50% { transform: skewX(-4deg); } 
+    60% { transform: skewX(3deg); } 
+    70% { transform: skewX(-2deg); } 
+    80% { transform: skewX(1deg); } 
+    90% { transform: skewX(0deg); } 
+    100% { transform: skewX(0deg); } 
+} 
+ 
+/*.animated.btn { 
+    -webkit-animation-duration: 0.75s; 
+    animation-duration: 0.75s; 
+}*/
+
+/* --END-- Animation wiggle for all button on hover*/
