@@ -27,7 +27,7 @@ body {
     transition: width 2s ease;
 }
 
-/*Custom Button success for "Register"*/
+/*Custom Button success for "Login"*/
 .btn-success {
     background-color: #04B431;
     background-image: -moz-linear-gradient(top, #64FE2E, #04B431);
@@ -50,9 +50,9 @@ body {
 .btn-success:active, .btn-success.active {
     background-color: #04B431;
 }
-/* --END-- Custom Button success for "Register"*/
+/* --END-- Custom Button success for "Login"*/
 
-/*Custom Button info for "Login"*/
+/*Custom Button info for "Register"*/
 .btn-info {
     border-color: #08088A;
     background-color: #2E64FE;
@@ -75,7 +75,7 @@ body {
 .btn-info:active, .btn-info.active {
     background-color: #2E64FE;
 }
-/* --END-- Custom Button success for "Login"*/
+/* --END-- Custom Button success for "register"*/
 
 /*Custom Button delete for "Delete"*/
 .btn-delete {
@@ -145,15 +145,13 @@ body {
 }
 
 /* Animation for Register Button*/
-.btn-success { 
-    -webkit-animation-duration: 1s; 
-    animation-duration: 1s; 
+.btn-info { 
+    -webkit-animation-duration: 2s; 
+    animation-duration: 2s; 
     -webkit-animation-fill-mode: both; 
     animation-fill-mode: both; 
-    -webkit-animation-timing-function: linear; 
-    animation-timing-function: linear; 
-    animation-iteration-count:infinite; 
-    -webkit-animation-iteration-count:infinite; 
+    -webkit-animation-timing-function: ease-in; 
+    animation-timing-function: ease-in; 
 } 
 
 @-webkit-keyframes shake { 
@@ -166,7 +164,7 @@ body {
     10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);} 
     20%, 40%, 60%, 80% {transform: translateX(10px);} 
 } 
-.btn-success { 
+.btn-info { 
     -webkit-animation-name: shake; 
     animation-name: shake; 
 }
