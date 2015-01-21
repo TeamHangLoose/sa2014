@@ -23,9 +23,9 @@ body {
     min-width: 110px;
 }
 
-.form-group:focus{
+.form-default input:hover:not([type="checkbox"]){
     width: 330px;
-    height: 40px;
+    /* height: 40px; */
     color: #3875D7;
     font-weight: bold;
     -webkit-transition: width 2s ease;
