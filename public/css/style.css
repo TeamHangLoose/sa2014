@@ -145,7 +145,7 @@ body {
 }
 
 
-.button { 
+.btn { 
     -webkit-animation-duration: 2s; 
     animation-duration: 2s; 
     -webkit-animation-fill-mode: both; 
@@ -172,7 +172,7 @@ body {
   75% { transform: translateX(-5%) rotate(-1deg); } 
   100% { transform: translateX(0%); } 
 } 
-.button { 
+.btn { 
     -webkit-animation-name: wobble; 
     animation-name: wobble; 
 }
