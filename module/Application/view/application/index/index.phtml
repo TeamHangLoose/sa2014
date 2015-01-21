@@ -2,7 +2,7 @@
     <h1><?php echo sprintf($this->translate('Willkommen')) . ' !' ?></h1>
     <p><?php echo sprintf($this->translate('Hier ensteht das neue Teilnehmerportal der Badenfahrt 2016. Es bietet die Verwaltung sowie die Organisation des gesamten Festbetriebes')) ?> </p>
     <?php IF (!$this->zfcUserIdentity()): ?>
-        <p><a class="btn btn-lg btn-info btn-shake" href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Registrieren'); ?></a>
+        <p><a class="btn btn-lg btn-info btn-pulse" href="<?php echo $this->url('zfcuser/register') ?>"><?php echo $this->translate('Registrieren'); ?></a>
             <a class="btn btn-lg btn-success" href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Login'); ?></a>
         </p>
     <?php endif; ?>

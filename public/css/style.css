@@ -145,7 +145,7 @@ body {
 }
 
 /* Animation for Register Button*/
-.btn-shake { 
+.btn-pulse { 
     -webkit-animation-duration: 1s; 
     animation-duration: 1s; 
     -webkit-animation-fill-mode: both; 
