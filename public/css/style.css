@@ -23,12 +23,7 @@ body {
     min-width: 110px;
 }
 
-input.form-default:first-of-type{
-    background-color: blue; 
-    color:green;
-}
-
-.form-default input:hover:not([type="checkbox"]):not([type="submit"]){
+.form-default input:hover:not([type="checkbox"]):not([type="submit"]):not([type="captcha"]){
     width: 330px;
     /* height: 35px;*/
     color: #444444;

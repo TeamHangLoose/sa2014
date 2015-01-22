@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Form\Admin;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use ZfcUser\Options\RegistrationOptionsInterface;
 use ZfcUser\Form\Register as Register;
 
@@ -39,10 +42,10 @@ class CreateUser extends Register {
           ));
           }
          */
-
         if ($this->getRegistrationOptions()->getUseRegistrationFormCaptcha() && $this->captchaElement) {
             $this->add($this->captchaElement, array('name' => 'captcha'));
         }
+
 
 
         $this->remove('display_name');
@@ -95,7 +98,7 @@ class CreateUser extends Register {
             ),
                 )
         );
-        
+
         $this->add(array(
             'type' => 'Zend\Form\Element\Checkbox',
             'name' => 'active',
@@ -106,7 +109,7 @@ class CreateUser extends Register {
                 'unchecked_value' => '0'
             )
         ));
-        
+
         $this->add(array(
             'type' => 'Zend\Form\Element\Select',
             'name' => 'role',
@@ -123,5 +126,4 @@ class CreateUser extends Register {
         $this->get('submit')->setLabel('Register');
         $this->getEventManager()->trigger('init', $this);
     }
-
 }
