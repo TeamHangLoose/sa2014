@@ -28,7 +28,7 @@ input.form-default:first-of-type{
     color:green;
 }
 
-.form-default input:hover:not([type="checkbox"]){
+.form-default input:hover:not([type="checkbox"]):not([type="submit"]){
     width: 330px;
     /* height: 35px;*/
     color: #444444;
@@ -41,7 +41,7 @@ input.form-default:first-of-type{
 }
 
 .checkbox{
-     padding-left: 50px;
+    padding-left: 50px;
 }
 
 /*--END-- Custom standard form */
