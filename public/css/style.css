@@ -23,7 +23,7 @@ body {
     min-width: 110px;
 }
 
-.form-default input:hover:not([type="checkbox"]):not([type="submit"]):not([type="captcha"]){
+.form-default input:focus:not([type="checkbox"]):not([type="submit"]):not([type="captcha"]){
     width: 330px;
     /* height: 35px;*/
     color: #444444;
@@ -33,10 +33,6 @@ body {
     -o-transition: width 2s ease;
     -ms-transition: width 2s ease;
     transition: width 2s ease;
-}
-
-.checkbox{
-    padding-left: 50px;
 }
 
 /*--END-- Custom standard form */
@@ -228,3 +224,7 @@ body {
     100% { transform: skewX(0deg); } 
 } 
 /* --END-- Animation wiggle for all button on hover*/
+
+h1, h2, h3{
+   font-family: ‘Metrophobic’, Arial, serif; font-weight: 400; 
+}

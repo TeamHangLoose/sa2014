@@ -46,7 +46,7 @@ class CreateUser extends Register {
             $this->add($this->captchaElement, array('name' => 'captcha'));
         }
 
-
+        $this->remove('captcha');
 
         $this->remove('display_name');
         $this->add(array(
@@ -126,4 +126,5 @@ class CreateUser extends Register {
         $this->get('submit')->setLabel('Register');
         $this->getEventManager()->trigger('init', $this);
     }
+
 }
