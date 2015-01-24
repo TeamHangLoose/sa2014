@@ -6,7 +6,8 @@
         <?php $isButton = $element instanceof Zend\Form\Element\Button; ?>
         <?php $isCheckbox = $element instanceof Zend\Form\Element\Checkbox || $element->getAttribute('type') == 'checkbox'; ?>
         <?php if ($element->getLabel() != null && !$isButton): ?>
-            <?php $element->setAttribute('class', 'form-control form-group')
+            <?php
+            $element->setAttribute('class', 'form-control form-group')
                     ->setAttribute('placeholder', $element->getLabel());
             ?>
             <dt><?php echo $this->formLabel($element) ?></dt>
