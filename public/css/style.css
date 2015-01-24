@@ -226,5 +226,12 @@ body {
 /* --END-- Animation wiggle for all button on hover*/
 
 h1, h2, h3{
-   font-family: ‘Metrophobic’, Arial, serif; font-weight: 400; 
+    font-family: 'Quicksand', sans-serif; 
+    font-weight: bold;
 }
+
+body{
+    font-family: 'Quicksand', sans-serif; 
+}
+
+
