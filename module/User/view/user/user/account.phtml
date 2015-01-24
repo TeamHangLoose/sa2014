@@ -53,3 +53,19 @@ endforeach;?>
     <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
 <?php endif ?>
 <?php echo $this->form()->closeTag() ?>
+
+    <?php
+$form = $this->createUserForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('admin/create'));
+$form->setAttribute('method', 'post');
+echo $this->form()->openTag($form);
+?>
+<div class="form-default">
+    <div class="page-header">
+        <h1>Neuer Benutzer</h1>
+    </div>
+    <div class="form-group form-default"> 
+        <?php include '_form.phtml'; ?>
+    </div>
+</div>
