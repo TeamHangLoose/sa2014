@@ -233,8 +233,18 @@ body{
 
 
 .carousel-inner img{
-    width: 600px;
+    width: 400px;
     margin: 0 auto;
 }
 
 
+/* Style Carousel */
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+.control-color{
+    color: lightslategray;
+}
+
+/* --END--  Style Carousel */
