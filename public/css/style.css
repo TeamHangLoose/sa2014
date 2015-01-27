@@ -232,11 +232,6 @@ body{
 }
 
 
-.carousel-inner img{
-    width: 400px;
-    margin: 0 auto;
-}
-
 
 /* Style Carousel */
 .carousel-control.left, .carousel-control.right {
@@ -245,6 +240,12 @@ body{
 
 .control-color{
     color: lightslategray;
+}
+
+
+.carousel-inner img{
+    width: 400px;
+    margin: 0 auto;
 }
 
 /* --END--  Style Carousel */
