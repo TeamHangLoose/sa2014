@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Entity;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use BjyAuthorize\Provider\Role\ProviderInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -68,26 +71,24 @@ class User implements UserInterface, ProviderInterface {
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     protected $village;
-    
-     /**
+
+    /**
      * @var string
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     protected $phone;
-    
-       /**
+
+    /**
      * @var boolean
      * @ORM\Column(type="boolean",nullable=true)
      */
     protected $active;
 
-    
-
     /**
      * @var int
      */
     protected $state;
-  
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      * @ORM\ManyToMany(targetEntity="User\Entity\Role")
@@ -251,7 +252,6 @@ class User implements UserInterface, ProviderInterface {
      *
      * @return void
      */
-    
     public function addRole($role) {
         $this->roles[] = $role;
     }
@@ -279,6 +279,7 @@ class User implements UserInterface, ProviderInterface {
     function setVillage($village) {
         $this->village = $village;
     }
+
     function getActive() {
         return $this->active;
     }
@@ -286,6 +287,7 @@ class User implements UserInterface, ProviderInterface {
     function setActive($active) {
         $this->active = $active;
     }
+
     function getPhone() {
         return $this->phone;
     }
@@ -294,10 +296,9 @@ class User implements UserInterface, ProviderInterface {
         $this->phone = $phone;
     }
 
-    /*   
-  public function __toString() {
-  return __CLASS__ . '@' . spl_object_hash($this);
-}
-*/
-
+    /*
+      public function __toString() {
+      return __CLASS__ . '@' . spl_object_hash($this);
+      }
+     */
 }
