@@ -9,8 +9,13 @@ namespace User\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
-class ModuleOptions extends AbstractOptions implements
-ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, UserCreateOptionsInterface {
+/**
+ * Description of ModuleOptions
+ * ModuleOptions for Module
+ * maybe we splitt this later for more survey..
+ * @author abbts2015 B14.if4.1 G.3
+ */
+class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, UserCreateOptionsInterface {
 
     /** @var string */
     protected $tokenEntity = 'User\Entity\Token';
@@ -18,10 +23,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
     /** @var int */
     protected $tokenHours = 24;
 
-
-    /**
-     * @var string
-     */
+    /** @var string$mailTransporter */
     protected $mailTransporter = 'Soflomo\Mail\Service\MailService';
 
     /**
@@ -31,7 +33,7 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * @return string
      */
     protected $__strictMode__ = false;
-    
+
     /* @var $numberOfListLines List of disp. Admin */
     protected $numberOfListLines = 15;
 
@@ -100,7 +102,6 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
      * Allow change user password on user edit form.
      */
     protected $allowPasswordChange = true;
-    
     protected $userMapper = 'ZfcUserAdmin\Mapper\UserDoctrine';
 
     function get__strictMode__() {
@@ -169,58 +170,102 @@ ModuleOptionsInterface, UserListOptionsInterface, UserEditOptionsInterface, User
         return $this->mailTransporter;
     }
 
+    /**
+     * @param Usermapper $userMapper
+     */
     public function setUserMapper($userMapper) {
         $this->userMapper = $userMapper;
     }
 
+    /**
+     * @return UserMapper
+     */
     public function getUserMapper() {
         return $this->userMapper;
     }
 
+    /**
+     * @param array $listElements
+     */
     public function setUserListElements(array $listElements) {
         $this->userListElements = $listElements;
     }
 
+    /**
+     * @return Array
+     */
     public function getUserListElements() {
         return $this->userListElements;
     }
 
+    /**
+
+     * @return Array
+     */
     public function getEditFormElements() {
         return $this->editFormElements;
     }
 
+    /**
+     * @param array $elements
+     */
     public function setEditFormElements(array $elements) {
         $this->editFormElements = $elements;
     }
 
+    /**
+
+     * @param array $createFormElements
+     */
     public function setCreateFormElements(array $createFormElements) {
         $this->createFormElements = $createFormElements;
     }
 
+    /**
+     * @return Array
+     */
     public function getCreateFormElements() {
         return $this->createFormElements;
     }
 
+    /**
+     * @param boolean $createUserAutoPassword
+     */
     public function setCreateUserAutoPassword($createUserAutoPassword) {
         $this->createUserAutoPassword = $createUserAutoPassword;
     }
 
+    /**
+     * @return boolean $createUserAutoPassword
+     */
     public function getCreateUserAutoPassword() {
         return $this->createUserAutoPassword;
     }
 
+    /**
+     * @return boolean $createUserAutoPassword
+     */
     public function getAllowPasswordChange() {
         return $this->allowPasswordChange;
     }
 
+    /**
+     * @param boolean $createUserAutoPassword
+     */
     public function setAdminPasswordChange($allowPasswordChange) {
         $this->allowPasswordChange = $allowPasswordChange;
     }
 
+    /**
+     * @param Int $autoPasswordLength
+     */
     public function setAutoPasswordLength($autoPasswordLength) {
         $this->autoPasswordLength = $autoPasswordLength;
     }
 
+    /**
+     * @return Int
+     */
     public function getAutoPasswordLength() {
         return $this->autoPasswordLength;
     }
