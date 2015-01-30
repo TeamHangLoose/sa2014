@@ -20,10 +20,8 @@ class UserMapperFactory implements FactoryInterface
     {
         /** @var \Doctrine\Common\Persistence\ObjectManager $objectManager */
         $objectManager = $serviceLocator->get('objectManager');
-
         /** @var \ZfcUser\Options\ModuleOptions $zfcUserModuleOptions */
         $zfcUserModuleOptions = $serviceLocator->get('zfcuser_module_options');
-
         return new UserMapper($objectManager, $zfcUserModuleOptions);
     }
 }

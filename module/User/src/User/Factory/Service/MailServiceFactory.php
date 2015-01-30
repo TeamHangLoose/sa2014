@@ -7,7 +7,11 @@ namespace User\Factory\Service;
 use User\Service\MailService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-
+/**
+ * Description of MailServiceFactory
+ * Factory for MailService
+ * @author abbts2015 B14.if4.1 G.3
+ */
 class MailServiceFactory implements FactoryInterface
 {
     /**
@@ -20,10 +24,8 @@ class MailServiceFactory implements FactoryInterface
     {
         /** @var \User\Options\ModuleOptions $moduleOptions */
         $moduleOptions = $serviceLocator->get('User\Options\ModuleOptions');
-
         /** @var \User\Service\MailTransporterInterface $mailTransporter */
         $mailTransporter = $serviceLocator->get($moduleOptions->getMailTransporter());
-
         return new MailService($mailTransporter);
     }
 }

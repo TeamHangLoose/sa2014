@@ -8,6 +8,11 @@ use User\Options\ModuleOptions;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
+/**
+ * Description of ModuleOptionsFactory
+ * Factory for ModuleOptions
+ * @author abbts2015 B14.if4.1 G.3
+ */
 class ModuleOptionsFactory implements FactoryInterface
 {
     /**

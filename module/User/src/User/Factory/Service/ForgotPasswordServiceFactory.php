@@ -7,7 +7,11 @@ namespace User\Factory\Service;
 use User\Service\ForgotPasswordService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-
+/**
+ * Description of ForgotPasswordServiceFactory
+ * Factory for ForgotPasswordService
+ * @author abbts2015 B14.if4.1 G.3
+ */
 class ForgotPasswordServiceFactory implements FactoryInterface {
 
     /**

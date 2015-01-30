@@ -18,20 +18,10 @@ __CODE__
 ---> Projekt aufräumen Kommentare<-----
 //bugs________________________________________________________________________________
 
-Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 16000 bytes) in C:\data\sa2014\vendor\imagine\imagine\lib\Imagine\Gd\Image.php on line 602
-#######################################################
-2*Beim mailenden
-Zend\Mail\Protocol\Exception\RuntimeException
-****######################################################################################################
-- Upload Image File zu gross Fehler abfangen 
-Warning: POST Content-Length of 15113934 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
-############################################################################################################
 
-Index of /htimg/htprofileimage_display/user
 
-    Parent Directory
-    -763789443641936295.png
-    1014439505641936295.png
+Notice: Undefined variable: role in C:\Album\sa2014\module\User\src\User\Controller\AdminController.php on line 115
+
 
 http://theothersite.ch/htimg/htprofileimage_display/user/
 

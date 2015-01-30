@@ -7,7 +7,11 @@ namespace User\Factory\Service;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use User\Service\ProfileImageService;
-
+/**
+ * Description of ProfileImageServiceFactory
+ * Factory for ProfileImageService
+ * @author abbts2015 B14.if4.1 G.3
+ */
 class ProfileImageServiceFactory implements FactoryInterface
 {
     /**
