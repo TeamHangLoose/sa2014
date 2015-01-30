@@ -34,6 +34,8 @@ class UserMapper implements EventManagerAwareInterface, UserMapperInterface {
 
     /**
      * Constructor
+     * @param ObjectManager $objectManager
+     * @param ObjectManager $zfcUserModuleOptions
      */
     public function __construct(ObjectManager $objectManager, ZfcUserModuleOptions $zfcUserModuleOptions) {
         $this->objectManager = $objectManager;

@@ -28,6 +28,8 @@ class TokenMapper implements TokenMapperInterface {
 
     /**
      * Constructor
+     * @param ObjectManager $objectManager
+     * @param ModuleOptions $moduleOptions
      */
     public function __construct(ObjectManager $objectManager, ModuleOptions $moduleOptions) {
         $this->objectManager = $objectManager;

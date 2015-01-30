@@ -24,9 +24,13 @@ class UserController extends \ZfcUser\Controller\UserController {
     const ROUTE_ACCOUNT = 'index';
     const ROUTE_OPTIN = 'double-opt-in';
 
+    /** @var changeAdressForm changeAdressForm */
     protected $changeAdressForm;
-    protected $accountForm;
 
+    /**
+     * Index
+     * @return ViewModel
+     */
     public function indexAction() {
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
             return $this->redirect()->toRoute(static::ROUTE_LOGIN);
@@ -38,6 +42,9 @@ class UserController extends \ZfcUser\Controller\UserController {
         return new ViewModel();
     }
 
+    /**
+     * Login form
+     */
     public function loginAction() {
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
@@ -73,7 +80,7 @@ class UserController extends \ZfcUser\Controller\UserController {
     }
 
     /**
-     * Logout and clear the identity
+     * Logout and clear the identity and Temp Files
      */
     public function logoutAction() {
         $imageService = $this->getServiceLocator()->get('HtProfileImage\Service\ProfileImageService');
@@ -88,6 +95,9 @@ class UserController extends \ZfcUser\Controller\UserController {
         return $this->redirect()->toRoute($this->getOptions()->getLogoutRedirectRoute());
     }
 
+    /**
+     * Register new user
+     */
     public function registerAction() {
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
@@ -131,7 +141,6 @@ class UserController extends \ZfcUser\Controller\UserController {
                 'redirect' => $redirect,
             );
         }
-
         if ($service->getOptions()->getLoginAfterRegistration()) {
             $identityFields = $service->getOptions()->getAuthIdentityFields();
             if (in_array('email', $identityFields)) {
@@ -146,6 +155,9 @@ class UserController extends \ZfcUser\Controller\UserController {
         return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
     }
 
+    /**
+     * Change User Adress
+     */
     public function changeadressAction() {
         // if the user isn't logged in, we can't change Adress
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
@@ -189,9 +201,12 @@ class UserController extends \ZfcUser\Controller\UserController {
         $this->changeAdressForm = $changeAdressForm;
     }
 
+    /**
+     * get ChangeAdressForm
+     * @return Form
+     */
     public function getChangeAdressForm() {
         if (!$this->changeAdressForm) {
-
             $options = $this->getServiceLocator()->get('zfcuser_module_options');
             $form = new \User\Form\User\ChangeAdress(null, $this->getServiceLocator()->get('zfcuser_module_options'));
             $form->setInputFilter(new \User\Form\User\ChangeAdressFilter($options));
@@ -200,25 +215,13 @@ class UserController extends \ZfcUser\Controller\UserController {
         return $this->changeAdressForm;
     }
 
-    function setAccountForm($AccountForm) {
-        $this->accountForm = $AccountForm;
-    }
-
-    public function getAccountForm() {
-        if (!$this->accountForm) {
-            $options = $this->getServiceLocator()->get('zfcuser_module_options');
-            $form = new \User\Form\User\Account(null, $this->getServiceLocator()->get('zfcuser_module_options'));
-            $form->setInputFilter(new \User\Form\User\AccountFilter($options));
-            $this->setChangeAdressForm($form);
-        }
-        return $this->accountForm;
-    }
-
+    /**
+     * get User
+     */
     protected function getUser() {
         $authenticationService = $this->getServiceLocator()->get('zfcuser_auth_service');
         /** @var \ZfcUser\Entity\UserInterface $user */
         $user = $authenticationService->getIdentity();
-
         $userId = $this->params()->fromRoute('userId', null);
         if ($userId !== null) {
             $currentUser = $user;
@@ -230,7 +233,6 @@ class UserController extends \ZfcUser\Controller\UserController {
                 return null;
             }
         }
-
         return $user;
     }
 

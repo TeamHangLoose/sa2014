@@ -22,8 +22,8 @@ use User\Form\Admin\EditUser;
  * @author abbts2015 B14.if4.1 G.3
  */
 class AdminController extends AbstractActionController {
-    /*     * @var \User\Options\ModuleOptions */
 
+    /** @var \User\Options\ModuleOptions */
     protected $moduleOptions;
 
     /** @var \User\Form\Admin\ListForm */
@@ -34,9 +34,17 @@ class AdminController extends AbstractActionController {
 
     /** @var \User\Form\Admin\CreateUserForm */
     protected $creatUserForm;
-    /* @var \ZfcUser\Options\ModuleOptions */
+
+    /** @var \ZfcUser\Options\ModuleOptions */
     protected $zfcUserOptions;
 
+    /**
+     * Constructor
+     * @param ListForm $listForm
+     * @param AdminService $adminService
+     * @param ModuleOptions $moduleOptions
+     * @param \ZfcUser\Options\ModuleOptions $zfcUserOptions
+     */
     public function __construct(ListForm $listForm, AdminService $adminService, ModuleOptions $moduleOptions, \ZfcUser\Options\ModuleOptions $zfcUserOptions) {
         $this->listForm = $listForm;
         $this->adminService = $adminService;
@@ -44,6 +52,10 @@ class AdminController extends AbstractActionController {
         $this->zfcUserOptions = $zfcUserOptions;
     }
 
+    /**
+     * list
+     * @return array
+     */
     public function listAction() {
         $users = $this->adminService->listUser();
         $paginator = new Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($users));
@@ -55,6 +67,11 @@ class AdminController extends AbstractActionController {
         );
     }
 
+    /**
+     * create
+     * @return redirect toRoute('admin/list')
+     * @return Form
+     */
     public function createAction() {
         $form = $this->getCreatUserForm();
         $request = $this->getRequest();
@@ -77,6 +94,11 @@ class AdminController extends AbstractActionController {
         );
     }
 
+    /**
+     * edit
+     * @return redirect toRoute('admin/list')
+     * @return Form
+     */
     public function editAction() {
         $userId = $this->getEvent()->getRouteMatch()->getParam('userId');
         $user = $this->adminService->getUserByID($userId);
@@ -115,6 +137,10 @@ class AdminController extends AbstractActionController {
         );
     }
 
+    /**
+     * remove
+     * @return redirect toRoute('admin/list')
+     */
     public function removeAction() {
         $userId = $this->getEvent()->getRouteMatch()->getParam('userId');
         /** @var $identity \ZfcUser\Entity\UserInterface */
@@ -144,22 +170,6 @@ class AdminController extends AbstractActionController {
 
     public function setRegisterForm(Form $registerForm) {
         $this->registerForm = $registerForm;
-    }
-
-    function getModuleOptions() {
-        return $this->moduleOptions;
-    }
-
-    function getZfcUserOptions() {
-        return $this->zfcUserOptions;
-    }
-
-    function setModuleOptions($moduleOptions) {
-        $this->moduleOptions = $moduleOptions;
-    }
-
-    function setZfcUserOptions($zfcUserOptions) {
-        $this->zfcUserOptions = $zfcUserOptions;
     }
 
 }
