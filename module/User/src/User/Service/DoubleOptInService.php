@@ -78,13 +78,11 @@ class DoubleOptInService {
      */
     public function confirmed(array $data, UserInterface $user) {
 
-    
         $token = $this->tokenMapper->findByUser($user);
         $bcrypt = new Bcrypt;
         $bcrypt->setCost($this->options->getPasswordCost());
 
         if ($bcrypt->verify($data['cred'], $user->getPassword())) {
-
             $this->userMapper->setActive($user);
             $this->tokenMapper->remove($token);
 
@@ -112,7 +110,6 @@ class DoubleOptInService {
     
     
      public function userIsActice(){
-
         return true;
     } 
     

@@ -17,7 +17,8 @@ use User\Form\Admin\EditUser;
 
 /**
  * Description of AdminController
- * 
+ * AdminController handel the Andim section
+ *  User function are edit/remove/list/delete
  * @author abbts2015 B14.if4.1 G.3
  */
 class AdminController extends AbstractActionController {
@@ -57,7 +58,6 @@ class AdminController extends AbstractActionController {
     public function createAction() {
         $form = $this->getCreatUserForm();
         $request = $this->getRequest();
-        /** @var $request \Zend\Http\Request */
         if ($request->isPost()) {
             $class = $this->zfcUserOptions->getUserEntityClass();
             $user = new $class();
@@ -90,10 +90,12 @@ class AdminController extends AbstractActionController {
             $role = $value->getId();
         }
         /* @var $role def user role */
-        if (!$role) {$role = 1;}  
+        if (!$role) {
+            $role = 1;
+        }
         $form->get('role')->setValue($role);
         /*
-        /** @var $request \Zend\Http\Request */
+          /** @var $request \Zend\Http\Request */
         $request = $this->getRequest();
         if ($request->isPost()) {
             $form->setData($request->getPost());
@@ -143,6 +145,7 @@ class AdminController extends AbstractActionController {
     public function setRegisterForm(Form $registerForm) {
         $this->registerForm = $registerForm;
     }
+
     function getModuleOptions() {
         return $this->moduleOptions;
     }
@@ -158,7 +161,5 @@ class AdminController extends AbstractActionController {
     function setZfcUserOptions($zfcUserOptions) {
         $this->zfcUserOptions = $zfcUserOptions;
     }
-
-
 
 }

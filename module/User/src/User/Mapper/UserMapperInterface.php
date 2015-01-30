@@ -9,6 +9,12 @@ namespace User\Mapper;
 
 use ZfcUser\Entity\UserInterface;
 
+/**
+ * Description of UserMapperInterface
+ * Interface for different User Mapper. 
+ * @author abbts2015 B14.if4.1 G.3
+ */
+
 interface UserMapperInterface {
 
     /**
@@ -37,20 +43,34 @@ interface UserMapperInterface {
     public function changePassword($password, UserInterface $user);
 
     /**
-     * Change password
-     *
-     * @param string $password
-     * @param UserInterface $user
-     * @return bool
+     * Set active
+     * @param UserInterface $user 
      */
     public function setActive(UserInterface $user);
 
+    /**
+     * Set Disactive
+     * @param UserInterface $user 
+     */
     public function setDisactive(UserInterface $user);
 
+    /**
+     * Set Role
+     * @param UserInterface $user 
+     * @param int Role
+     */
     public function setRole(UserInterface $user, $role);
 
+    /**
+     * Set Role
+     * @param int Role
+     * @retur Entity Role 
+     */
     public function getRole($role);
-    
-    public function removeRole(UserInterface $user) ;
 
+    /**
+     * Set Role
+     * @param UserInterface $user 
+     */
+    public function removeRole(UserInterface $user);
 }

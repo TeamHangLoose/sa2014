@@ -1,14 +1,23 @@
 <?php
+
 namespace User\Controller;
 
-/* 
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Zend\View\Model\ViewModel;
 use User\Entity\User;
 use Zend\Stdlib\Parameters;
 
+/**
+ * Description of UserController
+ * UserController handel the User section
+ * extends zfcUserController
+ * overwritten functions are index/login/logout/register 
+ * @author abbts2015 B14.if4.1 G.3
+ */
 class UserController extends \ZfcUser\Controller\UserController {
 
     const ROUTE_CHANGEADRESS = 'change-adress';
@@ -18,22 +27,13 @@ class UserController extends \ZfcUser\Controller\UserController {
     protected $changeAdressForm;
     protected $accountForm;
 
-    /**
-     * Login form
-     */
-
-    /**
-     * User page
-     */
     public function indexAction() {
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
-
             return $this->redirect()->toRoute(static::ROUTE_LOGIN);
         }
-        
         $imageService = $this->getServiceLocator()->get('HtProfileImage\Service\ProfileImageService');
-        if ($imageService->userImageExists($this->getUser())){
-        $imageService->getUserImage($this->getUser(), $filterAlias = null);
+        if ($imageService->userImageExists($this->getUser())) {
+            $imageService->getUserImage($this->getUser(), $filterAlias = null);
         }
         return new ViewModel();
     }
@@ -42,17 +42,13 @@ class UserController extends \ZfcUser\Controller\UserController {
         if ($this->zfcUserAuthentication()->hasIdentity()) {
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
-
         $request = $this->getRequest();
         $form = $this->getLoginForm();
-
-
         if ($this->getOptions()->getUseRedirectParameterIfPresent() && $request->getQuery()->get('redirect')) {
             $redirect = $request->getQuery()->get('redirect');
         } else {
             $redirect = false;
         }
-
         if (!$request->isPost()) {
             return array(
                 'loginForm' => $form,
@@ -60,27 +56,19 @@ class UserController extends \ZfcUser\Controller\UserController {
                 'enableRegistration' => $this->getOptions()->getEnableRegistration(),
             );
         }
-
         $form->setData($request->getPost());
-
-
-
         if (!$form->isValid()) {
             $this->flashMessenger()->setNamespace('zfcuser-login-form')->addMessage($this->failedLoginMessage);
             return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
         }
-
         if (!$this->getUserService()->isActive($form->getData())) {
 
             $this->flashMessenger()->setNamespace('zfcuser-login-form')->addMessage($this->failedLoginMessage);
             return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
         }
-
         // clear adapters
         $this->zfcUserAuthentication()->getAuthAdapter()->resetAdapters();
         $this->zfcUserAuthentication()->getAuthService()->clearIdentity();
-
-
         return $this->forward()->dispatch(static::CONTROLLER_NAME, array('action' => 'authenticate'));
     }
 
@@ -88,52 +76,36 @@ class UserController extends \ZfcUser\Controller\UserController {
      * Logout and clear the identity
      */
     public function logoutAction() {
-
         $imageService = $this->getServiceLocator()->get('HtProfileImage\Service\ProfileImageService');
         $imageService->logoutDeleteCache($this->getUser());
-
         $this->zfcUserAuthentication()->getAuthAdapter()->resetAdapters();
         $this->zfcUserAuthentication()->getAuthAdapter()->logoutAdapters();
         $this->zfcUserAuthentication()->getAuthService()->clearIdentity();
-
         $redirect = $this->params()->fromPost('redirect', $this->params()->fromQuery('redirect', false));
-
         if ($this->getOptions()->getUseRedirectParameterIfPresent() && $redirect) {
             return $this->redirect()->toUrl($redirect);
         }
-
         return $this->redirect()->toRoute($this->getOptions()->getLogoutRedirectRoute());
     }
 
-    /**
-     * Register new user
-     */
     public function registerAction() {
-        // if the user is logged in, we don't need to register
-
         if ($this->zfcUserAuthentication()->hasIdentity()) {
-            // redirect to the login redirect route
             return $this->redirect()->toRoute($this->getOptions()->getLoginRedirectRoute());
         }
-        // if registration is disabled
         if (!$this->getOptions()->getEnableRegistration()) {
             return array('enableRegistration' => false);
         }
-
         $request = $this->getRequest();
         $service = $this->getUserService();
         $form = $this->getRegisterForm();
-
         if ($this->getOptions()->getUseRedirectParameterIfPresent() && $request->getQuery()->get('redirect')) {
             $redirect = $request->getQuery()->get('redirect');
         } else {
             $redirect = false;
         }
-
         $redirectUrl = $this->url()->fromRoute(static::ROUTE_REGISTER)
                 . ($redirect ? '?redirect=' . rawurlencode($redirect) : '');
         $prg = $this->prg($redirectUrl, true);
-
         if ($prg instanceof Response) {
             return $prg;
         } elseif ($prg === false) {
@@ -143,21 +115,15 @@ class UserController extends \ZfcUser\Controller\UserController {
                 'redirect' => $redirect,
             );
         }
-
         $post = (array) $prg;
-
         $user = $service->register($post);
         if ($user && !$service->getOptions()->getLoginAfterRegistration()) {
 
             $post['email'] = $user->getEmail();
             $request->setPost(new Parameters($post));
             return $this->forward()->dispatch('User\Controller\DoubleOptIn', array('action' => 'index'));
-
-            //   return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_OPTIN) . ($redirect ? '?redirect='. rawurlencode($redirect) : ''));
         }
-
         $redirect = isset($post['redirect']) ? $post['redirect'] : null;
-
         if (!$user) {
             return array(
                 'registerForm' => $form,
@@ -177,8 +143,6 @@ class UserController extends \ZfcUser\Controller\UserController {
             $request->setPost(new Parameters($post));
             return $this->forward()->dispatch(static::CONTROLLER_NAME, array('action' => 'authenticate'));
         }
-
-        // TODO: Add the redirect parameter here...
         return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect=' . rawurlencode($redirect) : ''));
     }
 

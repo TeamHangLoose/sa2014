@@ -1,50 +1,64 @@
 <?php
+
 namespace User\Mapper\DoctrineORM;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Doctrine\Common\Persistence\ObjectManager;
 use User\Entity\TokenInterface;
 use User\Mapper\TokenMapperInterface;
 use User\Options\ModuleOptions;
 use ZfcUser\Entity\UserInterface;
 
-class TokenMapper implements TokenMapperInterface
-{
+/**
+ * Description of TokenMapper
+ * Mapper for Token Entity use for DoubleOptIn or Password forgot ect.
+ * @author abbts2015 B14.if4.1 G.3
+ */
+class TokenMapper implements TokenMapperInterface {
+
     /** @var ObjectManager */
     protected $objectManager;
 
     /** @var ModuleOptions */
     protected $moduleOptions;
 
-    public function __construct(ObjectManager $objectManager, ModuleOptions $moduleOptions)
-    {
+    /**
+     * Constructor
+     */
+    public function __construct(ObjectManager $objectManager, ModuleOptions $moduleOptions) {
         $this->objectManager = $objectManager;
         $this->moduleOptions = $moduleOptions;
     }
 
     /**
-     * {@inheritDoc}
+     * find By User
+     *
+     * @param UserInterface $user
+     * @return Token Entity
      */
-    public function findByUser(UserInterface $user)
-    {
+    public function findByUser(UserInterface $user) {
         return $this->objectManager->getRepository($this->moduleOptions->getTokenEntity())->findOneBy([
-            'user' => $user->getId()
+                    'user' => $user->getId()
         ]);
     }
 
     /**
-     * {@inheritDoc}
+     * find By Token
+     *
+     * @param String $token
+     * @return boolean
      */
-    public function findByToken($token)
-    {
+    public function findByToken($token) {
         $queryBuilder = $this->objectManager->createQueryBuilder();
 
         $queryBuilder->select('t')
-                      ->from($this->moduleOptions->getTokenEntity(), 't')
-                      ->where('t.token = :token')
-                      ->andWhere('t.expireDateTime > :current');
+                ->from($this->moduleOptions->getTokenEntity(), 't')
+                ->where('t.token = :token')
+                ->andWhere('t.expireDateTime > :current');
 
         /** @var \Doctrine\ORM\AbstractQuery $query */
         $query = $queryBuilder->getQuery();
@@ -58,10 +72,12 @@ class TokenMapper implements TokenMapperInterface
     }
 
     /**
-     * {@inheritdoc}
+     * generate Token
+     *
+     * @param UserInterface $user
+     * @return TokenInterface
      */
-    public function generate(UserInterface $user)
-    {
+    public function generate(UserInterface $user) {
         if ($token = $this->findByUser($user)) {
             $this->remove($token);
         }
@@ -88,10 +104,13 @@ class TokenMapper implements TokenMapperInterface
     }
 
     /**
-     * {@inheritdoc}
+     * remove Token
+     *
+     * @param UserInterface $user
+     * @param bool $flush
+     * @return TokenInterface
      */
-    public function remove(TokenInterface $token, $flush = true)
-    {
+    public function remove(TokenInterface $token, $flush = true) {
         $this->objectManager->remove($token);
 
         if ($flush) {
@@ -108,8 +127,7 @@ class TokenMapper implements TokenMapperInterface
      * @param bool $flush
      * @return TokenInterface
      */
-    public function saveToken(TokenInterface $token, $flush = true)
-    {
+    public function saveToken(TokenInterface $token, $flush = true) {
         $this->objectManager->persist($token);
 
         if ($flush) {
@@ -118,4 +136,5 @@ class TokenMapper implements TokenMapperInterface
 
         return $token;
     }
+
 }

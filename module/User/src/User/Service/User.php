@@ -1,12 +1,21 @@
 <?php
+
 namespace User\Service;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Zend\Crypt\Password\Bcrypt;
 
-
+/**
+ * Description of UserService
+ * UserService handel the User section
+ * extends zfcUserService
+ * overwritten functions are register 
+ * @author abbts2015 B14.if4.1 G.3
+ */
 class User extends \ZfcUser\Service\User {
 
     protected $doubleOptInService;
@@ -25,27 +34,21 @@ class User extends \ZfcUser\Service\User {
     }
 
     public function changeAdress(array $data) {
-
         $currentUser = $this->getAuthService()->getIdentity();
-
         $bcrypt = new \Zend\Crypt\Password\Bcrypt();
         $bcrypt->setCost($this->getOptions()->getPasswordCost());
-
         if (!$bcrypt->verify($data['credential'], $currentUser->getPassword())) {
             return false;
         }
-        
         $currentUser->setDisplayName($data['newDisplayname']);
         $currentUser->setUsername($data['newUsername']);
         $currentUser->setStreet($data['newStreet']);
         $currentUser->setPlz($data['newPlz']);
         $currentUser->setVillage($data['newVillage']);
         $currentUser->setPhone($data['newPhone']);
-
         $this->getEventManager()->trigger(__FUNCTION__, $this, array('user' => $currentUser));
         $this->getUserMapper()->update($currentUser);
         $this->getEventManager()->trigger(__FUNCTION__ . '.post', $this, array('user' => $currentUser));
-
         return true;
     }
 
@@ -61,8 +64,6 @@ class User extends \ZfcUser\Service\User {
             return false;
         }
         $user = $form->getData();
-        /* @var $user \ZfcUser\Entity\UserInterface */
-
         $bcrypt = new Bcrypt;
         $bcrypt->setCost($this->getOptions()->getPasswordCost());
         $user->setPassword($bcrypt->create($user->getPassword()));
@@ -83,7 +84,6 @@ class User extends \ZfcUser\Service\User {
         $this->getEventManager()->trigger(__FUNCTION__, $this, array('user' => $user, 'form' => $form));
         $this->getUserMapper()->insert($user);
         $this->getEventManager()->trigger(__FUNCTION__ . '.post', $this, array('user' => $user, 'form' => $form));
-
         return $user;
     }
 

@@ -7,6 +7,11 @@ namespace User\Mapper;
 use ZfcUser\Entity\UserInterface;
 use User\Entity\TokenInterface;
 
+/**
+ * Description of TokenMapperInterface
+ * Interface for different Token Mapper. 
+ * @author abbts2015 B14.if4.1 G.3
+ */
 interface TokenMapperInterface
 {
     /**
