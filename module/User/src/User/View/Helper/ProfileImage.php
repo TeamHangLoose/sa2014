@@ -15,6 +15,7 @@ use HtProfileImage\Service\CacheManagerInterface;
 /**
  * This class gets image of a user
  * It is a view helper and called from view tempates
+ * template of HtProfileImage\Helper\ProfileImage
  */
 class ProfileImage extends AbstractHtmlElement {
 

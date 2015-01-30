@@ -8,6 +8,11 @@ use Zend\View\Helper\AbstractHelper;
 use Zend\Authentication\AuthenticationService;
 use User\Entity\UserInterface as User;
 
+/**
+ * This class is a Abstract Helper
+ * It is a view helper and called from view tempates
+ * template of ZfcUser\Helper\AccountDisplay
+ */
 class AccountDisplay extends AbstractHelper {
 
     /**
