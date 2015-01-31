@@ -9,15 +9,20 @@ use ZfcUser\Form\Register;
 use ZfcUser\Options\RegistrationOptionsInterface;
 use User\Options\UserEditOptionsInterface;
 
+
 class EditUser extends Register {
 
-    /**
-     * @var \ZfcUserAdmin\Options\UserEditOptionsInterface
-     */
+    /** @var UserEditOptionsInterface $userEditOptions */    
     protected $userEditOptions;
-    protected $userEntity;
+    /** @var User $userEntity */
+    protected $userEntity;    
+    /** @var ServiceManager $serviceManager */
     protected $serviceManager;
 
+      /**
+     * Constructor
+     * @param RegistrationOptionsInterface $registerOptions
+     */
     public function __construct($name = null, UserEditOptionsInterface $options, RegistrationOptionsInterface $registerOptions, $serviceManager) {
         $this->setUserEditOptions($options);
         $this->setServiceManager($serviceManager);
@@ -52,9 +57,6 @@ class EditUser extends Register {
             'required',
                 )
         );
-
-
-
         $this->add(array(
             'name' => 'street',
             'options' => array(
@@ -64,7 +66,6 @@ class EditUser extends Register {
             'required',
                 )
         );
-
         $this->add(array(
             'name' => 'plz',
             'options' => array(
@@ -94,7 +95,6 @@ class EditUser extends Register {
             ),
                 )
         );
-
         $this->add(array(
             'type' => 'Zend\Form\Element\Checkbox',
             'name' => 'active',
@@ -105,7 +105,6 @@ class EditUser extends Register {
                 'unchecked_value' => '0'
             )
         ));
-
         $this->add(array(
             'type' => 'Zend\Form\Element\Select',
             'name' => 'role',

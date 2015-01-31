@@ -38,7 +38,6 @@ $em->attach(
         ),
             )
     );
-
     $form->remove('submit');
     $form->add(array(
         'name' => 'submit',

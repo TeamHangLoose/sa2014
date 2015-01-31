@@ -17,6 +17,10 @@ class CreateUserFilter extends ProvidesEventsInputFilter {
      */
     protected $options;
 
+      /**
+     * Constructor
+     * @param RegistrationOptionsInterface $registerOptions
+     */
     public function __construct($emailValidator, $usernameValidator, RegistrationOptionsInterface $options) {
         $this->setOptions($options);
         $this->emailValidator = $emailValidator;
@@ -132,9 +136,6 @@ class CreateUserFilter extends ProvidesEventsInputFilter {
                 ),
             ),
         ));
-
-
-
         $this->getEventManager()->trigger('init', $this);
     }
 

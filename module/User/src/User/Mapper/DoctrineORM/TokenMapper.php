@@ -20,10 +20,10 @@ use ZfcUser\Entity\UserInterface;
  */
 class TokenMapper implements TokenMapperInterface {
 
-    /** @var ObjectManager */
+    /** @var ObjectManager $objectManager */
     protected $objectManager;
 
-    /** @var ModuleOptions */
+    /** @var ModuleOptions $moduleOptions*/
     protected $moduleOptions;
 
     /**

@@ -14,11 +14,7 @@ class Confirmed extends Form implements InputFilterProviderInterface
     public function __construct()
     {
         parent::__construct('confirmed');
-
         $this->setAttribute('method', 'post');
-
-      
-
         $this->add([
             'name' => 'cred',
             'type'  => 'Zend\Form\Element\Password',
@@ -31,12 +27,10 @@ class Confirmed extends Form implements InputFilterProviderInterface
 
             ],
         ]);
-
         $this->add([
             'type' => 'Zend\Form\Element\Csrf',
             'name' => 'csrf',
         ]);
-
         $this->add([
             'name' => 'submit',
             'type' => 'Zend\Form\Element\Button',

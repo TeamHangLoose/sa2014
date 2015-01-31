@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Form\User;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Zend\InputFilter\InputFilter;
 use ZfcUser\Options\AuthenticationOptionsInterface;
 
@@ -15,15 +18,12 @@ class AccountFilter extends InputFilter {
             'required' => true,
             'validators' => array()
         );
-
         $identityFields = $options->getAuthIdentityFields();
         if ($identityFields == array('email')) {
             $validators = array('name' => 'EmailAddress');
             array_push($identityParams['validators'], $validators);
         }
-
         $this->add($identityParams);
-
         $this->add(array(
             'name' => 'credential',
             'required' => true,

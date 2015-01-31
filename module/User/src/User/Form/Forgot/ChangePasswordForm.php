@@ -1,45 +1,43 @@
 <?php
+
 namespace User\Form\Forgot;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilterProviderInterface;
 
-class ChangePasswordForm extends Form implements InputFilterProviderInterface
-{
+class ChangePasswordForm extends Form implements InputFilterProviderInterface {
+
     protected $inputFilter;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct('change-password');
-
         $this->setAttribute('method', 'post');
-
         $this->add([
             'name' => 'new_password',
-            'type'  => 'Zend\Form\Element\Password',
+            'type' => 'Zend\Form\Element\Password',
             'attributes' => [
                 'class' => 'form-control',
             ],
             'options' => [
                 'type' => 'password',
                 'label' => 'Neues Passwort',
-
             ],
         ]);
 
         $this->add([
             'name' => 'confirm_new_password',
-            'type'  => 'Zend\Form\Element\Password',
+            'type' => 'Zend\Form\Element\Password',
             'attributes' => [
                 'class' => 'form-control',
             ],
             'options' => [
                 'type' => 'password',
                 'label' => 'Neues Passwort bestätigen',
-
             ],
         ]);
 
@@ -58,15 +56,14 @@ class ChangePasswordForm extends Form implements InputFilterProviderInterface
         ]);
     }
 
-    public function getInputFilterSpecification()
-    {
+    public function getInputFilterSpecification() {
         return [
             [
                 'name' => 'new_password',
                 'required' => true,
                 'validators' => [
                     [
-                        'name'    => '\Zend\Validator\StringLength',
+                        'name' => '\Zend\Validator\StringLength',
                         'options' => [
                             'min' => '5',
                         ],
@@ -81,7 +78,7 @@ class ChangePasswordForm extends Form implements InputFilterProviderInterface
                 'required' => true,
                 'validators' => [
                     [
-                        'name'    => '\Zend\Validator\Identical',
+                        'name' => '\Zend\Validator\Identical',
                         'options' => [
                             'token' => 'new_password',
                         ],
@@ -93,4 +90,5 @@ class ChangePasswordForm extends Form implements InputFilterProviderInterface
             ],
         ];
     }
+
 }

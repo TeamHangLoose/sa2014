@@ -16,7 +16,6 @@ class RequestForm extends Form implements InputFilterProviderInterface {
 
     public function __construct() {
         parent::__construct('request');
-
         $this->setAttribute('method', 'post');
 
         $this->add([

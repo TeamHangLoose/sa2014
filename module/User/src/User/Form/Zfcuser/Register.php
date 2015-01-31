@@ -21,18 +21,13 @@ class Register extends \ZfcUser\Form\Base {
     public function __construct($name, RegistrationOptionsInterface $options) {
         $this->setRegistrationOptions($options);
         parent::__construct($name);
-
         $this->remove('userId');
-
-
         if (!$this->getRegistrationOptions()->getEnableUsername()) {
             $this->remove('username');
         }
-
         if (!$this->getRegistrationOptions()->getEnableDisplayName()) {
             $this->remove('display_name');
         }
-
         if ($this->getRegistrationOptions()->getUseRegistrationFormCaptcha() && $this->captchaElement) {
             $this->add($this->captchaElement, array('name' => 'captcha'));
         }
@@ -62,8 +57,6 @@ class Register extends \ZfcUser\Form\Base {
             'attributes' => array('type' => 'tel', 'required'),
                 )
         );
-
-
 
         $this->get('submit')->setLabel('Register');
         $this->getEventManager()->trigger('init', $this);

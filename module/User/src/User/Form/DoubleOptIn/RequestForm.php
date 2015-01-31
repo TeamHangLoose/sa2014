@@ -14,9 +14,7 @@ class RequestForm extends Form implements InputFilterProviderInterface
     public function __construct()
     {
         parent::__construct('request');
-
         $this->setAttribute('method', 'post');
-  
         $this->add([
             'name' => 'email',
             'type'  => 'Zend\Form\Element\Text',

@@ -10,13 +10,11 @@ use Zend\InputFilter\InputFilterProviderInterface;
 class ListForm extends Form implements InputFilterProviderInterface
 {
     protected $inputFilter;
-
+   
     public function __construct()
     {
         parent::__construct('list');
-
         $this->setAttribute('method', 'post');
-
         $this->add([
             'name' => 'email',
             'type'  => 'Zend\Form\Element\Text',
@@ -34,7 +32,6 @@ class ListForm extends Form implements InputFilterProviderInterface
             'type' => 'Zend\Form\Element\Csrf',
             'name' => 'csrf',
         ]);
-
         $this->add([
             'name' => 'submit',
             'type' => 'Zend\Form\Element\Button',

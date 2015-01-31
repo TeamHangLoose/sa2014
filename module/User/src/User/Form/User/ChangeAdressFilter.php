@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Form\User;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Zend\InputFilter\InputFilter;
 use ZfcUser\Options\AuthenticationOptionsInterface;
 
@@ -15,15 +18,12 @@ class ChangeAdressFilter extends InputFilter {
             'required' => true,
             'validators' => array()
         );
-
         $identityFields = $options->getAuthIdentityFields();
         if ($identityFields == array('email')) {
             $validators = array('name' => 'EmailAddress');
             array_push($identityParams['validators'], $validators);
         }
-
         $this->add($identityParams);
-
         $this->add(array(
             'name' => 'newUsername',
             'required' => false,
@@ -40,7 +40,6 @@ class ChangeAdressFilter extends InputFilter {
                 array('name' => 'StringTrim'),
             ),
         ));
-
         $this->add(array(
             'name' => 'newStreet',
             'required' => false,
@@ -57,7 +56,6 @@ class ChangeAdressFilter extends InputFilter {
                 array('name' => 'StringTrim'),
             ),
         ));
-
         $this->add(array(
             'name' => 'newPlz',
             'required' => false,
@@ -73,7 +71,6 @@ class ChangeAdressFilter extends InputFilter {
                 ),
             ),
         ));
-
         $this->add(array(
             'name' => 'newVillage',
             'required' => false,
@@ -86,7 +83,6 @@ class ChangeAdressFilter extends InputFilter {
                 ),
             ),
         ));
-
         $this->add(array(
             'name' => 'newPhone',
             'required' => false,
@@ -96,13 +92,12 @@ class ChangeAdressFilter extends InputFilter {
                     'options' => array(
                         'pattern' => '/^(?:(?:|0{1,2}|\+{0,2})41(?:|\(0\))|0)([1-9]\d)(\d{3})(\d{2})(\d{2})$/',
                         'messages' => array(
-                            'regexNotMatch' =>'Ungültiges Format der Telefonnummer',
+                            'regexNotMatch' => 'Ungültiges Format der Telefonnummer',
                         ),
                     ),
                 ),
             ),
         ));
-
         $this->add(array(
             'name' => 'credential',
             'required' => true,

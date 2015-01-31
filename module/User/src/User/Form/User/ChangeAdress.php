@@ -1,24 +1,23 @@
 <?php
+
 namespace User\Form\User;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use ZfcBase\Form\ProvidesEventsForm;
 use ZfcUser\Options\AuthenticationOptionsInterface;
 
 class ChangeAdress extends ProvidesEventsForm {
 
-    /**
-     * @var AuthenticationOptionsInterface
-     */
+    /** @var AuthenticationOptionsInterface $authOptions */
     protected $authOptions;
 
     public function __construct($name, AuthenticationOptionsInterface $options) {
         $this->setAuthenticationOptions($options);
         parent::__construct($name);
-
-
         $this->add(array(
             'name' => 'identity',
             'options' => array(
@@ -28,7 +27,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'hidden'
             ),
         ));
-
         $this->add(array(
             'name' => 'newUsername',
             'options' => array(
@@ -48,7 +46,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'text',
             ),
         ));
-
         $this->add(array(
             'name' => 'newStreet',
             'options' => array(
@@ -58,7 +55,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'text',
             ),
         ));
-
         $this->add(array(
             'name' => 'newPlz',
             'options' => array(
@@ -68,7 +64,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'text',
             ),
         ));
-
         $this->add(array(
             'name' => 'newVillage',
             'options' => array(
@@ -78,7 +73,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'text',
             ),
         ));
-
         $this->add(array(
             'name' => 'newPhone',
             'options' => array(
@@ -88,7 +82,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'tel',
             ),
         ));
-
         $this->add(array(
             'name' => 'credential',
             'options' => array(
@@ -98,7 +91,6 @@ class ChangeAdress extends ProvidesEventsForm {
                 'type' => 'password',
             ),
         ));
-
         $this->add(array(
             'name' => 'submit',
             'attributes' => array(
