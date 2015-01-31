@@ -8,7 +8,6 @@ namespace User\Controller;
  */
 
 use Zend\View\Model\ViewModel;
-use User\Entity\User;
 use Zend\Stdlib\Parameters;
 
 /**
