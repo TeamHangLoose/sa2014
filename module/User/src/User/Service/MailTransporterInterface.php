@@ -10,11 +10,6 @@ interface MailTransporterInterface
 {
     /**
      * Send a message with given variables for the body
-     *
-     * If no message object is set a default message object is
-     * used. In the options array at least a "to", "subject" and
-     * "template" key must be available to send the message.
-     *
      * Valid options are:
      * - to:              the email address to send the message to (required)
      * - subject:         the subject of the message (required)
@@ -31,14 +26,6 @@ interface MailTransporterInterface
      * - template_text:   the plain text version of the template
      * - attachments:     an array of attachments (not implemented currently)
      * - headers:         a key/value array of additional headers to set
-     *
-     * All address fields (to, cc, bcc, from, reply_to) can also be an array with
-     * key/value pairs of multiple addresses. All keys in the array are considered
-     * email addresses, all values (null allowed) are the corresponding names.
-     *
-     * @param  array $options   Additional options to set
-     * @param  array $variables Variables to use for the view
-     * @param  Message|null $message Optional message object to use
      * @return void
      */
     public function send(array $options, array $variables = array(), Message $message = null);

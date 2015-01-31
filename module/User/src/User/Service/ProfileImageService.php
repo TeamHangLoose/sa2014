@@ -41,7 +41,10 @@ class ProfileImageService extends EventProvider implements \HtProfileImage\Servi
     protected $cacheManager;
 
     /**
-     * {@inheritDoc}
+     * Store Image
+     * 
+     * @param UserInterface $user
+     * @param array $files
      */
     public function storeImage(UserInterface $user, array $files)
     {
@@ -99,8 +102,10 @@ class ProfileImageService extends EventProvider implements \HtProfileImage\Servi
         return false;
     }
 
-        /**
-     * {@inheritDoc}
+    /**
+     * get User Image
+     * 
+     * @param UserInterface $user
      */
     public function getUserImage(UserInterface $user, $filterAlias = null)
     {

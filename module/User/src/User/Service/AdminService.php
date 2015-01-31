@@ -1,9 +1,12 @@
 <?php
+
 namespace User\Service;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use User\Mapper\UserMapperInterface;
 use Zend\Form\Form;
 use Zend\Math\Rand;
@@ -52,12 +55,12 @@ class AdminService extends EventProvider implements ServiceManagerAwareInterface
 
     public function edit(Form $form, array $data, \User\Entity\User $user, $modulOptions, $zfcUserOptions) {
         // first, process all form fields
-       
+
         /* @var $role currently only one role per user, change if you need more */
         $role = $this->userMapper->getRole($data['role']);
-        /* remove currently role of the user*/
+        /* remove currently role of the user */
         $this->userMapper->removeRole($user);
-        /* add new Role*/
+        /* add new Role */
         $user->addRole($role);
 
         foreach ($data as $key => $value) {

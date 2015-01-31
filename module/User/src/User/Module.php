@@ -1,9 +1,12 @@
 <?php
+
 namespace User;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use Zend\Mvc\MvcEvent;
 
 class Module {
@@ -23,11 +26,9 @@ class Module {
     }
 
     public function onBootstrap($e) {
-
         //adding costum fields to register form
         $eventManager = $e->getApplication()->getEventManager();
         $em = $eventManager->getSharedManager();
-
         $em->attach('HtProfileImage\Service\ProfileImageService', 'storeImage', function ($event) {
             $user = $event->getParam('user');
 
@@ -35,14 +36,9 @@ class Module {
         });
         //include 'Form/Zfcuser/register_ext.php';
         include 'Form/Zfcuser/changeEmail_ext.php';
-
         include 'Form/Zfcuser/changepassword_ext.php';
-
-
         $zfcServiceEvents = $e->getApplication()->getServiceManager()->get('zfcuser_user_service')->getEventManager();
-
         $orm = $e->getApplication()->getServiceManager()->get('Doctrine\ORM\EntityManager');
-
         $zfcServiceEvents->attach('register', function($e) use ($orm) {
             //standard Role for all new Users -> user
             $userRole = $orm->getRepository('User\Entity\Role')->find(2);
@@ -54,12 +50,10 @@ class Module {
         $app = $e->getApplication();
         $evt = $app->getEventManager();
         $evt->attach(MvcEvent::EVENT_DISPATCH_ERROR, array($this, 'onDispatchError'), 100);
-
-
         // you can even do stuff after it stores
-//        $zfcServiceEvents->attach('register.post', function($e) {
-//            /*$user = $e->getParam('user');*/
-//        });
+        // $zfcServiceEvents->attach('register.post', function($e) {
+        ///*$user = $e->getParam('user');*/
+        // });
     }
 
     public function onDispatchError(MvcEvent $e) {
@@ -68,8 +62,6 @@ class Module {
     }
 
     public function getServiceConfig() {
-
-
         return include __DIR__ . '../../../config/module.service.php';
     }
 

@@ -18,6 +18,7 @@ use Zend\Crypt\Password\Bcrypt;
  */
 class User extends \ZfcUser\Service\User {
 
+    /** @var DoubleOpInService $doubleOptInService */
     protected $doubleOptInService;
 
     public function isActive(array $data) {

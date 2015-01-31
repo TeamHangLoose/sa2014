@@ -1,16 +1,21 @@
 <?php
+
 namespace User\Service;
-/* 
+
+/*
  * @license http://framework.zend.com/license/new-bsd New BSD License
  * @author  abbts2015 B14.if4.1 G.3
  */
+
 use ZfcUser\Entity\UserInterface;
 use Imagine\Image\ImageInterface;
-use  HtImgModule\Service\CacheManagerInterface as HtImgCacheManagerInterface;
+use HtImgModule\Service\CacheManagerInterface as HtImgCacheManagerInterface;
 use HtProfileImage\Model\StorageModelInterface;
 
-class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
-{
+
+
+class CacheManager implements \HtProfileImage\Service\CacheManagerInterface {
+
     /**
      * @var HtImgCacheManagerInterface
      */
@@ -20,10 +25,8 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
      * @var StorageModelInterface
      */
     protected $storageModel;
-    
-    protected  $salt = '())(U)W(HNIUBSXIZUw3uhiw3uhr9pHè=)!E=)U=)eudowu8eh9w89d8'; 
-    protected  $salt1 = '())(U)W(HNIUBSXIZUwdudowudsfe   !`düüdüdddddddd8eh9w89d8';
-
+    protected $salt = '())(U)W(HNIUBSXIZUw3uhiw3uhr9pHè=)!E=)U=)eudowu8eh9w89d8';
+    protected $salt1 = '())(U)W(HNIUBSXIZUwdudowudsfe   !`düüdüdddddddd8eh9w89d8';
 
     /**
      * Constructor
@@ -31,71 +34,65 @@ class CacheManager implements \HtProfileImage\Service\CacheManagerInterface
      * @param HtImgCacheManagerInterface $cacheManager
      * @param StorageModelInterface      $storageModel
      */
-    public function __construct(HtImgCacheManagerInterface $cacheManager, StorageModelInterface $storageModel)
-    {
+    public function __construct(HtImgCacheManagerInterface $cacheManager, StorageModelInterface $storageModel) {
         $this->cacheManager = $cacheManager;
         $this->storageModel = $storageModel;
     }
 
     /**
-     * {@inheritDoc}
+     * cache Exists
+     * 
+     * @param UserInterface $user
      */
-    public function cacheExists(UserInterface $user, $filter)
-    {
-        
+    public function cacheExists(UserInterface $user, $filter) {
+
         return $this->cacheManager->cacheExists(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
-            $filter,
-            $this->storageModel->getUserImageExtension()
+                        'user/' . crc32($this->salt . strval($user->getId())) . crc32($this->salt . strval($this->salt1)), $filter, $this->storageModel->getUserImageExtension()
         );
     }
 
     /**
-     * {@inheritDoc}
+     * get Cache Url 
+     * 
+     * @param UserInterface $user
      */
-    public function getCacheUrl(UserInterface $user, $filter)
-    {
+    public function getCacheUrl(UserInterface $user, $filter) {
         return $this->cacheManager->getCacheUrl(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
-            $filter,
-            $this->storageModel->getUserImageExtension()
+                        'user/' . crc32($this->salt . strval($user->getId())) . crc32($this->salt . strval($this->salt1)), $filter, $this->storageModel->getUserImageExtension()
         );
     }
 
     /**
-     * {@inheritDoc}
+     * get Cache Path
+     * 
+     * @param UserInterface $user
      */
-    public function getCachePath(UserInterface $user, $filter)
-    {
+    public function getCachePath(UserInterface $user, $filter) {
         return $this->cacheManager->getCachePath(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
-            $filter,
-            $this->storageModel->getUserImageExtension()
+                        'user/' . crc32($this->salt . strval($user->getId())) . crc32($this->salt . strval($this->salt1)), $filter, $this->storageModel->getUserImageExtension()
         );
     }
 
     /**
-     * {@inheritDoc}
+     * create Cache
+     * 
+     * @param UserInterface $user
      */
-    public function createCache(UserInterface $user, $filter, ImageInterface $image)
-    {
+    public function createCache(UserInterface $user, $filter, ImageInterface $image) {
         $this->cacheManager->createCache(
-            'user/' . crc32($this->salt . strval($user->getId())). crc32($this->salt . strval($this->salt1)),
-            $filter,
-            $image,
-            $this->storageModel->getUserImageExtension()
+                'user/' . crc32($this->salt . strval($user->getId())) . crc32($this->salt . strval($this->salt1)), $filter, $image, $this->storageModel->getUserImageExtension()
         );
     }
 
     /**
-     * {@inheritDoc}
+     * delete Cache
+     * 
+     * @param UserInterface $user
      */
-    public function deleteCache(UserInterface $user, $filter)
-    {
+    public function deleteCache(UserInterface $user, $filter) {
         $cachePath = $this->getCachePath($user, $filter);
 
         return is_readable($cachePath) ? unlink($cachePath) : false;
     }
-    
-    
+
 }

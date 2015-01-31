@@ -18,8 +18,7 @@ use Zend\Crypt\Password\Bcrypt;
 
 /**
  * Description of DoubleOptInService
- *
- * @author win7
+ * Double opt in
  */
 class DoubleOptInService {
 

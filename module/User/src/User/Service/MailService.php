@@ -7,8 +7,10 @@ namespace User\Service;
 use User\Entity\TokenInterface;
 use ZfcUser\Entity\UserInterface;
 
-
-
+/**
+ * Description of Mailservice
+ * used for DoubleOptIn and Password Forgot
+ */
 class MailService {
     /** @var MailTransporterInterface */
     protected $transporter;
