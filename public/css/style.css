@@ -1,3 +1,7 @@
+/* 
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
 body {
     padding-top: 80px;
     padding-bottom: 40px;
@@ -5,6 +9,7 @@ body {
 
 
 /*Navbar Customize*/
+/*Right-Left Marging for Space between Buttons in Top*/
 .navbar-right li{
     margin-right: 15px;
     margin-left: 15px;
@@ -12,16 +17,17 @@ body {
 /*--END-- Navbar Customize*/
 
 
-/*Custom standard form */
+/*Custom standard form: */
+/*default min and max width for all Forms*/
 .form-default{
     margin: 20px auto;
     max-width:310px;
     min-width: 110px;
 }
 
+/*If form on focus form will get bigger and font get bold, for a better view*/
 .form-default input:focus:not([type="checkbox"]):not([type="submit"]):not([type="captcha"]){
     width: 330px;
-    /* height: 35px;*/
     color: #444444;
     font-weight: bold;
     -webkit-transition: width 2s ease;
@@ -30,7 +36,6 @@ body {
     -ms-transition: width 2s ease;
     transition: width 2s ease;
 }
-
 /*--END-- Custom standard form */
 
 /*Custom Button success for "Login"*/
@@ -44,7 +49,6 @@ body {
     background-image: linear-gradient(top, #64FE2E, #04B431);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#64FE2E', endColorstr='#04B431', GradientType=0);
 }
-
 .btn-success:hover,
 .btn-success:active,
 .btn-success.active,
@@ -52,13 +56,13 @@ body {
 .btn-success[disabled] {
     background: #04B431;
 }
-
 .btn-success:active, .btn-success.active {
     background-color: #04B431;
 }
 /* --END-- Custom Button success for "Login"*/
 
 /*Custom Button info for "Register"*/
+/*The Blue button ()Info Button from Bootstrap) */
 .btn-info {
     border-color: #08088A;
     background-color: #2E64FE;
@@ -77,13 +81,13 @@ body {
 .btn-info[disabled] {
     background: #2E64FE;
 }
-
 .btn-info:active, .btn-info.active {
     background-color: #2E64FE;
 }
 /* --END-- Custom Button success for "register"*/
 
 /*Custom Button delete for "Delete"*/
+/*The Red button (self created)) */
 .btn-delete {
     color: white;
     border-color: #8A0808;
@@ -105,16 +109,13 @@ body {
     border-color: #610B0B;
     color: white;
 }
-
 .btn-delete:active, .btn-delete.active {
     background-color: #DF0101;
 }
 /* --END-- Custom Button delete for "Delete"*/
 
-
-
-
-/*Custom Button logout for "Delete"*/
+/*Custom Button logout for "Logout"*/
+/*The Dark Button (self created)*/
 .btn-logout {
     color: white;
     border-color: darkslategrey;
@@ -139,9 +140,10 @@ body {
 .btn-logout:active, .btn-logout.active {
     background-color: #BDBDBD;
 }
-/* --END-- Custom Button warning for "Delete"*/
+/* --END-- Custom Button warning for "Logout"*/
 
 /*Custom Image styles*/
+/*Gives the Profilimage a shadow border and some nicer view */
 .profileimg {
     -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
@@ -150,6 +152,7 @@ body {
 /*--END-- Custom image styles*/
 
 /* Animation btn-pulse*/
+/* Make the Register button go pulse like a hearbeat*/
 .btn-pulse { 
     -webkit-animation-duration: 1s; 
     animation-duration: 1s; 
@@ -177,6 +180,7 @@ body {
 
 
 /* Animation wiggle for all button on hover*/
+/* if you hover on ab Button a special Wiggle effect will apply */
 .btn:hover { 
     -webkit-animation-duration: 1s; 
     animation-duration: 1s; 
@@ -218,34 +222,35 @@ body {
 } 
 /* --END-- Animation wiggle for all button on hover*/
 
+/*FONTS*/
+/*Fonts for all headers must be bold */
 h1, h2, h3{
     font-family: 'Quicksand', sans-serif; 
     font-weight: bold;
 }
-
+/* for the whole text comming in body the font must be changed */
 body{
     font-family: 'Quicksand', sans-serif; 
 }
+/* That the text in Buttons is easier to read we give them a own font*/
 .btn-info, .btn-delete, .btn-logout, .btn-success{
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
 }
-
-
+/* --END-- FONTS */
 
 /* Style Carousel */
+
 .carousel-control.left, .carousel-control.right {
     background-image: none
 }
-
+/*Change the Color of the Control (switch previous, next) into other color*/
 .control-color{
     color: lightslategray;
 }
-
-
+/*custom size for the image in carousel*/
 .carousel-inner img{
     width: 400px;
     margin: 0 auto;
 }
-
 /* --END--  Style Carousel */
