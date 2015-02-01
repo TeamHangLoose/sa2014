@@ -29,7 +29,7 @@
                 <label class="control-label"><?php echo $element->getLabel() ?></label>
                 <?php
                 $element->setAttribute('class', 'form-control');
-
+                /*if the name matches wie give them infos about the valaûe which is set right-now*/
                 if ($element->getName() == 'newStreet') {
                     $element->setAttribute('value', $data['street']);
                 } elseif ($element->getName() == 'newPlz') {

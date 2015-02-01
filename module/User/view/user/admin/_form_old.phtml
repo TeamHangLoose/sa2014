@@ -1,4 +1,7 @@
-
+<?php /*
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */ ?>
 
 <?php echo $this->form()->openTag($form) ?>
 <dl class="form-group">
@@ -6,7 +9,8 @@
         <?php $isButton = $element instanceof Zend\Form\Element\Button; ?>
         <?php $isCheckbox = $element instanceof Zend\Form\Element\Checkbox || $element->getAttribute('type') == 'checkbox'; ?>
         <?php if ($element->getLabel() != null && !$isButton): ?>
-            <?php $element->setAttribute('class', 'form-control')
+            <?php
+            $element->setAttribute('class', 'form-control')
                     ->setAttribute('placeholder', $element->getLabel());
             ?>
             <dt><?php echo $this->formLabel($element) ?></dt>
@@ -34,11 +38,6 @@
 <?php endif ?>
 <?php echo $this->form()->closeTag() ?>
 
-    
-    
-    ______________________________________________________________________------
-    
-      
 <?php foreach ($form as $element) : ?>
 
     <div class="form-group<?php if ($this->formElementErrors($element)) echo "has-error" ?>">
@@ -70,7 +69,7 @@
                     ->setMessageCloseString('</p>')
                     ->render($element);
             ?>
-        <?php endif; ?>
+    <?php endif; ?>
     </div>
     <?php
 endforeach;

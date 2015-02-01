@@ -1,25 +1,29 @@
-<div class="text-center">
-<?php
+<?php /*
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */ ?>
 
-/** @var \User\Form\Forgot\RequestForm $form */
-$form = $this->form;
-echo $this->form()->openTag($form);
-echo $this->translate('Sie müssen Ihre Email Adresse (<blink> '); 
-$element = $form->get('email');
-echo $element->getValue();
-echo $this->translate('</blink> ) bestätigen ! Klicken Sie auf den Link den Sie per Email erhalten haben. Nach dem bestätigen können Sie sich einloggen'); 
-?> 
-<a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate(' Login !'); ?></a>
-<?php
-echo $this->translate('<br><br>Falls diese Email(<blink>  '); 
-$element = $form->get('email');
-echo $element->getValue();
-echo $this->translate('</blink> ) nicht Ihre Email Adresse ist, registrieren Sie sich noch einmal! ');
-?> 
-<a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Registrieren !'); ?></a>
-<?php
+<div class="text-center">
+    <?php
+    /** @var \User\Form\Forgot\RequestForm $form */
+    $form = $this->form;
+    echo $this->form()->openTag($form);
+    echo $this->translate('Sie müssen Ihre Email Adresse (<blink> ');
+    $element = $form->get('email');
+    echo $element->getValue();
+    echo $this->translate('</blink> ) bestätigen ! Klicken Sie auf den Link den Sie per Email erhalten haben. Nach dem bestätigen können Sie sich einloggen');
+    ?> 
+    <a href="<?php echo $this->url('zfcuser/login') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate(' Login !'); ?></a>
+    <?php
+    echo $this->translate('<br><br>Falls diese Email(<blink>  ');
+    $element = $form->get('email');
+    echo $element->getValue();
+    echo $this->translate('</blink> ) nicht Ihre Email Adresse ist, registrieren Sie sich noch einmal! ');
+    ?> 
+    <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect=' . $this->redirect : '') ?>"><?php echo $this->translate('Registrieren !'); ?></a>
+    <?php
 //echo $this->formRow($form->get('email'));
-echo $this->formRow($form->get('csrf'));
-echo $this->form()->closeTag($form);
-?>
+    echo $this->formRow($form->get('csrf'));
+    echo $this->form()->closeTag($form);
+    ?>
 </div>

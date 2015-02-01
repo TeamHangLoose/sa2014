@@ -1,5 +1,9 @@
-<div class="form-default">
-    <?php echo $this->form()->openTag($form) ?>
+<?php /*
+ * @license http://framework.zend.com/license/new-bsd New BSD License
+ * @author  abbts2015 B14.if4.1 G.3
+ */
+?><div class="form-default">
+<?php echo $this->form()->openTag($form) ?>
     <dl class="form-group">
         <?php foreach ($form as $element): ?>
             <?php $isButton = $element instanceof Zend\Form\Element\Button; ?>
@@ -15,10 +19,10 @@
                 <?php $element->setAttribute('class', 'btn btn-success') ?>
                 <dd><?php echo $this->formButton($element) ?></dd>
             <?php elseif ($element instanceof Zend\Form\Element\Select): ?>
-        <?php $element->setAttribute('class', 'form-control form-group') ?>
+                <?php $element->setAttribute('class', 'form-control form-group') ?>
 
                 <dd><?php echo $this->formSelect($element) . $this->formElementErrors($element) ?></dd>
-    <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
+            <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
 
                 <dd><?php echo $this->formMultiCheckbox($element) . $this->formElementErrors($element) ?></dd>
             <?php elseif ($isCheckbox): ?>
@@ -27,10 +31,10 @@
             <?php else: ?>
                 <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>
             <?php endif ?>
-    <?php endforeach ?>
+        <?php endforeach ?>
     </dl>
     <?php if ($this->redirect): ?>
         <input type="hidden" name="redirect" value="<?php echo $this->redirect ?>">
     <?php endif ?>
-<?php echo $this->form()->closeTag() ?>
+    <?php echo $this->form()->closeTag() ?>
 </div>
