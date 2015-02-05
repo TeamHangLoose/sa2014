@@ -1713,6 +1713,7 @@
         "websafe/zf-mod-zfc-user-i18n-de-de": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
