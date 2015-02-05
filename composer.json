@@ -24,7 +24,8 @@
         "bjyoungblood/bjy-authorize": "1.2.*",
         "soflomo/mail": "~0.3",
         "hrevert/ht-img-module": "0.3.*",
-        "hrevert/ht-profile-image": "2.3.2"
+        "hrevert/ht-profile-image": "2.3.2",
+        "websafe/zf-mod-zfc-user-i18n-de-de": "dev-master"
         
     
     }
