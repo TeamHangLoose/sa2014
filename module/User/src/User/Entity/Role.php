@@ -10,8 +10,7 @@ namespace User\Entity;
 use BjyAuthorize\Acl\HierarchicalRoleInterface;
 use Doctrine\ORM\Mapping as ORM;
 
-/*
- *
+/**
  * @ORM\Entity
  * @ORM\Table(name="role")
  */
