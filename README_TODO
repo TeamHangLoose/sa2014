@@ -17,9 +17,6 @@ __CODE__
 ---> Projekt aufräumen Kommentare<-----
 //bugs________________________________________________________________________________
 
-
-
-
 Notice: Undefined variable: role in C:\Album\sa2014\module\User\src\User\Controller\AdminController.php on line 115
 
 
