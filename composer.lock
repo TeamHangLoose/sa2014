@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c8c5e4b23dfec3e382ed78609e931daf",
+    "hash": "5a5b7b29771809f1e2f8315c5d62e8cd",
     "packages": [
         {
             "name": "bjyoungblood/bjy-authorize",
@@ -1125,73 +1125,6 @@
             "time": "2015-01-05 17:41:06"
         },
         {
-            "name": "websafe/zf-mod-zfc-user-i18n-de-de",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/websafe/zf-mod-zfc-user-i18n-de-de.git",
-                "reference": "4d64e095dd0e8f095ba647df9d34e69f2ce6e776"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/websafe/zf-mod-zfc-user-i18n-de-de/zipball/4d64e095dd0e8f095ba647df9d34e69f2ce6e776",
-                "reference": "4d64e095dd0e8f095ba647df9d34e69f2ce6e776",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "suggest": {
-                "websafe/zf-mod-zfc-user-i18n-ja-jp": "Japanese ja_JP translation / language pack module for the [ZF-Commons/ZfcUser] module.",
-                "websafe/zf-mod-zfc-user-i18n-pl-pl": "Polish pl_PL translation / language pack module for the [ZF-Commons/ZfcUser] module.",
-                "zf-commons/zfc-user": "This module is a translation / language pack for [zf-commons/zfc-user], so You probably should install it too."
-            },
-            "type": "zf-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "WebsafeZfModZfcUserI18nDeDe": "src/"
-                },
-                "classmap": [
-                    "./Module.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Szteliga",
-                    "email": "ts@websafe.pl",
-                    "homepage": "https://websafe.pl",
-                    "role": "Developer"
-                }
-            ],
-            "description": "German de_DE translation / language pack module for the [ZF-Commons/ZfcUser] module. Deutsche Übersetzung / Sprachdatei Modul für das [ZF-Commons/ZfcUser] Modul.",
-            "homepage": "https://github.com/websafe/zf-mod-zfc-user-i18n-de-de",
-            "keywords": [
-                "DE",
-                "Deutsch",
-                "Sprachdatei",
-                "Uebersetzung",
-                "ZF-Commons",
-                "de_DE",
-                "german",
-                "i18n",
-                "language pack",
-                "module",
-                "translation",
-                "zf2",
-                "zfcuser"
-            ],
-            "time": "2014-02-27 18:54:32"
-        },
-        {
             "name": "willdurand/negotiation",
             "version": "1.3.4",
             "source": {
@@ -1709,10 +1642,10 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zendframework/zend-developer-tools": 20,
-        "websafe/zf-mod-zfc-user-i18n-de-de": 20
+        "zendframework/zend-developer-tools": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
