@@ -43,59 +43,29 @@ foreach ($this->userlistElements as $element) {
         <?php foreach ($this->users as $user): ?>
             <tr>
                 <?php foreach ($this->userlistElements as $element): ?>
-                    <td class="cell cell-<?php echo $this->escapeHtml($element) ?>">
-                        <?php if ($element == 'id') { ?>
-                            <div class="row text-center">
-                                <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal"  >
-                                    <?php $parts = explode('_', $element); ?>
-                                    <?php echo call_user_func(array($user, $getters[$element])); ?>
-                                </a>
-                            <?php } else { ?>
-
-                                <?php $parts = explode('_', $element); ?>
-                                <?php echo call_user_func(array($user, $getters[$element])); ?>
-                            <?php } ?>
-                        </div>
-
-
-                    </td>
-                <?php endforeach; ?>
-                <td class="cell cell-ctrls">
-                    <a href="<?php echo $this->url('admin/edit', array('userId' => $user->getId())); ?>">
-                        <?php echo $this->translate('Editieren') ?>
-                    </a>
-                    |
-                    <a href="<?php echo $this->url('admin/remove', array('userId' => $user->getId())); ?>"
-                       onclick="return confirm('<?php echo $this->translate('Sind Sie sicher ?') ?>')">
-                           <?php echo $this->translate('Löschen') ?>
-                    </a>
+                <td class="cell cell-<?php echo $this->escapeHtml($element) ?>">
+                    <?php $parts = explode('_', $element); ?>
+                    <?php echo call_user_func(array($user, $getters[$element])); ?>
                 </td>
+            <?php endforeach; ?>
+            <td class="cell cell-ctrls">
+                <a href="<?php echo $this->url('admin/edit', array('userId' => $user->getId())); ?>">
+                    <?php echo $this->translate('Editieren') ?>
+                </a>
+                |
+                <a href="<?php echo $this->url('admin/remove', array('userId' => $user->getId())); ?>"
+                   onclick="return confirm('<?php echo $this->translate('Sind Sie sicher ?') ?>')">
+                       <?php echo $this->translate('Löschen') ?>
+                </a>
+            </td>
             </tr>
         <?php endforeach; ?>
-    </tbody>
-    <tfoot>
-        <tr class="text-center">
-            <td colspan="<?php echo count($this->userlistElements) + 1; ?>">
-                <?php echo $this->paginationControl($this->users, 'Sliding', 'user/admin/pagination_userlist.phtml'); ?>
-            </td>
-        </tr>
-    </tfoot>
+        </tbody>
+        <tfoot>
+            <tr class="text-center">
+                <td colspan="<?php echo count($this->userlistElements) + 1; ?>">
+                    <?php echo $this->paginationControl($this->users, 'Sliding', 'user/admin/pagination_userlist.phtml'); ?>
+                </td>
+            </tr>
+        </tfoot>
 </table>
-
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
-            </div>
-            <div class="modal-body">
-                <h3>Modal Body</h3>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
