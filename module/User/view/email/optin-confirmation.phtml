@@ -6,15 +6,11 @@ Bitte bestaetigen Sie Ihre Email Adresse.<br />
 <br />
 Klicken Sie auf folgenden Link um diese zu bestaetigen:<br />
 <br />
-<?php 
-echo '<a'.'http://theothersite.ch/double-opt-in/confirmed/'.['token' => $token].'>';
-echo 'http://theothersite.ch/double-opt-in/confirmed/'.['token' => $token].'</a><br>'
-?>
 <a href="<?=$this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?>"><?=$this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?></a><br />
 <br />
-_________
+
 <br>
-<a href="<?=Zend\Mvc\Router\Http\Hostname('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?>"><?=Zend\Mvc\Router\Http\Hostname('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?></a><br />
+<a href="<?= $_SERVER['SERVER_NAME']('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?>"><?= $_SERVER['SERVER_NAME']('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true])?></a><br />
 <br />
 
 Wenn Sie diese Email Irrtuemlicherweise bekommen haben, koennen Sie diese ignorieren.
