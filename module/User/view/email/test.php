@@ -1,3 +1,4 @@
+
 <?php
 $sitepath = 'http://theothersite.ch'
 ?>
@@ -14,9 +15,7 @@ echo '<a' . 'http://theothersite.ch/double-opt-in/confirmed/' . ['token' => $tok
 echo 'http://theothersite.ch/double-opt-in/confirmed/' . ['token' => $token] . '</a><br>'
 ?>
 
-<a href="<?= $sitepath('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true]) ?>"><?= $sitepath('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true]) ?></a><br />
+<a href="<?= $this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true]) ?>"><?= $this->url('double-opt-in/confirmed', ['token' => $token], ['force_canonical' => true]) ?></a><br />
 <br />
-
-
 
 Wenn Sie diese Email Irrtuemlicherweise bekommen haben, koennen Sie diese ignorieren.
