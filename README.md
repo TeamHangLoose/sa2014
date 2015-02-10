@@ -13,7 +13,7 @@ rtfm: https://github.com/TeamHangLoose/sa2014/wiki
     doctrine-module orm:validate-schema
     doctrine-module orm:schema-tool:create
 
-4)insert to  Role )
+4) insert to  Role )
 
     INSERT INTO `role` (`id`, `parent_id`, `roleId`) VALUES (1, NULL, 'guest');
     INSERT INTO `role` (`id`, `parent_id`, `roleId`) VALUES (2, 1, 'user');
