@@ -1,5 +1,5 @@
 
-1) Add Repo from Guithub. 
+1) Add Repo. from Github. 
 
 2) Run Composer install/update.
 
@@ -10,7 +10,7 @@
     doctrine-module orm:schema-tool:create
 
 
-4)insert to  Role TB)
+4)insert to  Role )
 
     INSERT INTO `role` (`id`, `parent_id`, `roleId`) VALUES (1, NULL, 'guest');
     INSERT INTO `role` (`id`, `parent_id`, `roleId`) VALUES (2, 1, 'user');
