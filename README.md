@@ -1,5 +1,6 @@
+First Steps
 
-1) Add Repo. from Github. 
+1) clone Repo. from Github. 
 
 2) Run Composer install/update.
 
