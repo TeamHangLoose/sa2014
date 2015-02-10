@@ -4,7 +4,7 @@
 2) Run Composer install/update.
 
 
-3) Doctrine create Database)
+3) create Database ./vendor/bin/...)
 
     doctrine-module orm:validate-schema
     doctrine-module orm:schema-tool:create
